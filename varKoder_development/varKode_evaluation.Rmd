@@ -1,0 +1,661 @@
+---
+title: "CNN evaluation"
+output:
+  html_notebook:
+    df_print: paged
+  html_document:
+    df_print: paged
+    code_folding: show
+---
+```{r}
+#rm(list = ls())
+library(tidyverse)
+library(future)
+library(ggthemes)
+```
+
+In this notebook we will test the performance of varKode to distinguish species of *Stigmaphyllon* and figure out the best parameters for training a dataset.
+
+# Kmer size and amount of data
+
+To start, we produced images from different numbers of kmers. We can suppose that shorter kmers will offer lower resolution to resolve species, but they will also create smaller files that require less computation. Here we will test whether images based on longer kmers result in higher accuracy. As an example, here are images produced from 200Mb for the same sample, but different kmer sizes (5-9):
+
+```{r}
+knitr::include_graphics(paste0('images_',5:9,'/S_bannisterioides+S-91_00200000K.png'))
+```
+We also used different amounts of data to produce images, since we want to figure out the lowest amount needed to distinguish species. With less data, figures get more noisy since chance plays a bigger role in the observed kmer frequencies. This should be more severe for larger kmer sizes, since each kmer will be more unique in the genome.
+
+For example, images for 5-mer for the same sample as above, for 500Kb and 200Mb:
+```{r}
+knitr::include_graphics(paste0('images_6/S_bannisterioides+S-91_00',c('000500','200000'),'K.png'))
+```
+The same, but for 8-mers:
+```{r}
+knitr::include_graphics(paste0('images_8/S_bannisterioides+S-91_00',c('000500','200000'),'K.png'))
+```
+
+Now that we understand the differences between images, let's understand the effect in accuracy. We previously trained CNN models to recognize images for a combination of kmer sizes and amount of data, with 10 replicates for each combination. In each replicate, we kept 3 randomly chosen samples per species as a validation set and checked the accuracy of the trained model in guessing the species of these samples, for different amounts of data used for the validation sample. What we want is to find:
+
+1 - The lowest kmer size to produce high accuracy
+
+2 - The lowest amount of data needed
+
+3 - Whether the amount of data used for training and for querying must be similar.
+
+The results of these simulations were saved as a csv table, let's load it (ignoring the first, index column):
+```{r}
+df = read_csv('kmerSize_VS_bp.csv')[-1]
+df
+```
+
+Now let's make sure bp_training and bp_valid are treated as ordered factors for nice plotting:
+```{r}
+not_all = as.character(sort(as.integer(unique(df$bp_training[!str_detect(df$bp_training,'\\|',)]))/1e6))
+ordered_levels = c(not_all,'all')
+
+df = df %>%
+  mutate(bp_training = as.character(as.integer(bp_training)/1e6) ) %>%
+  mutate(bp_training = replace_na(bp_training, 'all')) %>%
+  mutate(bp_training = factor(bp_training,
+                              levels = ordered_levels, 
+                              ordered = TRUE),
+         bp_valid = factor(as.character(as.integer(bp_valid)/1e6), 
+                           levels=ordered_levels, 
+                           ordered = TRUE),
+         kmer_size = factor(as.character(kmer_size),
+                            levels = as.character(sort(unique(kmer_size))),
+                            ordered = TRUE
+                            )
+         )
+df
+```
+Let's summarize these results in table so we can put some numbers in the paper:
+
+```{r}
+df %>%
+  group_by(kmer_size,bp_training) %>%
+  summarize(min_valid = min(valid_acc),
+            mean_valid = mean(valid_acc),
+            max_valid = max(valid_acc))
+```
+
+
+Now we can plot:
+```{r fig.height=10}
+kmer_labeller = as_labeller(function(value){
+  return(paste0('kmer length:',value))
+})
+
+ggplot(df) +
+  geom_jitter(aes(x = bp_training, y = bp_valid, color = valid_acc)) +
+  scale_color_viridis_c('Validation\naccuracy', option = 'inferno', limits = c(0,1)) +
+  facet_grid(~kmer_size, labeller = kmer_labeller) +
+  coord_equal() +
+  xlab('Data in training images (Mb)') +
+  ylab('Data in validation images (Mb)')
+  
+```
+
+Now a version with averaged accuracy    
+```{r fig.height=10}
+p = df %>%
+  group_by(kmer_size,bp_training,bp_valid) %>%
+  summarize(valid_acc = mean(valid_acc)) %>%
+  ggplot(aes(x = bp_training, y = bp_valid, fill = valid_acc)) +
+  geom_raster() +
+  #geom_text(aes(label=sprintf(100*valid_acc,fmt='%2.0f')),size=4.5*5/14) +
+  scale_fill_viridis_c('Average\nvalidation\naccuracy', option = 'magma', limits = c(0,1),labels=scales::percent) +
+  facet_grid(~kmer_size, labeller = kmer_labeller) +
+  coord_equal() +
+  xlab('Data in training images (Mb)') +
+  ylab('Data in validation images (Mb)') +
+  theme_few(base_size = 6)
+
+p
+
+dir.create('paper_images')
+ggsave(filename = 'kmerlen_vs_accuracy.png',plot =p,device='png',path = 'paper_images',width = 22,height = 5,units = 'cm',dpi = 2400)
+
+```
+
+```{r}
+means = df %>%
+  filter(bp_training %in% c('0.5','1','200','all')) %>%
+  #filter(bp_valid %in% c('50','100','200','all')) %>%
+  filter(bp_valid %in% c('2','5','10','20','50','100','200')) %>%
+  group_by(bp_training,kmer_size) %>%
+  summarise(Int=median(valid_acc))
+
+df %>%
+  filter(bp_training %in% c('0.5','1','200','all')) %>%
+  filter(bp_valid %in% c('2','5','10','20','50','100','200')) %>%
+  #filter(bp_valid %in% c('50','100','200','all')) %>%
+  ggplot(aes(x=valid_acc)) +
+  geom_histogram(aes(x=valid_acc)) +
+  facet_grid(kmer_size~bp_training) +
+  geom_vline(data = means, aes(xintercept = Int))
+```
+
+So it seems that the smallest kmer sizes never result in very high accuracy, and the largest kmer sizes result in high accuracy for higher amounts of data, but lower accuracy for lower amounts. It seems that a kmer size of 7 is a good balance, and that training using images of different sizes helps in being more robust to the amount of data used to produce validation images.
+
+As little as 1Mb produces moderately accurate results for kmer size 7 or below.
+
+
+Can we quantify what is different about images produced with different data amounts? It seems there is larger variation in pixel intensities, probably because of random fluctuations:
+
+
+```{r}
+images = c(list.files(path='images_5',pattern='.png', recursive = T, full.names = T),
+           list.files(path='images_6',pattern='.png', recursive = T, full.names = T),
+           list.files(path='images_7',pattern='.png', recursive = T, full.names = T),
+           list.files(path='images_8',pattern='.png', recursive = T, full.names = T),
+           list.files(path='images_9',pattern='.png', recursive = T, full.names = T))
+
+nkmers = function(k){ #from https://bioinfologics.github.io/post/2018/09/17/k-mer-counting-part-i-introduction/
+  (4^k + (1 - k%%2) * 4^(k/2))/2
+}
+
+get_sd = function(path){
+  k = as.integer(gsub('.+_([0-9])/.+','\\1', path))
+  taxon = gsub('.+/(.+)\\+.+','\\1', path)
+  sample = gsub('.+\\+(S-[0-9]+)_.+','\\1', path)
+  Mbp = as.integer(gsub('.+_([0-9]{8})K.+','\\1', path)) / 1000
+  
+  x = sort(png::readPNG(path))
+  x = x[(length(x)-nkmers(k)+1):length(x)]
+  sd_counts = sd(table(x))
+  
+  data.frame(k = k, taxon = taxon, sample = sample, Mbp = Mbp, sd_counts=sd_counts)
+  
+}
+
+plan(multisession(workers = 4))
+df = furrr::future_map_dfr(images,get_sd)
+plan(sequential)
+
+
+df
+```
+```{r}
+ggplot(df) +
+  geom_line(aes(x=Mbp, y=sd_counts,color=sample)) +
+  facet_wrap(as.factor(k)~.,scales = 'free') +
+  scale_color_discrete(guide='none') +
+  scale_y_log10() +
+  scale_x_log10()
+```
+
+
+# Training parameters
+
+Now we will check the results of using different training parameters:
+- model pretraining
+- augmentation (CutMix or MixUp)
+- Label Smoothing
+- model architecture
+- lighting transformations
+
+Let's read the data and prepare for plotting:
+
+```{r}
+df = read_csv('training_params.csv')[-1] %>%
+  mutate(bp_valid = factor(as.character(as.integer(bp_valid)/1e6), 
+                           levels = sort(unique(bp_valid/1e6)), 
+                           ordered = TRUE),
+         augmentation = ifelse(str_detect(callback,'CutMix'),'CutMix',
+                               ifelse(str_detect(callback,'MixUp'),'MixUp',
+                                      'None')
+                               ),
+         augmentation = factor(augmentation, levels = c('None','MixUp','CutMix'),ordered = F),
+         aug = str_replace(augmentation,'None',''),
+         lablsmth= ifelse(label_smoothing,
+                                  'label Smoothing',
+                                  ''),
+         pretr = ifelse(pretrained,
+                             'pretrained',
+                             ''
+                             ),
+         transformations = ifelse(trans,
+                             'with_transforms',
+                             ''
+                             ),
+         parameters = paste(arch,pretr,lablsmth,aug,transformations,sep=',') %>%
+           str_replace_all(',{2,}',',') %>%
+           str_remove_all('^,|,$') %>%
+           str_replace_all('^$','None') %>%
+           fct_reorder(valid_acc, mean)
+  )
+
+df 
+
+
+
+```
+Now we can plot the effect of parameters. There are clearly some models that do much better than others:
+```{r fig.height= 5}
+ggplot(df, aes(x = parameters, y = valid_acc)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005) +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9) +
+  #facet_wrap(~bp_valid) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45))
+```
+What are the 20 most accurate models?
+
+```{r fig.height = 5}
+ggplot(filter(df, parameters %in% tail(levels(df$parameters),20)), aes(x = parameters, y = valid_acc)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005) +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9) +
+  #facet_wrap(~bp_valid) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45))
+```
+
+Let's plot by architecture:
+```{r}
+p = ggplot(mutate(df, arch = fct_reorder(arch,valid_acc)), 
+       aes(x = arch, y = valid_acc, color=bp_valid)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005, size = 0.1, alpha = 0.1, shape = 16) +
+  stat_summary(fun = mean, geom = 'crossbar', size = 0.05, show.legend=FALSE) +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9, name = 'Mbp in validation\nimages', 
+                        guide = guide_legend(override.aes = list(alpha = 1))) +
+  scale_y_continuous(labels = scales::percent, name = 'Validation Accuracy') +
+  xlab('Model architecture') +
+  #facet_wrap(~bp_valid) +
+  theme_few(base_size = 6) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45),
+        legend.key.size = unit(0.2, "cm"))
+
+p 
+
+ggsave(filename = 'architecture.png',plot =p,device='png',path = 'paper_images',width = 5,height = 5,units = 'cm',dpi = 2400)
+```
+
+Now by pretrained:
+```{r}
+p = ggplot(mutate(df, pretr = fct_reorder(pretr,valid_acc)), 
+       aes(x = pretr, y = valid_acc, color=bp_valid)) +
+  #geom_boxplot() +
+  #geom_violin() +
+  geom_jitter(aes(color = bp_valid),height = 0.005, size = 0.05, alpha = 0.1, shape = 16) +
+  stat_summary(fun = mean, geom = 'crossbar', size = 0.05) +
+  scale_x_discrete(labels = c('pre-trained','random'), name = 'Model pretraining') +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9, name = 'Mbp in validation\nimages') +
+  scale_y_continuous(labels = scales::percent, name = 'Validation Accuracy') +
+  #facet_wrap(~bp_valid) +
+  theme_few(base_size = 6) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45),
+        legend.position = 'none'
+        )
+
+p
+
+ggsave(filename = 'pretraining.png',plot =p,device='png',path = 'paper_images',width = 3,height = 5,units = 'cm',dpi = 2400)
+```
+
+
+Now by label smoothing:
+```{r}
+p = ggplot(mutate(df, lablsmth = fct_reorder(lablsmth,valid_acc)), 
+         aes(x = lablsmth, y = valid_acc, color=bp_valid)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005, size = 0.05, alpha = 0.1, shape = 16) +
+  stat_summary(fun = mean, geom = 'crossbar', size = 0.05) +
+  scale_x_discrete(labels = c('No','Yes'), name = 'Label smoothing') +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9, name = 'Mbp in validation\nimages') +
+  scale_y_continuous(labels = scales::percent, name = 'Validation Accuracy') +
+  #facet_wrap(~bp_valid) +
+  theme_few(base_size = 6) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45),
+        legend.position = 'none'
+        )
+
+p
+ggsave(filename = 'labelsmoothing.png',plot =p,device='png',path = 'paper_images',width = 3,height = 5,units = 'cm',dpi = 2400)
+```
+Now by CutMix/MixUp augmentations:
+```{r}
+p = ggplot(mutate(df, augmentation = fct_reorder(augmentation,valid_acc)), 
+       aes(x = augmentation, y = valid_acc, color = bp_valid)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005, size = 0.05, alpha = 0.1, shape = 16) +
+  stat_summary(fun = mean, geom = 'crossbar', size = 0.05) +
+  scale_x_discrete(name = 'Augmentation') +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9, name = 'Mbp in validation\nimages') +
+  scale_y_continuous(labels = scales::percent, name = 'Validation Accuracy') +
+  theme_few(base_size = 6) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45),
+        legend.position = 'none'
+        )
+
+p
+ggsave(filename = 'augmentations.png',plot =p,device='png',path = 'paper_images',width = 3,height = 5,units = 'cm',dpi = 2400)
+```
+
+Finally,by lighting transforms:
+```{r}
+p = ggplot(mutate(df, transformations = fct_reorder(transformations,valid_acc)), 
+       aes(x = transformations, y = valid_acc, color=bp_valid)) +
+  #geom_boxplot() +
+  #geom_violin(adjust=1.5) +
+  geom_jitter(aes(color = bp_valid),height = 0.005, size = 0.05, alpha = 0.1, shape = 16) +
+  stat_summary(fun = mean, geom = 'crossbar', size = 0.05) +
+  scale_x_discrete(name = 'Lighting transforms', labels = c('No','Yes')) +
+  scale_color_viridis_d(option='turbo',begin = 0.1, end=0.9, name = 'Mbp in validation\nimages') +
+  scale_y_continuous(labels = scales::percent, name = 'Validation Accuracy') +
+  theme_few(base_size = 6) +
+  theme(axis.text.x = element_text(hjust = 1, angle = 45),
+        legend.position = 'none'
+        )
+
+p
+ggsave(filename = 'lighting.png',plot =p,device='png',path = 'paper_images',width = 3,height = 5,units = 'cm',dpi = 2400)
+
+```
+
+
+Let's try a linear model to check which combination is best:
+
+```{r}
+full_model = lm(asin(valid_acc)~arch*trans*pretrained*augmentation*label_smoothing*bp_valid, data = df)
+plot(full_model)
+```
+```{r, results=FALSE, message=FALSE}
+reduced_model = step(lm(asin(valid_acc)~1, data = df), 
+                     scope = list(lower = formula(asin(valid_acc)~1), 
+                                  upper = formula(asin(valid_acc)~arch*trans*pretrained*augmentation*label_smoothing*bp_valid)
+                                  ),
+                     direction = 'forward')
+```
+
+The best model is quite complex with some interactions
+
+```{r}
+reduced_model
+```
+
+Let's now look at model predictions to get a better sense. We can see a few things:
+
+* The best model varies with the number of bp used to produce validation images
+* CutMix and lighting transforms help
+* Pretraining does NOT help
+* ig_resnext101_32x8d with CutMix and lighting transforms is the best for larger amounts of data. For 0.5-1Mbp, it is not the best but it is close to the top.
+  * This is a ResNeXT architecture with depth 101, cardinality 32 and bottleneck size 8. `ig_` stands for pre-trained on instagram, but we see that pretraining did not help. For more information about the architecture, see: https://arxiv.org/pdf/1611.05431.pdf
+```{r}
+predictions = select(df,trans,arch,pretrained,label_smoothing,augmentation,bp_valid) %>%
+  distinct()
+
+predictions$predicted_acc = sin(predict(reduced_model, predictions))
+
+predictions = predictions %>%
+  arrange(-predicted_acc)
+
+predictions %>%
+  split(.$bp_valid)
+```
+
+# Effect of sample quality
+
+Now that we optimized training parameters, let's evaluate the effect of sample quality. To do that, we did training using only 5 randomly chosen samples as training set, including 0-3 of the four lowest-quality samples per species. Quality was evaluated using two metrics: insert size or increase in T content throughout read length. We then evaluated, for each of the 5 samples per species left out of the training set, whether its prediction was correct.
+
+We did 50 replicates ramdonly choosing the training set for each combination of quality metric and number of low-quality samples in the training set. Let's now evaluate the results. Let's start by reading the data.
+
+```{r}
+df = read_csv('sample_quality.csv')[-1]
+
+df = df %>%
+  mutate(correct_pred = valid_actual == valid_prediction)
+
+df
+```
+
+It seems that in general including some low quality samples (by the variation in content metric) may improve high-quality samples a little bit, but only increases variation of low quality samples instead of clearly improving them. 
+
+```{r}
+p = df %>%
+  filter(qual_metric == 'high_c_sd') %>%
+  group_by(replicate, sample_valid, n_lowqual_training) %>%
+  filter(bp_valid == min(bp_valid)) %>%
+  group_by(replicate, n_lowqual_training, valid_lowqual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  mutate(valid_lowqual = c('TRUE' = 'Low quality samples as validation', 'FALSE' = 'High quality samples as validation')[as.character(valid_lowqual)]) %>%
+  ggplot() +
+  geom_histogram(aes(x = mean_acc), boundary = 1) +
+  scale_y_continuous(sec.axis = sec_axis('identity', name = 'Number of low quality samples in training set',breaks = NULL, labels = NULL, guide = NULL)) + 
+  scale_x_continuous(limits = c(0,1)) +
+  xlab('Average validation accuracy across replicates') +
+  ylab('Number of samples') +
+  labs(title = 'Sequencing quality determined by variation in GC content') + 
+  facet_grid(n_lowqual_training~valid_lowqual) +
+  theme_few() +
+  theme(strip.text.y = element_text(angle=0))
+
+p
+
+ggsave(filename = 'quality_content.pdf',plot =p,device='pdf',path = 'paper_images',width = 7,height = 5,units = 'in')
+
+
+
+
+```
+The effect is less pronounced for average insert size
+```{r}
+p = df %>%
+  filter(qual_metric == 'low_size') %>%
+  group_by(replicate, sample_valid, n_lowqual_training) %>%
+  filter(bp_valid == max(bp_valid)) %>%
+  group_by(replicate, n_lowqual_training, valid_lowqual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  mutate(valid_lowqual = c('TRUE' = 'Low quality samples as validation', 'FALSE' = 'High quality samples as validation')[as.character(valid_lowqual)]) %>%
+  ggplot() +
+  geom_histogram(aes(x = mean_acc), boundary = 1) +
+  scale_y_continuous(sec.axis = sec_axis('identity', name = 'Number of low quality samples in training set',breaks = NULL, labels = NULL, guide = NULL)) + 
+  scale_x_continuous(limits = c(0,1)) +
+  xlab('Average validation accuracy across replicates') +
+  ylab('Number of samples') +
+  labs(title = 'Sequencing quality determined by insert size') + 
+  facet_grid(n_lowqual_training~valid_lowqual) +
+  theme_few() +
+  theme(strip.text.y = element_text(angle=0))
+
+p
+
+ggsave(filename = 'quality_size.pdf',plot =p,device='pdf',path = 'paper_images',width = 7,height = 5,units = 'in')
+```
+
+What if we order all samples by their validation accuracy and compare to the quality metrics, what do we see?
+
+```{r}
+df_info = read_csv('sample_info_stats.csv')[-1]
+df_info
+```
+There seems to be a weak negative correlation between variation in content and accuracy, but many samples that seem to be good with this metric have always low accuracy.
+
+```{r}
+df %>%
+  filter(qual_metric == 'high_c_sd') %>%
+  group_by(replicate, sample_valid, n_lowqual_training) %>%
+  filter(bp_valid == max(bp_valid)) %>%
+  group_by(sample_valid, n_lowqual_training) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  left_join(df_info,by = c('sample_valid' = 'library_id')) %>%
+  ggplot() +
+  scale_x_sqrt() +
+  geom_jitter(aes(x = content_sd, y = mean_acc, color = species),width = 0, height = 0.05) +
+  scale_color_viridis_d(option = 'turbo') +
+  facet_wrap(~n_lowqual_training)
+```
+Again, this is less pronounced for insert size
+```{r}
+df %>%
+  filter(qual_metric == 'low_size') %>%
+  group_by(replicate, sample_valid, n_lowqual_training) %>%
+  filter(bp_valid == min(bp_valid)) %>%
+  group_by(sample_valid, n_lowqual_training) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  left_join(df_info,by = c('sample_valid' = 'library_id')) %>%
+  ggplot() +
+  geom_jitter(aes(x = insert_size, y = mean_acc, color = species),width = 0, height = 0.05) +
+  scale_color_viridis_d(option = 'turbo') +
+  facet_wrap(~n_lowqual_training)
+```
+What is the relationship between DNA extraction yield and library quality?
+
+First, let's plot against standard deviation.
+```{r}
+p1 = df_info %>%
+  mutate(dna_c = ifelse(dna_concentration == 'too high', 200, dna_concentration),
+         dna_c = as.numeric(dna_c),
+         dna_c = ifelse(dna_c == 0, 0.05, dna_c)) %>%
+  ggplot() +
+  geom_point(aes(dna_c, content_sd)) +
+  scale_y_log10(name = 'Standard deviation in base content') +
+  scale_x_log10(name = 'DNA yield (ng/uL)', breaks = c(0.05,0.1,1,10,100,200), labels = c('too\nlow', 0.1, 1, 10, 100, 'too\nhigh')) +
+  theme_few()
+
+p1
+```
+Now, against insert size
+```{r}
+p2 = df_info %>%
+  mutate(dna_c = ifelse(dna_concentration == 'too high', 200, dna_concentration),
+         dna_c = as.numeric(dna_c),
+         dna_c = ifelse(dna_c == 0, 0.05, dna_c)) %>%
+  ggplot() +
+  geom_point(aes(dna_c, insert_size)) +
+  scale_y_continuous(name = 'Insert size (bp)') +
+  scale_x_log10(name = 'DNA yield (ng/uL)', breaks = c(0.05,0.1,1,10,100,200), labels = c('too\nlow', 0.1, 1, 10, 100, 'too\nhigh')) +
+  theme_few()
+
+p2
+```
+
+```{r}
+p = cowplot::plot_grid(p1,p2,ncol = 1)
+
+ggsave(filename = 'yield_vs_quality.pdf',plot =p,device='pdf',path = 'paper_images',width = 5,height = 8,units = 'in')
+```
+
+
+
+Bottomline: as long as the majority of the samples for each species are high-quality, having low-quality samples in the training set should not cause much trouble and might even improve inference for some low-quality samples.
+
+# Number of samples per species
+Now let's evaluate the effect of number of samples per species.
+
+```{r}
+df = read_csv('n_training.csv')[-1]
+
+df = df %>%
+  mutate(correct_pred = valid_actual == valid_prediction)
+
+df
+```
+
+Does the number of samples used in training impact the validation accuracy?
+Let's plot one panel for each sample. It seems it does.
+```{r fig.height=50}
+p = df %>%
+  group_by(n_samp_training, bp_valid, sample_valid, valid_actual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  ggplot() +
+  #geom_jitter(aes(x = n_samp_training/10, y = mean_acc)) +
+  geom_boxplot(aes(x = n_samp_training/10, y = mean_acc, group = n_samp_training/10)) +
+  facet_wrap(valid_actual~sample_valid) +
+  theme_few()
+
+p
+```
+
+Let's now plot only the average accuracy for each sample across replicates, with each sample represented by a line.
+
+It seems that more samples in the training set does help, but for most cases about 4 samples is already pretty good. Let's plot coloring by species
+```{r}
+df %>%
+  group_by(n_samp_training, sample_valid, valid_actual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  mutate(valid_actual = fct_reorder(valid_actual,mean_acc)) %>%
+  ggplot() +
+  geom_line(aes(x = n_samp_training/10, y = mean_acc, group = sample_valid, color = valid_actual, linetype = valid_actual)) +
+  scale_color_manual(values = c(few_pal('Dark')(5),few_pal('Dark')(5))) +
+  scale_linetype_manual(values = rep(1:2,each = 5)) +
+  theme_few()
+```
+Now let's try to use line type by sample quality instead.
+
+```{r}
+
+df_plot = df %>%
+  group_by(n_samp_training, sample_valid, valid_actual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  mutate(valid_actual = fct_reorder(valid_actual,mean_acc)) %>%
+  left_join(df_info %>% 
+              mutate(sample_valid = paste0('S-',sample_number)) %>% 
+              mutate(dna_concentration = ifelse(dna_concentration == 'too high',150,dna_concentration)) %>%
+              mutate(dna_concentration = as.numeric(dna_concentration)) %>%
+              mutate(highqual = dna_concentration >= quantile(dna_concentration,probs=0.5)) %>%
+              select(sample_valid, highqual))
+
+df_ribbon = df_plot %>%
+  group_by(n_samp_training) %>%
+  summarise(q1 = quantile(mean_acc,0.25),
+            median = median(mean_acc),
+            q3 = quantile(mean_acc, 0.75))
+
+
+p =  ggplot(df_plot) +
+  stat_summary(aes(x = n_samp_training/10, y = mean_acc), fill = 'pink', fun.max = function(x){quantile(x,0.75)},fun.min = function(x){quantile(x,0.25)}, geom='ribbon') +
+  geom_line(aes(x = n_samp_training/10, y = mean_acc, group = sample_valid, linetype = highqual), alpha = 0.5, size = 0.25) +
+  stat_summary(aes(x = n_samp_training/10, y = mean_acc), color = 'red', size = 0.5, fun = 'median', geom='line') +
+  scale_linetype_manual(values = c('TRUE' = "solid", 'FALSE' = "51"), name = 'DNA yield', labels = c('TRUE' = 'High', 'FALSE' = 'Low')) +
+  scale_x_continuous(breaks=1:7) +
+  ylab('Average validation accuracy') +
+  xlab('Training samples per species') +
+  theme_few(base_size = 6) +
+  theme(legend.key.size = unit(0.2, "cm"))
+
+p
+```
+
+The graph is a little cluttered, let's now do a version for the final figure in the paper:
+```{r}
+
+df_facet_plot = df_plot %>%
+  ungroup %>%
+  left_join(select(read_csv('sample_info_stats.csv'), sample_valid = library_id, content_sd)) %>%
+  mutate(dna_quality = ntile(1-content_sd, 100)) %>%
+  mutate(valid_actual = fct_reorder(valid_actual,mean_acc,.fun = mean,.desc = T))
+
+p =  ggplot(df_facet_plot) +
+  #stat_summary(aes(x = n_samp_training/10, y = mean_acc), fill = gray(.8), fun.max = function(x){quantile(x,0.75, type =4)},fun.min = function(x){quantile(x,0.25,type =4)}, geom='ribbon') +
+  geom_line(aes(x = n_samp_training/10, y = mean_acc, group = sample_valid, color = dna_quality), alpha = 0.5) +
+  stat_summary(aes(x = n_samp_training/10, y = mean_acc), color = 'black', size = 0.5, linetype = 'dashed', fun = 'mean', geom='line') +
+  scale_color_viridis_c(name ='DNA quality rank') +
+  #scale_linetype_manual(values = c('TRUE' = "solid", 'FALSE' = "51"), name = 'DNA quality', labels = c('TRUE' = 'High', 'FALSE' = 'Low')) +
+  scale_x_continuous(breaks=1:7) +
+  ylab('Average validation accuracy') +
+  xlab('Training samples per species') +
+  facet_wrap(~valid_actual,nrow = 1) +
+  theme_few(base_size = 6) +
+  theme(legend.key.size = unit(0.2, "cm"))
+
+p
+
+ggsave(filename = 'n_samples.png',plot =p,device='png',path = 'paper_images',width = 16,height = 5,units = 'cm',dpi = 2400)
+```
+
+
+
+
+
+
+
+
+
+
