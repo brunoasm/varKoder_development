@@ -1,0 +1,167 @@
+sp	matK	rbcL	ndhF	trnL-F	ITS	Concatenated_phylogeny
+1102@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1503@Hiptage	2657@Hiptage	1314@Hiptage	2657@Hiptage	2657@Hiptage	1314@Hiptage	Hiptage
+1525@Christianella	3431@Christianella	777@Christianella	3431@Christianella	FAIL	3431@Christianella	Christianella
+1610@Malpighiodes	2100@Callaeum	1702@Callaeum	3431@Christianella	777@Christianella	1570@Malpighiodes	Malpighiodes
+170@Acridocarpus	1102@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	69@Acridocarpus	FAIL	Acridocarpus
+1705@Dicella	3600@Dicella	3600@Dicella	3600@Dicella	3600@Dicella	1165@Dicella	Dicella
+1716@Dicella	2100@Callaeum	1679@Callaeum	1705@Dicella	3431@Christianella	1705@Dicella	Dicella
+1770@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	Bunchosia
+1860@Bronwenia	1240@Diplopterys	1845@Bronwenia	S-51	1853@Bronwenia	1853@Bronwenia	Bronwenia
+1915@Mascagnia	743@Mascagnia	2065@Mascagnia	743@Mascagnia	3386@Malpighia	743@Mascagnia	Mascagnia
+2095@Tetrapterys	3431@Christianella	777	3431@Christianella	777	3980@Heteropterys	Tetrapterys
+2168@Bunchosia	679@Bunchosia	2831@Bunchosia	2831@Bunchosia	1774@Bunchosia	679@Bunchosia	Bunchosia
+2311@Elatine	2909@Elatine	2909@Elatine	2272@Elatine	2906@Elatine	2272@Elatine	Elatine
+2693@Byrsonima	2764@Byrsonima	2764@Byrsonima	2700@Byrsonima	2700@Byrsonima	2711@Byrsonima	Byrsonima
+2700@Byrsonima	2764@Byrsonima	2764@Byrsonima	2693@Byrsonima	2764@Byrsonima	2711@Byrsonima	Byrsonima
+2711@Byrsonima	2764@Byrsonima	2700@Byrsonima	2700@Byrsonima	2700@Byrsonima	2700@Byrsonima	Byrsonima
+2764@Byrsonima	2711@Byrsonima	2711@Byrsonima	2700@Byrsonima	2700@Byrsonima	2711@Byrsonima	Byrsonima
+2960@Banisteriopsis	1850@Banisteriopsis	1850@Banisteriopsis	3536@Banisteriopsis	1850@Banisteriopsis	1850@Banisteriopsis	Banisteriopsis
+3129@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	Bunchosia
+3230@Malpighia	3234@Malpighia	3386@Malpighia	3234@Malpighia	3384@Malpighia	3234@Malpighia	Malpighia
+3234@Malpighia	3230@Malpighia	3230@Malpighia	3230@Malpighia	3386@Malpighia	3230@Malpighia	Malpighia
+3279@Heteropterys	3301@Heteropterys	3301@Heteropterys	3431@Christianella	3301@Heteropterys	3980@Heteropterys	Heteropterys
+3301@Heteropterys	3279@Heteropterys	3279@Heteropterys	3279@Heteropterys	3279@Heteropterys	3980@Heteropterys	Heteropterys
+3338@Amorimia	1531@Amorimia	3518@Amorimia	3518@Amorimia	3518@Amorimia	1531@Amorimia	Amorimia
+3341@Aspidopterys	3342@Aspidopterys	3231@Malpighia	3342@Aspidopterys	3342@Aspidopterys	3342@Aspidopterys	Aspidopterys
+3419@Tetrapterys	3423@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	777@Christianella	1531@Amorimia	Tetrapterys
+3527@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	1850@Banisteriopsis	Banisteriopsis
+3536@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	Banisteriopsis
+3545@Burdachia	3349@Burdachia	3349@Burdachia	FAIL	FAIL	3349@Burdachia	Burdachia
+3606@Diplopterys	1240@Diplopterys	1860@Bronwenia	1939@Diplopterys	FAIL	1905@Diplopterys	Diplopterys
+3676@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	Tetrapterys
+3935@Bunchosia	679@Bunchosia	2168@Bunchosia	2168@Bunchosia	3729@Thryallis	679@Bunchosia	Bunchosia
+3955@Byrsonima	2764@Byrsonima	2764@Byrsonima	2700@Byrsonima	2764@Byrsonima	3536@Banisteriopsis	Byrsonima
+3966@Diacidia	3452@Diacidia	3452@Diacidia	682@Diacidia	3452@Diacidia	3357@Diacidia	Diacidia
+3970@Dicella	1716@Dicella	1716@Dicella	3431@Christianella	FAIL	1716@Dicella	Dicella
+3980@Heteropterys	3301@Heteropterys	3279@Heteropterys	3279@Heteropterys	FAIL	3279@Heteropterys	Heteropterys
+4004@Triaspis	1176@Triaspis	1176@Triaspis	1176@Triaspis	1176@Triaspis	1176@Triaspis	Triaspis
+C-127	C-296	C-296	C-129	C-129	C-129	
+C-129	C-127	C-127	C-127	C-127	C-127	
+C-130	C-48	C-303	C-303	C-181	C-414	
+C-136	C-21	C-21	C-21	C-265	C-21	
+C-17	C-86	C-86	C-313	C-69	C-69	
+C-181	C-48	C-48	C-48	C-365	C-48	
+C-21	C-136	C-136	C-136	C-342	C-136	
+C-227	C-40	C-40	C-40	C-40	C-40	
+C-239	C-387	C-387	C-500	C-387	C-387	
+C-251	C-40	C-40	C-40	C-40	C-259	
+C-259	C-40	C-40	C-40	C-40	C-32	
+C-263	C-64	C-136	C-265	C-21	C-64	
+C-265	C-263	C-263	C-263	C-263	C-414	
+C-271	C-365	C-393	C-365	C-365	C-393	
+C-280	C-86	C-86	C-86	C-86	C-69	
+C-296	C-127	C-127	C-127	C-127	C-127	
+C-303	C-48	C-130	C-130	C-40	C-414	
+C-313	C-86	C-86	C-17	C-17	C-69	
+C-32	C-40	C-251	C-40	C-40	C-259	
+C-342	C-136	C-136	C-136	C-21	C-21	
+C-365	C-271	C-393	C-271	C-271	C-393	
+C-387	C-500	C-239	C-500	C-239	C-239	
+C-393	C-365	C-365	C-365	C-271	C-271	
+C-40	C-259	C-259	C-259	C-259	C-259	
+C-48	C-181	C-181	C-181	C-130	C-181	
+C-500	C-387	C-387	C-387	C-387	C-387	
+C-64	C-263	C-263	C-265	C-263	C-414	
+C-69	C-86	C-86	C-17	C-17	C-17	
+C-86	C-313	C-17	C-17	C-313	C-69	
+S-1	S-8	S-7	S-8	S-7	S-9	
+S-10	S-9	S-9	S-9	S-9	S-6	
+S-100	S-99	S-99	S-96	S-99	S-99	
+S-11	S-13	S-19	S-14	S-19	S-19	
+S-12	FAIL	FAIL	FAIL	FAIL	S-50	
+S-13	S-11	S-19	S-19	S-19	S-19	
+S-14	S-19	S-19	S-11	S-19	S-19	
+S-15	S-20	S-20	S-20	S-17	S-20	
+S-16	S-20	S-20	S-20	S-20	S-17	
+S-17	S-20	S-20	S-20	S-15	S-20	
+S-18	S-8	S-29	S-1	FAIL	S-2	
+S-19	S-14	S-14	S-13	S-14	S-14	
+S-2	S-8	S-7	S-7	S-7	S-8	
+S-20	S-17	S-17	S-15	S-17	S-15	
+S-21	S-27	S-27	S-27	S-27	S-29	
+S-22	S-21	S-27	S-27	S-27	S-25	
+S-23	FAIL	S-80	S-80	FAIL	S-25	
+S-24	S-26	S-26	S-26	S-26	S-21	
+S-25	S-26	S-26	S-27	S-27	S-22	
+S-26	S-24	S-25	S-24	S-24	S-28	
+S-27	S-21	S-22	S-25	S-22	S-25	
+S-28	S-26	S-29	S-29	S-29	S-26	
+S-29	S-28	S-28	S-28	S-28	S-21	
+S-3	S-10	S-4	S-10	FAIL	S-10	
+S-30	S-29	S-100	S-29	FAIL	S-29	
+S-31	S-80	S-90	S-80	FAIL	S-38	
+S-32	S-37	S-39	S-36	S-36	S-39	
+S-33	S-36	S-39	S-36	FAIL	S-32	
+S-34	S-32	S-40	S-73	S-40	S-37	
+S-35	S-40	S-40	S-40	FAIL	S-37	
+S-36	S-32	S-39	S-32	S-32	S-37	
+S-37	S-32	S-76	S-73	FAIL	S-40	
+S-38	S-79	S-39	S-80	S-34	S-40	
+S-39	S-79	S-38	S-80	S-34	S-32	
+S-4	S-9	S-10	S-10	S-9	S-5	
+S-40	S-32	S-34	S-80	S-34	S-37	
+S-41	S-50	S-48	S-46	S-50	S-42	
+S-42	S-50	S-48	S-50	S-48	S-43	
+S-43	S-50	S-50	S-46	S-49	S-48	
+S-44	S-45	S-49	S-50	S-48	S-50	
+S-45	S-50	S-50	S-47	S-49	S-49	
+S-46	S-50	S-49	S-43	S-48	S-50	
+S-47	S-50	S-48	S-45	S-48	S-50	
+S-48	S-50	S-47	S-50	S-47	S-43	
+S-49	S-50	S-46	S-50	S-45	S-50	
+S-5	S-10	S-10	S-10	S-9	S-4	
+S-50	S-49	S-45	S-49	S-49	S-47	
+S-51	S-58	S-58	S-58	S-55	S-57	
+S-52	S-80	S-60	S-60	FAIL	S-57	
+S-53	S-55	S-60	S-55	S-55	S-51	
+S-54	S-55	S-60	S-60	S-53	S-51	
+S-55	S-53	S-60	S-53	S-51	S-53	
+S-56	FAIL	FAIL	FAIL	FAIL	S-100	
+S-57	S-58	S-58	S-60	FAIL	S-51	
+S-58	S-51	S-51	S-51	S-55	S-57	
+S-59	S-51	S-58	S-58	S-55	S-52	
+S-6	S-9	S-10	S-10	S-10	S-5	
+S-60	S-58	S-55	S-58	FAIL	S-52	
+S-61	S-89	S-68	S-68	S-83	S-67	
+S-62	S-89	S-68	S-67	S-66	S-70	
+S-63	S-89	S-68	S-86	FAIL	S-62	
+S-64	S-68	S-87	S-69	S-69	S-69	
+S-65	S-67	S-67	S-67	S-67	S-69	
+S-66	S-68	S-68	S-67	S-62	S-70	
+S-67	S-65	S-65	S-65	S-65	S-61	
+S-68	S-66	S-66	S-61	S-61	S-67	
+S-69	S-89	S-76	S-66	S-66	S-62	
+S-7	S-8	S-1	S-8	S-8	S-8	
+S-70	S-89	S-64	S-64	FAIL	S-62	
+S-71	FAIL	S-80	S-89	FAIL	S-75	
+S-72	S-79	S-79	S-79	S-80	S-76	
+S-73	S-79	S-79	S-79	S-72	S-78	
+S-74	S-80	S-80	S-80	S-80	S-76	
+S-75	S-80	S-80	S-80	FAIL	S-71	
+S-76	S-79	S-52	S-79	FAIL	S-77	
+S-77	S-80	S-79	S-80	FAIL	S-76	
+S-78	FAIL	S-100	FAIL	FAIL	S-79	
+S-79	S-73	S-73	S-73	FAIL	S-78	
+S-8	S-1	S-7	S-7	S-7	S-3	
+S-80	S-32	S-74	S-74	S-74	S-76	
+S-81	S-89	S-84	S-66	S-89	S-89	
+S-82	S-68	S-87	S-66	S-89	S-81	
+S-83	S-87	S-87	S-87	S-87	S-87	
+S-84	S-81	S-81	S-86	FAIL	S-81	
+S-85	S-89	S-86	S-67	S-89	S-87	
+S-86	S-85	S-85	S-85	FAIL	S-89	
+S-87	S-83	S-83	S-67	S-83	S-90	
+S-88	S-89	S-87	S-87	S-34	S-85	
+S-89	S-69	S-87	S-66	S-87	S-85	
+S-9	S-6	S-10	S-10	S-10	S-8	
+S-90	S-81	S-81	S-68	FAIL	S-87	
+S-91	S-100	S-100	S-98	S-100	S-99	
+S-92	S-96	S-100	S-100	S-100	S-99	
+S-93	FAIL	FAIL	FAIL	FAIL	S-100	
+S-94	S-97	S-96	S-96	S-96	S-96	
+S-95	S-100	S-96	S-98	S-96	S-99	
+S-96	S-92	S-95	S-98	S-95	S-94	
+S-97	S-100	S-100	S-94	S-100	S-99	
+S-98	S-100	S-100	S-95	S-100	S-99	
+S-99	S-100	S-100	S-91	S-100	S-98	

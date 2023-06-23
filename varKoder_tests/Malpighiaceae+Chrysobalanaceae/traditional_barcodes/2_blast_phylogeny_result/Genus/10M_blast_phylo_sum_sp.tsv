@@ -1,0 +1,289 @@
+sp	matK	rbcL	ndhF	trnL-F	ITS	Concatenated_phylogeny
+2764@Byrsonima	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1678@Aspicarpa_sericea	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1089@Triaspis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1102@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	FAIL	Acridocarpus
+1162@Camarea	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1165@Dicella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1174@Triaspis	3122@Triaspis	4004@Triaspis	3340@Aspidopterys	FAIL	FAIL	Triaspis
+1176@Triaspis	4004@Triaspis	4004@Triaspis	1915@Mascagnia	FAIL	4004@Triaspis	Triaspis
+1182@Tristellateia	FAIL	FAIL	FAIL	FAIL	3680@Tristellateia	Tristellateia
+1240@Diplopterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1285@Aspidopterys	FAIL	4004@Triaspis	FAIL	FAIL	FAIL	undetermined
+1314@Hiptage	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1324@Microsteira	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1382@Microsteira	3518@Amorimia	3386@Malpighia	4004@Triaspis	FAIL	FAIL	Aspidopterys
+1386@Microsteira	1382@Microsteira	1661@Microsteira	1661@Microsteira	3386@Malpighia	FAIL	Microsteira
+1502@Tristellateia	3121@Tristellateia	3121@Tristellateia	3121@Tristellateia	3121@Tristellateia	FAIL	Tristellateia
+1503@Hiptage	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1525@Christianella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1531@Amorimia	3518@Amorimia	1534@Amorimia	3338@Amorimia	FAIL	3518@Amorimia	Amorimia
+1534@Amorimia	1531@Amorimia	3518@Amorimia	3518@Amorimia	FAIL	3518@Amorimia	Amorimia
+1538@Carolus	1590@Carolus	644@Carolus	3431@Christianella	FAIL	1590@Carolus	Carolus
+1540@Carolus	644@Carolus	644@Carolus	644@Carolus	FAIL	FAIL	Carolus
+1543@Carolus	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1556@Malpighia	3234@Malpighia	3230@Malpighia	3384@Malpighia	FAIL	3230@Malpighia	Malpighia
+1570@Malpighiodes	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1582@Galphimia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1590@Carolus	FAIL	FAIL	FAIL	FAIL	644@Carolus	Carolus
+1610@Malpighiodes	FAIL	FAIL	FAIL	FAIL	1570@Malpighiodes	Malpighiodes
+1653@Galphimia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1661@Microsteira	1386@Microsteira	270@Microsteira	270@Microsteira	1386@Microsteira	1382@Microsteira	Microsteira
+1676@Aspicarpa	FAIL	FAIL	FAIL	FAIL	1678	Aspicarpa
+1677@Aspicarpa	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1679@Callaeum	2100@Callaeum	3518@Amorimia	2100@Callaeum	FAIL	1702@Callaeum	Callaeum
+168@Acridocarpus	1102@Acridocarpus	69@Acridocarpus	170@Acridocarpus	3211@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1699@Callaeum	2100@Callaeum	3518@Amorimia	2100@Callaeum	FAIL	1702@Callaeum	Callaeum
+170@Acridocarpus	1102@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	69@Acridocarpus	FAIL	Acridocarpus
+1702@Callaeum	2100@Callaeum	777@Christianella	3375@Hiptage	FAIL	1699@Callaeum	Callaeum
+1703@Callaeum	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1705@Dicella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1716@Dicella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1717@Galphimia	2647@Galphimia	FAIL	2647@Galphimia	FAIL	FAIL	Galphimia
+1739@Thryallis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+174@Triaspis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1740@Thryallis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+176@Acridocarpus	3211@Acridocarpus	69@Acridocarpus	3211@Acridocarpus	FAIL	2650@Acridocarpus	Acridocarpus
+1770@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1774@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1845@Bronwenia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1850@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1853@Bronwenia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1860@Bronwenia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1874@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	1946@Banisteriopsis	Banisteriopsis
+1877@Bronwenia	FAIL	FAIL	FAIL	FAIL	1944@Bronwenia	Bronwenia
+1905@Diplopterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1915@Mascagnia	3342@Aspidopterys	FAIL	FAIL	FAIL	743@Mascagnia	Mascagnia
+1928@Diacidia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1936@Mascagnia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1939@Diplopterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+1944@Bronwenia	FAIL	FAIL	FAIL	FAIL	1877@Bronwenia	Bronwenia
+1946@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2065@Mascagnia	3340@Aspidopterys	1936@Mascagnia	FAIL	FAIL	1936@Mascagnia	Mascagnia
+2095@Tetrapterys	FAIL	FAIL	FAIL	FAIL	3980@Heteropterys	Tetrapterys
+2100@Callaeum	1702@Callaeum	1699@Callaeum	1699@Callaeum	FAIL	1543@Carolus	Callaeum
+2168@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2207@Galphimia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2272@Elatine	2909@Elatine	2909@Elatine	2909@Elatine	FAIL	2279@Elatine	Elatine
+2279@Elatine	2909@Elatine	2906@Elatine	2909@Elatine	FAIL	2272@Elatine	Elatine
+2311@Elatine	FAIL	FAIL	FAIL	FAIL	2272@Elatine	Elatine
+2647@Galphimia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2650@Acridocarpus	176@Acridocarpus	69@Acridocarpus	170@Acridocarpus	69@Acridocarpus	1102@Acridocarpus	Acridocarpus
+2657@Hiptage	FAIL	FAIL	FAIL	FAIL	1314@Hiptage	Hiptage
+2693@Byrsonima	FAIL	FAIL	FAIL	FAIL	2794@Byrsonima	Byrsonima
+270@Microsteira	1382@Microsteira	3386@Malpighia	1661@Microsteira	FAIL	1382@Microsteira	Microsteira
+2700@Byrsonima	2764@Byrsonima	2764@Byrsonima	2764@Byrsonima	FAIL	2711@Byrsonima	Byrsonima
+2711@Byrsonima	3955@Byrsonima	2764@Byrsonima	2763@Byrsonima	FAIL	2700@Byrsonima	Byrsonima
+2763@Byrsonima	3955@Byrsonima	710@Blepharandra	2764@Byrsonima	FAIL	2711@Byrsonima	Byrsonima
+2794@Byrsonima	FAIL	FAIL	FAIL	FAIL	2711@Byrsonima	Byrsonima
+2798@Blepharandra	3345@Blepharandra	3345@Blepharandra	710@Blepharandra	FAIL	2711@Byrsonima	Blepharandra
+2827@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2831@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2906@Elatine	2909@Elatine	2909@Elatine	2909@Elatine	FAIL	2907@Elatine	Elatine
+2907@Elatine	2311@Elatine	2909@Elatine	2909@Elatine	FAIL	2272@Elatine	Elatine
+2909@Elatine	2906@Elatine	2906@Elatine	2906@Elatine	FAIL	FAIL	Elatine
+2942@Tetrapterys	644@Carolus	3676@Tetrapterys	3676@Tetrapterys	FAIL	3676@Tetrapterys	Tetrapterys
+2960@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+2985@Heteropterys	FAIL	FAIL	FAIL	FAIL	1165@Dicella	undetermined
+3013@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3121@Tristellateia	1502@Tristellateia	1502@Tristellateia	1502@Tristellateia	FAIL	3680@Tristellateia	Tristellateia
+3122@Triaspis	4004@Triaspis	1174@Triaspis	1174@Triaspis	FAIL	FAIL	Triaspis
+3129@Tetrapterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3211@Acridocarpus	168@Acridocarpus	1102@Acridocarpus	170@Acridocarpus	FAIL	2650@Acridocarpus	Acridocarpus
+3220@Heteropterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3230@Malpighia	3234@Malpighia	3234@Malpighia	3234@Malpighia	FAIL	FAIL	Malpighia
+3231@Malpighia	FAIL	FAIL	FAIL	FAIL	3386@Malpighia	Malpighia
+3234@Malpighia	3230@Malpighia	3386@Malpighia	3235@Malpighia	FAIL	FAIL	Malpighia
+3235@Malpighia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3279@Heteropterys	3301@Heteropterys	3301@Heteropterys	1703@Callaeum	FAIL	3980@Heteropterys	Heteropterys
+3301@Heteropterys	3279@Heteropterys	3341@Aspidopterys	3279@Heteropterys	FAIL	FAIL	Heteropterys
+3316@Acmanthera	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3338@Amorimia	3518@Amorimia	777@Christianella	1703@Callaeum	FAIL	3595@Christianella	Amorimia
+3340@Aspidopterys	3341@Aspidopterys	3342@Aspidopterys	4004@Triaspis	FAIL	3342@Aspidopterys	Aspidopterys
+3341@Aspidopterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3342@Aspidopterys	3122@Triaspis	3340@Aspidopterys	3384@Malpighia	FAIL	FAIL	Aspidopterys
+3345@Blepharandra	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3349@Burdachia	3211@Acridocarpus	FAIL	FAIL	FAIL	FAIL	Burdachia
+3353@Camarea	3594@Camarea	747@Camarea	3594@Camarea	FAIL	FAIL	Camarea
+3356@Cottsia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3357@Diacidia	FAIL	FAIL	FAIL	FAIL	3966@Diacidia	Diacidia
+3375@Hiptage	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3384@Malpighia	FAIL	FAIL	FAIL	FAIL	3230@Malpighia	Malpighia
+3386@Malpighia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3419@Tetrapterys	3423@Tetrapterys	FAIL	777@Christianella	FAIL	FAIL	Tetrapterys
+3423@Tetrapterys	3676@Tetrapterys	944@Tetrapterys	3129@Tetrapterys	FAIL	3129@Tetrapterys	Tetrapterys
+3431@Christianella	1525@Christianella	777@Christianella	1525@Christianella	FAIL	FAIL	Christianella
+3444@Thryallis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3447@Acmanthera	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3448@Acmanthera	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3452@Diacidia	3966@Diacidia	3966@Diacidia	FAIL	FAIL	FAIL	Diacidia
+3518@Amorimia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3519@Aspidopterys	3342@Aspidopterys	3342@Aspidopterys	743@Mascagnia	FAIL	FAIL	Aspidopterys
+3527@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	S-99	FAIL	FAIL	Banisteriopsis
+3536@Banisteriopsis	FAIL	FAIL	FAIL	FAIL	3527@Banisteriopsis	Banisteriopsis
+3545@Burdachia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3594@Camarea	3353@Camarea	FAIL	1874@Banisteriopsis	FAIL	3353@Camarea	Camarea
+3595@Christianella	FAIL	FAIL	FAIL	FAIL	777@Christianella	Christianella
+3600@Dicella	FAIL	FAIL	FAIL	FAIL	1165@Dicella	Dicella
+3606@Diplopterys	FAIL	FAIL	FAIL	FAIL	1905@Diplopterys	Diplopterys
+3609@Diplopterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3640@Malpighiodes	FAIL	FAIL	FAIL	FAIL	1570@Malpighiodes	Malpighiodes
+3676@Tetrapterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3679@Tristellateia	FAIL	FAIL	FAIL	FAIL	3680@Tristellateia	Tristellateia
+3680@Tristellateia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3729@Thryallis	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3935@Bunchosia	FAIL	FAIL	2168@Bunchosia	FAIL	FAIL	Bunchosia
+3955@Byrsonima	FAIL	2764@Byrsonima	FAIL	FAIL	3536@Banisteriopsis	Byrsonima
+3966@Diacidia	3452@Diacidia	3452@Diacidia	682@Diacidia	FAIL	FAIL	Diacidia
+3970@Dicella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+3980@Heteropterys	FAIL	FAIL	FAIL	FAIL	3279@Heteropterys	Heteropterys
+4004@Triaspis	FAIL	FAIL	FAIL	FAIL	1176@Triaspis	Triaspis
+533@Heteropterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+596@Cottsia	FAIL	FAIL	FAIL	FAIL	3356@Cottsia	Cottsia
+618@Aspicarpa	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+644@Carolus	FAIL	1543@Carolus	777@Christianella	FAIL	1538@Carolus	Carolus
+654@Acmanthera	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+655@Burdachia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+679@Bunchosia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+682@Diacidia	3966@Diacidia	1928@Diacidia	3966@Diacidia	FAIL	FAIL	Diacidia
+69@Acridocarpus	1102@Acridocarpus	1102@Acridocarpus	2650@Acridocarpus	1102@Acridocarpus	1102@Acridocarpus	Acridocarpus
+706@Cottsia	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+710@Blepharandra	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+743@Mascagnia	FAIL	FAIL	FAIL	FAIL	1915@Mascagnia	Mascagnia
+746@Aspicarpa	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+747@Camarea	FAIL	3594@Camarea	3594@Camarea	FAIL	FAIL	Camarea
+760@Hiptage	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+777@Christianella	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+821@Mascagnia	743@Mascagnia	1936@Mascagnia	743@Mascagnia	3386@Malpighia	743@Mascagnia	Mascagnia
+845@Heteropterys	FAIL	FAIL	FAIL	FAIL	FAIL	FAIL
+944@Tetrapterys	FAIL	S-59	760@Hiptage	FAIL	FAIL	Tetrapterys
+C-127	C-48	C-296	C-129	FAIL	C-296	
+C-129	C-296	C-127	C-127	FAIL	C-127	
+C-130	C-313	C-303	C-303	FAIL	C-414	
+C-136	C-86	C-21	C-263	FAIL	C-21	
+C-17	C-86	C-86	C-313	FAIL	C-69	
+C-181	FAIL	C-48	C-303	FAIL	C-48	
+C-21	C-136	C-136	C-136	C-342	C-136	
+C-227	FAIL	FAIL	FAIL	FAIL	C-259	
+C-239	C-313	C-387	C-387	FAIL	C-387	
+C-251	FAIL	FAIL	FAIL	FAIL	C-259	
+C-259	C-40	C-40	C-40	FAIL	C-32	
+C-263	C-265	C-136	C-265	FAIL	C-64	
+C-265	C-86	C-263	C-263	FAIL	C-64	
+C-271	C-365	C-393	C-365	FAIL	C-393	
+C-280	C-86	C-86	C-313	FAIL	C-69	
+C-296	C-127	C-127	C-129	C-127	C-127	
+C-303	FAIL	C-64	C-32	FAIL	C-414	
+C-313	FAIL	C-64	C-69	FAIL	C-17	
+C-32	FAIL	FAIL	FAIL	FAIL	C-259	
+C-342	C-86	C-136	C-136	C-21	C-21	
+C-365	FAIL	C-393	C-280	FAIL	C-393	
+C-387	FAIL	C-239	C-239	FAIL	C-239	
+C-393	C-271	C-365	C-271	FAIL	C-271	
+C-40	C-32	C-251	C-259	FAIL	C-259	
+C-414	C-303	C-48	C-303	FAIL	C-303	
+C-48	FAIL	FAIL	FAIL	FAIL	C-181	
+C-500	C-387	C-239	C-239	FAIL	C-387	
+C-64	C-263	C-263	C-263	FAIL	C-414	
+C-69	C-313	C-86	C-280	C-313	C-17	
+C-86	C-69	C-17	C-280	FAIL	C-69	
+S-1	S-59	S-13	FAIL	FAIL	S-19	
+S-10	S-51	S-99	S-100	FAIL	S-3	
+S-100	S-19	S-96	S-99	FAIL	S-92	
+S-11	FAIL	FAIL	FAIL	FAIL	S-23	
+S-12	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-13	S-47	S-96	S-34	FAIL	S-23	
+S-14	FAIL	FAIL	FAIL	FAIL	S-20	
+S-15	S-34	S-13	S-27	FAIL	S-22	
+S-16	FAIL	FAIL	S-80	FAIL	S-28	
+S-17	S-45	S-96	S-27	FAIL	S-84	
+S-18	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-19	S-51	S-96	S-13	FAIL	S-13	
+S-2	S-3	S-96	S-6	FAIL	S-3	
+S-20	S-51	S-13	FAIL	FAIL	S-23	
+S-21	FAIL	S-26	S-34	FAIL	S-23	
+S-22	FAIL	FAIL	S-45	FAIL	S-23	
+S-23	FAIL	FAIL	FAIL	FAIL	S-48	
+S-24	S-51	S-13	S-6	FAIL	S-23	
+S-25	S-34	S-96	S-36	FAIL	S-22	
+S-26	FAIL	S-59	FAIL	FAIL	S-23	
+S-27	S-19	S-24	S-99	FAIL	S-25	
+S-28	FAIL	S-48	S-59	FAIL	S-27	
+S-29	S-34	S-96	S-51	FAIL	S-30	
+S-3	S-62	S-96	FAIL	FAIL	S-23	
+S-30	FAIL	FAIL	FAIL	FAIL	S-23	
+S-31	FAIL	FAIL	FAIL	FAIL	S-23	
+S-32	FAIL	FAIL	FAIL	FAIL	S-90	
+S-33	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-34	S-51	S-96	S-13	FAIL	FAIL	
+S-35	FAIL	FAIL	FAIL	FAIL	S-31	
+S-36	FAIL	S-48	S-45	FAIL	S-35	
+S-37	FAIL	FAIL	FAIL	FAIL	S-84	
+S-38	FAIL	S-45	FAIL	FAIL	FAIL	
+S-39	FAIL	FAIL	FAIL	FAIL	S-25	
+S-4	FAIL	S-96	FAIL	FAIL	S-11	
+S-40	FAIL	FAIL	FAIL	FAIL	S-92	
+S-41	FAIL	FAIL	FAIL	FAIL	S-48	
+S-42	S-80	S-19	S-34	FAIL	S-48	
+S-43	FAIL	S-96	S-24	FAIL	S-48	
+S-44	FAIL	S-59	S-6	FAIL	S-50	
+S-45	S-34	S-42	S-24	FAIL	S-46	
+S-46	FAIL	FAIL	FAIL	FAIL	S-50	
+S-47	S-51	S-59	S-92	FAIL	S-48	
+S-48	S-51	S-13	S-53	FAIL	S-23	
+S-49	S-51	S-96	S-34	FAIL	S-44	
+S-5	FAIL	FAIL	FAIL	FAIL	S-30	
+S-50	FAIL	S-59	S-27	FAIL	S-48	
+S-51	S-34	S-96	S-34	FAIL	S-84	
+S-52	FAIL	FAIL	FAIL	FAIL	S-57	
+S-53	FAIL	S-96	S-34	FAIL	S-22	
+S-54	FAIL	FAIL	FAIL	FAIL	S-77	
+S-55	S-80	S-96	S-34	FAIL	S-58	
+S-56	FAIL	FAIL	FAIL	FAIL	S-20	
+S-57	FAIL	FAIL	FAIL	FAIL	S-26	
+S-58	FAIL	FAIL	FAIL	FAIL	S-22	
+S-59	S-34	S-13	S-51	FAIL	S-23	
+S-6	S-59	S-96	S-99	FAIL	S-1	
+S-60	FAIL	FAIL	FAIL	FAIL	S-58	
+S-61	S-51	FAIL	S-82	FAIL	FAIL	
+S-62	S-34	S-19	S-34	FAIL	S-99	
+S-63	FAIL	FAIL	FAIL	FAIL	S-27	
+S-64	FAIL	FAIL	FAIL	FAIL	S-90	
+S-65	FAIL	FAIL	FAIL	FAIL	S-83	
+S-66	S-87	S-13	S-80	FAIL	FAIL	
+S-67	FAIL	S-96	S-34	FAIL	FAIL	
+S-68	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-69	S-34	S-87	S-91	FAIL	S-48	
+S-7	S-51	S-96	S-34	FAIL	S-3	
+S-70	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-71	FAIL	FAIL	FAIL	FAIL	S-76	
+S-72	S-34	S-96	S-34	FAIL	FAIL	
+S-73	FAIL	FAIL	FAIL	FAIL	S-83	
+S-74	FAIL	FAIL	FAIL	FAIL	S-63	
+S-75	FAIL	FAIL	FAIL	FAIL	S-23	
+S-76	FAIL	FAIL	FAIL	FAIL	S-23	
+S-77	FAIL	FAIL	FAIL	FAIL	S-63	
+S-78	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-79	FAIL	FAIL	FAIL	FAIL	S-22	
+S-8	S-80	S-96	FAIL	FAIL	S-5	
+S-80	S-51	FAIL	S-34	FAIL	FAIL	
+S-81	FAIL	FAIL	FAIL	FAIL	S-83	
+S-82	S-45	FAIL	S-34	FAIL	S-27	
+S-83	FAIL	FAIL	FAIL	FAIL	S-90	
+S-84	FAIL	FAIL	FAIL	FAIL	S-19	
+S-85	FAIL	S-96	S-62	FAIL	S-13	
+S-86	FAIL	FAIL	FAIL	FAIL	S-19	
+S-87	S-80	S-13	S-34	FAIL	S-90	
+S-88	S-34	S-96	S-97	FAIL	S-83	
+S-89	S-34	S-59	S-82	FAIL	S-84	
+S-9	S-82	S-99	S-34	FAIL	FAIL	
+S-90	FAIL	FAIL	FAIL	FAIL	S-23	
+S-91	S-34	S-96	S-51	FAIL	FAIL	
+S-92	FAIL	S-96	S-96	FAIL	S-3	
+S-93	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-94	S-96	S-96	S-19	FAIL	FAIL	
+S-95	S-59	S-96	FAIL	FAIL	FAIL	
+S-96	S-34	S-13	S-34	FAIL	S-8	
+S-97	FAIL	S-96	S-80	FAIL	FAIL	
+S-98	FAIL	S-96	S-80	FAIL	FAIL	
+S-99	S-91	S-96	S-6	FAIL	S-92	

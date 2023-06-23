@@ -1,0 +1,268 @@
+sp	matK	rbcL	ndhF	trnL-F	ITS	Concatenated_phylogeny
+1102@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1162@Camarea	3353@Camarea	3353@Camarea	3594@Camarea	3594@Camarea	3594@Camarea	Camarea
+1165@Dicella	FAIL	FAIL	FAIL	FAIL	3600@Dicella	Dicella
+1182@Tristellateia	3679@Tristellateia	3679@Tristellateia	3121@Tristellateia	3680@Tristellateia	3680@Tristellateia	Tristellateia
+1240@Diplopterys	S-40	3423@Tetrapterys	1939@Diplopterys	FAIL	1939@Diplopterys	Diplopterys
+1285@Aspidopterys	3340@Aspidopterys	3342@Aspidopterys	3235@Malpighia	3340@Aspidopterys	3342@Aspidopterys	Aspidopterys
+1314@Hiptage	2657@Hiptage	2657@Hiptage	2657@Hiptage	2657@Hiptage	1503@Hiptage	Hiptage
+1324@Microsteira	270@Microsteira	270@Microsteira	270@Microsteira	270@Microsteira	270@Microsteira	Microsteira
+1382@Microsteira	1386@Microsteira	1661@Microsteira	1386@Microsteira	FAIL	270@Microsteira	Microsteira
+1386@Microsteira	1382@Microsteira	1661@Microsteira	1661@Microsteira	1661@Microsteira	1661@Microsteira	Microsteira
+1502@Tristellateia	3121@Tristellateia	3121@Tristellateia	3121@Tristellateia	3121@Tristellateia	3121@Tristellateia	Tristellateia
+1503@Hiptage	2657@Hiptage	1314@Hiptage	2657@Hiptage	FAIL	1314@Hiptage	Hiptage
+1525@Christianella	FAIL	FAIL	FAIL	FAIL	3431@Christianella	Christianella
+1531@Amorimia	3518@Amorimia	1534@Amorimia	3338@Amorimia	3518@Amorimia	3518@Amorimia	Amorimia
+1534@Amorimia	3518@Amorimia	1531@Amorimia	3518@Amorimia	3518@Amorimia	FAIL	Amorimia
+1556@Malpighia	3234@Malpighia	3230@Malpighia	3234@Malpighia	3386@Malpighia	3230@Malpighia	Malpighia
+1570@Malpighiodes	2100@Callaeum	1702@Callaeum	2100@Callaeum	FAIL	1610@Malpighiodes	Malpighiodes
+1590@Carolus	1543@Carolus	1543@Carolus	644@Carolus	FAIL	644@Carolus	Carolus
+1610@Malpighiodes	FAIL	FAIL	FAIL	FAIL	1570@Malpighiodes	Malpighiodes
+1653@Galphimia	2647@Galphimia	2647@Galphimia	2647@Galphimia	2647@Galphimia	FAIL	Galphimia
+1661@Microsteira	1382@Microsteira	1382@Microsteira	1386@Microsteira	1386@Microsteira	1382@Microsteira	Microsteira
+1676@Aspicarpa	1678@Aspicarpa	618@Aspicarpa	746@Aspicarpa	1678@Aspicarpa	618@Aspicarpa	Aspicarpa
+1678@Aspicarpa	1677@Aspicarpa	1677@Aspicarpa	746@Aspicarpa	1677@Aspicarpa	618@Aspicarpa	Aspicarpa
+168@Acridocarpus	1102@Acridocarpus	3211@Acridocarpus	170@Acridocarpus	3211@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1699@Callaeum	2100@Callaeum	2100@Callaeum	2100@Callaeum	1702@Callaeum	1702@Callaeum	Callaeum
+170@Acridocarpus	1102@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1702@Callaeum	2100@Callaeum	1679@Callaeum	2100@Callaeum	1699@Callaeum	1699@Callaeum	Callaeum
+1703@Callaeum	2100@Callaeum	1679@Callaeum	1702@Callaeum	1679@Callaeum	1702@Callaeum	Callaeum
+1705@Dicella	3386@Malpighia	3600@Dicella	3600@Dicella	FAIL	1165@Dicella	Dicella
+1716@Dicella	FAIL	FAIL	FAIL	FAIL	1705@Dicella	Dicella
+1717@Galphimia	1582@Galphimia	2647@Galphimia	2647@Galphimia	1582@Galphimia	FAIL	Galphimia
+1739@Thryallis	1740@Thryallis	1740@Thryallis	1740@Thryallis	FAIL	1740@Thryallis	Thryallis
+174@Triaspis	4004@Triaspis	4004@Triaspis	1089@Triaspis	FAIL	3122@Triaspis	Triaspis
+1740@Thryallis	1739@Thryallis	1739@Thryallis	1739@Thryallis	FAIL	1739@Thryallis	Thryallis
+176@Acridocarpus	3211@Acridocarpus	69@Acridocarpus	3211@Acridocarpus	3211@Acridocarpus	2650@Acridocarpus	Acridocarpus
+1770@Bunchosia	679@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	1774@Bunchosia	Bunchosia
+1774@Bunchosia	1770@Bunchosia	1770@Bunchosia	1770@Bunchosia	1770@Bunchosia	1770@Bunchosia	Bunchosia
+1845@Bronwenia	1860@Bronwenia	1860@Bronwenia	1860@Bronwenia	FAIL	1860@Bronwenia	Bronwenia
+1853@Bronwenia	1860@Bronwenia	1845@Bronwenia	1860@Bronwenia	1860@Bronwenia	1860@Bronwenia	Bronwenia
+1860@Bronwenia	FAIL	FAIL	FAIL	FAIL	1853@Bronwenia	Bronwenia
+1874@Banisteriopsis	3536@Banisteriopsis	1850@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	1946@Banisteriopsis	Banisteriopsis
+1877@Bronwenia	1860@Bronwenia	1860@Bronwenia	706@Cottsia	FAIL	1944@Bronwenia	Bronwenia
+1905@Diplopterys	3606@Diplopterys	644@Carolus	3606@Diplopterys	FAIL	3606@Diplopterys	Diplopterys
+1915@Mascagnia	821@Mascagnia	1936@Mascagnia	743@Mascagnia	FAIL	743@Mascagnia	Mascagnia
+1928@Diacidia	3966@Diacidia	682@Diacidia	682@Diacidia	682@Diacidia	3357@Diacidia	Diacidia
+1936@Mascagnia	3341@Aspidopterys	2065@Mascagnia	743@Mascagnia	FAIL	2065@Mascagnia	Mascagnia
+1939@Diplopterys	1240@Diplopterys	1240@Diplopterys	1240@Diplopterys	1860@Bronwenia	3606@Diplopterys	Diplopterys
+2065@Mascagnia	3340@Aspidopterys	1936@Mascagnia	743@Mascagnia	FAIL	1936@Mascagnia	Mascagnia
+2095@Tetrapterys	3431@Christianella	1525@Christianella	3431@Christianella	777@Christianella	3980@Heteropterys	Tetrapterys
+2100@Callaeum	1702@Callaeum	1702@Callaeum	1699@Callaeum	1699@Callaeum	1702@Callaeum	Callaeum
+2168@Bunchosia	679@Bunchosia	2831@Bunchosia	2831@Bunchosia	FAIL	679@Bunchosia	Bunchosia
+2272@Elatine	2906@Elatine	2909@Elatine	2909@Elatine	FAIL	2279@Elatine	Elatine
+2311@Elatine	2909@Elatine	2906@Elatine	2909@Elatine	2906@Elatine	2272@Elatine	Elatine
+2647@Galphimia	1582@Galphimia	1653@Galphimia	1717@Galphimia	1653@Galphimia	FAIL	Galphimia
+2650@Acridocarpus	1102@Acridocarpus	69@Acridocarpus	69@Acridocarpus	69@Acridocarpus	1102@Acridocarpus	Acridocarpus
+2693@Byrsonima	2764@Byrsonima	2711@Byrsonima	2764@Byrsonima	FAIL	2711@Byrsonima	Byrsonima
+270@Microsteira	1324@Microsteira	1324@Microsteira	1661@Microsteira	1386@Microsteira	1382@Microsteira	Microsteira
+2700@Byrsonima	2764@Byrsonima	2764@Byrsonima	2693@Byrsonima	2693@Byrsonima	FAIL	Byrsonima
+2711@Byrsonima	3955@Byrsonima	2764@Byrsonima	2700@Byrsonima	FAIL	2700@Byrsonima	Byrsonima
+2763@Byrsonima	2764@Byrsonima	2711@Byrsonima	2711@Byrsonima	2700@Byrsonima	2711@Byrsonima	Byrsonima
+2764@Byrsonima	2711@Byrsonima	2711@Byrsonima	2700@Byrsonima	2700@Byrsonima	2711@Byrsonima	Byrsonima
+2794@Byrsonima	FAIL	FAIL	FAIL	FAIL	2711@Byrsonima	Byrsonima
+2798@Blepharandra	3345@Blepharandra	3345@Blepharandra	3345@Blepharandra	FAIL	FAIL	Blepharandra
+2827@Bunchosia	FAIL	FAIL	1770@Bunchosia	FAIL	679@Bunchosia	Bunchosia
+2831@Bunchosia	679@Bunchosia	1770@Bunchosia	2168@Bunchosia	FAIL	679@Bunchosia	Bunchosia
+2906@Elatine	2272@Elatine	2279@Elatine	2909@Elatine	2909@Elatine	2272@Elatine	Elatine
+2907@Elatine	2909@Elatine	2311@Elatine	2311@Elatine	2906@Elatine	2272@Elatine	Elatine
+2909@Elatine	2279@Elatine	2272@Elatine	2279@Elatine	2279@Elatine	2272@Elatine	Elatine
+2942@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	Tetrapterys
+2960@Banisteriopsis	1850@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	FAIL	1850@Banisteriopsis	Banisteriopsis
+2985@Heteropterys	FAIL	FAIL	FAIL	FAIL	3345@Blepharandra	Heteropterys
+3013@Banisteriopsis	1850@Banisteriopsis	1850@Banisteriopsis	2960@Banisteriopsis	FAIL	3527@Banisteriopsis	Banisteriopsis
+3121@Tristellateia	1502@Tristellateia	1502@Tristellateia	1502@Tristellateia	1502@Tristellateia	3680@Tristellateia	Tristellateia
+3122@Triaspis	1176@Triaspis	1174@Triaspis	1174@Triaspis	3386@Malpighia	1174@Triaspis	Triaspis
+3129@Bunchosia	FAIL	FAIL	FAIL	FAIL	1774@Bunchosia	Bunchosia
+3211@Acridocarpus	176@Acridocarpus	1102@Acridocarpus	168@Acridocarpus	69@Acridocarpus	2650@Acridocarpus	Acridocarpus
+3220@Heteropterys	3301@Heteropterys	3609@Diplopterys	777@Christianella	FAIL	FAIL	Heteropterys
+3230@Malpighia	3234@Malpighia	3386@Malpighia	3234@Malpighia	3384@Malpighia	1556@Malpighia	Malpighia
+3231@Malpighia	3386@Malpighia	3342@Aspidopterys	3235@Malpighia	3386@Malpighia	3386@Malpighia	Malpighia
+3234@Malpighia	3230@Malpighia	3230@Malpighia	3230@Malpighia	1556@Malpighia	3230@Malpighia	Malpighia
+3235@Bunchosia	679@Bunchosia	3935@Bunchosia	2168@Bunchosia	FAIL	679@Bunchosia	Bunchosia
+3279@Heteropterys	3301@Heteropterys	3301@Heteropterys	3431@Christianella	3301@Heteropterys	3980@Heteropterys	Heteropterys
+3301@Heteropterys	3279@Heteropterys	3279@Heteropterys	3279@Heteropterys	FAIL	3980@Heteropterys	Heteropterys
+3316@Acmanthera	3448@Acmanthera	3448@Acmanthera	654@Acmanthera	FAIL	654@Acmanthera	Acmanthera
+3338@Amorimia	1531@Amorimia	3518@Amorimia	3518@Amorimia	3518@Amorimia	1531@Amorimia	Amorimia
+3340@Aspidopterys	3342@Aspidopterys	3342@Aspidopterys	3235@Malpighia	3386@Malpighia	3342@Aspidopterys	Aspidopterys
+3341@Aspidopterys	3518@Amorimia	3386@Malpighia	3342@Aspidopterys	FAIL	FAIL	Aspidopterys
+3342@Aspidopterys	3340@Aspidopterys	2065@Mascagnia	3235@Malpighia	3341@Aspidopterys	3340@Aspidopterys	Aspidopterys
+3345@Blepharandra	710@Blepharandra	2798@Blepharandra	2798@Blepharandra	FAIL	2711@Byrsonima	Blepharandra
+3349@Burdachia	3211@Acridocarpus	69@Acridocarpus	170@Acridocarpus	FAIL	3545@Burdachia	Burdachia
+3353@Camarea	3594@Camarea	3594@Camarea	3594@Camarea	3594@Camarea	3594@Camarea	Camarea
+3356@Cottsia	596@Cottsia	706@Cottsia	706@Cottsia	FAIL	706@Cottsia	Cottsia
+3384@Malpighia	3386@Malpighia	3234@Malpighia	3235@Malpighia	FAIL	3230@Malpighia	Malpighia
+3386@Malpighia	3231@Malpighia	3231@Malpighia	3231@Malpighia	3231@Malpighia	3231@Malpighia	Malpighia
+3419@Tetrapterys	3423@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	777@Christianella	1531@Amorimia	Tetrapterys
+3423@Tetrapterys	944@Tetrapterys	3676@Tetrapterys	3676@Tetrapterys	2942@Tetrapterys	3129@Tetrapterys	Tetrapterys
+3431@Christianella	1525@Christianella	777@Christianella	1525@Christianella	1525@Christianella	1525@Christianella	Christianella
+3444@Thryallis	1740@Thryallis	3729@Thryallis	3729@Thryallis	FAIL	1739@Thryallis	Thryallis
+3447@Acmanthera	3316@Acmanthera	3316@Acmanthera	3448@Acmanthera	FAIL	3316@Acmanthera	Acmanthera
+3448@Acmanthera	3316@Acmanthera	3316@Acmanthera	654@Acmanthera	FAIL	654@Acmanthera	Acmanthera
+3452@Diacidia	3966@Diacidia	3966@Diacidia	3966@Diacidia	3966@Diacidia	3966@Diacidia	Diacidia
+3518@Amorimia	FAIL	777@Christianella	1703@Callaeum	FAIL	1531@Amorimia	Amorimia
+3527@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	3536@Banisteriopsis	1850@Banisteriopsis	Banisteriopsis
+3536@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	3527@Banisteriopsis	FAIL	3527@Banisteriopsis	Banisteriopsis
+3545@Burdachia	FAIL	FAIL	FAIL	FAIL	3349@Burdachia	Burdachia
+3594@Camarea	3353@Camarea	3353@Camarea	3353@Camarea	3353@Camarea	1162@Camarea	Camarea
+3595@Christianella	777@Christianella	777@Christianella	1538@Carolus	FAIL	777@Christianella	Christianella
+3600@Dicella	777@Christianella	3640@Malpighiodes	1165@Dicella	FAIL	FAIL	Dicella
+3606@Diplopterys	S-80	1939@Diplopterys	679@Bunchosia	FAIL	1905@Diplopterys	Diplopterys
+3609@Diplopterys	1240@Diplopterys	FAIL	FAIL	FAIL	S-17	Diplopterys
+3640@Malpighiodes	1610@Malpighiodes	1610@Malpighiodes	1610@Malpighiodes	FAIL	1570@Malpighiodes	Malpighiodes
+3676@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	2942@Tetrapterys	Tetrapterys
+3679@Tristellateia	3680@Tristellateia	3680@Tristellateia	3680@Tristellateia	3680@Tristellateia	3680@Tristellateia	Tristellateia
+3680@Tristellateia	3679@Tristellateia	1182@Tristellateia	3679@Tristellateia	3679@Tristellateia	3679@Tristellateia	Tristellateia
+3729@Thryallis	FAIL	3444@Thryallis	1740@Thryallis	FAIL	1740@Thryallis	Thryallis
+3935@Bunchosia	679@Bunchosia	2168@Bunchosia	2168@Bunchosia	FAIL	1774@Bunchosia	Bunchosia
+3955@Byrsonima	2764@Byrsonima	2764@Byrsonima	2711@Byrsonima	FAIL	3536@Banisteriopsis	Byrsonima
+3966@Diacidia	3452@Diacidia	3452@Diacidia	682@Diacidia	3452@Diacidia	3452@Diacidia	Diacidia
+3970@Dicella	1716@Dicella	1716@Dicella	1703@Callaeum	FAIL	1716@Dicella	Dicella
+3980@Heteropterys	3301@Heteropterys	821@Mascagnia	FAIL	FAIL	3279@Heteropterys	Heteropterys
+4004@Triaspis	1176@Triaspis	1176@Triaspis	1176@Triaspis	FAIL	1176@Triaspis	Triaspis
+533@Heteropterys	FAIL	3594@Camarea	2985@Heteropterys	FAIL	3980@Heteropterys	Heteropterys
+644@Carolus	1543@Carolus	1540@Carolus	1538@Carolus	S-90	FAIL	Carolus
+654@Acmanthera	FAIL	FAIL	FAIL	FAIL	3316@Acmanthera	Acmanthera
+655@Burdachia	3349@Burdachia	3349@Burdachia	3349@Burdachia	FAIL	3349@Burdachia	Burdachia
+679@Bunchosia	2168@Bunchosia	1770@Bunchosia	2831@Bunchosia	FAIL	2831@Bunchosia	Bunchosia
+682@Diacidia	3966@Diacidia	3966@Diacidia	3966@Diacidia	3452@Diacidia	3357@Diacidia	Diacidia
+69@Acridocarpus	1102@Acridocarpus	1102@Acridocarpus	2650@Acridocarpus	1102@Acridocarpus	1102@Acridocarpus	Acridocarpus
+706@Cottsia	3356@Cottsia	3356@Cottsia	596@Cottsia	596@Cottsia	3356@Cottsia	Cottsia
+710@Blepharandra	3345@Blepharandra	3345@Blepharandra	3345@Blepharandra	3955@Byrsonima	FAIL	Blepharandra
+743@Mascagnia	3340@Aspidopterys	1936@Mascagnia	821@Mascagnia	3386@Malpighia	1915@Mascagnia	Mascagnia
+746@Aspicarpa	1678@Aspicarpa	1678@Aspicarpa	1678@Aspicarpa	FAIL	1678@Aspicarpa	Aspicarpa
+747@Camarea	3353@Camarea	3353@Camarea	3594@Camarea	FAIL	3594@Camarea	Camarea
+777@Christianella	3431@Christianella	1525@Christianella	3431@Christianella	3431@Christianella	3431@Christianella	Christianella
+821@Mascagnia	743@Mascagnia	1936@Mascagnia	743@Mascagnia	3386@Malpighia	1915@Mascagnia	Mascagnia
+845@Heteropterys	777@Christianella	FAIL	944@Tetrapterys	FAIL	3980@Heteropterys	Heteropterys
+944@Tetrapterys	644@Carolus	3423@Tetrapterys	3431@Christianella	S-6	FAIL	Tetrapterys
+C-127	C-296	C-296	C-129	C-129	C-296	
+C-129	C-127	C-127	C-127	C-127	C-127	
+C-130	C-48	C-303	C-303	C-181	C-414	
+C-136	C-21	C-21	C-21	C-263	C-21	
+C-17	C-86	C-86	C-313	C-69	C-69	
+C-181	C-48	C-48	C-48	C-365	C-48	
+C-21	C-136	C-136	C-136	C-342	C-136	
+C-227	C-40	C-40	C-40	C-280	C-40	
+C-239	C-387	C-387	C-387	C-387	C-387	
+C-251	C-32	C-40	C-40	FAIL	C-259	
+C-259	C-40	C-40	C-40	C-40	C-32	
+C-263	C-64	C-136	C-265	C-265	C-64	
+C-265	C-263	C-263	C-263	C-263	C-414	
+C-271	C-365	C-393	C-365	C-365	C-393	
+C-280	C-86	C-86	C-86	C-86	C-69	
+C-296	C-127	C-127	C-127	C-127	C-127	
+C-303	C-48	C-263	C-130	C-40	C-414	
+C-313	C-86	C-86	C-17	C-17	C-69	
+C-32	C-40	C-251	C-40	C-40	C-259	
+C-342	C-136	C-136	C-136	C-21	C-21	
+C-365	C-393	C-393	C-271	C-271	C-393	
+C-387	C-500	C-239	C-500	C-239	C-239	
+C-393	C-365	C-365	C-365	C-271	C-271	
+C-40	C-259	C-251	C-259	C-259	C-259	
+C-414	C-303	C-48	C-303	FAIL	C-303	
+C-48	C-181	C-181	C-181	C-130	C-181	
+C-500	C-387	C-387	C-387	C-387	C-387	
+C-64	C-263	C-263	C-265	C-265	C-414	
+C-69	C-86	C-86	C-17	C-17	C-17	
+C-86	C-313	C-17	C-69	C-313	C-69	
+S-1	S-9	S-99	S-51	S-2	S-8	
+S-10	S-6	S-1	S-9	FAIL	S-5	
+S-100	S-99	S-99	S-91	FAIL	S-92	
+S-11	FAIL	S-19	S-19	FAIL	S-19	
+S-12	FAIL	FAIL	FAIL	FAIL	FAIL	
+S-13	S-19	S-19	S-19	S-17	S-19	
+S-14	S-19	S-82	S-19	S-13	S-11	
+S-15	S-16	S-20	S-19	S-17	S-20	
+S-16	S-19	S-100	S-20	FAIL	S-20	
+S-17	S-19	S-20	S-19	S-15	S-20	
+S-18	S-51	S-100	S-1	FAIL	S-1	
+S-19	S-13	S-13	S-13	FAIL	S-11	
+S-2	S-1	S-7	S-9	S-55	S-3	
+S-20	S-19	S-15	S-15	S-17	S-17	
+S-21	S-80	S-29	S-80	FAIL	S-27	
+S-22	S-80	S-27	S-27	FAIL	S-27	
+S-23	FAIL	FAIL	FAIL	FAIL	S-26	
+S-24	S-25	S-29	S-29	S-29	S-27	
+S-25	S-29	S-29	S-27	S-80	S-27	
+S-26	S-29	S-29	S-29	FAIL	S-24	
+S-27	S-29	S-29	S-29	S-29	S-25	
+S-28	S-29	S-29	S-29	FAIL	S-22	
+S-29	S-27	S-24	S-24	S-27	S-27	
+S-3	FAIL	S-9	FAIL	FAIL	S-5	
+S-30	FAIL	FAIL	FAIL	FAIL	S-24	
+S-31	FAIL	FAIL	FAIL	FAIL	S-37	
+S-32	S-80	FAIL	S-80	FAIL	S-35	
+S-33	S-80	S-38	S-80	FAIL	S-37	
+S-34	S-80	S-47	S-80	S-80	S-40	
+S-35	S-100	S-76	S-90	FAIL	S-36	
+S-36	S-47	S-34	S-80	FAIL	S-40	
+S-37	S-98	S-76	S-80	FAIL	S-40	
+S-38	S-80	S-36	S-59	FAIL	S-39	
+S-39	S-34	S-40	S-80	FAIL	S-32	
+S-4	S-6	S-8	S-59	FAIL	S-6	
+S-40	FAIL	S-34	S-80	FAIL	S-36	
+S-41	S-80	S-82	S-80	FAIL	S-42	
+S-42	S-45	S-47	S-49	S-48	S-47	
+S-43	S-59	S-48	S-49	S-48	S-48	
+S-44	S-48	S-48	S-50	FAIL	S-46	
+S-45	S-42	S-47	S-47	S-48	S-50	
+S-46	S-49	S-44	S-49	FAIL	S-50	
+S-47	S-45	S-45	S-45	S-48	S-48	
+S-48	S-47	S-47	S-49	S-47	S-47	
+S-49	S-48	S-44	S-48	FAIL	S-48	
+S-5	FAIL	S-100	S-2	FAIL	S-6	
+S-50	S-47	S-48	S-49	FAIL	S-45	
+S-51	S-59	S-58	S-59	S-55	S-57	
+S-52	FAIL	S-59	S-80	FAIL	S-60	
+S-53	S-59	S-55	S-55	S-80	S-57	
+S-54	FAIL	FAIL	S-55	FAIL	S-8	
+S-55	S-53	S-53	S-51	S-51	FAIL	
+S-56	FAIL	FAIL	S-100	FAIL	S-54	
+S-57	S-80	FAIL	FAIL	FAIL	S-52	
+S-58	S-80	S-51	S-59	S-59	S-60	
+S-59	S-47	S-51	S-51	S-55	S-13	
+S-6	S-9	S-9	S-9	FAIL	S-4	
+S-60	S-51	S-74	S-59	FAIL	S-52	
+S-61	S-62	S-87	S-62	S-87	S-63	
+S-62	S-61	S-87	S-82	S-61	S-70	
+S-63	S-89	S-66	S-90	FAIL	S-70	
+S-64	S-89	S-81	S-82	FAIL	S-70	
+S-65	S-82	S-87	S-82	FAIL	S-63	
+S-66	S-82	S-89	S-62	FAIL	S-69	
+S-67	S-65	S-87	S-82	S-87	S-70	
+S-68	FAIL	S-99	S-61	FAIL	S-70	
+S-69	S-62	S-82	S-66	FAIL	S-70	
+S-7	S-1	S-100	S-9	FAIL	S-3	
+S-70	S-80	S-87	S-87	FAIL	S-68	
+S-71	FAIL	FAIL	FAIL	FAIL	S-79	
+S-72	S-80	S-100	S-80	FAIL	S-79	
+S-73	S-47	S-100	S-72	FAIL	S-79	
+S-74	S-80	S-50	S-80	FAIL	S-75	
+S-75	FAIL	S-76	S-80	FAIL	S-74	
+S-76	FAIL	S-50	S-80	FAIL	S-79	
+S-77	FAIL	S-100	FAIL	FAIL	S-71	
+S-78	FAIL	FAIL	FAIL	FAIL	S-79	
+S-79	S-80	S-95	S-80	FAIL	S-73	
+S-8	S-1	S-1	S-1	S-2	S-3	
+S-80	S-34	S-95	S-72	S-34	S-79	
+S-81	S-34	S-87	S-85	FAIL	S-84	
+S-82	S-62	S-87	S-62	S-87	S-69	
+S-83	S-87	S-87	S-87	FAIL	S-87	
+S-84	S-87	S-89	S-90	FAIL	S-81	
+S-85	S-87	S-82	S-62	FAIL	S-87	
+S-86	FAIL	FAIL	S-85	FAIL	S-85	
+S-87	S-62	S-82	S-62	S-67	S-90	
+S-88	S-62	S-89	S-82	FAIL	S-81	
+S-89	S-62	S-87	S-85	FAIL	S-83	
+S-9	S-6	S-100	S-55	FAIL	S-10	
+S-90	S-87	S-100	S-81	FAIL	S-87	
+S-91	S-96	S-99	S-99	S-99	S-92	
+S-92	S-100	S-100	S-99	FAIL	S-91	
+S-93	FAIL	FAIL	FAIL	FAIL	S-100	
+S-94	S-96	S-99	S-96	S-99	S-98	
+S-95	S-96	S-98	S-99	FAIL	S-99	
+S-96	S-91	S-98	S-99	S-99	S-98	
+S-97	S-99	S-99	S-94	FAIL	S-92	
+S-98	S-96	S-96	S-99	FAIL	S-92	
+S-99	S-96	S-94	S-96	S-91	S-92	
