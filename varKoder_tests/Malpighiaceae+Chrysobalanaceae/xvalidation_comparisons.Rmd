@@ -1,0 +1,549 @@
+---
+title: "VarKoder, Skmer and traditional barcoding Cross-validation"
+output: html_notebook
+---
+
+To compare the performance of varKode to [Skmer](https://github.com/shahab-sarmashghi/Skmer), we will use leave-one-out cross validation: we remove one sample from the dataset, train a varKode model or make a skmer reference with the remaining samples, and then use the sample left out as query. We then record whether or not we correctly identify this sample in varKoder, and whether or not the closest sample with Skmer has the same identification. 
+
+For traditional barcodes, we assembled the genome of each sample, and then used BLAST to search for each of the traditional barcode genes. We recorded if we could find this gene in the assembly, coding as missing data if we could not. We then recorded whether the best BLAST hit for a sample was the correct species.
+
+```{r}
+rm(list=ls())
+library(tidyverse)
+library(future)
+library(ggthemes)
+```
+# VarKoder
+For VarKoder, we used leave-one-out cross-validation to test the accuracy for family, genera, species in the joint Malpighiaceae-Chrysobalanaceae dataset. We used as input data varKodes produced from kmers of size 7 and 500Kbp to 200Mbp of data, or all of the data available if less than 200 Mbp. For each sample, we built a model using as input data from all other samples. Then we queried the sample left out, using as input the images generated from 500Kb to the total data available. Now we will summarize the results.
+
+
+## Accuracy vs data amount and taxonomic levels
+
+In this test, we used varKoder [v0.6.0](https://github.com/brunoasm/varKoder/releases/tag/v.0.6.0). Let's process the results.
+
+```{r}
+read_and_process_xval = function(infolder){
+  plan(multisession(workers = 4))
+varkoder_results = list.files(infolder,
+                                      'predictions.csv',
+                                      recursive=T,
+                                      full.names = T) %>%
+  furrr::future_map_dfr(~read_csv(.x) %>% mutate(sample_id = as.character(sample_id))) %>% 
+  select(-1) %>%
+  filter(str_detect(query_basepairs,'^0+[125]0+K$')) %>% #we will ignore queries that are not standardized sizes
+  rename(query_bp = query_basepairs) %>%
+  mutate(quality_included = T)
+plan(sequential)
+
+all_taxlabels = str_remove(varkoder_results$actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist %>% unique
+
+varkoder_results = varkoder_results %>%
+  mutate(query_labels = str_remove(actual_labels,";*low_quality:True;*") %>% str_split(';'),
+         predicted_list = str_split(predicted_labels,';')
+         ) %>%
+  rowwise() %>%
+  mutate(family_correct = query_labels[str_detect(query_labels,'family')] %in% predicted_list,
+         genus_correct = query_labels[str_detect(query_labels,'genus')] %in% predicted_list,
+         species_correct = ifelse(any(str_detect(query_labels,'species')),
+                                  query_labels[str_detect(query_labels,'species')] %in% predicted_list,
+                                  NA
+                                  ),
+         family_incorrect = any(!(predicted_list[str_detect(predicted_list,'family')] %in% query_labels[str_detect(query_labels,'family')])),
+         genus_incorrect = any(!(predicted_list[str_detect(predicted_list,'genus')] %in% query_labels[str_detect(query_labels,'genus')])),
+         species_incorrect = ifelse(any(str_detect(query_labels,'species')),
+                                  any(!(predicted_list[str_detect(predicted_list,'species')] %in% query_labels[str_detect(query_labels,'species')])),
+                                  NA
+                                  )
+         
+         )
+
+return(varkoder_results)
+}
+```
+
+
+```{r}
+summarize_results = function(res,level){
+  res = res %>%
+    ungroup() %>%
+    mutate(low_quality = str_detect(actual_labels,"low_quality:True"),
+           result = as.character(ifelse(res[,str_c(level,'correct',sep='_')] & !res[,str_c(level,'incorrect',sep='_')], 'correct',
+                           ifelse(res[,str_c(level,'correct',sep='_')] & res[,str_c(level,'incorrect',sep='_')], 'ambiguous',
+                                  ifelse(!res[,str_c(level,'correct',sep='_')]  & res[,str_c(level,'incorrect',sep='_')], 'incorrect',
+                                                 'inconclusive'
+                                  ))))
+           ) %>%
+    filter(!is.na(result)) %>%
+    group_by(query_bp,result) %>%
+    summarise(N=n(), .groups = 'drop') %>%
+    group_by(query_bp) %>%
+    mutate(p= N/sum(N)) %>%
+    mutate(query_bp = as.integer(str_remove(query_bp,'K'))*1000) %>%
+    ungroup() %>%
+    mutate(query_bp = as.factor(query_bp)) %>%
+    complete(query_bp,result, fill = list(p = 0, N = 0)) %>%
+    mutate(query_bp = as.numeric(as.character(query_bp))) %>%
+    ungroup()
+    
+  return(res)
+}
+```
+
+
+```{r}
+plot_area = function(sum_df, title, relative = FALSE, grid = TRUE){
+  sum_df = sum_df %>%
+    mutate(result = factor(result,ordered = T, levels = c('correct','ambiguous','inconclusive','incorrect'))) 
+  
+  # Get colors from a Color Brewer palette
+  brewer_colors <- RColorBrewer::brewer.pal(4, "Accent")
+  
+  if (relative) {
+    p1 = ggplot(sum_df, aes(x=query_bp,y=p,fill=result)) +
+    geom_area(position='stack') +
+    scale_fill_manual(values = setNames(brewer_colors, c("correct", "ambiguous", "inconclusive", "incorrect"))) +
+    scale_alpha_manual(values=c(0.5,1)) +
+    scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),breaks = unique(sum_df$query_bp))  +
+    scale_y_continuous() +
+    ggtitle(title) +
+    ylab('Fraction of samples') +
+    xlab('Base pairs in query images') +
+    theme_few() +
+    theme(axis.text.x = element_text(hjust=1,angle=45))
+  } else {
+      p1 = ggplot(sum_df, aes(x=query_bp,y=N,fill=result)) +
+    geom_area(position='stack') +
+    scale_fill_manual(values = setNames(brewer_colors, c("correct", "ambiguous", "inconclusive", "incorrect"))) +
+    scale_alpha_manual(values=c(0.5,1)) +
+    scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),breaks = unique(sum_df$query_bp))  +
+    ggtitle(title) +
+    ylab('Number of samples') +
+    xlab('Base pairs in query images') +
+    theme_few() +
+    theme(axis.text.x = element_text(hjust=1,angle=45))
+  }
+  
+  if (grid){
+    p1 = p1 +
+      scale_y_continuous(n.breaks = 10, minor_breaks = waiver()) +
+      theme(panel.background = element_rect(fill = NA),
+            panel.grid.major.y = element_line(colour = gray(0.5)),
+            panel.grid.minor.y = element_line(colour = gray(0.6),linetype = 2),
+            panel.ontop = TRUE)
+  }
+
+  
+  return(p1)
+}
+  
+```
+
+
+Now let's plot genus-level accuracy for a model taking quality labels into account:
+
+
+```{r, message = FALSE, warning = FALSE}
+results = read_and_process_xval('varKoder/fam_gen_sp_multi/vit_results/')
+summary_genus = summarize_results(results,'genus')
+p_genus = plot_area(summary_genus, 'varKoder genus', relative = TRUE)
+p_genus
+```
+Now the same but with species
+```{r}
+summary_species = summarize_results(results,'species')
+p_species = plot_area(summary_species, 'varKoder species', relative = TRUE)
+p_species
+```
+
+Finally, family
+```{r}
+summary_family = summarize_results(results,'family')
+p_family = plot_area(summary_family, 'varKoder family', relative = TRUE)
+p_family
+```
+## what explains the errors?
+
+Now we will try to identify which samples failed and why they failed. Particuarly, how do 
+DNA quality, amount of data, and the number of samples per class impact results? We will use genus-level predictions to test.
+
+```{r}
+genus_predictions = results %>%
+  mutate(predicted_genus = str_extract(predicted_labels, 'genus:[^;]*'),
+         actual_genus = str_extract(actual_labels, 'genus:[^;]*')) %>%
+  select(-starts_with('family'),-starts_with('species')) %>%
+  pivot_longer(cols = starts_with("genus"), names_to = "predicted_label", values_to = "confidence") %>%
+  filter(actual_genus == predicted_label) %>%
+  select(query_bp, sample_id, basefrequency_sd, actual_genus, confidence) %>%
+  mutate(query_bp = 1000*(str_remove(query_bp, "K") %>% as.integer))
+
+genus_predictions = genus_predictions %>%
+  select(sample_id, actual_genus) %>%
+  distinct() %>%
+  group_by(actual_genus) %>%
+  summarise(N_samples = n()) %>%
+  right_join(genus_predictions)
+
+genus_predictions
+```
+Now let's make some plots. First, what is the effect of number of samples per class in confidence?
+```{r}
+ggplot(genus_predictions, aes(x = N_samples, 
+                              y = confidence-0.0000001)) + 
+  scale_color_viridis_c() +
+  geom_point() + 
+  scale_x_log10() +
+  geom_jitter() +
+  #scale_y_continuous(trans = "logit") +
+  geom_smooth(method = "lm")
+```
+
+Now, what is the effect of sample quality in confidence?
+```{r}
+ggplot(genus_predictions, aes(x = basefrequency_sd, y = confidence-0.0000001)) + 
+  geom_point() + 
+  scale_x_log10() +
+  #scale_y_continuous(trans = "logit") +
+  geom_smooth()
+```
+
+Now, what is the effect of amount of data in confidence?
+```{r}
+ggplot(genus_predictions, aes(x = query_bp, y = confidence-0.0000001)) + 
+  geom_point() + 
+  scale_x_log10() +
+  geom_jitter() +
+  #scale_y_continuous(trans = "logit") +
+  geom_smooth(method = 'lm')
+```
+
+Let's put it all together now in a linear model:
+
+```{r}
+lm_data = genus_predictions %>%
+  mutate(confidence = ifelse(confidence == 1, confidence-0.0000001, confidence),
+         confidence = car::logit(confidence)) %>%
+  mutate(query_bp = (query_bp - mean(query_bp))/sd(query_bp),
+         basefrequency_sd = (basefrequency_sd - mean(basefrequency_sd))/sd(basefrequency_sd),
+         N_samples = (N_samples - mean(N_samples))/sd(N_samples)
+         ) 
+
+full_model = lm(formula = confidence~query_bp*basefrequency_sd*N_samples, data = lm_data) 
+full_model
+summary(full_model)
+plot(full_model)
+```
+
+```{r}
+reduced_model = step(full_model, direction ="both")
+reduced_model
+summary(reduced_model)
+plot(reduced_model)
+```
+
+
+
+
+
+## Skmer
+
+For skmer, we left each sample out, built a reference and then queried that sample. We have several files in which reference samples are ordered by their distance to the query, we here we will evaluate whether the closest sample is from the correct species or genus.
+
+Because it is not clear how skmer behaves for different levels of coverage, we repeated this for several input sizes (in number of basepairs) as query, but always used the maximum input dize available (up to 200Mb) for references.
+
+Let's make a function that extracts these results as a table.
+
+```{r}
+
+samp_labels = results %>% select(sample_id,actual_labels) %>% distinct()
+
+extract_skmer_results = function(file_path) {
+    # Read only the first 2 lines of the file
+    file_lines <- readLines(file_path, n = 2)
+    
+    # Extract sample_ID, basepairs from the first line
+    sample_info <- str_match(file_lines[1], "\\s*(.*?)@(\\d+K)")[, 2:3]
+    sample_ID <- sample_info[1]
+    basepairs <- sample_info[2]
+    
+    # Extract reference_sample_ID, distance from the second line
+    reference_info <- str_match(file_lines[2], "\\s*(.*?)@.*\\s+(\\d+\\.\\d+)")[, 2:3]
+    reference_sample_ID <- reference_info[1]
+    distance <- as.numeric(reference_info[2])
+    
+    # Create a tibble
+    tibble(
+        sample_id = sample_ID,
+        query_bp = basepairs,
+        closest_reference_sample_id = reference_sample_ID,
+        closest_distance = distance
+    ) 
+}
+```
+
+Now we will apply this function to all skmer output files.
+
+```{r}
+plan(multisession(workers = 4))
+skmer_results_df = furrr::future_map_dfr(
+  list.files('./skmer/fam_gen_sp_multi/skmer_xval_results/', full.names = T),
+  ~ extract_skmer_results(.x)
+) %>%
+  left_join(samp_labels, by = 'sample_id') %>%
+  left_join(
+    samp_labels %>% select(
+      closest_reference_sample_id = 'sample_id',
+      predicted_labels = actual_labels
+    ),
+    by = 'closest_reference_sample_id'
+  ) %>%
+  mutate(
+    query_labels = str_remove(actual_labels, ";*low_quality:True;*") %>% str_split(';'),
+    predicted_list = str_split(predicted_labels, ';')
+  ) %>%
+  rowwise() %>%
+  mutate(
+    family_correct = query_labels[str_detect(query_labels, 'family')] %in% predicted_list,
+    genus_correct = query_labels[str_detect(query_labels, 'genus')] %in% predicted_list,
+    species_correct = ifelse(any(str_detect(
+      query_labels, 'species'
+    )),
+    query_labels[str_detect(query_labels, 'species')] %in% predicted_list,
+    NA),
+    family_incorrect = any(!(predicted_list[str_detect(predicted_list, 'family')] %in% query_labels[str_detect(query_labels, 'family')])),
+    genus_incorrect = any(!(predicted_list[str_detect(predicted_list, 'genus')] %in% query_labels[str_detect(query_labels, 'genus')])),
+    species_incorrect = ifelse(any(str_detect(
+      query_labels, 'species'
+    )),
+    any(!(
+      predicted_list[str_detect(predicted_list, 'species')] %in% query_labels[str_detect(query_labels, 'species')]
+    )),
+    NA)
+    
+  )
+plan(sequential)
+skmer_results_df
+```
+Now let's summarize and plot by genus:
+
+```{r}
+skmer_summary_genus = summarize_results(skmer_results_df,'genus')
+p_skmer_genus = plot_area(skmer_summary_genus, 'Skmer genus', relative = TRUE)
+p_skmer_genus
+```
+Now by species. In Skmer, there is no inconclusive result: if there is no correct species prediction, it means that a sample was predicted in the wrong genus and therefore it is incorrect
+
+```{r}
+skmer_summary_species = summarize_results(skmer_results_df,'species') %>%
+  mutate(result = ifelse(result == 'correct', 'correct','incorrect')) %>%
+  group_by(query_bp,result) %>%
+  summarise_all(sum)
+p_skmer_species = plot_area(skmer_summary_species, 'Skmer species', relative = TRUE)
+p_skmer_species
+```
+
+And now by family:
+
+```{r}
+skmer_summary_family = summarize_results(skmer_results_df,'family')
+skmer_summary_family 
+p_skmer_family = plot_area(skmer_summary_family, 'Skmer family', relative = TRUE)
+p_skmer_family
+```
+
+# Traditional barcodes
+
+
+
+# Direct comparison
+
+Now let's compare methods side by side. For genus level:
+```{r}
+cowplot::plot_grid(p_genus, p_skmer_genus)
+```
+Now for species level:
+```{r}
+cowplot::plot_grid(p_species, p_skmer_species)
+```
+Now for family level:
+```{r}
+cowplot::plot_grid(p_family, p_skmer_family)
+```
+
+# Comparison of run times
+
+Now let's compare the time to produce references and to produce 
+
+# SRA
+
+Finally, let's summarize results for the whole SRA dataset. In this case, we only have varKoder since Skmer cannot finish and traditional barcodes are inapplicable.
+
+```{r}
+varKoder_SRA_results  = read_csv('varKoder/all_SRA/varkoder_query_results/predictions.csv') %>%
+select(-1) %>%
+  filter(str_detect(query_basepairs,'^0+[125]0+K$')) %>% #we will ignore queries that are not standardized sizes
+  rename(query_bp = query_basepairs) %>%
+  mutate(quality_included = T)
+plan(sequential)
+
+SRA_taxlabels = str_remove(varKoder_SRA_results$actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist %>% unique
+
+varKoder_SRA_results = varKoder_SRA_results %>%
+  mutate(query_labels = str_remove(actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist,
+         predicted_list = str_split(predicted_labels,';')
+         ) %>%
+  rowwise() %>%
+  mutate(family_correct = query_labels %in% predicted_list,
+         family_incorrect = ifelse(is.na(predicted_labels),FALSE,any(!(predicted_list %in% query_labels)))) %>%
+ select(matches("^[^0-9]"))
+
+varKoder_SRA_results 
+         
+```
+
+Now let's summarize and plot:
+
+```{r}
+SRA_summary_family = summarize_results(varKoder_SRA_results,'family')
+SRA_summary_family
+
+N_samp = SRA_summary_family %>%
+ group_by(query_bp) %>%
+ summarise(N = sum(N))
+
+p_SRA_family = plot_area(SRA_summary_family, 'varKoder SRA family', relative = TRUE) 
+p_SRA_family 
+```
+Let's now do the SRA plot, but splitting by kingdom:
+
+
+
+# Generating numbers for publication
+
+Here we just query our results to get a few figures that we report in the paper.
+
+Total number of samples used in cross-validation:
+```{r}
+dim(samp_labels)
+```
+
+Number of Stigmaphyllon samples with each kind of error for varkoder:
+```{r}
+summary_species
+```
+
+Number of Stigmaphyllon samples with each kind of error for skmer:
+```{r}
+skmer_summary_species
+```
+varKoder accuracy for genera:
+```{r}
+summary_genus
+```
+varKoder accuracy for family:
+```{r}
+summary_family
+```
+
+
+
+Skmer accuracy for genera:
+```{r}
+skmer_summary_genus
+```
+
+Skmer accuracy for family:
+```{r}
+skmer_summary_family
+```
+
+
+Number of samples available for each genus and data amount
+```{r}
+results %>%
+  mutate(genus = str_extract(actual_labels,"(?<=genus:)[^;]+")) %>%
+  group_by(query_bp) %>%
+  summarize(N=n()) %>%
+  complete()
+```
+Plot number of samples for supplementary material.
+
+```{r}
+n_samples_genera = results %>%
+  mutate(taxon = str_extract(actual_labels,"(?<=genus:)[^;]+")) %>%
+  group_by(taxon, query_bp) %>%
+  summarize(N=n()) %>%
+  ungroup() %>%
+  complete(taxon, query_bp, fill = list(N=0))
+n_samples_genera 
+
+n_samples_species = results %>%
+  mutate(taxon = str_extract(actual_labels,"(?<=species:)[^;]+")) %>%
+  filter(!is.na(taxon)) %>%
+  group_by(taxon, query_bp) %>%
+  summarize(N=n()) %>%
+  ungroup() %>%
+  complete(taxon, query_bp, fill = list(N=0))
+n_samples_species 
+
+n_samples_SRA = varKoder_SRA_results %>%
+  mutate(taxon = as.character(actual_labels)) %>%
+  group_by(taxon, query_bp) %>%
+  summarize(N=n()) %>%
+  ungroup() %>%
+  complete(taxon, query_bp, fill = list(N=0))
+n_samples_SRA 
+```
+```{r}
+plot_Nsamples_area = function(df, title){
+  df = df %>% 
+    mutate(query_bp = parse_number(query_bp) *1000)
+  
+  n_levels <- length(unique(df$taxon))
+  viridis_colors <- viridis::turbo(n_levels)
+  
+  half_n <- ceiling(n_levels / 2)
+  reordered_colors <- c(rbind(viridis_colors[1:half_n], viridis_colors[(half_n + 1):n_levels]))
+
+
+  
+  
+  ggplot(df, aes(x=query_bp,y=N,fill=taxon, color = taxon, group = taxon)) +
+    geom_area(position= position_stack()) +
+    #geom_line(position='stack') +
+    scale_fill_manual(values = reordered_colors, 
+                      aesthetics = c('colour','fill'),
+                      guide = 'none') +
+    scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),
+                  breaks = 1000*parse_number(unique(n_samples_genera$query_bp)),
+                  limits = 1000*range(parse_number(unique(n_samples_genera$query_bp))))  +
+    scale_y_continuous(n.breaks = 10, minor_breaks = waiver()) +
+    ggtitle(title) +
+    ylab('Number of samples') +
+    xlab('Base pairs in query images') +
+    theme_few() +
+    theme(axis.text.x = element_text(hjust=1,angle=45),
+          panel.background = element_rect(fill = NA),
+            panel.grid.major.y = element_line(colour = gray(0.5)),
+            panel.grid.minor.y = element_line(colour = gray(0.6),linetype = 2),
+            panel.ontop = TRUE)
+}
+```
+
+```{r}
+N_species = plot_Nsamples_area(n_samples_species,title='Stigmaphyllon Species')
+N_genera = plot_Nsamples_area(n_samples_genera,title='Maplighiaceae and Chrysobalanaceae Genera')
+N_families = plot_Nsamples_area(n_samples_SRA,title='SRA familes')
+
+cowplot::plot_grid(N_genera,N_species,N_families, nrow = 1)
+```
+
+Total number of SRA samples. Validation:
+```{r}
+read_csv('varKoder/all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
+  group_by(is_valid) %>%
+  summarise(N = n())
+```
+
+
+
+
