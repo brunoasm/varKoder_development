@@ -1,0 +1,57 @@
+JobId=43011445 JobName=1_download_entrez_data.sh
+   UserId=souzademedeiros(57648) GroupId=farrell_lab(34759) MCS_label=N/A
+   Priority=3429 Nice=0 Account=farrell_lab QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:31 TimeLimit=08:00:00 TimeMin=N/A
+   SubmitTime=2023-02-19T18:39:29 EligibleTime=2023-02-19T18:39:29
+   AccrueTime=2023-02-19T18:39:29
+   StartTime=2023-02-19T18:39:30 EndTime=2023-02-20T02:39:30 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2023-02-19T18:39:30 Scheduler=Main
+   Partition=test AllocNode:Sid=boslogin01:36064
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=holy7c24603
+   BatchHost=holy7c24603
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=10G,node=1,billing=3
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=10G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez_data.sh
+   WorkDir=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA
+   StdErr=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez.43011445.out
+   StdIn=/dev/null
+   StdOut=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez.43011445.out
+   Power=
+   
+
+xargs: argument line too long
+JobId=43011445 JobName=1_download_entrez_data.sh
+   UserId=souzademedeiros(57648) GroupId=farrell_lab(34759) MCS_label=N/A
+   Priority=3429 Nice=0 Account=farrell_lab QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=02:00:31 TimeLimit=08:00:00 TimeMin=N/A
+   SubmitTime=2023-02-19T18:39:29 EligibleTime=2023-02-19T18:39:29
+   AccrueTime=2023-02-19T18:39:29
+   StartTime=2023-02-19T18:39:30 EndTime=2023-02-20T02:39:30 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2023-02-19T18:39:30 Scheduler=Main
+   Partition=test AllocNode:Sid=boslogin01:36064
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=holy7c24603
+   BatchHost=holy7c24603
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=10G,node=1,billing=3
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=10G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez_data.sh
+   WorkDir=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA
+   StdErr=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez.43011445.out
+   StdIn=/dev/null
+   StdOut=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/all_SRA/1_download_entrez.43011445.out
+   Power=
+   
+

@@ -1,0 +1,547 @@
+---
+title: "VarKoder and Skmer all SRA"
+output: html_notebook
+---
+
+Here we use varKoder and [Skmer](https://github.com/shahab-sarmashghi/Skmer) on all families in SRA and check their accuracies
+
+```{r}
+library(tidyverse)
+library(future)
+library(ggthemes)
+```
+
+
+## Read data
+```{r}
+varkoder_summary = read_csv('varkoder_query_results/predictions.csv') %>%
+   mutate(query_id = str_extract(varKode_image_path,"(?<=/)[^+]+"),
+         correct = query_id == best_pred_label,
+         high_confidence = best_pred_prob > 0.7,
+         query_bp = as.integer(str_remove(query_basepairs,'K'))*1000
+         ) %>%
+  group_by(query_bp,query_kmer_len,correct,high_confidence) %>%
+  summarise(N=n()) %>%
+  group_by(query_bp,query_kmer_len) %>%
+  mutate(p= N/sum(N))
+varkoder_summary
+```
+
+
+
+
+
+Let's now visualize as an area graph:
+
+```{r}
+p1 = ggplot(varkoder_summary, 
+               aes(x=query_bp,y=p,fill=correct,alpha=high_confidence)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual') +
+  scale_alpha_manual(values=c(0.5,1)) +
+  scale_x_log10(labels = scales::label_number_si(),breaks = unique(varkoder_summary$query_bp))  +
+  scale_y_continuous(limits=c(0,1),breaks=seq(0,1,0.1)) +
+  ggtitle('varKoder SRA familes') +
+  ylab('Fraction of samples') +
+  xlab('Base pairs in query images') +
+  theme_few() +
+  theme(axis.text.x = element_text(hjust=1,angle=45))
+
+p1
+```
+
+
+
+
+
+## Skmer
+
+
+
+For skmer, we left each sample out, built a reference and then queried that sample. We have several files in which reference samples are ordered by their distance to the query, we here we will evaluate whether the closest sample is from the correct species.
+
+Because it is not clear how skmer behaves for different levels of coverage, we repeated this for several input sizes (in number of basepairs), using the same input files that we used in varKode.
+
+Here we will first read all outputs from skmer and process them into a table. Then we will plot the accuracy for each combination of number of basepairs used for reference and for queries.
+
+Now let's make a function that given a skmer output file path returns name of sample, name of species, base pairs used in query, base pairs used in reference, predicted species, whether prediction is correct.
+
+```{r}
+extract_skmer_results = function(inpath){
+  species_sample = str_replace(inpath,'.+--(.+)_0.+','\\1')
+  
+  tibble(
+    ref_bp = as.integer(str_extract(inpath,'r[0-9]+K') %>% str_remove_all('[rKk]')) / 1000,
+    query_bp = as.integer(str_extract(inpath,'@[0-9]+[k]') %>% str_remove_all('[@kK]')) / 1000,
+    species = str_extract(inpath,'(?<=--)[^+]+') %>% str_replace('s','S'),
+    sample = str_extract(species_sample,'(?<=\\+)[^+@]*(?=@)') %>% str_replace('s','S'),
+    query_id = read_lines(inpath,skip=1,n_max=1) %>% str_replace('(.+)\\+.+','\\1')
+  ) %>%
+    mutate(correct = species == query_id)
+}
+```
+
+Now we will apply this function to all skmer output files.
+
+```{r}
+plan(multisession(workers = 4))
+species_skmer_df = furrr::future_map_dfr(list.files('./skmer/species/skmer_xval_results/', full.names = T), 
+                         ~extract_skmer_results(.x)) #%>%
+ # mutate(ref_bp = factor(as.character(ref_bp), 
+ #                          levels=sort(unique(ref_bp)), 
+ #                          ordered = TRUE),
+ #        query_bp = factor(as.character(query_bp), 
+ #                          levels=sort(unique(query_bp)), 
+ #                          ordered = TRUE))
+  
+plan(sequential)
+species_skmer_df
+```
+Now let's summarize the proportion correct and incorrect by kmer length, number of basepairs and query ID:
+
+```{r}
+species_skmer_summary = species_skmer_df %>%
+  mutate(ref_bp = ref_bp * 1000000,
+         query_bp = query_bp * 1000000
+         ) %>%
+  #filter(query_bp != 500000, ref_bp != 500000) %>%
+  group_by(query_bp,ref_bp,correct) %>%
+  summarise(N=n()) %>%
+  group_by(query_bp,ref_bp) %>%
+  mutate(p = N/sum(N))
+
+species_skmer_summary
+```
+
+Let's do an area graph and wrap by ref_bp
+```{r}
+p2 = species_skmer_summary  %>%
+  filter(ref_bp %in% c(5e+05,1e+07,2e+08)) %>%
+  ggplot(aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  facet_wrap(~ref_bp) +
+  scale_fill_brewer(type = 'qual') +
+  scale_alpha_manual(values=c(0.5,1)) +
+  scale_x_log10(labels = scales::label_number_si(),breaks = unique(species_varkoder_summary$query_bp))  +
+  scale_y_continuous(limits=c(0,1),breaks=seq(0,1,0.1)) +
+  ggtitle('Skmer species') +
+  ylab('Fraction of samples') +
+  xlab('Base pairs in query images') +
+  theme_few() +
+  theme(axis.text.x = element_text(hjust=1,angle=45))
+
+
+p2
+```
+
+```{r}
+cowplot::plot_grid(p1,p2,ncol=2,align = 'hv',axis = 'lrtb')
+```
+
+Now let's redo this but prettier for publication.
+
+```{r}
+varkoder_p =  ggplot(species_varkoder_summary, 
+               aes(x=query_bp,y=p,fill=correct,alpha=high_confidence)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_alpha_manual(values=c(0.5,1), guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp), 
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  theme(axis.text = element_text(size=6),
+        axis.text.x = element_text(hjust=1,angle=45),
+        title = element_blank(),
+        axis.title = element_blank(),
+        )
+
+varkoder_p
+
+```
+```{r}
+skmer_low_p =  ggplot(species_skmer_summary %>% filter(ref_bp == 500000), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n500Kbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_low_p
+
+```
+
+```{r}
+skmer_mid_p =  ggplot(species_skmer_summary %>% filter(ref_bp == 1e+07), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n10Mbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_mid_p
+
+```
+
+```{r}
+skmer_high_p =  ggplot(species_skmer_summary %>% filter(ref_bp == 2e+08), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n200Mbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_high_p
+
+```
+
+
+Let's try now to plot each one as a separate graph, with the legend outside we will also leave space for 3 more graphs for traditional barcodes
+
+```{r}
+p1 = cowplot::plot_grid(cowplot::ggdraw() + cowplot::draw_plot_label("varKoder", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        cowplot::ggdraw() + cowplot::draw_plot_label("Skmer", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        cowplot::ggdraw() + cowplot::draw_plot_label("Traditional barcodes", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        rel_widths = c(2,3,3),
+                        nrow = 1
+                        )
+
+p2 = cowplot::plot_grid(varkoder_p,skmer_low_p,skmer_mid_p,skmer_high_p,skmer_low_p,skmer_mid_p,skmer_high_p,nrow=1,rel_widths = c(2,1,1,1,1,1,1),align = 'hv',axis = 'tblr')
+
+p = cowplot::plot_grid(p1,p2,ncol=1, rel_heights = c(0.1,1))
+
+p
+```
+
+Let's now plot to a pdf
+```{r}
+dir.create('graphs',showWarnings = F)
+ggsave(filename = 'species.pdf',plot = p,device='pdf',path = 'graphs',width = 7,height = 2,units = 'in')
+```
+
+
+
+## Genus
+
+
+### VarKoder
+For VarKoder, we did the test both with a kmer size of 7 and also of 9, for genera and species. For each sample, we built a model using as input data from all other samples, from 500Kb to the total data available. Then we queried the sample left out, using as input images generated from 500Kb to the total data available. Now we will summarise the results
+
+Let's start by reading the results.
+```{r}
+plan(multisession(workers = 4))
+genus_varkoder_results = list.files('varKoder/xval/genus/results/',
+                                      'predictions.csv',
+                                      recursive=T,
+                                      full.names = T) %>%
+  furrr::future_map_dfr(read_csv) %>% 
+  select(-1) %>%
+  rename(query_bp = query_basepairs) %>%
+  filter(query_kmer_len == 'k7')
+plan(sequential)
+genus_varkoder_results
+```
+Now let's summarize by kmer length, number of basepairs and query ID:
+
+```{r}
+genus_varkoder_summary = genus_varkoder_results %>%
+  mutate(query_id = str_extract(varKode_image_path,"(?<=/)[^+]+"),
+         correct = query_id == best_pred_label,
+         high_confidence = best_pred_prob > 0.7) %>%
+  group_by(query_bp,query_kmer_len,correct,high_confidence) %>%
+  summarise(N=n()) %>%
+  group_by(query_bp,query_kmer_len) %>%
+  mutate(p= N/sum(N)) %>%
+  mutate(query_bp = as.integer(str_remove(query_bp,'K'))*1000)
+
+genus_varkoder_summary
+```
+
+It is a little hard to visualize like this, how about we do lines?
+
+
+```{r}
+p1 = ggplot(genus_varkoder_summary, 
+               aes(x=query_bp,y=p,fill=correct,alpha=high_confidence)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual') +
+  scale_alpha_manual(values=c(0.5,1)) +
+  scale_x_log10(labels = scales::label_number_si(),breaks = unique(genus_varkoder_summary$query_bp))  +
+  scale_y_continuous(limits=c(0,1),breaks=seq(0,1,0.1)) +
+  ggtitle('varKoder genus') +
+  ylab('Fraction of samples') +
+  xlab('Base pairs in query images') +
+  theme_few()
+
+p1
+```
+
+
+
+
+## Skmer
+
+
+
+For skmer, we left each sample out, built a reference and then queried that sample. We have several files in which reference samples are ordered by their distance to the query, we here we will evaluate whether the closest sample is from the correct species.
+
+Because it is not clear how skmer behaves for different levels of coverage, we repeated this for several input sizes (in number of basepairs), using the same input files that we used in varKode.
+
+Here we will first read all outputs from skmer and process them into a table. Then we will plot the accuracy for each combination of number of basepairs used for reference and for queries.
+
+Now let's make a function that given a skmer output file path returns name of sample, name of species, base pairs used in query, base pairs used in reference, predicted species, whether prediction is correct.
+
+```{r}
+extract_skmer_results = function(inpath){
+  species_sample = str_replace(inpath,'.+--(.+)_0.+','\\1')
+  
+  tibble(
+    ref_bp = as.integer(str_extract(inpath,'r[0-9]+K') %>% str_remove_all('[rKk]')) / 1000,
+    query_bp = as.integer(str_extract(inpath,'@[0-9]+[k]') %>% str_remove_all('[@kK]')) / 1000,
+    species = str_extract(inpath,'(?<=--)[^+]+') %>% str_to_title(),
+    sample = str_extract(species_sample,'(?<=\\+)[^+@]*(?=@)') %>% str_replace('s','S'),
+    query_id = read_lines(inpath,skip=1,n_max=1) %>% str_replace('(.+)\\+.+','\\1')
+  ) %>%
+    mutate(correct = species == query_id)
+}
+```
+
+Now we will apply this function to all skmer output files.
+
+```{r}
+plan(multisession(workers = 4))
+genus_skmer_df = furrr::future_map_dfr(list.files('./skmer/genus/skmer_xval_results/', full.names = T), 
+                         ~extract_skmer_results(.x)) #%>%
+ # mutate(ref_bp = factor(as.character(ref_bp), 
+ #                          levels=sort(unique(ref_bp)), 
+ #                          ordered = TRUE),
+ #        query_bp = factor(as.character(query_bp), 
+ #                          levels=sort(unique(query_bp)), 
+ #                          ordered = TRUE))
+  
+plan(sequential)
+genus_skmer_df
+```
+Now let's summarize by kmer length, number of basepairs and query ID:
+
+```{r}
+genus_skmer_summary = genus_skmer_df %>%
+  mutate(ref_bp = ref_bp * 1000000,
+         query_bp = query_bp * 1000000
+         ) %>%
+  #filter(query_bp != 500000, ref_bp != 500000) %>%
+  group_by(query_bp,ref_bp,correct) %>%
+  summarise(N=n()) %>%
+  group_by(query_bp,ref_bp) %>%
+  mutate(p = N/sum(N)) %>%
+  ungroup() %>%
+  complete(query_bp,ref_bp,correct,fill=list('N'=0,'p'=0)) %>%
+  filter(ref_bp <= 20000000, query_bp <= 20000000)
+
+genus_skmer_summary
+```
+
+
+Again, let's try with lines:
+```{r}
+p2 = genus_skmer_summary  %>%
+  filter(ref_bp %in% c(5e+05,1e+07,2e+08)) %>%
+  ggplot(aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  facet_wrap(~ref_bp) +
+  scale_fill_brewer(type = 'qual') +
+  scale_alpha_manual(values=c(0.5,1)) +
+  scale_x_log10(labels = scales::label_number_si(),breaks = unique(species_varkoder_summary$query_bp))  +
+  scale_y_continuous(limits=c(0,1),breaks=seq(0,1,0.1)) +
+  ggtitle('Skmer genus') +
+  ylab('Fraction of samples') +
+  xlab('Base pairs in query images') +
+  theme_few() +
+  theme(axis.text.x = element_text(hjust=1,angle=45))
+
+
+p2
+```
+
+```{r}
+cowplot::plot_grid(p1,p2,ncol=2,align = 'hv',axis='lrtb')
+```
+
+Now let's make a pretty plot for publication
+
+```{r}
+varkoder_p =  ggplot(genus_varkoder_summary, 
+               aes(x=query_bp,y=p,fill=correct,alpha=high_confidence)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_alpha_manual(values=c(0.5,1), guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp), 
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  theme(axis.text = element_text(size=6),
+        axis.text.x = element_text(hjust=1,angle=45),
+        title = element_blank(),
+        axis.title = element_blank(),
+        )
+
+varkoder_p
+
+```
+```{r}
+skmer_low_p =  ggplot(genus_skmer_summary %>% filter(ref_bp == 500000), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n500Kbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_low_p
+
+```
+
+```{r}
+skmer_mid_p =  ggplot(genus_skmer_summary %>% filter(ref_bp == 1e+07), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n10Mbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_mid_p
+
+```
+
+```{r}
+skmer_high_p =  ggplot(genus_skmer_summary %>% filter(ref_bp == 2e+08), 
+               aes(x=query_bp,y=p,fill=correct)) +
+  geom_area(position='stack') +
+  scale_fill_brewer(type = 'qual', guide = 'none') +
+  scale_x_log10(labels = scales::label_number_si(),
+                breaks = unique(species_varkoder_summary$query_bp),
+                expand=c(0,0))  +
+  scale_y_continuous(limits=c(0,1),
+                     breaks=seq(0,1,0.1),
+                     expand=c(0,0)) +
+  theme_few() +
+  ggtitle('references:\n200Mbp') +
+  theme(axis.text = element_text(size=6),
+        title = element_text(size=5),
+        axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        )
+
+skmer_high_p
+
+```
+
+
+Let's try now to plot each one as a separate graph, with the legend outside we will also leave space for 3 more graphs for traditional barcodes
+
+```{r}
+p1 = cowplot::plot_grid(cowplot::ggdraw() + cowplot::draw_plot_label("varKoder", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        cowplot::ggdraw() + cowplot::draw_plot_label("Skmer", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        cowplot::ggdraw() + cowplot::draw_plot_label("Traditional barcodes", 
+                                                                     x = 0.5,
+                                                                     hjust = 0.5,
+                                                                     fontface = "bold", 
+                                                                     size = 10),
+                        rel_widths = c(2,3,3),
+                        nrow = 1
+                        )
+
+p2 = cowplot::plot_grid(varkoder_p,skmer_low_p,skmer_mid_p,skmer_high_p,skmer_low_p,skmer_mid_p,skmer_high_p,nrow=1,rel_widths = c(2,1,1,1,1,1,1),align = 'hv',axis = 'tblr')
+
+p = cowplot::plot_grid(p1,p2,ncol=1, rel_heights = c(0.1,1))
+
+p
+```
+
+Let's now plot to a pdf
+```{r}
+dir.create('graphs',showWarnings = F)
+ggsave(filename = 'genera.pdf',plot = p,device='pdf',path = 'graphs',width = 7,height = 2,units = 'in')
+```
+
+

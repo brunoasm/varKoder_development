@@ -1,0 +1,1511 @@
+Kmer size: 7
+Processing reads and preparing images
+Reading input data
+Skipping cleaning for ERR004650: File exists.
+Splitting fastqs for ERR004650
+Skipping cleaning for ERR339442: File exists.
+Splitting fastqs for ERR339442
+Skipping cleaning for ERR5529307: File exists.
+Splitting fastqs for ERR5529307
+Skipping cleaning for ERR5554881: File exists.
+Splitting fastqs for ERR5554881
+Skipping cleaning for ERR845300: File exists.
+Splitting fastqs for ERR845300
+Skipping cleaning for SRR1006224: File exists.
+Splitting fastqs for SRR1006224
+Skipping cleaning for SRR10405219: File exists.
+Splitting fastqs for SRR10405219
+Skipping cleaning for SRR11171685: File exists.
+Splitting fastqs for SRR11171685
+Skipping cleaning for SRR11578714: File exists.
+Splitting fastqs for SRR11578714
+Skipping cleaning for SRR12123459: File exists.
+Splitting fastqs for SRR12123459
+Skipping cleaning for SRR12574443: File exists.
+Splitting fastqs for SRR12574443
+Skipping cleaning for SRR12917855: File exists.
+Splitting fastqs for SRR12917855
+Skipping cleaning for SRR13271222: File exists.
+Splitting fastqs for SRR13271222
+Skipping cleaning for SRR13695370: File exists.
+Splitting fastqs for SRR13695370
+Skipping cleaning for SRR14200838: File exists.
+Splitting fastqs for SRR14200838
+Skipping cleaning for SRR14663312: File exists.
+Splitting fastqs for SRR14663312
+Skipping cleaning for SRR15257174: File exists.
+Splitting fastqs for SRR15257174
+Skipping cleaning for SRR15858706: File exists.
+Splitting fastqs for SRR15858706
+Skipping cleaning for SRR16319728: File exists.
+Splitting fastqs for SRR16319728
+Skipping cleaning for SRR17160017: File exists.
+Splitting fastqs for SRR17160017
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR10405219.fq.gz
+Cleaning and splitting reads done for SRR10405219
+Counting kmers and creating images for SRR10405219
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578714.fq.gz
+Cleaning and splitting reads done for SRR11578714
+Counting kmers and creating images for SRR11578714
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11171685.fq.gz
+Cleaning and splitting reads done for SRR11171685
+Counting kmers and creating images for SRR11171685
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR004650.fq.gz
+Cleaning and splitting reads done for ERR004650
+Counting kmers and creating images for ERR004650
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR004650@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171685@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171685@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578714@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578714@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405219@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578714@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR004650@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405219@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405219@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405219@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405219@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171685@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578714@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR004650@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578714@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171685@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR004650@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171685@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR004650@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12574443.fq.gz
+Cleaning and splitting reads done for SRR12574443
+Counting kmers and creating images for SRR12574443
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5529307.fq.gz
+Cleaning and splitting reads done for ERR5529307
+Counting kmers and creating images for ERR5529307
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR845300.fq.gz
+Cleaning and splitting reads done for ERR845300
+Counting kmers and creating images for ERR845300
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12917855.fq.gz
+Cleaning and splitting reads done for SRR12917855
+Counting kmers and creating images for SRR12917855
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14200838.fq.gz
+Cleaning and splitting reads done for SRR14200838
+Counting kmers and creating images for SRR14200838
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529307@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529307@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529307@00002000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12123459.fq.gz
+Cleaning and splitting reads done for SRR12123459
+Counting kmers and creating images for SRR12123459
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529307@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529307@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12574443@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR845300@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR845300@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12574443@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12574443@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12574443@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12574443@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR845300@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR845300@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR845300@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12917855@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12917855@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12917855@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12917855@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12917855@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200838@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200838@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200838@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200838@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200838@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123459@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123459@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123459@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123459@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123459@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13695370.fq.gz
+Cleaning and splitting reads done for SRR13695370
+Counting kmers and creating images for SRR13695370
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1006224.fq.gz
+Cleaning and splitting reads done for SRR1006224
+Counting kmers and creating images for SRR1006224
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5554881.fq.gz
+Cleaning and splitting reads done for ERR5554881
+Counting kmers and creating images for ERR5554881
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695370@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695370@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695370@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR16319728.fq.gz
+Cleaning and splitting reads done for SRR16319728
+Counting kmers and creating images for SRR16319728
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695370@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695370@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006224@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006224@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006224@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554881@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006224@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554881@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006224@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554881@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554881@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554881@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13271222.fq.gz
+Cleaning and splitting reads done for SRR13271222
+Counting kmers and creating images for SRR13271222
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15858706.fq.gz
+Cleaning and splitting reads done for SRR15858706
+Counting kmers and creating images for SRR15858706
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16319728@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16319728@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16319728@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16319728@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16319728@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13271222@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13271222@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13271222@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13271222@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13271222@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15858706@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15858706@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15858706@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15858706@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15858706@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12917855@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006224@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR004650@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695370@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171685@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12574443@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554881@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529307@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123459@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR845300@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16319728@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200838@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405219@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578714@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15858706@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13271222@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12917855@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12574443@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171685@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR004650@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529307@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554881@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695370@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006224@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123459@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200838@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR845300@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405219@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16319728@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15858706@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12574443@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR004650@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171685@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529307@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12917855@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13271222@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554881@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578714@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695370@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006224@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123459@00000500K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15257174.fq.gz
+Cleaning and splitting reads done for SRR15257174
+Counting kmers and creating images for SRR15257174
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200838@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR845300@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14663312.fq.gz
+Cleaning and splitting reads done for SRR14663312
+Counting kmers and creating images for SRR14663312
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405219@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12574443@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171685@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16319728@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR004650@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15858706@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529307@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12917855@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554881@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006224@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13271222@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123459@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695370@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200838@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578714@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR845300@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257174@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR004650@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405219@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257174@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529307@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257174@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15858706@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16319728@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14663312@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171685@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257174@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12574443@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14663312@00001000K.fq.gz
+Images done for ERR004650
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14663312@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257174@00010000K.fq.gz
+Skipping cleaning for ERR032950: File exists.
+Splitting fastqs for ERR032950
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12917855@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554881@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14663312@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14663312@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006224@00010000K+k7.fq.h5
+Images done for SRR11171685
+Images done for SRR12574443
+Skipping cleaning for SRR11171691: File exists.
+Splitting fastqs for SRR11171691
+Skipping cleaning for SRR12576810: File exists.
+Splitting fastqs for SRR12576810
+Images done for ERR5529307
+Skipping cleaning for ERR5529313: File exists.
+Splitting fastqs for ERR5529313
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123459@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695370@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13271222@00001000K+k7.fq.h5
+Images done for SRR1006224
+Skipping cleaning for SRR1006226: File exists.
+Splitting fastqs for SRR1006226
+Images done for SRR12917855
+Skipping cleaning for SRR12927876: File exists.
+Splitting fastqs for SRR12927876
+Images done for ERR5554881
+Skipping cleaning for ERR5554882: File exists.
+Splitting fastqs for ERR5554882
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578714@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR845300@00000500K+k7.fq.h5
+Images done for SRR12123459
+Skipping cleaning for SRR12123460: File exists.
+Splitting fastqs for SRR12123460
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200838@00002000K+k7.fq.h5
+Images done for SRR13695370
+Skipping cleaning for SRR13695371: File exists.
+Splitting fastqs for SRR13695371
+Images done for SRR14200838
+Skipping cleaning for SRR14200840: File exists.
+Splitting fastqs for SRR14200840
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15858706@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405219@00005000K+k7.fq.h5
+Images done for ERR845300
+Skipping cleaning for ERR8484620: File exists.
+Splitting fastqs for ERR8484620
+SPLIT FAIL: varkoder_int_SRA/clean_reads/ERR8484620.fq.gz
+SKIPPING SAMPLE
+Skipping cleaning for ERR849964: File exists.
+Splitting fastqs for ERR849964
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16319728@00000500K+k7.fq.h5
+Images done for SRR10405219
+Skipping cleaning for SRR10405221: File exists.
+Splitting fastqs for SRR10405221
+Images done for SRR16319728
+Skipping cleaning for SRR16327067: File exists.
+Splitting fastqs for SRR16327067
+Images done for SRR15858706
+Skipping cleaning for SRR15861765: File exists.
+Splitting fastqs for SRR15861765
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13271222@00005000K+k7.fq.h5
+Images done for SRR13271222
+Skipping cleaning for SRR13275797: File exists.
+Splitting fastqs for SRR13275797
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578714@00010000K+k7.fq.h5
+Images done for SRR11578714
+Skipping cleaning for SRR11578715: File exists.
+Splitting fastqs for SRR11578715
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257174@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14663312@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR339442.fq.gz
+Cleaning and splitting reads done for ERR339442
+Counting kmers and creating images for ERR339442
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR17160017.fq.gz
+Cleaning and splitting reads done for SRR17160017
+Counting kmers and creating images for SRR17160017
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257174@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14663312@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257174@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR339442@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR339442@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR339442@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR339442@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR339442@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14663312@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160017@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160017@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160017@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160017@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257174@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160017@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14663312@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257174@00005000K+k7.fq.h5
+Images done for SRR15257174
+Skipping cleaning for SRR15257178: File exists.
+Splitting fastqs for SRR15257178
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14663312@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR339442@00001000K+k7.fq.h5
+Images done for SRR14663312
+Skipping cleaning for SRR14668017: File exists.
+Splitting fastqs for SRR14668017
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160017@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR339442@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160017@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR339442@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160017@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR339442@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160017@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR339442@00010000K+k7.fq.h5
+Images done for ERR339442
+Skipping cleaning for ERR3437294: File exists.
+Splitting fastqs for ERR3437294
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160017@00005000K+k7.fq.h5
+Images done for SRR17160017
+Skipping cleaning for SRR17160020: File exists.
+Splitting fastqs for SRR17160020
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11171691.fq.gz
+Cleaning and splitting reads done for SRR11171691
+Counting kmers and creating images for SRR11171691
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15861765.fq.gz
+Cleaning and splitting reads done for SRR15861765
+Counting kmers and creating images for SRR15861765
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578715.fq.gz
+Cleaning and splitting reads done for SRR11578715
+Counting kmers and creating images for SRR11578715
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171691@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12576810.fq.gz
+Cleaning and splitting reads done for SRR12576810
+Counting kmers and creating images for SRR12576810
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171691@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171691@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171691@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11171691@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15861765@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15861765@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15861765@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15861765@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15861765@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12927876.fq.gz
+Cleaning and splitting reads done for SRR12927876
+Counting kmers and creating images for SRR12927876
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578715@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12576810@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12576810@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578715@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12576810@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578715@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578715@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578715@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12576810@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12576810@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12927876@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12927876@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12927876@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12927876@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12927876@00000500K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13275797.fq.gz
+Cleaning and splitting reads done for SRR13275797
+Counting kmers and creating images for SRR13275797
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171691@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15861765@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR16327067.fq.gz
+Cleaning and splitting reads done for SRR16327067
+Counting kmers and creating images for SRR16327067
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14200840.fq.gz
+Cleaning and splitting reads done for SRR14200840
+Counting kmers and creating images for SRR14200840
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15861765@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12123460.fq.gz
+Cleaning and splitting reads done for SRR12123460
+Counting kmers and creating images for SRR12123460
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13695371.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR032950.fq.gz
+Cleaning and splitting reads done for SRR13695371
+Counting kmers and creating images for SRR13695371
+Cleaning and splitting reads done for ERR032950
+Counting kmers and creating images for ERR032950
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13275797@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171691@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13275797@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13275797@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578715@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13275797@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13275797@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12576810@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR10405221.fq.gz
+Cleaning and splitting reads done for SRR10405221
+Counting kmers and creating images for SRR10405221
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12927876@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15861765@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16327067@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200840@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16327067@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16327067@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200840@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200840@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123460@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16327067@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123460@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171691@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR032950@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695371@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695371@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200840@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR032950@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16327067@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695371@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578715@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR032950@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200840@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR032950@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123460@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695371@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123460@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12123460@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12576810@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR032950@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695371@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15861765@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12927876@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405221@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405221@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405221@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405221@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10405221@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171691@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578715@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1006226.fq.gz
+Cleaning and splitting reads done for SRR1006226
+Counting kmers and creating images for SRR1006226
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12576810@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13275797@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15861765@00010000K+k7.fq.h5
+Images done for SRR15861765
+Skipping cleaning for SRR1587352: File exists.
+Splitting fastqs for SRR1587352
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12927876@00002000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5529313.fq.gz
+Cleaning and splitting reads done for ERR5529313
+Counting kmers and creating images for ERR5529313
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5554882.fq.gz
+Cleaning and splitting reads done for ERR5554882
+Counting kmers and creating images for ERR5554882
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11171691@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16327067@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578715@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13275797@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12576810@00005000K+k7.fq.h5
+Images done for SRR11171691
+Skipping cleaning for SRR1117689: File exists.
+Splitting fastqs for SRR1117689
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006226@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200840@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR849964.fq.gz
+Cleaning and splitting reads done for ERR849964
+Counting kmers and creating images for ERR849964
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006226@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695371@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123460@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006226@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR032950@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12927876@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006226@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006226@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529313@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529313@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16327067@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529313@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554882@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554882@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554882@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578715@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13275797@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529313@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529313@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554882@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554882@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123460@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200840@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12576810@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405221@00001000K+k7.fq.h5
+Images done for SRR11578715
+Skipping cleaning for SRR11578716: File exists.
+Splitting fastqs for SRR11578716
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695371@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12927876@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR849964@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR849964@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR849964@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR032950@00010000K+k7.fq.h5
+Images done for SRR12576810
+Skipping cleaning for SRR1259272: File exists.
+Splitting fastqs for SRR1259272
+Images done for SRR12927876
+Skipping cleaning for SRR12928233: File exists.
+Splitting fastqs for SRR12928233
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR849964@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR849964@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16327067@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13275797@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123460@00000500K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14668017.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200840@00010000K+k7.fq.h5
+Cleaning and splitting reads done for SRR14668017
+Counting kmers and creating images for SRR14668017
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695371@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405221@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16327067@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR032950@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123460@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13275797@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200840@00000500K+k7.fq.h5
+Images done for SRR13275797
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695371@00010000K+k7.fq.h5
+Skipping cleaning for SRR13276763: File exists.
+Splitting fastqs for SRR13276763
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006226@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14668017@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16327067@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405221@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14668017@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14668017@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554882@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14668017@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14668017@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR032950@00001000K+k7.fq.h5
+Images done for SRR16327067
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529313@00000500K+k7.fq.h5
+Skipping cleaning for SRR16328237: File exists.
+Splitting fastqs for SRR16328237
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12123460@00002000K+k7.fq.h5
+Images done for SRR12123460
+Skipping cleaning for SRR12124516: File exists.
+Splitting fastqs for SRR12124516
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200840@00002000K+k7.fq.h5
+SPLIT FAIL: varkoder_int_SRA/clean_reads/SRR12124516.fq.gz
+SKIPPING SAMPLE
+Skipping cleaning for SRR12125680: File exists.
+Splitting fastqs for SRR12125680
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695371@00000500K+k7.fq.h5
+Images done for SRR13695371
+Skipping cleaning for SRR13695373: File exists.
+Splitting fastqs for SRR13695373
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006226@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR849964@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554882@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR032950@00005000K+k7.fq.h5
+Images done for SRR14200840
+Skipping cleaning for SRR14200844: File exists.
+Splitting fastqs for SRR14200844
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529313@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405221@00010000K+k7.fq.h5
+Images done for ERR032950
+Skipping cleaning for ERR10015092: File exists.
+Splitting fastqs for ERR10015092
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR849964@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006226@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554882@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529313@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14668017@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR849964@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006226@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554882@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10405221@00002000K+k7.fq.h5
+Images done for SRR10405221
+Skipping cleaning for SRR1041086: File exists.
+Splitting fastqs for SRR1041086
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529313@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14668017@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR849964@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006226@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554882@00002000K+k7.fq.h5
+Images done for SRR1006226
+Skipping cleaning for SRR1006392: File exists.
+Splitting fastqs for SRR1006392
+Images done for ERR5554882
+Skipping cleaning for ERR5554890: File exists.
+Splitting fastqs for ERR5554890
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14668017@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529313@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR849964@00005000K+k7.fq.h5
+Images done for ERR5529313
+Skipping cleaning for ERR5529326: File exists.
+Splitting fastqs for ERR5529326
+Images done for ERR849964
+Skipping cleaning for ERR850008: File exists.
+Splitting fastqs for ERR850008
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14668017@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14668017@00001000K+k7.fq.h5
+Images done for SRR14668017
+Skipping cleaning for SRR14671030: File exists.
+Splitting fastqs for SRR14671030
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR3437294.fq.gz
+Cleaning and splitting reads done for ERR3437294
+Counting kmers and creating images for ERR3437294
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3437294@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3437294@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3437294@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3437294@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3437294@00000500K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR17160020.fq.gz
+Cleaning and splitting reads done for SRR17160020
+Counting kmers and creating images for SRR17160020
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160020@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160020@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160020@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160020@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160020@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3437294@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15257178.fq.gz
+Cleaning and splitting reads done for SRR15257178
+Counting kmers and creating images for SRR15257178
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3437294@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1587352.fq.gz
+Cleaning and splitting reads done for SRR1587352
+Counting kmers and creating images for SRR1587352
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160020@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257178@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257178@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257178@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578716.fq.gz
+Cleaning and splitting reads done for SRR11578716
+Counting kmers and creating images for SRR11578716
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257178@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3437294@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257178@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160020@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587352@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587352@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3437294@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587352@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587352@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587352@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578716@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578716@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578716@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578716@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578716@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160020@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3437294@00002000K+k7.fq.h5
+Images done for ERR3437294
+Skipping cleaning for ERR3458785: File exists.
+Splitting fastqs for ERR3458785
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160020@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257178@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587352@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160020@00002000K+k7.fq.h5
+Images done for SRR17160020
+Skipping cleaning for SRR17160022: File exists.
+Splitting fastqs for SRR17160022
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578716@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257178@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587352@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578716@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587352@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257178@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578716@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257178@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587352@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1117689.fq.gz
+Cleaning and splitting reads done for SRR1117689
+Counting kmers and creating images for SRR1117689
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578716@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587352@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257178@00002000K+k7.fq.h5
+Images done for SRR1587352
+Skipping cleaning for SRR1587635: File exists.
+Splitting fastqs for SRR1587635
+Images done for SRR15257178
+Skipping cleaning for SRR15257179: File exists.
+Splitting fastqs for SRR15257179
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13276763.fq.gz
+Cleaning and splitting reads done for SRR13276763
+Counting kmers and creating images for SRR13276763
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578716@00000500K+k7.fq.h5
+Images done for SRR11578716
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1117689@00005000K.fq.gz
+Skipping cleaning for SRR11578717: File exists.
+Splitting fastqs for SRR11578717
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12125680.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1117689@00002000K.fq.gz
+Cleaning and splitting reads done for SRR12125680
+Counting kmers and creating images for SRR12125680
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1117689@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1117689@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1117689@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276763@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276763@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR10015092.fq.gz
+Cleaning and splitting reads done for ERR10015092
+Counting kmers and creating images for ERR10015092
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276763@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276763@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276763@00002000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1259272.fq.gz
+Cleaning and splitting reads done for SRR1259272
+Counting kmers and creating images for SRR1259272
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125680@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125680@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125680@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125680@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125680@00010000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14200844.fq.gz
+Cleaning and splitting reads done for SRR14200844
+Counting kmers and creating images for SRR14200844
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10015092@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10015092@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10015092@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10015092@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10015092@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1259272@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1259272@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1259272@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1259272@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1259272@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1117689@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13695373.fq.gz
+Cleaning and splitting reads done for SRR13695373
+Counting kmers and creating images for SRR13695373
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200844@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200844@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200844@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200844@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200844@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276763@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1117689@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125680@00002000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12928233.fq.gz
+Cleaning and splitting reads done for SRR12928233
+Counting kmers and creating images for SRR12928233
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695373@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695373@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695373@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695373@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695373@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276763@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125680@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1117689@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10015092@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1259272@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928233@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928233@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928233@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928233@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928233@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125680@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200844@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14671030.fq.gz
+Cleaning and splitting reads done for SRR14671030
+Counting kmers and creating images for SRR14671030
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1117689@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276763@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10015092@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR16328237.fq.gz
+Cleaning and splitting reads done for SRR16328237
+Counting kmers and creating images for SRR16328237
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1259272@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200844@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125680@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1117689@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695373@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276763@00001000K+k7.fq.h5
+Images done for SRR1117689
+Skipping cleaning for SRR11188453: File exists.
+Splitting fastqs for SRR11188453
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1006392.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10015092@00002000K+k7.fq.h5
+Cleaning and splitting reads done for SRR1006392
+Counting kmers and creating images for SRR1006392
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671030@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671030@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671030@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16328237@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671030@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16328237@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1259272@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16328237@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671030@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125680@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16328237@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16328237@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200844@00005000K+k7.fq.h5
+Images done for SRR12125680
+Skipping cleaning for SRR12125700: File exists.
+Splitting fastqs for SRR12125700
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695373@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928233@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276763@00005000K+k7.fq.h5
+Images done for SRR13276763
+Skipping cleaning for SRR13276947: File exists.
+Splitting fastqs for SRR13276947
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006392@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006392@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006392@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10015092@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006392@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006392@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200844@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1041086.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1259272@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695373@00005000K+k7.fq.h5
+Cleaning and splitting reads done for SRR1041086
+Counting kmers and creating images for SRR1041086
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928233@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200844@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10015092@00005000K+k7.fq.h5
+Images done for SRR14200844
+Skipping cleaning for SRR14200845: File exists.
+Splitting fastqs for SRR14200845
+Images done for ERR10015092
+Skipping cleaning for ERR1001675: File exists.
+Splitting fastqs for ERR1001675
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671030@00000500K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR850008.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695373@00000500K+k7.fq.h5
+Cleaning and splitting reads done for ERR850008
+Counting kmers and creating images for ERR850008
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16328237@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1041086@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1041086@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1041086@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928233@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1041086@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1041086@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5554890.fq.gz
+Cleaning and splitting reads done for ERR5554890
+Counting kmers and creating images for ERR5554890
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1259272@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671030@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695373@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006392@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5529326.fq.gz
+Cleaning and splitting reads done for ERR5529326
+Counting kmers and creating images for ERR5529326
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR850008@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16328237@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR850008@00000500K.fq.gz
+Images done for SRR13695373
+Skipping cleaning for SRR13695376: File exists.
+Splitting fastqs for SRR13695376
+Images done for SRR1259272
+Skipping cleaning for SRR12594200: File exists.
+Splitting fastqs for SRR12594200
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR850008@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR850008@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR850008@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928233@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554890@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554890@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554890@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671030@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006392@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554890@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554890@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529326@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16328237@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529326@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529326@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529326@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529326@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928233@00000500K+k7.fq.h5
+Images done for SRR12928233
+Skipping cleaning for SRR12928502: File exists.
+Splitting fastqs for SRR12928502
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1041086@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671030@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006392@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16328237@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1041086@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR850008@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671030@00005000K+k7.fq.h5
+Images done for SRR14671030
+Skipping cleaning for SRR14671042: File exists.
+Splitting fastqs for SRR14671042
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006392@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554890@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16328237@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1041086@00010000K+k7.fq.h5
+Images done for SRR16328237
+Skipping cleaning for SRR16338601: File exists.
+Splitting fastqs for SRR16338601
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR850008@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006392@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529326@00002000K+k7.fq.h5
+Images done for SRR1006392
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554890@00002000K+k7.fq.h5
+Skipping cleaning for SRR1006401: File exists.
+Splitting fastqs for SRR1006401
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR3458785.fq.gz
+Cleaning and splitting reads done for ERR3458785
+Counting kmers and creating images for ERR3458785
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1041086@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR850008@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554890@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529326@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1041086@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3458785@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3458785@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1587635.fq.gz
+Images done for SRR1041086
+Cleaning and splitting reads done for SRR1587635
+Counting kmers and creating images for SRR1587635
+Skipping cleaning for SRR10412128: File exists.
+Splitting fastqs for SRR10412128
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3458785@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3458785@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3458785@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR850008@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554890@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529326@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587635@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554890@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR850008@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587635@00005000K.fq.gz
+Images done for ERR5554890
+Skipping cleaning for ERR5554891: File exists.
+Splitting fastqs for ERR5554891
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587635@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529326@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587635@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587635@00001000K.fq.gz
+Images done for ERR850008
+Skipping cleaning for ERR8520425: File exists.
+Splitting fastqs for ERR8520425
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529326@00001000K+k7.fq.h5
+Images done for ERR5529326
+Skipping cleaning for ERR5529332: File exists.
+Splitting fastqs for ERR5529332
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3458785@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3458785@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587635@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3458785@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587635@00002000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578717.fq.gz
+Cleaning and splitting reads done for SRR11578717
+Counting kmers and creating images for SRR11578717
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3458785@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587635@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578717@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578717@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578717@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578717@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578717@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3458785@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR17160022.fq.gz
+Cleaning and splitting reads done for SRR17160022
+Counting kmers and creating images for SRR17160022
+Images done for ERR3458785
+Skipping cleaning for ERR3484419: File exists.
+Splitting fastqs for ERR3484419
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587635@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587635@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160022@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160022@00005000K.fq.gz
+Images done for SRR1587635
+Skipping cleaning for SRR1587754: File exists.
+Splitting fastqs for SRR1587754
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160022@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160022@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17160022@00002000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15257179.fq.gz
+Cleaning and splitting reads done for SRR15257179
+Counting kmers and creating images for SRR15257179
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578717@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578717@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257179@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257179@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257179@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257179@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257179@00002000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13276947.fq.gz
+Cleaning and splitting reads done for SRR13276947
+Counting kmers and creating images for SRR13276947
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578717@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160022@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276947@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276947@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276947@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276947@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13276947@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578717@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160022@00000500K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12125700.fq.gz
+Cleaning and splitting reads done for SRR12125700
+Counting kmers and creating images for SRR12125700
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257179@00000500K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11188453.fq.gz
+Cleaning and splitting reads done for SRR11188453
+Counting kmers and creating images for SRR11188453
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578717@00010000K+k7.fq.h5
+Images done for SRR11578717
+Skipping cleaning for SRR11578719: File exists.
+Splitting fastqs for SRR11578719
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257179@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125700@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160022@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125700@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11188453@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11188453@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125700@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125700@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11188453@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125700@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11188453@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11188453@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276947@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257179@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14200845.fq.gz
+Cleaning and splitting reads done for SRR14200845
+Counting kmers and creating images for SRR14200845
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160022@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276947@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257179@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200845@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200845@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200845@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125700@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200845@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276947@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200845@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11188453@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17160022@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257179@00010000K+k7.fq.h5
+Images done for SRR15257179
+Skipping cleaning for SRR15257180: File exists.
+Splitting fastqs for SRR15257180
+Images done for SRR17160022
+Skipping cleaning for SRR17177970: File exists.
+Splitting fastqs for SRR17177970
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125700@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276947@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12594200.fq.gz
+Cleaning and splitting reads done for SRR12594200
+Counting kmers and creating images for SRR12594200
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11188453@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13276947@00002000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14671042.fq.gz
+Cleaning and splitting reads done for SRR14671042
+Counting kmers and creating images for SRR14671042
+Images done for SRR13276947
+Skipping cleaning for SRR13277476: File exists.
+Splitting fastqs for SRR13277476
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13695376.fq.gz
+Cleaning and splitting reads done for SRR13695376
+Counting kmers and creating images for SRR13695376
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125700@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12594200@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11188453@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12594200@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12594200@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12594200@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200845@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12594200@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR16338601.fq.gz
+Cleaning and splitting reads done for SRR16338601
+Counting kmers and creating images for SRR16338601
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671042@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671042@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695376@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695376@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671042@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125700@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671042@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14671042@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11188453@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695376@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695376@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200845@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13695376@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16338601@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16338601@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16338601@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16338601@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16338601@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11188453@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125700@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR1001675.fq.gz
+Cleaning and splitting reads done for ERR1001675
+Counting kmers and creating images for ERR1001675
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200845@00010000K+k7.fq.h5
+Images done for SRR11188453
+Skipping cleaning for SRR11189394: File exists.
+Splitting fastqs for SRR11189394
+Images done for SRR12125700
+Skipping cleaning for SRR12125705: File exists.
+Splitting fastqs for SRR12125705
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12594200@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671042@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200845@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695376@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR1001675@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR1001675@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR1001675@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR1001675@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR1001675@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12594200@00002000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR8520425.fq.gz
+Cleaning and splitting reads done for ERR8520425
+Counting kmers and creating images for ERR8520425
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16338601@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671042@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695376@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200845@00005000K+k7.fq.h5
+Images done for SRR14200845
+Skipping cleaning for SRR14200851: File exists.
+Splitting fastqs for SRR14200851
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16338601@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12928502.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671042@00002000K+k7.fq.h5
+Cleaning and splitting reads done for SRR12928502
+Counting kmers and creating images for SRR12928502
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520425@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695376@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12594200@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520425@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520425@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520425@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520425@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1006401.fq.gz
+Cleaning and splitting reads done for SRR1006401
+Counting kmers and creating images for SRR1006401
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR10412128.fq.gz
+Cleaning and splitting reads done for SRR10412128
+Counting kmers and creating images for SRR10412128
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16338601@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671042@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695376@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR1001675@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928502@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928502@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928502@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12594200@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928502@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12928502@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16338601@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006401@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006401@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10412128@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006401@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13695376@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10412128@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14671042@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10412128@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006401@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10412128@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1587754.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1006401@00002000K.fq.gz
+Cleaning and splitting reads done for SRR1587754
+Counting kmers and creating images for SRR1587754
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR10412128@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR1001675@00002000K+k7.fq.h5
+Images done for SRR14671042
+Skipping cleaning for SRR14675281: File exists.
+Splitting fastqs for SRR14675281
+Images done for SRR13695376
+Skipping cleaning for SRR1369842: File exists.
+Splitting fastqs for SRR1369842
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12594200@00000500K+k7.fq.h5
+Images done for SRR12594200
+Skipping cleaning for SRR12599358: File exists.
+Splitting fastqs for SRR12599358
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR8520425@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16338601@00010000K+k7.fq.h5
+Images done for SRR16338601
+Skipping cleaning for SRR16348881: File exists.
+Splitting fastqs for SRR16348881
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587754@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR1001675@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587754@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587754@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587754@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587754@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928502@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR3484419.fq.gz
+Cleaning and splitting reads done for ERR3484419
+Counting kmers and creating images for ERR3484419
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR8520425@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR1001675@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928502@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006401@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10412128@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR8520425@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3484419@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3484419@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3484419@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3484419@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR3484419@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR1001675@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578719.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5554891.fq.gz
+Cleaning and splitting reads done for SRR11578719
+Counting kmers and creating images for SRR11578719
+Cleaning and splitting reads done for ERR5554891
+Counting kmers and creating images for ERR5554891
+Images done for ERR1001675
+Skipping cleaning for ERR10047930: File exists.
+Splitting fastqs for ERR10047930
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928502@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006401@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587754@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10412128@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR5529332.fq.gz
+Cleaning and splitting reads done for ERR5529332
+Counting kmers and creating images for ERR5529332
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR8520425@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578719@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554891@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578719@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554891@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587754@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554891@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928502@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578719@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578719@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554891@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578719@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006401@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5554891@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10412128@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR8520425@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529332@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529332@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529332@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529332@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR5529332@00000500K.fq.gz
+Images done for ERR8520425
+Skipping cleaning for ERR8520429: File exists.
+Splitting fastqs for ERR8520429
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3484419@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587754@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12928502@00002000K+k7.fq.h5
+Images done for SRR12928502
+Skipping cleaning for SRR12928636: File exists.
+Splitting fastqs for SRR12928636
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006401@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10412128@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587754@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3484419@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1006401@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554891@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR10412128@00002000K+k7.fq.h5
+Images done for SRR1006401
+Skipping cleaning for SRR1006420: File exists.
+Splitting fastqs for SRR1006420
+Images done for SRR10412128
+Skipping cleaning for SRR1042355: File exists.
+Splitting fastqs for SRR1042355
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578719@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1587754@00000500K+k7.fq.h5
+Images done for SRR1587754
+Skipping cleaning for SRR1587959: File exists.
+Splitting fastqs for SRR1587959
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3484419@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554891@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529332@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578719@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554891@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3484419@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529332@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578719@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554891@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR3484419@00002000K+k7.fq.h5
+Images done for ERR3484419
+Skipping cleaning for ERR3510534: File exists.
+Splitting fastqs for ERR3510534
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578719@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529332@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5554891@00010000K+k7.fq.h5
+Images done for ERR5554891
+Skipping cleaning for ERR5554892: File exists.
+Splitting fastqs for ERR5554892
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11578719@00002000K+k7.fq.h5
+Images done for SRR11578719
+Skipping cleaning for SRR11578723: File exists.
+Splitting fastqs for SRR11578723
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11189394.fq.gz
+Cleaning and splitting reads done for SRR11189394
+Counting kmers and creating images for SRR11189394
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529332@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR5529332@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11189394@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11189394@00001000K.fq.gz
+Images done for ERR5529332
+Skipping cleaning for ERR5529339: File exists.
+Splitting fastqs for ERR5529339
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11189394@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11189394@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11189394@00005000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR17177970.fq.gz
+Cleaning and splitting reads done for SRR17177970
+Counting kmers and creating images for SRR17177970
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1369842.fq.gz
+Cleaning and splitting reads done for SRR1369842
+Counting kmers and creating images for SRR1369842
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR13277476.fq.gz
+Cleaning and splitting reads done for SRR13277476
+Counting kmers and creating images for SRR13277476
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1369842@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17177970@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1369842@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1369842@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17177970@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17177970@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1369842@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17177970@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1369842@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR17177970@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11189394@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13277476@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13277476@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13277476@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13277476@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR13277476@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11189394@00010000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12125705.fq.gz
+Cleaning and splitting reads done for SRR12125705
+Counting kmers and creating images for SRR12125705
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR15257180.fq.gz
+Cleaning and splitting reads done for SRR15257180
+Counting kmers and creating images for SRR15257180
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1369842@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11189394@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17177970@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125705@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125705@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125705@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125705@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12125705@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257180@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1369842@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257180@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257180@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13277476@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257180@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR15257180@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11189394@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17177970@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1369842@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14200851.fq.gz
+Cleaning and splitting reads done for SRR14200851
+Counting kmers and creating images for SRR14200851
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13277476@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR11189394@00000500K+k7.fq.h5
+Images done for SRR11189394
+Skipping cleaning for SRR11189397: File exists.
+Splitting fastqs for SRR11189397
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1369842@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17177970@00002000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200851@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200851@00001000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13277476@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200851@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200851@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14200851@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125705@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257180@00001000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR1369842@00010000K+k7.fq.h5
+Images done for SRR1369842
+Skipping cleaning for SRR13711031: File exists.
+Splitting fastqs for SRR13711031
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17177970@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13277476@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125705@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257180@00005000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR12599358.fq.gz
+Cleaning and splitting reads done for SRR12599358
+Counting kmers and creating images for SRR12599358
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR17177970@00001000K+k7.fq.h5
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR16348881.fq.gz
+Cleaning and splitting reads done for SRR16348881
+Counting kmers and creating images for SRR16348881
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR13277476@00002000K+k7.fq.h5
+Images done for SRR13277476
+Skipping cleaning for SRR13278420: File exists.
+Splitting fastqs for SRR13278420
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257180@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125705@00010000K+k7.fq.h5
+Images done for SRR17177970
+Skipping cleaning for SRR17180039: File exists.
+Splitting fastqs for SRR17180039
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200851@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12599358@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16348881@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12599358@00002000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257180@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12599358@00005000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125705@00000500K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12599358@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16348881@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16348881@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16348881@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR12599358@00010000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR14675281.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR16348881@00000500K.fq.gz
+Cleaning and splitting reads done for SRR14675281
+Counting kmers and creating images for SRR14675281
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200851@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12125705@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR15257180@00010000K+k7.fq.h5
+Images done for SRR12125705
+Skipping cleaning for SRR12133960: File exists.
+Splitting fastqs for SRR12133960
+Images done for SRR15257180
+Skipping cleaning for SRR15257182: File exists.
+Splitting fastqs for SRR15257182
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14675281@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14675281@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14675281@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14675281@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR14675281@00010000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR10047930.fq.gz
+Cleaning and splitting reads done for ERR10047930
+Counting kmers and creating images for ERR10047930
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200851@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12599358@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16348881@00010000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10047930@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200851@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10047930@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10047930@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10047930@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR10047930@00001000K.fq.gz
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR1587959.fq.gz
+Cleaning and splitting reads done for SRR1587959
+Counting kmers and creating images for SRR1587959
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/ERR8520429.fq.gz
+Cleaning and splitting reads done for ERR8520429
+Counting kmers and creating images for ERR8520429
+Files exist. Skipping subsampling for file: varkoder_int_SRA/clean_reads/SRR11578723.fq.gz
+Cleaning and splitting reads done for SRR11578723
+Counting kmers and creating images for SRR11578723
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12599358@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16348881@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14675281@00010000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14200851@00010000K+k7.fq.h5
+Images done for SRR14200851
+Skipping cleaning for SRR14203200: File exists.
+Splitting fastqs for SRR14203200
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587959@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587959@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587959@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587959@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520429@00000500K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR1587959@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12599358@00001000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520429@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520429@00010000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578723@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520429@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578723@00010000K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16348881@00005000K+k7.fq.h5
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578723@00002000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/ERR8520429@00005000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578723@00001000K.fq.gz
+File exists. Skipping kmer counting for file: varkoder_int_SRA/split_fastqs/SRR11578723@00000500K.fq.gz
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14675281@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/ERR10047930@00002000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR12599358@00005000K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR16348881@00000500K+k7.fq.h5
+File exists. Skipping image for file: varkoder_int_SRA/7mer_counts/SRR14675281@00005000K+k7.fq.h5
