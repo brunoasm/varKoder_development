@@ -1,0 +1,1793 @@
+JobId=51596219 JobName=1_make_varKode_images.sh
+   UserId=souzademedeiros(57648) GroupId=farrell_lab(34759) MCS_label=N/A
+   Priority=2655258 Nice=0 Account=farrell_lab QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:31 TimeLimit=08:00:00 TimeMin=N/A
+   SubmitTime=2023-04-27T20:46:21 EligibleTime=2023-04-27T20:46:21
+   AccrueTime=2023-04-27T20:46:21
+   StartTime=2023-04-27T20:46:21 EndTime=2023-04-28T04:46:21 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2023-04-27T20:46:21 Scheduler=Main
+   Partition=test AllocNode:Sid=boslogin04:162327
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=holy7c24103
+   BatchHost=holy7c24103
+   NumNodes=1 NumCPUs=16 NumTasks=8 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=16,mem=50G,node=1,billing=28
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=50G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_make_varKode_images.sh
+   WorkDir=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi
+   StdErr=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_generate_varkodes.51596219.out
+   StdIn=/dev/null
+   StdOut=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_generate_varkodes.51596219.out
+   Power=
+   
+
+Kmer size: 7
+Processing reads and preparing images
+Reading input data
+Preprocessing 1089 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1089_GCTAATCTGGAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1089_GCTAATCTGGAA.R2.fastq.gz'], 'unpaired': []}
+Preprocessing 1538 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1538_AACGTTGTGTCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1538_AACGTTGTGTCC.R2.fastq.gz'], 'unpaired': []}
+Preprocessing 1703 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1703_AGCTGCACAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1703_AGCTGCACAGCC.R2.fastq.gz'], 'unpaired': []}
+Preprocessing 1928 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1928_GCCTGTGGTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1928_GCCTGTGGTCGG.R2.fastq.gz'], 'unpaired': []}
+Preprocessing 2700 to remove duplicates, adapters and merge reads
+Preprocessing 3211 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3211_S292_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3211_S292_L007_R2_001.fastq.gz'], 'unpaired': []}
+Input files read: {'R1': ['../../datasets/all_multilabel/2700_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/2700_R2.fq.gz'], 'unpaired': []}
+Preprocessing 3375 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3375_ATGCGTAGCCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3375_ATGCGTAGCCAA.R2.fastq.gz'], 'unpaired': []}
+Preprocessing 3606 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3606_S58_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3606_S58_L003_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1538
+Splitting fastqs for 3375
+Splitting fastqs for 1089
+Splitting fastqs for 1703
+Splitting fastqs for 1928
+Cleaning and splitting reads done for 1538
+Counting kmers and creating images for 1538
+Cleaning and splitting reads done for 3375
+Counting kmers and creating images for 3375
+Cleaning and splitting reads done for 1089
+Counting kmers and creating images for 1089
+Images done for 1538
+Preprocessing 1540 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1540_GGGCCAACCCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1540_GGGCCAACCCTT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3211
+Cleaning and splitting reads done for 1928
+Counting kmers and creating images for 1928
+Cleaning and splitting reads done for 1703
+Counting kmers and creating images for 1703
+Splitting fastqs for 1540
+Images done for 3375
+Preprocessing 3384 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3384_TGATCAGGAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3384_TGATCAGGAGCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 1089
+Preprocessing 1102 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1102_S57_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1102_S57_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1540
+Counting kmers and creating images for 1540
+Images done for 1703
+Preprocessing 1705 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1705_S43_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1705_S43_L003_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1928
+Preprocessing 1936 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1936_CCACCGGAATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1936_CCACCGGAATCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 1540
+Preprocessing 1543 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1543_S340_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1543_S340_L006_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2700
+Splitting fastqs for 1543
+Splitting fastqs for 1936
+Splitting fastqs for 3384
+Cleaning and splitting reads done for 3211
+Counting kmers and creating images for 3211
+Splitting fastqs for 3606
+Cleaning and splitting reads done for 1543
+Counting kmers and creating images for 1543
+Cleaning and splitting reads done for 1936
+Counting kmers and creating images for 1936
+Images done for 1543
+Preprocessing 1556 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1556_ATATTAAGGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1556_ATATTAAGGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 3211
+Preprocessing 3220 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3220_CTCGATCGACGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3220_CTCGATCGACGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1705
+Cleaning and splitting reads done for 3384
+Counting kmers and creating images for 3384
+Images done for 1936
+Preprocessing 1939 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1939_AACAAGGAAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1939_AACAAGGAAGCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1556
+Splitting fastqs for 3220
+Images done for 3384
+Preprocessing 3386 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3386_TTACAGTCATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3386_TTACAGTCATCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1939
+Cleaning and splitting reads done for 2700
+Counting kmers and creating images for 2700
+Cleaning and splitting reads done for 1556
+Counting kmers and creating images for 1556
+Cleaning and splitting reads done for 1939
+Counting kmers and creating images for 1939
+Splitting fastqs for 1102
+Cleaning and splitting reads done for 3606
+Counting kmers and creating images for 3606
+Cleaning and splitting reads done for 3220
+Counting kmers and creating images for 3220
+Cleaning and splitting reads done for 1705
+Counting kmers and creating images for 1705
+Images done for 1939
+Preprocessing 1944 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1944_TTGTTGGAATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1944_TTGTTGGAATCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 1556
+Preprocessing 1570 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1570_CCCAATTCCCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1570_CCCAATTCCCGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3386
+Splitting fastqs for 1944
+Images done for 3220
+Preprocessing 3230 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3230_S245_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3230_S245_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 2700
+Preprocessing 2711 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_2711_S289_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_2711_S289_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1570
+Cleaning and splitting reads done for 1944
+Counting kmers and creating images for 1944
+Images done for 1705
+Preprocessing 1716 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_1716_S277_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_1716_S277_L007_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3386
+Counting kmers and creating images for 3386
+Images done for 3606
+Preprocessing 3609 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3609_S267_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3609_S267_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1944
+Preprocessing 1946 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1946_TGCTGTTCTACC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1946_TGCTGTTCTACC.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1570
+Counting kmers and creating images for 1570
+Splitting fastqs for 1946
+Images done for 3386
+Preprocessing 3419 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3419_S49_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3419_S49_L003_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1570
+Preprocessing 1582 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1582_ATGACGTTGTCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1582_ATGACGTTGTCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3609
+Splitting fastqs for 3230
+Cleaning and splitting reads done for 1946
+Counting kmers and creating images for 1946
+Images done for 1946
+Preprocessing 2065 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2065_CCCATGCTAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2065_CCCATGCTAGCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1582
+Cleaning and splitting reads done for 3609
+Counting kmers and creating images for 3609
+Splitting fastqs for 1716
+Cleaning and splitting reads done for 1582
+Counting kmers and creating images for 1582
+Images done for 3609
+Preprocessing 3640 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3640_S391_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3640_S391_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2065
+Splitting fastqs for 2711
+Images done for 1582
+Preprocessing 1590 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1590_CTACACCCTAAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1590_CTACACCCTAAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3230
+Counting kmers and creating images for 3230
+Splitting fastqs for 3640
+Splitting fastqs for 1590
+Cleaning and splitting reads done for 2065
+Counting kmers and creating images for 2065
+Cleaning and splitting reads done for 1102
+Counting kmers and creating images for 1102
+Images done for 2065
+Preprocessing 2095 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2095_S63_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2095_S63_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1590
+Counting kmers and creating images for 1590
+Cleaning and splitting reads done for 3640
+Counting kmers and creating images for 3640
+Images done for 3230
+Preprocessing 3231 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3231_S246_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3231_S246_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1590
+Preprocessing 1610 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1610_S9_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1610_S9_L003_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 3640
+Preprocessing 3676 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3676_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3676_R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1716
+Counting kmers and creating images for 1716
+Images done for 1102
+Preprocessing 1162 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1162_GACCGTAGCCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1162_GACCGTAGCCTT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3231
+Splitting fastqs for 1162
+Splitting fastqs for 3419
+Cleaning and splitting reads done for 2711
+Counting kmers and creating images for 2711
+Images done for 1716
+Preprocessing 1717 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1717_TGACCAATTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1717_TGACCAATTCGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1162
+Counting kmers and creating images for 1162
+Splitting fastqs for 3676
+Images done for 1162
+Preprocessing 1165 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1165_S383_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1165_S383_L006_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1717
+Cleaning and splitting reads done for 3231
+Counting kmers and creating images for 3231
+Images done for 2711
+Preprocessing 2763 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2763_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/2763_R2.fq.gz'], 'unpaired': []}
+Splitting fastqs for 1610
+Cleaning and splitting reads done for 1717
+Counting kmers and creating images for 1717
+Images done for 3231
+Preprocessing 3234 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3234_S293_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3234_S293_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1165
+Images done for 1717
+Preprocessing 1739 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1739_S60_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1739_S60_L003_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2095
+Splitting fastqs for 2763
+Cleaning and splitting reads done for 3676
+Counting kmers and creating images for 3676
+Cleaning and splitting reads done for 1165
+Counting kmers and creating images for 1165
+Cleaning and splitting reads done for 2763
+Counting kmers and creating images for 2763
+Splitting fastqs for 3234
+Images done for 3676
+Preprocessing 3679 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3679_GTAGTATCCATT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3679_GTAGTATCCATT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1739
+Images done for 2763
+Preprocessing 2764 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2764_CGTACG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2764_CGTACG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1165
+Preprocessing 1174 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1174_GCGCAATCCGGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1174_GCGCAATCCGGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3419
+Counting kmers and creating images for 3419
+Cleaning and splitting reads done for 1610
+Counting kmers and creating images for 1610
+Splitting fastqs for 1174
+Splitting fastqs for 3679
+Cleaning and splitting reads done for 1174
+Counting kmers and creating images for 1174
+Cleaning and splitting reads done for 3234
+Counting kmers and creating images for 3234
+Images done for 3419
+Preprocessing 3423 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3423_CATGCATATCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3423_CATGCATATCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1174
+Preprocessing 1176 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1176_TGCCATACCAGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1176_TGCCATACCAGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3679
+Counting kmers and creating images for 3679
+Cleaning and splitting reads done for 1739
+Counting kmers and creating images for 1739
+Images done for 1610
+Preprocessing 1653 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1653_GAGGGCCTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1653_GAGGGCCTTCGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1176
+Images done for 3679
+Preprocessing 3680 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3680_TTTCCGGCCGAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3680_TTTCCGGCCGAA.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1653
+Cleaning and splitting reads done for 2095
+Counting kmers and creating images for 2095
+Images done for 3234
+Preprocessing 3235 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3235_CCTAAGGTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3235_CCTAAGGTTCGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1176
+Counting kmers and creating images for 1176
+Splitting fastqs for 3423
+Images done for 1739
+Preprocessing 174 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/174_AAGAAGATGGAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/174_AAGAAGATGGAA.R2.fastq.gz'], 'unpaired': []}
+Images done for 1176
+Preprocessing 1182 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_1182_S285_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_1182_S285_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3680
+Splitting fastqs for 3235
+Cleaning and splitting reads done for 1653
+Counting kmers and creating images for 1653
+Splitting fastqs for 174
+Images done for 2095
+Preprocessing 2100 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2100_GACAGACCCTTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2100_GACAGACCCTTT.R2.fastq.gz'], 'unpaired': []}
+Images done for 1653
+Preprocessing 1661 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1661_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/1661_R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3235
+Counting kmers and creating images for 3235
+Cleaning and splitting reads done for 3423
+Counting kmers and creating images for 3423
+Cleaning and splitting reads done for 3680
+Counting kmers and creating images for 3680
+Images done for 3235
+Preprocessing 3279 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3279_S339_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3279_S339_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2100
+Cleaning and splitting reads done for 174
+Counting kmers and creating images for 174
+Images done for 3423
+Preprocessing 3431 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3431_GTTTCTCAGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3431_GTTTCTCAGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 3680
+Preprocessing 3729 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3729_S362_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3729_S362_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1182
+Splitting fastqs for 1661
+Cleaning and splitting reads done for 2100
+Counting kmers and creating images for 2100
+Images done for 174
+Preprocessing 1740 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1740_AGACCCTTGAAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1740_AGACCCTTGAAA.R2.fastq.gz'], 'unpaired': []}
+Images done for 2100
+Preprocessing 2168 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2168_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/2168_R2.fq.gz'], 'unpaired': []}
+Splitting fastqs for 3431
+Splitting fastqs for 1740
+Cleaning and splitting reads done for 1661
+Counting kmers and creating images for 1661
+Cleaning and splitting reads done for 3431
+Counting kmers and creating images for 3431
+Splitting fastqs for 3729
+Cleaning and splitting reads done for 1740
+Counting kmers and creating images for 1740
+Images done for 3431
+Preprocessing 3444 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3444_TATGTTACCGTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3444_TATGTTACCGTT.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1182
+Counting kmers and creating images for 1182
+Splitting fastqs for 2168
+Splitting fastqs for 3279
+Images done for 1661
+Preprocessing 1676 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1676_AGAAACCTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1676_AGAAACCTTCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1740
+Preprocessing 176 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/176_GGACATGACCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/176_GGACATGACCGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1676
+Splitting fastqs for 3444
+Splitting fastqs for 176
+Images done for 1182
+Preprocessing 1240 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1240_CGCGTTTCTTAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1240_CGCGTTTCTTAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1676
+Counting kmers and creating images for 1676
+Cleaning and splitting reads done for 3729
+Counting kmers and creating images for 3729
+Images done for 1676
+Preprocessing 1677 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1677_CGCCATGCATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1677_CGCCATGCATCC.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3444
+Counting kmers and creating images for 3444
+Splitting fastqs for 1240
+Cleaning and splitting reads done for 176
+Counting kmers and creating images for 176
+Cleaning and splitting reads done for 2168
+Counting kmers and creating images for 2168
+Splitting fastqs for 1677
+Images done for 3444
+Preprocessing 3447 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3447_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3447_R2.fq.gz'], 'unpaired': []}
+Images done for 176
+Preprocessing 1770 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_1770_S261_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_1770_S261_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 3729
+Preprocessing 3935 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3935_S464_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3935_S464_L006_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1240
+Counting kmers and creating images for 1240
+Cleaning and splitting reads done for 1677
+Counting kmers and creating images for 1677
+Cleaning and splitting reads done for 3279
+Counting kmers and creating images for 3279
+Splitting fastqs for 2764
+Splitting fastqs for 3447
+Images done for 1677
+Preprocessing 1678 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1678_AATGATCTCCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1678_AATGATCTCCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 2168
+Preprocessing 2207 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2207_GAAGATCAGCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2207_GAAGATCAGCAA.R2.fastq.gz'], 'unpaired': []}
+Images done for 1240
+Preprocessing 1285 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1285_ATGATCGGCCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1285_ATGATCGGCCTT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2207
+Splitting fastqs for 1678
+Splitting fastqs for 1285
+Cleaning and splitting reads done for 2207
+Counting kmers and creating images for 2207
+Cleaning and splitting reads done for 3447
+Counting kmers and creating images for 3447
+Images done for 3279
+Preprocessing 3301 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3301_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3301_R2.fq.gz'], 'unpaired': []}
+Images done for 2207
+Preprocessing 2272 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2272_S38_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2272_S38_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1678
+Counting kmers and creating images for 1678
+Cleaning and splitting reads done for 1285
+Counting kmers and creating images for 1285
+Splitting fastqs for 3935
+Images done for 3447
+Preprocessing 3448 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3448_S253_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3448_S253_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1285
+Preprocessing 1314 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1314_TGGTCCTAGTCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1314_TGGTCCTAGTCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 1678
+Preprocessing 1679 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1679_TCTTTCCTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1679_TCTTTCCTTCGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1770
+Splitting fastqs for 1679
+Splitting fastqs for 1314
+Cleaning and splitting reads done for 1679
+Counting kmers and creating images for 1679
+Images done for 1679
+Preprocessing 168 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/168_TATGTCACATGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/168_TATGTCACATGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1314
+Counting kmers and creating images for 1314
+Splitting fastqs for 3448
+Splitting fastqs for 3301
+Cleaning and splitting reads done for 3935
+Counting kmers and creating images for 3935
+Images done for 1314
+Preprocessing 1324 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1324_CTACACCCTAAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1324_CTACACCCTAAA.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2272
+Splitting fastqs for 168
+Cleaning and splitting reads done for 168
+Counting kmers and creating images for 168
+Cleaning and splitting reads done for 1770
+Counting kmers and creating images for 1770
+Cleaning and splitting reads done for 3448
+Counting kmers and creating images for 3448
+Splitting fastqs for 1324
+Images done for 168
+Preprocessing 1699 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1699_ATCCCAATTCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1699_ATCCCAATTCTT.R2.fastq.gz'], 'unpaired': []}
+Images done for 3935
+Preprocessing 3955 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3955_S481_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3955_S481_L006_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3301
+Counting kmers and creating images for 3301
+Images done for 3448
+Preprocessing 3452 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3452_ACGGGTTGGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3452_ACGGGTTGGTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1699
+Cleaning and splitting reads done for 1324
+Counting kmers and creating images for 1324
+Cleaning and splitting reads done for 2272
+Counting kmers and creating images for 2272
+Images done for 1770
+Preprocessing 1774 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1774_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/1774_R2.fq.gz'], 'unpaired': []}
+Splitting fastqs for 3452
+Cleaning and splitting reads done for 1699
+Counting kmers and creating images for 1699
+Images done for 3301
+Preprocessing 3316 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3316_S266_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3316_S266_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1324
+Preprocessing 1382 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1382_CCGAACCGGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1382_CCGAACCGGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1699
+Preprocessing 170 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_170_S230_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_170_S230_L007_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3452
+Counting kmers and creating images for 3452
+Splitting fastqs for 1774
+Splitting fastqs for 3955
+Images done for 2272
+Preprocessing 2279 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2279_CTTCTTCAGCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2279_CTTCTTCAGCAA.R2.fastq.gz'], 'unpaired': []}
+Images done for 3452
+Preprocessing 3518 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3518.lib1.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3518.lib1.R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 2764
+Counting kmers and creating images for 2764
+Splitting fastqs for 1382
+Splitting fastqs for 2279
+Splitting fastqs for 3316
+Cleaning and splitting reads done for 2279
+Counting kmers and creating images for 2279
+Cleaning and splitting reads done for 1774
+Counting kmers and creating images for 1774
+Images done for 2279
+Preprocessing 2311 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2311_S33_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2311_S33_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3518
+Cleaning and splitting reads done for 1382
+Counting kmers and creating images for 1382
+Images done for 1774
+Preprocessing 1845 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1845_TTACAGTCATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1845_TTACAGTCATCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 170
+Images done for 2764
+Preprocessing 2794 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_2794_S240_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_2794_S240_L007_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3316
+Counting kmers and creating images for 3316
+Images done for 1382
+Preprocessing 1386 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1386_ATCAATGTATTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1386_ATCAATGTATTT.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3955
+Counting kmers and creating images for 3955
+Splitting fastqs for 1845
+Cleaning and splitting reads done for 3518
+Counting kmers and creating images for 3518
+Images done for 3316
+Preprocessing 3338 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3338_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3338_R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1845
+Counting kmers and creating images for 1845
+Splitting fastqs for 2794
+Splitting fastqs for 1386
+Images done for 3518
+Preprocessing 3519 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3519_GGAAGAGGACGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3519_GGAAGAGGACGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3519
+Splitting fastqs for 2311
+Images done for 3955
+Preprocessing 3966 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3966_S485_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3966_S485_L006_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 1845
+Preprocessing 1850 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1850_TTCAACCTTCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1850_TTCAACCTTCTT.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3519
+Counting kmers and creating images for 3519
+Images done for 3519
+Preprocessing 3527 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3527_S321_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3527_S321_L007_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1850
+Cleaning and splitting reads done for 1386
+Counting kmers and creating images for 1386
+Cleaning and splitting reads done for 170
+Counting kmers and creating images for 170
+Cleaning and splitting reads done for 2794
+Counting kmers and creating images for 2794
+Cleaning and splitting reads done for 1850
+Counting kmers and creating images for 1850
+Images done for 1386
+Preprocessing 1502 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1502_CCAGTCATGCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1502_CCAGTCATGCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1850
+Preprocessing 1853 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1853_GCTTCTCGATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1853_GCTTCTCGATCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3338
+Images done for 2794
+Preprocessing 2798 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2798_AGAGTACACTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2798_AGAGTACACTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1853
+Images done for 170
+Preprocessing 1702 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1702_CTCTTGGTTCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1702_CTCTTGGTTCTT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2798
+Cleaning and splitting reads done for 2311
+Counting kmers and creating images for 2311
+Splitting fastqs for 3527
+Cleaning and splitting reads done for 1853
+Counting kmers and creating images for 1853
+Splitting fastqs for 1702
+Splitting fastqs for 1502
+Cleaning and splitting reads done for 2798
+Counting kmers and creating images for 2798
+Splitting fastqs for 3966
+Images done for 1853
+Preprocessing 1860 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1860_S44_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1860_S44_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1702
+Counting kmers and creating images for 1702
+Images done for 2311
+Preprocessing 2647 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2647_CTGATATGCTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2647_CTGATATGCTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 2798
+Preprocessing 2827 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2827.lib1.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/2827.lib1.R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3338
+Counting kmers and creating images for 3338
+Images done for 1702
+Preprocessing 655 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/655_CCGAACCGGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/655_CCGAACCGGTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2647
+Splitting fastqs for 2827
+Splitting fastqs for 655
+Cleaning and splitting reads done for 3527
+Counting kmers and creating images for 3527
+Cleaning and splitting reads done for 1502
+Counting kmers and creating images for 1502
+Cleaning and splitting reads done for 2647
+Counting kmers and creating images for 2647
+Cleaning and splitting reads done for 2827
+Counting kmers and creating images for 2827
+Images done for 3338
+Preprocessing 3340 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3340_TTTCTCTAGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3340_TTTCTCTAGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 2827
+Preprocessing 2831 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2831_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/2831_R2.fq.gz'], 'unpaired': []}
+Images done for 2647
+Preprocessing 2650 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2650_GAGACACACGGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2650_GAGACACACGGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 655
+Counting kmers and creating images for 655
+Cleaning and splitting reads done for 3966
+Counting kmers and creating images for 3966
+Splitting fastqs for 3340
+Images done for 1502
+Preprocessing 1503 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_1503_S399_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_1503_S399_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 3527
+Preprocessing 3536 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3536_S36_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3536_S36_L003_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2650
+Images done for 655
+Preprocessing 679 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/679.lib2.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/679.lib2.R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3340
+Counting kmers and creating images for 3340
+Images done for 3340
+Preprocessing 3341 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3341_S62_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3341_S62_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 2650
+Counting kmers and creating images for 2650
+Splitting fastqs for 2831
+Splitting fastqs for 1860
+Images done for 3966
+Preprocessing 3970 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3970_S516_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3970_S516_L006_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 2650
+Preprocessing 2657 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2657_CTCTGACACTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2657_CTCTGACACTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 679
+Splitting fastqs for 2657
+Cleaning and splitting reads done for 2657
+Counting kmers and creating images for 2657
+Splitting fastqs for 3341
+Images done for 2657
+Preprocessing 2693 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_2693_S331_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_2693_S331_L007_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 2831
+Counting kmers and creating images for 2831
+Cleaning and splitting reads done for 679
+Counting kmers and creating images for 679
+Splitting fastqs for 3970
+Images done for 2831
+Preprocessing 2906 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2906_AAGTGTGACTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2906_AAGTGTGACTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 679
+Preprocessing 682 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/682_AACTAGCGCCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/682_AACTAGCGCCAA.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 2906
+Splitting fastqs for 1503
+Cleaning and splitting reads done for 3341
+Counting kmers and creating images for 3341
+Cleaning and splitting reads done for 1860
+Counting kmers and creating images for 1860
+Splitting fastqs for 2693
+Splitting fastqs for 682
+Cleaning and splitting reads done for 2906
+Counting kmers and creating images for 2906
+Images done for 2906
+Preprocessing 2907 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2907_TTACCAAGGCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2907_TTACCAAGGCAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 682
+Counting kmers and creating images for 682
+Cleaning and splitting reads done for 3970
+Counting kmers and creating images for 3970
+Splitting fastqs for 2907
+Images done for 1860
+Preprocessing 1874 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1874_TGATCAGGAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1874_TGATCAGGAGCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 3341
+Preprocessing 3342 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3342.lib1.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3342.lib1.R2.fq.gz'], 'unpaired': []}
+Images done for 682
+Preprocessing 69 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/69_GCCAAGACAGAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/69_GCCAAGACAGAA.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1874
+Cleaning and splitting reads done for 2907
+Counting kmers and creating images for 2907
+Images done for 3970
+Preprocessing 3980 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3980_S490_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3980_S490_L006_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 69
+Cleaning and splitting reads done for 2693
+Counting kmers and creating images for 2693
+Images done for 2907
+Preprocessing 2909 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2909_ATCCAGTACGGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2909_ATCCAGTACGGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1874
+Counting kmers and creating images for 1874
+Splitting fastqs for 3342
+Images done for 1874
+Preprocessing 1877 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1877_ACTAGAGGATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1877_ACTAGAGGATCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3536
+Splitting fastqs for 2909
+Cleaning and splitting reads done for 69
+Counting kmers and creating images for 69
+Images done for 2693
+Preprocessing 270 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/270_ATACATACCATT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/270_ATACATACCATT.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1877
+Cleaning and splitting reads done for 2909
+Counting kmers and creating images for 2909
+Images done for 69
+Preprocessing 706 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/706_CCTGCATCGCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/706_CCTGCATCGCAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3342
+Counting kmers and creating images for 3342
+Cleaning and splitting reads done for 1877
+Counting kmers and creating images for 1877
+Images done for 2909
+Preprocessing 2942 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2942_AAGTGTGACTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2942_AAGTGTGACTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3980
+Splitting fastqs for 270
+Cleaning and splitting reads done for 1503
+Counting kmers and creating images for 1503
+Images done for 1877
+Preprocessing 1905 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1905_GGACTGAGATCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1905_GGACTGAGATCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 3342
+Preprocessing 3345 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3345.lib1.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3345.lib1.R2.fq.gz'], 'unpaired': []}
+Splitting fastqs for 706
+Splitting fastqs for 2942
+Splitting fastqs for 1905
+Cleaning and splitting reads done for 270
+Counting kmers and creating images for 270
+Cleaning and splitting reads done for 2942
+Counting kmers and creating images for 2942
+Splitting fastqs for 3345
+Cleaning and splitting reads done for 706
+Counting kmers and creating images for 706
+Images done for 1503
+Preprocessing 1525 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1525_S41_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1525_S41_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1905
+Counting kmers and creating images for 1905
+Images done for 270
+Preprocessing C-17 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-17_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-17_R2.fastq.gz'], 'unpaired': []}
+Images done for 2942
+Preprocessing 2960 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2960_S50_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2960_S50_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3980
+Counting kmers and creating images for 3980
+Images done for 706
+Preprocessing 710 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/710_GGCAGTCTCTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/710_GGCAGTCTCTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 1905
+Preprocessing 1915 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1915_S47_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/1915_S47_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3345
+Counting kmers and creating images for 3345
+Splitting fastqs for 710
+Images done for 3980
+Preprocessing 4004 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/4004_S511_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/4004_S511_L006_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 3345
+Preprocessing 3349 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3349.lib1.R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/3349.lib1.R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 710
+Counting kmers and creating images for 710
+Splitting fastqs for 1915
+Images done for 710
+Preprocessing 743 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/743_AAGTCGAGAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/743_AAGTCGAGAGCC.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3349
+Splitting fastqs for 2960
+Splitting fastqs for 743
+Splitting fastqs for 4004
+Splitting fastqs for C-17
+Cleaning and splitting reads done for 3536
+Counting kmers and creating images for 3536
+Cleaning and splitting reads done for 743
+Counting kmers and creating images for 743
+Cleaning and splitting reads done for 3349
+Counting kmers and creating images for 3349
+Images done for 743
+Preprocessing 746 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/746_GGCACGTCAGCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/746_GGCACGTCAGCC.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1915
+Counting kmers and creating images for 1915
+Images done for 3349
+Preprocessing 3353 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3353_CTTGAGAAGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3353_CTTGAGAAGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 3536
+Preprocessing 3545 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_3545_S378_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_3545_S378_L007_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 2960
+Counting kmers and creating images for 2960
+Splitting fastqs for 746
+Cleaning and splitting reads done for 4004
+Counting kmers and creating images for 4004
+Images done for 1915
+Preprocessing C-393 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-393_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-393_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3353
+Cleaning and splitting reads done for 746
+Counting kmers and creating images for 746
+Splitting fastqs for 1525
+Images done for 4004
+Preprocessing 533 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/SUB07600_533_S400_L007_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/SUB07600_533_S400_L007_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 2960
+Preprocessing 2985 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/2985_TGAATTACGCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/2985_TGAATTACGCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 746
+Preprocessing 747 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/747_GGATTGGTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/747_GGATTGGTTCGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3353
+Counting kmers and creating images for 3353
+Splitting fastqs for 2985
+Splitting fastqs for 747
+Cleaning and splitting reads done for C-17
+Counting kmers and creating images for C-17
+Images done for 3353
+Preprocessing 3356 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3356_TCACGCGGCCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3356_TCACGCGGCCAA.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-393
+Cleaning and splitting reads done for 2985
+Counting kmers and creating images for 2985
+Cleaning and splitting reads done for 747
+Counting kmers and creating images for 747
+Splitting fastqs for 533
+Splitting fastqs for 3356
+Images done for 2985
+Preprocessing 3013 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3013_TTGACCATGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3013_TTGACCATGTGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 747
+Preprocessing 760 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/760_AATAATTGGTCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/760_AATAATTGGTCC.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3356
+Counting kmers and creating images for 3356
+Images done for C-17
+Preprocessing C-181 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-181_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-181_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 760
+Splitting fastqs for 3013
+Images done for 3356
+Preprocessing 3357 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3357_TCCAGGAAGTGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3357_TCCAGGAAGTGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3545
+Splitting fastqs for 3357
+Cleaning and splitting reads done for 760
+Counting kmers and creating images for 760
+Cleaning and splitting reads done for 533
+Counting kmers and creating images for 533
+Cleaning and splitting reads done for 3357
+Counting kmers and creating images for 3357
+Images done for 760
+Preprocessing 777 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/777equal778_S39_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/777equal778_S39_L003_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3013
+Counting kmers and creating images for 3013
+Images done for 3357
+Preprocessing S-18 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H12v1_S-18_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H12v1_S-18_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H12v1_S-18_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H12v1_S-18_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-393
+Counting kmers and creating images for C-393
+Images done for 3013
+Preprocessing 3121 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3121_GGATTGGTTCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3121_GGATTGGTTCGG.R2.fastq.gz'], 'unpaired': []}
+Images done for 533
+Preprocessing 596 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/596_AGCTCAGTCCGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/596_AGCTCAGTCCGG.R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 596
+Splitting fastqs for 3121
+Splitting fastqs for S-18
+Images done for C-393
+Preprocessing C-40 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-40_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-40_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 777
+Cleaning and splitting reads done for 596
+Counting kmers and creating images for 596
+Cleaning and splitting reads done for S-18
+Counting kmers and creating images for S-18
+Images done for 596
+Preprocessing 618 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/618_TTATCAGTCCTT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/618_TTATCAGTCCTT.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3121
+Counting kmers and creating images for 3121
+Splitting fastqs for C-181
+Images done for S-18
+Preprocessing S-19 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A09v1_S-19_S161_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A09v1_S-19_S161_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A09v1_S-19_S161_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A09v1_S-19_S161_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 1525
+Counting kmers and creating images for 1525
+Splitting fastqs for 618
+Images done for 3121
+Preprocessing 3122 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3122_GTAGTATCCATT.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3122_GTAGTATCCATT.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 618
+Counting kmers and creating images for 618
+Splitting fastqs for 3122
+Images done for 618
+Preprocessing 644 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/644_GGAGTGTACCAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/644_GGAGTGTACCAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 777
+Counting kmers and creating images for 777
+Splitting fastqs for C-40
+Cleaning and splitting reads done for 3545
+Counting kmers and creating images for 3545
+Images done for 1525
+Preprocessing 1531 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1531_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/1531_R2.fq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 3122
+Counting kmers and creating images for 3122
+Splitting fastqs for 644
+Images done for 777
+Preprocessing 821 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/821_CCCGATCAGTCC.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/821_CCCGATCAGTCC.R2.fastq.gz'], 'unpaired': []}
+Images done for 3122
+Preprocessing 3129 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3129_S8_L003_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3129_S8_L003_R2_001.fastq.gz'], 'unpaired': []}
+Images done for 3545
+Preprocessing 3594 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3594_CTATAATATTAA.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3594_CTATAATATTAA.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-40
+Counting kmers and creating images for C-40
+Cleaning and splitting reads done for C-181
+Counting kmers and creating images for C-181
+Splitting fastqs for 821
+Splitting fastqs for 1531
+Cleaning and splitting reads done for 644
+Counting kmers and creating images for 644
+Cleaning and splitting reads done for 821
+Counting kmers and creating images for 821
+Images done for C-40
+Preprocessing C-414 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-414_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-414_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 3594
+Images done for 821
+Preprocessing 845 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/845_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/845_R2.fq.gz'], 'unpaired': []}
+Images done for 644
+Preprocessing 654 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/654_S374_L006_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/654_S374_L006_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-19
+Images done for C-181
+Preprocessing C-21 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-21_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-21_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 654
+Cleaning and splitting reads done for 3594
+Counting kmers and creating images for 3594
+Splitting fastqs for 3129
+Cleaning and splitting reads done for 1531
+Counting kmers and creating images for 1531
+Splitting fastqs for 845
+Images done for 3594
+Preprocessing 3595 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3595_CTCGATCGACGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3595_CTCGATCGACGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 654
+Counting kmers and creating images for 654
+Images done for 1531
+Preprocessing 1534 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/1534_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/1534_R2.fq.gz'], 'unpaired': []}
+Splitting fastqs for C-414
+Splitting fastqs for 3595
+Images done for 654
+Preprocessing S-34 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F12v1_S-34_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F12v1_S-34_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F12v1_S-34_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F12v1_S-34_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 1534
+Cleaning and splitting reads done for 845
+Counting kmers and creating images for 845
+Cleaning and splitting reads done for 3595
+Counting kmers and creating images for 3595
+Splitting fastqs for C-21
+Cleaning and splitting reads done for 3129
+Counting kmers and creating images for 3129
+Cleaning and splitting reads done for 1534
+Counting kmers and creating images for 1534
+Images done for 3595
+Preprocessing 3600 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/3600_TCTAGTCGATGG.R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/3600_TCTAGTCGATGG.R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-19
+Counting kmers and creating images for S-19
+Images done for 845
+Preprocessing 944 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/944_R1.fq.gz'], 'R2': ['../../datasets/all_multilabel/944_R2.fq.gz'], 'unpaired': []}
+Images done for 1534
+Preprocessing S-50 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G05v1_S-50_S135_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G05v1_S-50_S135_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G05v1_S-50_S135_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G05v1_S-50_S135_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for 944
+Cleaning and splitting reads done for C-414
+Counting kmers and creating images for C-414
+Splitting fastqs for 3600
+Splitting fastqs for S-34
+Images done for 3129
+Preprocessing S-67 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A11v1_S-67_S81_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A11v1_S-67_S81_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A11v1_S-67_S81_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A11v1_S-67_S81_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-19
+Preprocessing S-2 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E05v1_S-2_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E05v1_S-2_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E05v1_S-2_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E05v1_S-2_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for 944
+Counting kmers and creating images for 944
+Cleaning and splitting reads done for 3600
+Counting kmers and creating images for 3600
+Images done for 944
+Preprocessing C-127 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-127_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-127_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-21
+Counting kmers and creating images for C-21
+Images done for C-414
+Preprocessing C-48 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-48_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-48_R2.fastq.gz'], 'unpaired': []}
+Images done for 3600
+Preprocessing S-83 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F04v1_S-83_S126_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F04v1_S-83_S126_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F04v1_S-83_S126_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F04v1_S-83_S126_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-34
+Counting kmers and creating images for S-34
+Images done for C-21
+Preprocessing C-227 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-227_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-227_R2.fastq.gz'], 'unpaired': []}
+Images done for S-34
+Preprocessing S-35 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C08v1_S-35_S155_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C08v1_S-35_S155_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C08v1_S-35_S155_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C08v1_S-35_S155_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-2
+Splitting fastqs for S-67
+Splitting fastqs for C-48
+Splitting fastqs for C-127
+Splitting fastqs for S-83
+Splitting fastqs for S-50
+Splitting fastqs for C-227
+Cleaning and splitting reads done for C-48
+Counting kmers and creating images for C-48
+Cleaning and splitting reads done for S-2
+Counting kmers and creating images for S-2
+Splitting fastqs for S-35
+Cleaning and splitting reads done for S-67
+Counting kmers and creating images for S-67
+Images done for C-48
+Preprocessing C-500 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-500_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-500_R2.fastq.gz'], 'unpaired': []}
+Images done for S-2
+Preprocessing S-20 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G03v1_S-20_S23_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G03v1_S-20_S23_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G03v1_S-20_S23_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G03v1_S-20_S23_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-83
+Counting kmers and creating images for S-83
+Cleaning and splitting reads done for C-127
+Counting kmers and creating images for C-127
+Images done for S-67
+Preprocessing S-68 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C02v1_S-68_S107_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C02v1_S-68_S107_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C02v1_S-68_S107_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C02v1_S-68_S107_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-227
+Counting kmers and creating images for C-227
+Images done for S-83
+Preprocessing S-84 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_A02v1_S-84_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_A02v1_S-84_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_A02v1_S-84_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_A02v1_S-84_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-127
+Preprocessing C-129 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-129_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-129_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-500
+Images done for C-227
+Preprocessing C-239 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-239_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-239_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-50
+Counting kmers and creating images for S-50
+Splitting fastqs for S-20
+Cleaning and splitting reads done for C-500
+Counting kmers and creating images for C-500
+Cleaning and splitting reads done for S-35
+Counting kmers and creating images for S-35
+Images done for S-50
+Preprocessing S-51 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B05v1_S-51_S130_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B05v1_S-51_S130_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B05v1_S-51_S130_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B05v1_S-51_S130_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-500
+Preprocessing C-64 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-64_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-64_R2.fastq.gz'], 'unpaired': []}
+Images done for S-35
+Preprocessing S-36 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F12v1_S-36_S190_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F12v1_S-36_S190_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F12v1_S-36_S190_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F12v1_S-36_S190_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-129
+Splitting fastqs for S-68
+Splitting fastqs for S-84
+Cleaning and splitting reads done for S-20
+Counting kmers and creating images for S-20
+Splitting fastqs for C-239
+Cleaning and splitting reads done for C-129
+Counting kmers and creating images for C-129
+Images done for S-20
+Preprocessing S-21 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A07v1_S-21_S49_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A07v1_S-21_S49_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A07v1_S-21_S49_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A07v1_S-21_S49_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-84
+Counting kmers and creating images for S-84
+Splitting fastqs for C-64
+Cleaning and splitting reads done for S-68
+Counting kmers and creating images for S-68
+Splitting fastqs for S-51
+Images done for C-129
+Preprocessing C-130 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-130_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-130_R2.fastq.gz'], 'unpaired': []}
+Images done for S-84
+Preprocessing S-85 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E01v1_S-85_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E01v1_S-85_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E01v1_S-85_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E01v1_S-85_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-68
+Preprocessing S-69 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C07v1_S-69_S147_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C07v1_S-69_S147_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C07v1_S-69_S147_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C07v1_S-69_S147_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-36
+Splitting fastqs for S-21
+Splitting fastqs for C-130
+Cleaning and splitting reads done for C-64
+Counting kmers and creating images for C-64
+Cleaning and splitting reads done for C-239
+Counting kmers and creating images for C-239
+Cleaning and splitting reads done for S-51
+Counting kmers and creating images for S-51
+Images done for C-64
+Preprocessing C-69 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-69_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-69_R2.fastq.gz'], 'unpaired': []}
+Images done for C-239
+Preprocessing C-251 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-251_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-251_R2.fastq.gz'], 'unpaired': []}
+Images done for S-51
+Preprocessing S-52 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B08v1_S-52_S154_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B08v1_S-52_S154_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B08v1_S-52_S154_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B08v1_S-52_S154_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-36
+Counting kmers and creating images for S-36
+Splitting fastqs for S-85
+Splitting fastqs for S-69
+Cleaning and splitting reads done for S-21
+Counting kmers and creating images for S-21
+Cleaning and splitting reads done for C-130
+Counting kmers and creating images for C-130
+Images done for S-36
+Preprocessing S-37 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D11v1_S-37_S180_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D11v1_S-37_S180_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D11v1_S-37_S180_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D11v1_S-37_S180_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-21
+Preprocessing S-22 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A08v1_S-22_S153_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A08v1_S-22_S153_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A08v1_S-22_S153_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A08v1_S-22_S153_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-130
+Preprocessing C-136 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-136_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-136_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-69
+Splitting fastqs for C-251
+Splitting fastqs for S-52
+Cleaning and splitting reads done for S-85
+Counting kmers and creating images for S-85
+Splitting fastqs for S-22
+Images done for S-85
+Preprocessing S-86 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E12v1_S-86_S93_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E12v1_S-86_S93_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E12v1_S-86_S93_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E12v1_S-86_S93_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-69
+Counting kmers and creating images for C-69
+Splitting fastqs for S-37
+Splitting fastqs for C-136
+Cleaning and splitting reads done for S-69
+Counting kmers and creating images for S-69
+Cleaning and splitting reads done for C-251
+Counting kmers and creating images for C-251
+Images done for C-69
+Preprocessing C-86 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-86_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-86_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-22
+Counting kmers and creating images for S-22
+Images done for S-69
+Preprocessing S-7 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H07v1_S-7_S152_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H07v1_S-7_S152_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H07v1_S-7_S152_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H07v1_S-7_S152_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-52
+Counting kmers and creating images for S-52
+Images done for C-251
+Preprocessing C-259 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-259_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-259_R2.fastq.gz'], 'unpaired': []}
+Images done for S-22
+Preprocessing S-23 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G01v1_S-23_S103_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G01v1_S-23_S103_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G01v1_S-23_S103_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G01v1_S-23_S103_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-52
+Preprocessing S-53 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A12v1_S-53_S89_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A12v1_S-53_S89_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A12v1_S-53_S89_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A12v1_S-53_S89_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-136
+Counting kmers and creating images for C-136
+Splitting fastqs for S-86
+Cleaning and splitting reads done for S-37
+Counting kmers and creating images for S-37
+Images done for C-136
+Splitting fastqs for S-23
+Images done for S-37
+Preprocessing S-38 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G08v1_S-38_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G08v1_S-38_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G08v1_S-38_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G08v1_S-38_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-7
+Splitting fastqs for C-86
+Splitting fastqs for S-53
+Splitting fastqs for C-259
+Cleaning and splitting reads done for S-86
+Counting kmers and creating images for S-86
+Splitting fastqs for S-38
+Cleaning and splitting reads done for S-23
+Counting kmers and creating images for S-23
+Images done for S-86
+Preprocessing S-87 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D02v1_S-87_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D02v1_S-87_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D02v1_S-87_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D02v1_S-87_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-7
+Counting kmers and creating images for S-7
+Images done for S-23
+Preprocessing S-24 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_D10v1_S-24_S76_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_D10v1_S-24_S76_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_D10v1_S-24_S76_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_D10v1_S-24_S76_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-38
+Counting kmers and creating images for S-38
+Cleaning and splitting reads done for S-53
+Counting kmers and creating images for S-53
+Images done for S-7
+Preprocessing S-70 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H09v1_S-70_S72_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H09v1_S-70_S72_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H09v1_S-70_S72_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H09v1_S-70_S72_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-38
+Preprocessing S-39 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F09v1_S-39_S166_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F09v1_S-39_S166_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F09v1_S-39_S166_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F09v1_S-39_S166_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-53
+Preprocessing S-54 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C09v1_S-54_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C09v1_S-54_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C09v1_S-54_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C09v1_S-54_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-86
+Counting kmers and creating images for C-86
+Cleaning and splitting reads done for C-259
+Counting kmers and creating images for C-259
+Splitting fastqs for S-87
+Images done for C-259
+Preprocessing C-263 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-263_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-263_R2.fastq.gz'], 'unpaired': []}
+Images done for C-86
+Preprocessing S-1 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B10v1_S-1_S170_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B10v1_S-1_S170_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B10v1_S-1_S170_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B10v1_S-1_S170_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-87
+Counting kmers and creating images for S-87
+Splitting fastqs for S-39
+Splitting fastqs for S-54
+Splitting fastqs for S-70
+Splitting fastqs for S-24
+Images done for S-87
+Preprocessing S-88 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_B07v1_S-88_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_B07v1_S-88_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_B07v1_S-88_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_B07v1_S-88_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-263
+Splitting fastqs for S-1
+Cleaning and splitting reads done for S-39
+Counting kmers and creating images for S-39
+Cleaning and splitting reads done for S-54
+Counting kmers and creating images for S-54
+Cleaning and splitting reads done for S-70
+Counting kmers and creating images for S-70
+Splitting fastqs for S-88
+Images done for S-39
+Preprocessing S-4 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G07v1_S-4_S151_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G07v1_S-4_S151_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G07v1_S-4_S151_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G07v1_S-4_S151_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-54
+Preprocessing S-55 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A07v1_S-55_S145_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A07v1_S-55_S145_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A07v1_S-55_S145_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A07v1_S-55_S145_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-24
+Counting kmers and creating images for S-24
+Images done for S-70
+Preprocessing S-71 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F07v1_S-71_S150_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F07v1_S-71_S150_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F07v1_S-71_S150_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F07v1_S-71_S150_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-263
+Counting kmers and creating images for C-263
+Cleaning and splitting reads done for S-88
+Counting kmers and creating images for S-88
+Images done for S-24
+Preprocessing S-25 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A12v1_S-25_S185_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A12v1_S-25_S185_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A12v1_S-25_S185_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A12v1_S-25_S185_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-263
+Preprocessing C-265 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-265_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-265_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-1
+Counting kmers and creating images for S-1
+Images done for S-88
+Preprocessing S-89 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F03v1_S-89_S22_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F03v1_S-89_S22_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F03v1_S-89_S22_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F03v1_S-89_S22_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-55
+Images done for S-1
+Preprocessing S-10 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D09v1_S-10_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D09v1_S-10_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D09v1_S-10_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D09v1_S-10_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-4
+Splitting fastqs for S-71
+Cleaning and splitting reads done for S-55
+Counting kmers and creating images for S-55
+Splitting fastqs for S-89
+Splitting fastqs for S-10
+Images done for S-55
+Preprocessing S-56 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_F11v1_S-56_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_F11v1_S-56_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_F11v1_S-56_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_F11v1_S-56_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-25
+Splitting fastqs for S-56
+Cleaning and splitting reads done for S-4
+Counting kmers and creating images for S-4
+Cleaning and splitting reads done for S-56
+Counting kmers and creating images for S-56
+Splitting fastqs for C-265
+Images done for S-56
+Preprocessing S-57 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A05v1_S-57_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A05v1_S-57_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A05v1_S-57_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A05v1_S-57_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-4
+Preprocessing S-40 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H12v1_S-40_S192_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H12v1_S-40_S192_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H12v1_S-40_S192_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H12v1_S-40_S192_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-89
+Counting kmers and creating images for S-89
+Cleaning and splitting reads done for S-10
+Counting kmers and creating images for S-10
+Cleaning and splitting reads done for S-71
+Counting kmers and creating images for S-71
+Splitting fastqs for S-57
+Images done for S-89
+Preprocessing S-9 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_E09v1_S-9_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_E09v1_S-9_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_E09v1_S-9_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_E09v1_S-9_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-10
+Preprocessing S-100 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H03v1_S-100_S24_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H03v1_S-100_S24_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H03v1_S-100_S24_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H03v1_S-100_S24_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-71
+Preprocessing S-72 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G04v1_S-72_S31_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G04v1_S-72_S31_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G04v1_S-72_S31_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G04v1_S-72_S31_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-9
+Cleaning and splitting reads done for S-57
+Counting kmers and creating images for S-57
+Cleaning and splitting reads done for S-25
+Counting kmers and creating images for S-25
+Cleaning and splitting reads done for S-9
+Counting kmers and creating images for S-9
+Images done for S-57
+Preprocessing S-58 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F11v1_S-58_S182_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F11v1_S-58_S182_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F11v1_S-58_S182_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F11v1_S-58_S182_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-40
+Images done for S-9
+Preprocessing S-90 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G02v1_S-90_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G02v1_S-90_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G02v1_S-90_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G02v1_S-90_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-265
+Counting kmers and creating images for C-265
+Splitting fastqs for S-100
+Images done for S-25
+Preprocessing S-26 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B12v1_S-26_S186_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B12v1_S-26_S186_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B12v1_S-26_S186_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B12v1_S-26_S186_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-265
+Preprocessing C-271 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-271_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-271_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-72
+Cleaning and splitting reads done for S-40
+Counting kmers and creating images for S-40
+Cleaning and splitting reads done for S-100
+Counting kmers and creating images for S-100
+Images done for S-40
+Preprocessing S-41 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H09v1_S-41_S168_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H09v1_S-41_S168_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H09v1_S-41_S168_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H09v1_S-41_S168_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-100
+Preprocessing S-11 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F10v1_S-11_S174_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F10v1_S-11_S174_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F10v1_S-11_S174_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F10v1_S-11_S174_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-58
+Splitting fastqs for S-26
+Splitting fastqs for C-271
+Splitting fastqs for S-90
+Cleaning and splitting reads done for S-72
+Counting kmers and creating images for S-72
+Images done for S-72
+Preprocessing S-73 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A03v1_S-73_S113_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A03v1_S-73_S113_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A03v1_S-73_S113_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A03v1_S-73_S113_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-11
+Cleaning and splitting reads done for C-271
+Counting kmers and creating images for C-271
+Splitting fastqs for S-41
+Cleaning and splitting reads done for S-58
+Counting kmers and creating images for S-58
+Cleaning and splitting reads done for S-26
+Counting kmers and creating images for S-26
+Images done for C-271
+Preprocessing C-280 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-280_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-280_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-73
+Images done for S-58
+Preprocessing S-59 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G06v1_S-59_S47_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G06v1_S-59_S47_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G06v1_S-59_S47_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G06v1_S-59_S47_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-90
+Counting kmers and creating images for S-90
+Images done for S-26
+Preprocessing S-27 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H10v1_S-27_S176_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H10v1_S-27_S176_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H10v1_S-27_S176_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_H10v1_S-27_S176_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-90
+Preprocessing S-91 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B04v1_S-91_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B04v1_S-91_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B04v1_S-91_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B04v1_S-91_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-11
+Counting kmers and creating images for S-11
+Cleaning and splitting reads done for S-41
+Counting kmers and creating images for S-41
+Cleaning and splitting reads done for S-73
+Counting kmers and creating images for S-73
+Images done for S-11
+Preprocessing S-12 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A06v1_S-12_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A06v1_S-12_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A06v1_S-12_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A06v1_S-12_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-73
+Preprocessing S-74 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H07v1_S-74_S56_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H07v1_S-74_S56_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H07v1_S-74_S56_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H07v1_S-74_S56_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-41
+Preprocessing S-42 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H05v1_S-42_S40_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H05v1_S-42_S40_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H05v1_S-42_S40_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H05v1_S-42_S40_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-27
+Splitting fastqs for S-59
+Splitting fastqs for S-91
+Splitting fastqs for C-280
+Splitting fastqs for S-42
+Splitting fastqs for S-74
+Cleaning and splitting reads done for S-27
+Counting kmers and creating images for S-27
+Cleaning and splitting reads done for S-59
+Counting kmers and creating images for S-59
+Images done for S-27
+Preprocessing S-28 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F12v1_S-28_S94_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F12v1_S-28_S94_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F12v1_S-28_S94_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F12v1_S-28_S94_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-91
+Counting kmers and creating images for S-91
+Images done for S-59
+Preprocessing S-6 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E11v1_S-6_S181_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E11v1_S-6_S181_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E11v1_S-6_S181_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E11v1_S-6_S181_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-12
+Cleaning and splitting reads done for S-42
+Counting kmers and creating images for S-42
+Cleaning and splitting reads done for S-74
+Counting kmers and creating images for S-74
+Images done for S-91
+Preprocessing S-92 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G09v1_S-92_S167_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G09v1_S-92_S167_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G09v1_S-92_S167_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G09v1_S-92_S167_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-42
+Preprocessing S-43 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G11v1_S-43_S183_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G11v1_S-43_S183_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G11v1_S-43_S183_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G11v1_S-43_S183_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-74
+Preprocessing S-75 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A04v1_S-75_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A04v1_S-75_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A04v1_S-75_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A04v1_S-75_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-280
+Counting kmers and creating images for C-280
+Splitting fastqs for S-28
+Images done for C-280
+Preprocessing C-296 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-296_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-296_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-75
+Splitting fastqs for S-6
+Cleaning and splitting reads done for S-12
+Counting kmers and creating images for S-12
+Splitting fastqs for S-92
+Cleaning and splitting reads done for S-28
+Counting kmers and creating images for S-28
+Splitting fastqs for C-296
+Splitting fastqs for S-43
+Cleaning and splitting reads done for S-75
+Counting kmers and creating images for S-75
+Images done for S-12
+Preprocessing S-13 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F03v1_S-13_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F03v1_S-13_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F03v1_S-13_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F03v1_S-13_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-28
+Preprocessing S-29 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E09v1_S-29_S69_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E09v1_S-29_S69_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E09v1_S-29_S69_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E09v1_S-29_S69_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-75
+Preprocessing S-76 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H02v1_S-76_S16_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H02v1_S-76_S16_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H02v1_S-76_S16_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_H02v1_S-76_S16_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-6
+Counting kmers and creating images for S-6
+Cleaning and splitting reads done for C-296
+Counting kmers and creating images for C-296
+Images done for S-6
+Preprocessing S-60 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D12v1_S-60_S188_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D12v1_S-60_S188_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D12v1_S-60_S188_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D12v1_S-60_S188_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-92
+Counting kmers and creating images for S-92
+Splitting fastqs for S-13
+Cleaning and splitting reads done for S-43
+Counting kmers and creating images for S-43
+Splitting fastqs for S-76
+Images done for C-296
+Preprocessing C-303 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-303_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-303_R2.fastq.gz'], 'unpaired': []}
+Images done for S-92
+Preprocessing S-93 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B11v1_S-93_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B11v1_S-93_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B11v1_S-93_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B11v1_S-93_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-93
+Cleaning and splitting reads done for S-93
+Counting kmers and creating images for S-93
+Splitting fastqs for S-29
+Images done for S-43
+Preprocessing S-44 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D01v1_S-44_S100_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D01v1_S-44_S100_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D01v1_S-44_S100_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D01v1_S-44_S100_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-93
+Preprocessing S-94 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C12v1_S-94_S187_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C12v1_S-94_S187_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C12v1_S-94_S187_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C12v1_S-94_S187_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-13
+Counting kmers and creating images for S-13
+Splitting fastqs for S-60
+Cleaning and splitting reads done for S-76
+Counting kmers and creating images for S-76
+Images done for S-13
+Preprocessing S-14 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G10v1_S-14_S79_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G10v1_S-14_S79_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G10v1_S-14_S79_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_G10v1_S-14_S79_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-303
+Images done for S-76
+Preprocessing S-77 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F06v1_S-77_S142_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F06v1_S-77_S142_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F06v1_S-77_S142_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F06v1_S-77_S142_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-29
+Counting kmers and creating images for S-29
+Images done for S-29
+Preprocessing S-3 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A05v1_S-3_S33_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A05v1_S-3_S33_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A05v1_S-3_S33_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A05v1_S-3_S33_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-44
+Cleaning and splitting reads done for S-60
+Counting kmers and creating images for S-60
+Splitting fastqs for S-94
+Images done for S-60
+Preprocessing S-61 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A05v1_S-61_S129_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A05v1_S-61_S129_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A05v1_S-61_S129_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A05v1_S-61_S129_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-303
+Counting kmers and creating images for C-303
+Splitting fastqs for S-77
+Splitting fastqs for S-14
+Splitting fastqs for S-3
+Images done for C-303
+Preprocessing C-313 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-313_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-313_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-44
+Counting kmers and creating images for S-44
+Cleaning and splitting reads done for S-94
+Counting kmers and creating images for S-94
+Splitting fastqs for S-61
+Images done for S-44
+Preprocessing S-45 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E06v1_S-45_S45_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E06v1_S-45_S45_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E06v1_S-45_S45_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E06v1_S-45_S45_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-94
+Preprocessing S-95 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D08v1_S-95_S156_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D08v1_S-95_S156_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D08v1_S-95_S156_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D08v1_S-95_S156_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-77
+Counting kmers and creating images for S-77
+Cleaning and splitting reads done for S-14
+Counting kmers and creating images for S-14
+Cleaning and splitting reads done for S-3
+Counting kmers and creating images for S-3
+Cleaning and splitting reads done for S-61
+Counting kmers and creating images for S-61
+Images done for S-77
+Preprocessing S-78 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C09v1_S-78_S163_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C09v1_S-78_S163_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C09v1_S-78_S163_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C09v1_S-78_S163_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-14
+Preprocessing S-15 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A11v1_S-15_S177_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A11v1_S-15_S177_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A11v1_S-15_S177_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A11v1_S-15_S177_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-3
+Preprocessing S-30 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D05v1_S-30_S132_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D05v1_S-30_S132_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D05v1_S-30_S132_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D05v1_S-30_S132_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-313
+Images done for S-61
+Preprocessing S-62 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F09v1_S-62_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F09v1_S-62_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F09v1_S-62_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F09v1_S-62_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-45
+Splitting fastqs for S-62
+Splitting fastqs for S-95
+Cleaning and splitting reads done for C-313
+Counting kmers and creating images for C-313
+Images done for C-313
+Preprocessing C-32 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-32_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-32_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-15
+Splitting fastqs for S-78
+Cleaning and splitting reads done for S-62
+Counting kmers and creating images for S-62
+Splitting fastqs for S-30
+Cleaning and splitting reads done for S-45
+Counting kmers and creating images for S-45
+Images done for S-62
+Preprocessing S-63 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F02v1_S-63_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F02v1_S-63_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F02v1_S-63_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_F02v1_S-63_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-95
+Counting kmers and creating images for S-95
+Splitting fastqs for C-32
+Images done for S-45
+Preprocessing S-46 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E12v1_S-46_S189_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E12v1_S-46_S189_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E12v1_S-46_S189_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_E12v1_S-46_S189_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-95
+Preprocessing S-96 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D07v1_S-96_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D07v1_S-96_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D07v1_S-96_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_D07v1_S-96_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-78
+Counting kmers and creating images for S-78
+Cleaning and splitting reads done for S-15
+Counting kmers and creating images for S-15
+Images done for S-78
+Preprocessing S-79 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C01v1_S-79_S99_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C01v1_S-79_S99_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C01v1_S-79_S99_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C01v1_S-79_S99_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-30
+Counting kmers and creating images for S-30
+Images done for S-15
+Preprocessing S-16 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H09v1_S-16_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H09v1_S-16_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H09v1_S-16_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_H09v1_S-16_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for C-32
+Counting kmers and creating images for C-32
+Splitting fastqs for S-96
+Splitting fastqs for S-63
+Images done for S-30
+Preprocessing S-31 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A09v1_S-31_S65_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A09v1_S-31_S65_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A09v1_S-31_S65_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A09v1_S-31_S65_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-16
+Images done for C-32
+Preprocessing C-342 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-342_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-342_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-16
+Counting kmers and creating images for S-16
+Images done for S-16
+Preprocessing S-17 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B03v1_S-17_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B03v1_S-17_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B03v1_S-17_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_B03v1_S-17_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-46
+Cleaning and splitting reads done for S-96
+Counting kmers and creating images for S-96
+Splitting fastqs for S-79
+Images done for S-96
+Preprocessing S-97 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E03v1_S-97_S21_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E03v1_S-97_S21_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E03v1_S-97_S21_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_E03v1_S-97_S21_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-31
+Cleaning and splitting reads done for S-63
+Counting kmers and creating images for S-63
+Splitting fastqs for S-17
+Images done for S-63
+Preprocessing S-64 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C11v1_S-64_S179_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C11v1_S-64_S179_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C11v1_S-64_S179_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C11v1_S-64_S179_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for C-342
+Cleaning and splitting reads done for S-79
+Counting kmers and creating images for S-79
+Splitting fastqs for S-97
+Cleaning and splitting reads done for S-46
+Counting kmers and creating images for S-46
+Cleaning and splitting reads done for S-17
+Counting kmers and creating images for S-17
+Images done for S-79
+Preprocessing S-8 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F02v1_S-8_S14_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F02v1_S-8_S14_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F02v1_S-8_S14_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_F02v1_S-8_S14_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-31
+Counting kmers and creating images for S-31
+Images done for S-46
+Preprocessing S-47 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C10v1_S-47_S171_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C10v1_S-47_S171_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C10v1_S-47_S171_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C10v1_S-47_S171_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-17
+Images done for S-31
+Preprocessing S-32 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G12v1_S-32_S191_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G12v1_S-32_S191_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G12v1_S-32_S191_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G12v1_S-32_S191_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-64
+Cleaning and splitting reads done for S-97
+Counting kmers and creating images for S-97
+Splitting fastqs for S-8
+Cleaning and splitting reads done for C-342
+Counting kmers and creating images for C-342
+Images done for S-97
+Preprocessing S-98 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C03v1_S-98_S115_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C03v1_S-98_S115_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C03v1_S-98_S115_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_C03v1_S-98_S115_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for C-342
+Preprocessing C-365 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-365_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-365_R2.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-8
+Counting kmers and creating images for S-8
+Splitting fastqs for S-47
+Splitting fastqs for S-32
+Images done for S-8
+Preprocessing S-80 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A08v1_S-80_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A08v1_S-80_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A08v1_S-80_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0026_RAsprSUB09764A_A08v1_S-80_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-64
+Counting kmers and creating images for S-64
+Images done for S-64
+Preprocessing S-65 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D09v1_S-65_S164_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D09v1_S-65_S164_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D09v1_S-65_S164_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_D09v1_S-65_S164_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-80
+Splitting fastqs for C-365
+Splitting fastqs for S-98
+Cleaning and splitting reads done for S-47
+Counting kmers and creating images for S-47
+Cleaning and splitting reads done for S-80
+Counting kmers and creating images for S-80
+Cleaning and splitting reads done for S-32
+Counting kmers and creating images for S-32
+Images done for S-80
+Preprocessing S-81 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F08v1_S-81_S158_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F08v1_S-81_S158_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F08v1_S-81_S158_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_F08v1_S-81_S158_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-47
+Preprocessing S-48 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G08v1_S-48_S159_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G08v1_S-48_S159_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G08v1_S-48_S159_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_G08v1_S-48_S159_L002_R2_001.fastq.gz'], 'unpaired': []}
+Images done for S-32
+Preprocessing S-33 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E08v1_S-33_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E08v1_S-33_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E08v1_S-33_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_E08v1_S-33_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-65
+Cleaning and splitting reads done for C-365
+Counting kmers and creating images for C-365
+Cleaning and splitting reads done for S-98
+Counting kmers and creating images for S-98
+Images done for C-365
+Preprocessing C-387 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/C-387_R1.fastq.gz'], 'R2': ['../../datasets/all_multilabel/C-387_R2.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-33
+Images done for S-98
+Preprocessing S-99 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A04v1_S-99_S25_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A04v1_S-99_S25_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A04v1_S-99_S25_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0023_RAsprSUB09764A_A04v1_S-99_S25_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-65
+Counting kmers and creating images for S-65
+Splitting fastqs for C-387
+Images done for S-65
+Preprocessing S-66 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B09v1_S-66_S162_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B09v1_S-66_S162_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B09v1_S-66_S162_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_B09v1_S-66_S162_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-81
+Splitting fastqs for S-48
+Cleaning and splitting reads done for S-33
+Counting kmers and creating images for S-33
+Images done for S-33
+Cleaning and splitting reads done for C-387
+Counting kmers and creating images for C-387
+Images done for C-387
+Splitting fastqs for S-99
+Cleaning and splitting reads done for S-81
+Counting kmers and creating images for S-81
+Cleaning and splitting reads done for S-48
+Counting kmers and creating images for S-48
+Images done for S-81
+Preprocessing S-82 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C01v1_S-82_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C01v1_S-82_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C01v1_S-82_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_C01v1_S-82_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-66
+Images done for S-48
+Preprocessing S-49 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A10v1_S-49_S169_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A10v1_S-49_S169_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A10v1_S-49_S169_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0024_RAsprSUB09764A_A10v1_S-49_S169_L002_R2_001.fastq.gz'], 'unpaired': []}
+Cleaning and splitting reads done for S-99
+Counting kmers and creating images for S-99
+Splitting fastqs for S-82
+Images done for S-99
+Cleaning and splitting reads done for S-66
+Counting kmers and creating images for S-66
+Splitting fastqs for S-49
+Images done for S-66
+Cleaning and splitting reads done for S-82
+Counting kmers and creating images for S-82
+Images done for S-82
+Cleaning and splitting reads done for S-49
+Counting kmers and creating images for S-49
+Images done for S-49
+Preprocessing S-5 to remove duplicates, adapters and merge reads
+Input files read: {'R1': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G05v1_S-5_L001_R1_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G05v1_S-5_L002_R1_001.fastq.gz'], 'R2': ['../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G05v1_S-5_L001_R2_001.fastq.gz', '../../datasets/all_multilabel/PREP0025_RAsprSUB09764A_G05v1_S-5_L002_R2_001.fastq.gz'], 'unpaired': []}
+Splitting fastqs for S-5
+Cleaning and splitting reads done for S-5
+Counting kmers and creating images for S-5
+Images done for S-5
+All images done, saved in images
+DONE
+
+real	124m37.946s
+user	1341m16.510s
+sys	103m56.576s
+JobId=51596219 JobName=1_make_varKode_images.sh
+   UserId=souzademedeiros(57648) GroupId=farrell_lab(34759) MCS_label=N/A
+   Priority=2655258 Nice=0 Account=farrell_lab QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=02:05:11 TimeLimit=08:00:00 TimeMin=N/A
+   SubmitTime=2023-04-27T20:46:21 EligibleTime=2023-04-27T20:46:21
+   AccrueTime=2023-04-27T20:46:21
+   StartTime=2023-04-27T20:46:21 EndTime=2023-04-28T04:46:21 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2023-04-27T20:46:21 Scheduler=Main
+   Partition=test AllocNode:Sid=boslogin04:162327
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=holy7c24103
+   BatchHost=holy7c24103
+   NumNodes=1 NumCPUs=16 NumTasks=8 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=16,mem=50G,node=1,billing=28
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=50G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_make_varKode_images.sh
+   WorkDir=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi
+   StdErr=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_generate_varkodes.51596219.out
+   StdIn=/dev/null
+   StdOut=/net/fs2k02/srv/export/farrell_lab/share_root/Bruno/working/CNN_spdelim/tests/varKoder/fam_gen_sp_multi/1_generate_varkodes.51596219.out
+   Power=
+   
+
