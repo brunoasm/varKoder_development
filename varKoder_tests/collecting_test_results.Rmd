@@ -96,7 +96,7 @@ summarize_results = function(res,level){
 
 
 ```{r}
-plot_area = function(sum_df, title, relative = FALSE, grid = TRUE){
+plot_area = function(sum_df, title, relative = FALSE, grid = TRUE, xlim_all = TRUE){
   breaks = c(500000,
              1000000,
              2000000,
@@ -107,7 +107,12 @@ plot_area = function(sum_df, title, relative = FALSE, grid = TRUE){
              100000000,
              200000000
              )
-  xlimits = range(breaks)
+  if (xlim_all){
+    xlimits = range(breaks)
+  } else {
+    xlimits = range(sum_df$query_bp)
+  }
+  
   
   sum_df = sum_df %>%
     mutate(result = factor(result,ordered = T, levels = c('correct','ambiguous','inconclusive','incorrect'))) 
@@ -501,7 +506,7 @@ Species:
 ```{r}
 p_barcode_species = barcode_summary_species %>%
   split(barcode_summary_species$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' species'), relative = TRUE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' species'), relative = TRUE, xlim_all = FALSE))
 
 p_barcode_species
 ```
@@ -509,7 +514,7 @@ Genera:
 ```{r}
 p_barcode_genus = barcode_summary_genus %>%
   split(barcode_summary_genus$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' genus'), relative = TRUE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' genus'), relative = TRUE, xlim_all = FALSE))
 
 p_barcode_genus
 ```
@@ -517,7 +522,7 @@ Family:
 ```{r}
 p_barcode_family = barcode_summary_family %>%
   split(barcode_summary_family$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' family'), relative = TRUE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' family'), relative = TRUE,xlim_all = FALSE))
 
 p_barcode_family
 ```
@@ -609,47 +614,57 @@ p_concat_species
 
 Now let's compare methods side by side. For genus level:
 ```{r fig.height=10}
-reformat_graphs = function(x){
-  x +
-    theme(axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank()) +
-    labs(title = sub(" (genus|species|family)$", "", x$labels$title))
-}
-
-p = patchwork::wrap_plots(reformat_graphs(p_genus), 
-                   reformat_graphs(p_skmer_genus), 
-                   reformat_graphs(p_barcode_genus$ITS),
-                   p_barcode_genus$rbcL +labs(title = sub(" genus$", "", p_barcode_genus$rbcL$labels$title)),
-                   ncol = 1) +
+p1 = patchwork::wrap_plots(p_genus + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()), 
+                   p_skmer_genus, ncol = 1) 
+p2 = patchwork::wrap_plots(p_barcode_genus$ITS + theme(legend.position = 'none'),
+                   p_barcode_genus$rbcL + theme(legend.position = 'none', 
+                                                axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   p_barcode_genus$matK + theme(axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   nrow = 1)
+p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
   plot_annotation(title = 'Genus-level accuracy')
 p
-ggsave('images_manuscript/fig3_genus_accuracy.pdf', width=4.5,height = 10)
-ggsave('images_manuscript/fig3_genus_accuracy.png', width=4.5,height = 10,dpi=1200)
+ggsave('images_manuscript/fig3_genus_accuracy.pdf', width=5,height = 10)
+ggsave('images_manuscript/fig3_genus_accuracy.png', width=5,height = 10,dpi=1200)
 ```
 Now for species level:
 ```{r fig.height = 10}
-p = patchwork::wrap_plots(reformat_graphs(p_species),
-                   reformat_graphs(p_skmer_species),
-                   reformat_graphs(p_barcode_species$ITS),
-                   p_barcode_species$rbcL + labs(title = sub(" species$", "", p_barcode_species$rbcL$labels$title)),
-                   ncol = 1) +
-  plot_annotation(title = 'Species-level accuracy')
+p1 = patchwork::wrap_plots(p_species + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()), 
+                   p_skmer_species, ncol = 1) 
+p2 = patchwork::wrap_plots(p_barcode_species$ITS + theme(legend.position = 'none'),
+                   p_barcode_species$rbcL + theme(legend.position = 'none', 
+                                                axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   p_barcode_species$matK + theme(axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   nrow = 1)
+p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
+  plot_annotation(title = 'species-level accuracy')
 p
-ggsave('images_manuscript/fig3_species_accuracy.pdf', width=4.5,height = 10)
-ggsave('images_manuscript/fig3_species_accuracy.png', width=4.5,height = 10,dpi=1200)
+ggsave('images_manuscript/fig3_species_accuracy.pdf', width=5,height = 10)
+ggsave('images_manuscript/fig3_species_accuracy.png', width=5,height = 10,dpi=1200)
 ```
-Now for species level:
+Now for family level:
 ```{r fig.height = 10}
-p = patchwork::wrap_plots(reformat_graphs(p_family),
-                   reformat_graphs(p_skmer_family),
-                   reformat_graphs(p_barcode_family$ITS),
-                   p_barcode_family$rbcL + labs(title = sub(" family$", "", p_barcode_family$rbcL$labels$title)),
-                   ncol = 1) +
+p1 = patchwork::wrap_plots(p_family + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()), 
+                   p_skmer_family, ncol = 1) 
+p2 = patchwork::wrap_plots(p_barcode_family$ITS + theme(legend.position = 'none'),
+                   p_barcode_family$rbcL + theme(legend.position = 'none', 
+                                                axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   p_barcode_family$matK + theme(axis.title.y = element_blank(),
+                                                axis.text.y = element_blank()),
+                   nrow = 1)
+p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
   plot_annotation(title = 'family-level accuracy')
 p
-ggsave('images_manuscript/fig3_family_accuracy.pdf', width=4.5,height = 10)
-ggsave('images_manuscript/fig3_family_accuracy.png', width=4.5,height = 10,dpi=1200)
+ggsave('images_manuscript/fig3_family_accuracy.pdf', width=5,height = 10)
+ggsave('images_manuscript/fig3_family_accuracy.png', width=5,height = 10,dpi=1200)
 ```
 
 # Comparison of run times
