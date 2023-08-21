@@ -15,6 +15,8 @@ library(ggthemes)
 library(patchwork)
 library(cowplot)
 library(patchwork)
+library(phytools)
+library(ape)
 ```
 # VarKoder
 For VarKoder, we used leave-one-out cross-validation to test the accuracy for family, genera, species in the joint Malpighiaceae-Chrysobalanaceae dataset. We used as input data varKodes produced from kmers of size 7 and 500Kbp to 200Mbp of data, or all of the data available if less than 200 Mbp. For each sample, we built a model using as input data from all other samples. Then we queried the sample left out, using as input the images generated from 500Kb to the total data available. Now we will summarize the results.
@@ -411,7 +413,8 @@ p_skmer_family
 ```
 
 # Traditional barcodes
-Let's now read the traditional barcode results and summarize them in the same way as skmer and varKoder. Let's start by defining a fuction that reads the data so we can summarize it using the previously defined functions.
+## BLAST single gene
+Let's now read the traditional barcode BLAST results and summarize them in the same way as skmer and varKoder. Let's start by defining a fuction that reads the data so we can summarize it using the previously defined functions.
 
 ```{r}
 read_traditional_barcodes = function(bp) {
@@ -518,6 +521,89 @@ p_barcode_family = barcode_summary_family %>%
 
 p_barcode_family
 ```
+
+## Concatenated tree
+Now we will do the same for concatenated tree. Let's start by defining a function to gather results. We will consider a result as correct if the majority of the sister taxon to a tip has the same label.
+
+CONTINUE AFTER WE GET THE FINAL DATASET
+
+```{r}
+
+read_concatenated_tree_results = function(bp){
+# Read in your tree - replace 'your_tree_file.nwk' with the path to your tree file
+tree = read.tree(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/conc.',bp,'m.spname.treefile'))
+
+#leave only sample IDs as tip labels
+tree$tip.label = tree$tip.label %>% str_remove(".*@")
+
+# Compute the patristic distances and list all reference names
+patristic_distances <- cophenetic(tree)
+all_ref_names = dimnames(patristic_distances)[[1]][str_detect(dimnames(patristic_distances)[[1]],'_ref$')]
+all_nonref = dimnames(patristic_distances)[[1]][str_detect(dimnames(patristic_distances)[[1]],'_ref$',negate = TRUE)]
+
+# For each tip, find the reference sample with closest patristic distance
+find_closest = function(tip){
+  to_keep = c(tip,all_ref_names[str_detect(all_ref_names,paste0(tip,'_ref'),negate = TRUE)])
+  return(names(sort(patristic_distances[tip,to_keep])[2]) %>%
+           str_remove('_ref'))
+}
+
+closest_match = purrr::map_chr(all_nonref,find_closest)
+
+barcode_res = tibble(sample_id = all_nonref,
+       closest_reference_sample_id = closest_match) %>%
+  mutate(
+      predicted_labels = samp_labels$actual_labels[match(closest_reference_sample_id, samp_labels$sample_id)],
+      actual_labels = samp_labels$actual_labels[match(sample_id, samp_labels$sample_id)]
+    ) %>%
+  filter(sample_id!='2095') %>%
+  mutate(
+      query_labels = str_remove(actual_labels, ";*low_quality:True;*") %>% str_split(';'),
+      predicted_list = str_split(predicted_labels, ';')
+    ) %>%
+    rowwise() %>%
+    mutate(
+      family_correct = query_labels[str_detect(query_labels, 'family')] %in% predicted_list,
+      genus_correct = query_labels[str_detect(query_labels, 'genus')] %in% predicted_list,
+      species_correct = ifelse(any(str_detect(
+        query_labels, 'species'
+      )),
+      query_labels[str_detect(query_labels, 'species')] %in% predicted_list,
+      NA),
+      family_incorrect = any(!(predicted_list[str_detect(predicted_list, 'family')] %in% query_labels[str_detect(query_labels, 'family')])),
+      genus_incorrect = any(!(predicted_list[str_detect(predicted_list, 'genus')] %in% query_labels[str_detect(query_labels, 'genus')])),
+      species_incorrect = ifelse(any(str_detect(
+        query_labels, 'species'
+      )),
+      any(!(
+        predicted_list[str_detect(predicted_list, 'species')] %in% query_labels[str_detect(query_labels, 'species')]
+      )),
+      NA)
+    ) %>%
+    mutate_at(vars(ends_with("_correct"), ends_with("_incorrect")),
+              ~ ifelse(is.na(predicted_labels) & !is.na(.), FALSE, .)) %>%
+    mutate(query_bp = bp * 1e3)
+  
+  return(barcode_res)
+}
+
+```
+
+Now let's apply this function
+```{r}
+results_concat_barcodes = purrr::map_dfr(c(10,20,50,100,200),read_concatenated_tree_results)
+results_concat_barcodes
+```
+Let's summarize results and plot for genus, species and family accuracy
+
+```{r}
+concat_summary_species = summarize_results(results_concat_barcodes,'genus')
+p_concat_species = plot_area(concat_summary_species, relative = TRUE,title = 'Concatenated barcodes species')
+p_concat_species
+```
+
+
+
 
 # Direct comparison
 
