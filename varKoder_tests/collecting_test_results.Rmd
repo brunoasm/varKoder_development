@@ -801,7 +801,10 @@ summary_others = other_results %>%
   mutate(taxon_in_training = taxon_in_training_raw == 'yes') %>%
   select(-taxon_in_training_raw) %>%
   mutate(taxon_in_training = c('Taxon not in training set', 'Taxon in training set')[taxon_in_training+1],
-         dataset = str_replace(dataset, "^(.)", ~toupper(.x)))
+         dataset = str_replace(dataset, "^(.)", ~toupper(.x))) %>%
+  mutate(result = factor(result,
+                         levels=c("correct", "ambiguous", "inconclusive", "incorrect"),
+                         ordered=T))
 
 summary_others
 
