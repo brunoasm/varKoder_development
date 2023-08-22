@@ -96,7 +96,7 @@ summarize_results = function(res,level){
 
 
 ```{r}
-plot_area = function(sum_df, title, relative = FALSE, grid = TRUE, xlim_all = TRUE){
+plot_area = function(sum_df, title, relative = FALSE, grid = TRUE, xlim_all = TRUE, wrap){
   breaks = c(500000,
              1000000,
              2000000,
@@ -162,6 +162,10 @@ plot_area = function(sum_df, title, relative = FALSE, grid = TRUE, xlim_all = TR
   }
   
   p1 = p1 + coord_cartesian(xlim=xlimits, ylim=ylimits,expand = FALSE)
+  
+  if (!missing(wrap)) {
+    p1 = p1 + facet_wrap(as.formula(wrap))
+  }
   
   return(p1)
 }
@@ -506,7 +510,7 @@ Species:
 ```{r}
 p_barcode_species = barcode_summary_species %>%
   split(barcode_summary_species$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' species'), relative = TRUE, xlim_all = FALSE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' species'), relative = TRUE, xlim_all = TRUE))
 
 p_barcode_species
 ```
@@ -514,7 +518,7 @@ Genera:
 ```{r}
 p_barcode_genus = barcode_summary_genus %>%
   split(barcode_summary_genus$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' genus'), relative = TRUE, xlim_all = FALSE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' genus'), relative = TRUE, xlim_all = TRUE))
 
 p_barcode_genus
 ```
@@ -522,7 +526,7 @@ Family:
 ```{r}
 p_barcode_family = barcode_summary_family %>%
   split(barcode_summary_family$marker) %>%
-  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' family'), relative = TRUE,xlim_all = FALSE))
+  purrr::map(~plot_area(.x,paste0(unique(.x$marker),' family'), relative = TRUE,xlim_all = TRUE))
 
 p_barcode_family
 ```
@@ -609,7 +613,7 @@ Let's summarize results and plot for genus, species and family accuracy
 
 ```{r}
 concat_summary_species = summarize_results(results_concat_barcodes,'species')
-p_concat_species = plot_area(concat_summary_species, relative = FALSE,title = 'Concatenated barcodes species',xlim_all = FALSE)
+p_concat_species = plot_area(concat_summary_species, relative = FALSE,title = 'Concatenated barcodes species',xlim_all = TRUE)
 p_concat_species
 ```
 ```{r}
@@ -620,28 +624,25 @@ p_concat_genus
 
 ```{r}
 concat_summary_family = summarize_results(results_concat_barcodes,'family')
-p_concat_family = plot_area(concat_summary_family, relative = TRUE,title = 'Concatenated barcodes family',xlim_all = FALSE)
+p_concat_family = plot_area(concat_summary_family, relative = TRUE,title = 'Concatenated barcodes family',xlim_all = TRUE)
 p_concat_family
 ```
-
-
 
 
 # Direct comparison
 
 Now let's compare methods side by side. For genus level:
 ```{r fig.height=10}
-p1 = patchwork::wrap_plots(p_genus + theme(axis.text.x = element_blank(),
+p = patchwork::wrap_plots(p_genus + theme(axis.text.x = element_blank(),
                                            axis.title.x = element_blank()), 
-                   p_skmer_genus, ncol = 1) 
-p2 = patchwork::wrap_plots(p_barcode_genus$ITS + theme(legend.position = 'none'),
-                   p_barcode_genus$rbcL + theme(legend.position = 'none', 
-                                                axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   p_concat_genus + theme(axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   nrow = 1)
-p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
+                   p_skmer_genus + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_genus$ITS + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_genus$rbcL + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_concat_genus,
+                   ncol = 1) +
   plot_annotation(title = 'Genus-level accuracy')
 p
 ggsave('images_manuscript/fig3_genus_accuracy.pdf', width=5,height = 10)
@@ -649,17 +650,16 @@ ggsave('images_manuscript/fig3_genus_accuracy.png', width=5,height = 10,dpi=1200
 ```
 Now for species level:
 ```{r fig.height = 10}
-p1 = patchwork::wrap_plots(p_species + theme(axis.text.x = element_blank(),
+p = patchwork::wrap_plots(p_species + theme(axis.text.x = element_blank(),
                                            axis.title.x = element_blank()), 
-                   p_skmer_species, ncol = 1) 
-p2 = patchwork::wrap_plots(p_barcode_species$ITS + theme(legend.position = 'none'),
-                   p_barcode_species$rbcL + theme(legend.position = 'none', 
-                                                axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   p_concat_species + theme(axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   nrow = 1)
-p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
+                   p_skmer_species + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_species$ITS + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_species$rbcL + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_concat_species,
+                   ncol = 1) +
   plot_annotation(title = 'species-level accuracy')
 p
 ggsave('images_manuscript/fig3_species_accuracy.pdf', width=5,height = 10)
@@ -667,17 +667,16 @@ ggsave('images_manuscript/fig3_species_accuracy.png', width=5,height = 10,dpi=12
 ```
 Now for family level:
 ```{r fig.height = 10}
-p1 = patchwork::wrap_plots(p_family + theme(axis.text.x = element_blank(),
+p = patchwork::wrap_plots(p_family + theme(axis.text.x = element_blank(),
                                            axis.title.x = element_blank()), 
-                   p_skmer_family, ncol = 1) 
-p2 = patchwork::wrap_plots(p_barcode_family$ITS + theme(legend.position = 'none'),
-                   p_barcode_family$rbcL + theme(legend.position = 'none', 
-                                                axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   p_barcode_family$matK + theme(axis.title.y = element_blank(),
-                                                axis.text.y = element_blank()),
-                   nrow = 1)
-p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
+                   p_skmer_family + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_family$ITS + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_barcode_family$rbcL + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank()),
+                   p_concat_family,
+                   ncol = 1) +
   plot_annotation(title = 'family-level accuracy')
 p
 ggsave('images_manuscript/fig3_family_accuracy.pdf', width=5,height = 10)
@@ -725,7 +724,7 @@ N_samp = SRA_summary_family %>%
  group_by(query_bp) %>%
  summarise(N = sum(N))
 
-p_SRA_family = plot_area(SRA_summary_family, 'varKoder SRA family', relative = TRUE) 
+p_SRA_family = plot_area(SRA_summary_family, 'varKoder SRA family', relative = TRUE,xlim_all = FALSE) 
 p_SRA_family 
 ```
 
@@ -736,50 +735,14 @@ p_SRA_families = read_csv('all_SRA/runs_to_download_data.csv') %>%
   select(sample_id = Run, Kingdom) %>%
   right_join(varKoder_SRA_results) %>%
   split(.$Kingdom) %>%
-  purrr::map(summarize_results, 
-                 level='family') %>%
-  purrr::imap(~plot_area(.x,.y,relative=TRUE) + coord_cartesian(xlim=c(500,10000)*1000,expand = FALSE))
+  purrr::map_df(summarize_results, 
+                 level='family',
+                .id='Kingdom'
+                ) %>%
+  mutate(Kingdom = factor(Kingdom,levels=c('Metazoa','Viridiplantae','Fungi'),ordered = T)) %>%
+  plot_area(relative=FALSE,xlim_all = FALSE,wrap = '~Kingdom',title='Families in SRA') + coord_cartesian(xlim=c(500,10000)*1000,expand = FALSE)
 
-p_SRA_families
-```
-
-Now let's join to create a plot for publication:
-
-```{r}
-remove_y_axis_and_scale = function(x){
-  x +
-    theme(axis.title.y = element_blank(),
-          axis.text.y = element_blank(),
-          axis.ticks.y = element_blank(),
-          legend.position='none',
-          axis.title.x = element_blank())
-}
-
-# Modify the last plot to have the x-axis label
-p_SRA_families$Fungi <- p_SRA_families$Fungi + labs(x = "Base pairs in query images")
-
-# Combine plots
-p_combined <- wrap_plots(p_SRA_families$Metazoa + 
-                           theme(legend.position = 'none',
-                                 axis.title.x = element_blank()),
-                         remove_y_axis_and_scale(p_SRA_families$Viridiplantae),
-                         remove_y_axis_and_scale(p_SRA_families$Fungi),
-                         nrow = 1)
-
-# Add title and set layout
-# Create a blank ggplot object with the desired x-axis title
-x_title_plot <- ggplot() + 
-  theme_void() + 
-  labs(x = "Base pairs in query images") +
-  theme(plot.margin = margin(0, 0, 0, 0),
-        axis.title.x = element_text(size = 10, hjust = 0.5))
-
-
-p = wrap_plots(p_combined, x_title_plot,ncol=1,heights = c(0.95,0.05))
-    
-  
-
-print(p)
+print(p_SRA_families)
 
 
 ggsave('images_manuscript/fig3_SRA_accuracy.pdf', width=4.5,height = 4)
@@ -791,11 +754,84 @@ ggsave('images_manuscript/fig3_SRA_accuracy.png', width=4.5,height = 4,dpi = 120
 
 Now we will make a small figure to include the additional datasets in which we applied varKoding.
 
-In these cases, we chose a test set that included both taxa in the training set and taxa not in the training set, so we will graph both separately. This is denoted by a column named `in_training_model`. Let's start by reading results:
+In these cases, we chose a test set that included both taxa in the training set and taxa not in the training set, so we will graph both separately. This is denoted by a column named `in_training_model`. Let's start by reading results.
+
+Let's define a function to read and process predictions:
 
 ```{r}
+read_and_process_others = function(infile){
+  
+varkoder_results = read_csv(infile) %>% 
+  mutate(sample_id = as.character(sample_id)) %>%
+  select(-1) %>%
+  rename(query_bp = query_basepairs) 
+
+
+all_taxlabels = str_remove(varkoder_results$actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist %>% unique
+
+varkoder_results = varkoder_results %>%
+  mutate(query_labels = str_remove(actual_labels,";*low_quality:True;*") %>% str_split(';'),
+         predicted_list = str_split(predicted_labels,';')
+         ) %>%
+  rowwise() %>%
+  mutate(taxon_correct = any(query_labels %in% predicted_list),
+         taxon_incorrect = any(!(predicted_list[!is.na(predicted_list)] %in% query_labels))
+         )
+
+return(varkoder_results)
+}
+```
+
+Now let's apply this function to all files.
+```{r}
+prediction_files = list.files('other_datasets',pattern = 'prediction.+csv',full.names = T)
+names(prediction_files) = basename(prediction_files) %>% str_extract(".*(?=_prediction_table\\.csv)")
+
+other_results = purrr::map_dfr(prediction_files, read_and_process_others, .id='dataset')
+other_results
+```
+
+Let's now summarize by dataset and separately for taxa included and excluded from the training set.
+
+```{r}
+summary_others = other_results %>%
+  split(interaction(other_results$dataset, other_results$in_training_model)) %>%
+  purrr::map_dfr(summarize_results, level = 'taxon', .id = 'comb') %>%
+  separate(comb, into = c("dataset", "taxon_in_training_raw"), sep = "\\.") %>%
+  mutate(taxon_in_training = taxon_in_training_raw == 'yes') %>%
+  select(-taxon_in_training_raw) %>%
+  mutate(taxon_in_training = c('Taxon not in training set', 'Taxon in training set')[taxon_in_training+1],
+         dataset = str_replace(dataset, "^(.)", ~toupper(.x)))
+
+summary_others
 
 ```
+Now let's plot
+```{r}
+p_others = ggplot(summary_others , aes(x = dataset, y = N, fill = result)) +
+  geom_col()+
+    scale_fill_manual(values = setNames(RColorBrewer::brewer.pal(4, "Accent"), c("correct", "ambiguous", "inconclusive", "incorrect"))) +
+    scale_alpha_manual(values=c(0.5,1)) +
+    ggtitle('Other datasets') +
+    ylab('Number of samples') +
+    theme_few() +
+      scale_y_continuous(minor_breaks = waiver()) +
+      theme(panel.background = element_rect(fill = NA),
+            panel.grid.major.y = element_line(colour = gray(0.5)),
+            panel.grid.minor.y = element_line(colour = gray(0.6),linetype = 2),
+            axis.title.x = element_blank(),
+            axis.text.x = element_text(face='italic'),
+            panel.ontop = TRUE) +
+    coord_cartesian(expand=FALSE) +
+    facet_grid(taxon_in_training~.)
+  
+p_others
+
+ggsave('images_manuscript/fig3_others_accuracy.pdf', width=4.5,height = 4)
+ggsave('images_manuscript/fig3_others_accuracy.png', width=4.5,height = 4,dpi = 1200)
+
+```
+
 
 
 
