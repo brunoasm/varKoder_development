@@ -65,6 +65,8 @@ These were the 5 samples from 5 species each we ended up using:
 
 For the *Corallorhiza* dataset, we used 5 species/species varities with 5 samples each. For the *Xanthoparmelia* dataset, we were not able to obtain 5 monophyletic sample per species due to  . For the *Mycobacterium tuberculosis* dataset, we used 5 distinct lineages (L1, L2, L3, 4.1.i1.2.1, and L4.3.i2) each with 5 clinical isolate samples.
 
+<img src="All_Taxa.jpg" alt="drawing" width="800"/> <br>
+*Four clades tested using VarKoder training model within animalia, fungi, bacteria, and planta* <br>
 
 The output for the Bembidion beetle model training looked like with the final trained model have an precision, recall, and area under ROC curve scores of **1.0** (epoch 29): 
 ```sh
