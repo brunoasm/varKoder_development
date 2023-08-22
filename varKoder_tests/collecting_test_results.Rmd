@@ -787,6 +787,17 @@ ggsave('images_manuscript/fig3_SRA_accuracy.png', width=4.5,height = 4,dpi = 120
 ```
 
 
+# Other datasets
+
+Now we will make a small figure to include the additional datasets in which we applied varKoding.
+
+In these cases, we chose a test set that included both taxa in the training set and taxa not in the training set, so we will graph both separately. This is denoted by a column named `in_training_model`. Let's start by reading results:
+
+```{r}
+
+```
+
+
 
 # Generating numbers for publication
 
