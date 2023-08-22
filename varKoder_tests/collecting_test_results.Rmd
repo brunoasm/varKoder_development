@@ -530,16 +530,17 @@ p_barcode_family
 ## Concatenated tree
 Now we will do the same for concatenated tree. Let's start by defining a function to gather results. We will consider a result as correct if the majority of the sister taxon to a tip has the same label.
 
-CONTINUE AFTER WE GET THE FINAL DATASET
 
 ```{r}
 
 read_concatenated_tree_results = function(bp){
+  
+  
 # Read in your tree - replace 'your_tree_file.nwk' with the path to your tree file
-tree = read.tree(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/conc.',bp,'m.spname.treefile'))
+tree = read.tree(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/conc.',bp,'m.spname.tre'))
 
 #leave only sample IDs as tip labels
-tree$tip.label = tree$tip.label %>% str_remove(".*@")
+tree$tip.label = tree$tip.label %>% str_remove(".*@") %>% str_remove("'") %>% str_replace(' ref','_ref')
 
 # Compute the patristic distances and list all reference names
 patristic_distances <- cophenetic(tree)
@@ -555,8 +556,13 @@ find_closest = function(tip){
 
 closest_match = purrr::map_chr(all_nonref,find_closest)
 
+samples_with_data = read_delim(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/',bp,'M_blast_phylo_sum_sp.tsv')) %>% 
+  select(sample_id=sp) %>%
+  mutate(sample_id = str_remove_all(sample_id, '@.+'))
+
 barcode_res = tibble(sample_id = all_nonref,
        closest_reference_sample_id = closest_match) %>%
+  right_join(samples_with_data) %>%
   mutate(
       predicted_labels = samp_labels$actual_labels[match(closest_reference_sample_id, samp_labels$sample_id)],
       actual_labels = samp_labels$actual_labels[match(sample_id, samp_labels$sample_id)]
@@ -602,9 +608,20 @@ results_concat_barcodes
 Let's summarize results and plot for genus, species and family accuracy
 
 ```{r}
-concat_summary_species = summarize_results(results_concat_barcodes,'genus')
-p_concat_species = plot_area(concat_summary_species, relative = TRUE,title = 'Concatenated barcodes species')
+concat_summary_species = summarize_results(results_concat_barcodes,'species')
+p_concat_species = plot_area(concat_summary_species, relative = FALSE,title = 'Concatenated barcodes species',xlim_all = FALSE)
 p_concat_species
+```
+```{r}
+concat_summary_genus = summarize_results(results_concat_barcodes,'genus')
+p_concat_genus = plot_area(concat_summary_genus, relative = TRUE,title = 'Concatenated barcodes genus',xlim_all = TRUE)
+p_concat_genus
+```
+
+```{r}
+concat_summary_family = summarize_results(results_concat_barcodes,'family')
+p_concat_family = plot_area(concat_summary_family, relative = TRUE,title = 'Concatenated barcodes family',xlim_all = FALSE)
+p_concat_family
 ```
 
 
@@ -621,7 +638,7 @@ p2 = patchwork::wrap_plots(p_barcode_genus$ITS + theme(legend.position = 'none')
                    p_barcode_genus$rbcL + theme(legend.position = 'none', 
                                                 axis.title.y = element_blank(),
                                                 axis.text.y = element_blank()),
-                   p_barcode_genus$matK + theme(axis.title.y = element_blank(),
+                   p_concat_genus + theme(axis.title.y = element_blank(),
                                                 axis.text.y = element_blank()),
                    nrow = 1)
 p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
@@ -639,7 +656,7 @@ p2 = patchwork::wrap_plots(p_barcode_species$ITS + theme(legend.position = 'none
                    p_barcode_species$rbcL + theme(legend.position = 'none', 
                                                 axis.title.y = element_blank(),
                                                 axis.text.y = element_blank()),
-                   p_barcode_species$matK + theme(axis.title.y = element_blank(),
+                   p_concat_species + theme(axis.title.y = element_blank(),
                                                 axis.text.y = element_blank()),
                    nrow = 1)
 p = patchwork::wrap_plots(p1,p2,ncol=1,heights = c(0.7,0.3)) +
