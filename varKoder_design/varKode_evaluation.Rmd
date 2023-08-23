@@ -424,13 +424,13 @@ p = df %>%
   filter(bp_valid == min(bp_valid)) %>%
   group_by(replicate, n_lowqual_training, valid_lowqual) %>%
   summarize(mean_acc = mean(correct_pred)) %>%
-  mutate(valid_lowqual = c('TRUE' = 'Low quality samples as validation', 'FALSE' = 'High quality samples as validation')[as.character(valid_lowqual)]) %>%
+  mutate(valid_lowqual = c('TRUE' = 'Validation accuracy for low quality samples', 'FALSE' = 'Validation accuracy for high-quality samples')[as.character(valid_lowqual)]) %>%
   ggplot() +
   geom_histogram(aes(x = mean_acc), boundary = 1) +
   scale_y_continuous(sec.axis = sec_axis('identity', name = 'Number of low quality samples in training set',breaks = NULL, labels = NULL, guide = NULL)) + 
   scale_x_continuous(limits = c(0,1)) +
-  xlab('Average validation accuracy across replicates') +
-  ylab('Number of samples') +
+  xlab('Average validation accuracy across all samples') +
+  ylab('Frequency across replicates') +
   labs(title = 'Sequencing quality determined by variation in GC content') + 
   facet_grid(n_lowqual_training~valid_lowqual) +
   theme_few() +
@@ -439,6 +439,7 @@ p = df %>%
 p
 
 ggsave(filename = 'quality_content.pdf',plot =p,device='pdf',path = 'paper_images',width = 7,height = 5,units = 'in')
+ggsave(filename = 'quality_content.png',plot =p,device='png',path = 'paper_images',width = 7,height = 5,units = 'in')
 
 
 
@@ -452,13 +453,13 @@ p = df %>%
   filter(bp_valid == max(bp_valid)) %>%
   group_by(replicate, n_lowqual_training, valid_lowqual) %>%
   summarize(mean_acc = mean(correct_pred)) %>%
-  mutate(valid_lowqual = c('TRUE' = 'Low quality samples as validation', 'FALSE' = 'High quality samples as validation')[as.character(valid_lowqual)]) %>%
+  mutate(valid_lowqual = c('TRUE' = 'Validation accuracy for low quality samples', 'FALSE' = 'Validation accuracy for high-quality samples')[as.character(valid_lowqual)]) %>%
   ggplot() +
   geom_histogram(aes(x = mean_acc), boundary = 1) +
   scale_y_continuous(sec.axis = sec_axis('identity', name = 'Number of low quality samples in training set',breaks = NULL, labels = NULL, guide = NULL)) + 
   scale_x_continuous(limits = c(0,1)) +
-  xlab('Average validation accuracy across replicates') +
-  ylab('Number of samples') +
+  xlab('Average validation accuracy across all samples') +
+  ylab('Frequency across replicates') +
   labs(title = 'Sequencing quality determined by insert size') + 
   facet_grid(n_lowqual_training~valid_lowqual) +
   theme_few() +
@@ -467,6 +468,7 @@ p = df %>%
 p
 
 ggsave(filename = 'quality_size.pdf',plot =p,device='pdf',path = 'paper_images',width = 7,height = 5,units = 'in')
+ggsave(filename = 'quality_size.png',plot =p,device='png',path = 'paper_images',width = 7,height = 5,units = 'in')
 ```
 
 What if we order all samples by their validation accuracy and compare to the quality metrics, what do we see?
@@ -538,8 +540,9 @@ p2
 
 ```{r}
 p = cowplot::plot_grid(p1,p2,ncol = 1)
-
+p
 ggsave(filename = 'yield_vs_quality.pdf',plot =p,device='pdf',path = 'paper_images',width = 5,height = 8,units = 'in')
+ggsave(filename = 'yield_vs_quality.png',plot =p,device='png',path = 'paper_images',width = 5,height = 8,units = 'in')
 ```
 
 
