@@ -856,6 +856,17 @@ Number of Stigmaphyllon samples with each kind of error for skmer:
 ```{r}
 skmer_summary_species
 ```
+Traditional barcode accuracy for species:
+```{r}
+barcode_summary_species %>% arrange(query_bp,marker)
+```
+Concatenated barcode accuract for species:
+```{r}
+concat_summary_species
+```
+
+
+
 varKoder accuracy for genera:
 ```{r}
 summary_genus
@@ -894,7 +905,8 @@ n_samples_genera = results %>%
   group_by(taxon, query_bp) %>%
   summarize(N=n()) %>%
   ungroup() %>%
-  complete(taxon, query_bp, fill = list(N=0))
+  complete(taxon, query_bp, fill = list(N=0)) %>%
+  mutate(taxon = fct_reorder(taxon, N))
 n_samples_genera 
 
 n_samples_species = results %>%
@@ -903,17 +915,39 @@ n_samples_species = results %>%
   group_by(taxon, query_bp) %>%
   summarize(N=n()) %>%
   ungroup() %>%
-  complete(taxon, query_bp, fill = list(N=0))
+  complete(taxon, query_bp, fill = list(N=0))  %>%
+  mutate(taxon = fct_reorder(taxon, N))
 n_samples_species 
+```
+For SRA, we have to count both validation and training samples, since we did not do cross-validation. Let's use image names to get the information and then the results table to figure out which ones were in the validation set.
+```{r}
+all_files = c(list.files('all_SRA/varkoder_images_SRA/',pattern='*.png',recursive = T),
+              list.files('all_SRA/varkoder_query_images/',pattern='*.png',recursive = T))
 
-n_samples_SRA = varKoder_SRA_results %>%
-  mutate(taxon = as.character(actual_labels)) %>%
-  group_by(taxon, query_bp) %>%
+n_samples_SRA = data.frame(filename=all_files) %>%
+  mutate(
+    sample_id = str_extract(filename, "^(.+)(?=@)"),  # Capture everything up to the "@" symbol but exclude the symbol itself
+    query_bp = str_extract(filename, "(?<=@)([0-9]+)K") # multiply by 1000 to convert K to the actual number
+  ) %>% 
+  left_join(read_csv('all_SRA/runs_to_download_data.csv') %>% 
+              select(sample_id=Run,Kingdom,taxon=FamilyID)) %>%
+  mutate_at(vars(taxon),as.character) %>%
+  mutate(validation_set = sample_id %in% varKoder_SRA_results$sample_id) %>%
+  group_by(taxon, query_bp,validation_set) %>%
   summarize(N=n()) %>%
   ungroup() %>%
-  complete(taxon, query_bp, fill = list(N=0))
-n_samples_SRA 
+  mutate(taxon = fct_reorder(taxon, N))
+
+n_samples_SRA
+  
+
+  ((list.files('all_SRA/varkoder_images_SRA/',pattern='*.png',recursive = T) %>%
+      str_extract("^(.+)(?=@)"))%in%
+varKoder_SRA_results$sample_id) %>% summary
 ```
+
+
+
 ```{r}
 plot_Nsamples_area = function(df, title){
   df = df %>% 
@@ -952,10 +986,16 @@ plot_Nsamples_area = function(df, title){
 
 ```{r}
 N_species = plot_Nsamples_area(n_samples_species,title='Stigmaphyllon Species')
-N_genera = plot_Nsamples_area(n_samples_genera,title='Maplighiaceae and Chrysobalanaceae Genera')
-N_families = plot_Nsamples_area(n_samples_SRA,title='SRA familes')
+N_genera = plot_Nsamples_area(n_samples_genera,title='Maplighiales Genera')
+N_families = plot_Nsamples_area(n_samples_SRA,title='Eukaryotic familes') + facet_wrap(~validation_set)
 
-cowplot::plot_grid(N_genera,N_species,N_families, nrow = 1)
+p = cowplot::plot_grid(N_genera,N_species,N_families, nrow = 1)
+
+print(p)
+
+ggsave('images_manuscript/supp_fig_n_samples.pdf', width=8,height = 4)
+ggsave('images_manuscript/supp_fig_n_samples.png', width=8,height = 4,dpi = 1200)
+
 ```
 
 Total number of SRA samples. Validation:
