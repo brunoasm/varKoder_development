@@ -17,6 +17,7 @@ library(cowplot)
 library(patchwork)
 library(phytools)
 library(ape)
+set.seed(14164)
 ```
 # VarKoder
 For VarKoder, we used leave-one-out cross-validation to test the accuracy for family, genera, species in the joint Malpighiaceae-Chrysobalanaceae dataset. We used as input data varKodes produced from kmers of size 7 and 500Kbp to 200Mbp of data, or all of the data available if less than 200 Mbp. For each sample, we built a model using as input data from all other samples. Then we queried the sample left out, using as input the images generated from 500Kb to the total data available. Now we will summarize the results.
@@ -221,6 +222,7 @@ genus_predictions
 ```
 Now let's make some plots. First, what is the effect of number of samples per class in confidence?
 ```{r}
+set.seed(13214526)
 plot_genus_N_vs_conf = ggplot(genus_predictions, aes(x = N_samples-1, 
                               y = confidence)) + 
   scale_color_viridis_c() +
@@ -239,6 +241,7 @@ plot_genus_N_vs_conf
 
 Now, what is the effect of sample quality in confidence?
 ```{r}
+set.seed(13214526)
 plot_genus_freqsd_vs_conf = ggplot(genus_predictions, aes(x = basefrequency_sd, y = confidence)) + 
   geom_point(alpha=0.3) + 
   scale_x_log10() +
@@ -255,6 +258,7 @@ plot_genus_freqsd_vs_conf
 
 Now, what is the effect of amount of data in confidence?
 ```{r}
+set.seed(13214526)
 plot_genus_bp_vs_conf = ggplot(genus_predictions, aes(x = query_bp, y = confidence)) + 
   geom_jitter(alpha=0.3) + 
   #scale_y_continuous(trans = "logit", breaks = c(1e-4,0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999,1-1e-4)) +
@@ -478,7 +482,7 @@ read_traditional_barcodes = function(bp) {
 Now we can apply this function to all of our results:
 
 ```{r}
-results_barcodes = purrr::map_dfr(c(10,20,50,100,200),read_traditional_barcodes)
+results_barcodes = purrr::map_dfr(c(0.5,1,2,5,10,20,50,100,200),read_traditional_barcodes)
 results_barcodes
 ```
 
@@ -606,7 +610,7 @@ barcode_res = tibble(sample_id = all_nonref,
 
 Now let's apply this function
 ```{r}
-results_concat_barcodes = purrr::map_dfr(c(10,20,50,100,200),read_concatenated_tree_results)
+results_concat_barcodes = purrr::map_dfr(c(0.5,1,2,5,10,20,50,100,200),read_concatenated_tree_results)
 results_concat_barcodes
 ```
 Let's summarize results and plot for genus, species and family accuracy
