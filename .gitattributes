@@ -5,3 +5,4 @@ varKoder_tests/all_SRA/varkoder_query_results/predictions.csv filter=lfs diff=lf
 varKoder_tests/all_SRA/Eukarya_SRA.csv filter=lfs diff=lfs merge=lfs -text
 varKoder_design/n_training.csv filter=lfs diff=lfs merge=lfs -text
 varkoder_design/*.csv filter=lfs diff=lfs merge=lfs -text
+varKoder_tests/all_SRA/varkoder_query_notincluded_results/predictions.csv filter=lfs diff=lfs merge=lfs -text
