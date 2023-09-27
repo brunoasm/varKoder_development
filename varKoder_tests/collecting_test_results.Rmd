@@ -218,7 +218,7 @@ genus_predictions = genus_predictions %>%
   summarise(N_samples = n()) %>%
   right_join(genus_predictions)
 
-genus_predictions
+genus_predictions %>% arrange(N_samples)
 ```
 Now let's make some plots. First, what is the effect of number of samples per class in confidence?
 ```{r}
@@ -686,10 +686,6 @@ p
 ggsave('images_manuscript/fig3_family_accuracy.pdf', width=5,height = 10)
 ggsave('images_manuscript/fig3_family_accuracy.png', width=5,height = 10,dpi=1200)
 ```
-
-# Comparison of run times
-
-Now let's compare the time to produce references and to produce 
 
 # SRA
 
