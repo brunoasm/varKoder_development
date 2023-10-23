@@ -9,3 +9,6 @@ This folder holds code used to design varKoder and test the effects of training 
 ## varkoder_tests
 
 This folders holds codes and results when testing varKoder with broader datasets and comparing to alternative tools
+
+## figure_1
+This folder holds scripts and data to reproduce Figure 1 in the manuscript.

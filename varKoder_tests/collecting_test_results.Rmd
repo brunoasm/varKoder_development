@@ -273,24 +273,6 @@ plot_genus_bp_vs_conf = ggplot(genus_predictions, aes(x = query_bp, y = confiden
 plot_genus_bp_vs_conf
 ```
 
-Now let's save the three of them as a single plot using cowplot.
-
-```{r}
-combined_conf = patchwork::wrap_plots(plot_genus_N_vs_conf + theme(text = element_text(size=8)),
-                                      plot_genus_bp_vs_conf + theme(axis.title.y=element_blank(), 
-                                                                    axis.text.y=element_blank(), 
-                                                                    text = element_text(size=8)),
-                                      plot_genus_freqsd_vs_conf + theme(axis.title.y=element_blank(), 
-                                                                        axis.text.y=element_blank(),
-                                                                        text = element_text(size=8))) +
-  patchwork::plot_annotation(tag_levels = 'A') 
-
-combined_conf
-
-ggsave(filename = 'images_manuscript/supp_conf_predictors.pdf',device = 'pdf',width = 7,height=3,units = 'in',useDingbats=F)
-```
-
-
 Let's put it all together now in a linear model:
 
 ```{r}
@@ -304,20 +286,31 @@ lm_data = genus_predictions %>%
 
 full_model = lm(formula = confidence~query_bp*basefrequency_sd*N_samples, data = lm_data) 
 full_model
-summary(full_model)
-plot(full_model)
-```
-
-```{r}
-reduced_model = step(full_model, direction ="both")
-reduced_model
+reduced_model = step(full_model,direction = 'both')
 summary(reduced_model)
 plot(reduced_model)
 ```
 
+Now let's save the three of them as a single plot using cowplot.
 
+```{r}
+combined_conf = patchwork::wrap_plots(plot_genus_N_vs_conf + theme(text = element_text(size=8)) + 
+                                        geom_smooth(method = glm),
+                                      plot_genus_bp_vs_conf + theme(axis.title.y=element_blank(), 
+                                                                    axis.text.y=element_blank(), 
+                                                                    text = element_text(size=8)) +
+                                        geom_smooth(method = glm),
+                                      plot_genus_freqsd_vs_conf + theme(axis.title.y=element_blank(), 
+                                                                        axis.text.y=element_blank(),
+                                                                        text = element_text(size=8)) +
+                                        geom_smooth(method = glm)) +
+  patchwork::plot_annotation(tag_levels = 'A',
+                             title = 'Factors affecting varKode prediction accuracy',theme = theme(plot.title = element_text(hjust=0.5))) 
 
+combined_conf
 
+ggsave(filename = 'images_manuscript/supp_conf_predictors.pdf',device = 'pdf',width = 7,height=3,units = 'in',useDingbats=F)
+```
 
 ## Skmer
 
@@ -689,7 +682,7 @@ ggsave('images_manuscript/fig3_family_accuracy.png', width=5,height = 10,dpi=120
 
 # SRA
 
-Finally, let's summarize results for the whole SRA dataset. In this case, we only have varKoder since Skmer cannot finish and traditional barcodes are inapplicable.
+Finally, let's summarize results for the whole SRA dataset. In this case, we only have varKoder since Skmer cannot finish and traditional barcodes are inapplicable. We have done predictions separately for families included in the training set and families not included in the trainings set, so we will load each one and concatenate
 
 ```{r}
 varKoder_SRA_results  = read_csv('all_SRA/varkoder_query_results/predictions.csv') %>%
@@ -699,7 +692,6 @@ select(-1) %>%
   mutate(quality_included = T)
 plan(sequential)
 
-SRA_taxlabels = str_remove(varKoder_SRA_results$actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist %>% unique
 
 varKoder_SRA_results = varKoder_SRA_results %>%
   mutate(query_labels = str_remove(actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist,
@@ -707,31 +699,56 @@ varKoder_SRA_results = varKoder_SRA_results %>%
          ) %>%
   rowwise() %>%
   mutate(family_correct = query_labels %in% predicted_list,
-         family_incorrect = ifelse(is.na(predicted_labels),FALSE,any(!(predicted_list %in% query_labels)))) %>%
+         family_incorrect = ifelse(is.na(predicted_labels),FALSE,any(!(predicted_list %in% query_labels))),
+         family_in_training = TRUE) %>%
  select(matches("^[^0-9]"))
 
 varKoder_SRA_results 
          
 ```
 
+```{r}
+varKoder_SRA_results_notincluded  = read_csv('all_SRA/varkoder_query_notincluded_results/predictions.csv') %>%
+select(-1) %>%
+  filter(str_detect(query_basepairs,'^0+[125]0+K$')) %>% #we will ignore queries that are not standardized sizes
+  rename(query_bp = query_basepairs) %>%
+  mutate(quality_included = T)
+plan(sequential)
+
+SRA_taxlabels_notincluded = str_remove(varKoder_SRA_results_notincluded$actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist %>% unique
+
+varKoder_SRA_results_notincluded = varKoder_SRA_results_notincluded %>%
+  mutate(query_labels = str_remove(actual_labels,";*low_quality:True;*") %>% str_split(';') %>% unlist,
+         predicted_list = str_split(predicted_labels,';')
+         ) %>%
+  rowwise() %>%
+  mutate(family_correct = query_labels %in% predicted_list,
+         family_incorrect = ifelse(is.na(predicted_labels),FALSE,any(!(predicted_list %in% query_labels))),
+         family_in_training = FALSE) %>%
+ select(matches("^[^0-9]"))
+
+varKoder_SRA_results_notincluded 
+```
+
 Now let's summarize and plot:
 
 ```{r}
-SRA_summary_family = summarize_results(varKoder_SRA_results,'family')
+SRA_summary_family = bind_rows(summarize_results(varKoder_SRA_results,'family') %>% mutate(family_in_training = TRUE),
+                               summarize_results(varKoder_SRA_results_notincluded,'family') %>% mutate(family_in_training = FALSE))
 SRA_summary_family
 
 N_samp = SRA_summary_family %>%
- group_by(query_bp) %>%
+ group_by(query_bp, family_in_training) %>%
  summarise(N = sum(N))
 
-p_SRA_family = plot_area(SRA_summary_family, 'varKoder SRA family', relative = TRUE,xlim_all = FALSE) 
+p_SRA_family = plot_area(SRA_summary_family, 'varKoder SRA family', relative = TRUE,xlim_all = FALSE, wrap = '~family_in_training')
 p_SRA_family 
 ```
 
-Let's now do the SRA plot, but splitting by kingdom. First, we need to retrieve kingdom information:
+Let's now do the SRA plot, but splitting by kingdom and whether or not family was included in trainings. First, we need to retrieve kingdom information:
 ```{r}
 
-p_SRA_families = read_csv('all_SRA/runs_to_download_data.csv') %>%
+summary_SRA_by_kingdom = read_csv('all_SRA/runs_to_download_data.csv') %>%
   select(sample_id = Run, Kingdom) %>%
   right_join(varKoder_SRA_results) %>%
   split(.$Kingdom) %>%
@@ -739,14 +756,35 @@ p_SRA_families = read_csv('all_SRA/runs_to_download_data.csv') %>%
                  level='family',
                 .id='Kingdom'
                 ) %>%
-  mutate(Kingdom = factor(Kingdom,levels=c('Metazoa','Viridiplantae','Fungi'),ordered = T)) %>%
-  plot_area(relative=FALSE,xlim_all = FALSE,wrap = '~Kingdom',title='Families in SRA') + coord_cartesian(xlim=c(500,10000)*1000,expand = FALSE)
+  mutate(Kingdom = factor(Kingdom,levels=c('Metazoa','Viridiplantae','Fungi'),ordered = T),
+         family_in_training = T) %>%
+  bind_rows(read_csv('all_SRA/runs_notincluded_to_download_data.csv') %>%
+  select(sample_id = Run, Kingdom) %>%
+  right_join(varKoder_SRA_results_notincluded) %>%
+  split(.$Kingdom) %>%
+  purrr::map_df(summarize_results, 
+                 level='family',
+                .id='Kingdom'
+                ) %>%
+  mutate(Kingdom = factor(Kingdom,levels=c('Metazoa','Viridiplantae','Fungi'),ordered = T),
+         family_in_training = F)) %>%
+  mutate(family_in_training = c('Family\nnot in training set', 'Family\nin training set')[family_in_training+1])
+summary_SRA_by_kingdom 
+
+
+p_SRA_families = plot_area(summary_SRA_by_kingdom ,
+          relative=FALSE,
+          xlim_all = FALSE,
+          title='Eukaryote families') + 
+  facet_grid(family_in_training~Kingdom) +
+  coord_cartesian(xlim=c(500,10000)*1000,expand = FALSE) +
+  theme(text = element_text(size=10))
 
 print(p_SRA_families)
 
 
-ggsave('images_manuscript/fig3_SRA_accuracy.pdf', width=4.5,height = 4)
-ggsave('images_manuscript/fig3_SRA_accuracy.png', width=4.5,height = 4,dpi = 1200)
+ggsave('images_manuscript/fig3_SRA_accuracy.pdf', width=5,height = 4)
+ggsave('images_manuscript/fig3_SRA_accuracy.png', width=5,height = 4,dpi = 1200)
 ```
 
 
@@ -817,6 +855,7 @@ p_others = ggplot(summary_others , aes(x = dataset, y = N, fill = result)) +
     scale_alpha_manual(values=c(0.5,1)) +
     ggtitle('Other datasets') +
     ylab('Number of samples') +
+    xlab('Taxon') +
     theme_few() +
       scale_y_continuous(minor_breaks = waiver()) +
       theme(panel.background = element_rect(fill = NA),
@@ -826,12 +865,14 @@ p_others = ggplot(summary_others , aes(x = dataset, y = N, fill = result)) +
             axis.text.x = element_text(face='italic'),
             panel.ontop = TRUE) +
     coord_cartesian(expand=FALSE) +
-    facet_grid(taxon_in_training~.)
+    facet_grid(taxon_in_training~.) +
+    theme(text = element_text(size=10),
+          axis.text.x = element_text(angle = 30,hjust = 1))
   
 p_others
 
-ggsave('images_manuscript/fig3_others_accuracy.pdf', width=4.5,height = 4)
-ggsave('images_manuscript/fig3_others_accuracy.png', width=4.5,height = 4,dpi = 1200)
+ggsave('images_manuscript/fig3_others_accuracy.pdf', width=5,height = 3)
+ggsave('images_manuscript/fig3_others_accuracy.png', width=5,height = 3,dpi = 1200)
 
 ```
 
