@@ -567,7 +567,7 @@ ggsave(filename = 'yield_vs_quality.png',plot =p,device='png',path = 'paper_imag
 
 Bottomline: as long as the majority of the samples for each species are high-quality, having low-quality samples in the training set should not cause much trouble and might even improve inference for some low-quality samples.
 
-# Number of samples per species
+# Number of samples per species x DNA quality
 Now let's evaluate the effect of number of samples per species.
 
 ```{r}
@@ -671,6 +671,58 @@ p
 ggsave(filename = 'n_samples.png',plot =p,device='png',path = 'paper_images',width = 16,height = 5,units = 'cm',dpi = 2400)
 ```
 
+
+Finally, let's plot the actual varKodes for Sitgmaphyllon, each species in row, ordered by quality. We start by generating the appropriate dataframe:
+
+```{r}
+find_image = function(sample_id){
+  x = list.files(path = 'images_7',pattern = paste0("^.+\\+",sample_id,"_.+"),full.names = T)
+  return(x[length(x)])
+}
+
+
+df_varKode_plot = df_facet_plot %>% 
+  filter(n_samp_training==70) %>%
+  select(sample_valid,valid_actual,content_sd,mean_acc) %>%
+  distinct() %>%
+  rowwise() %>%
+  mutate(image_path=find_image(sample_valid)) %>%
+  group_by(valid_actual) %>%
+  arrange(-content_sd) %>%
+  mutate(quality_rank=1:n()) %>%
+  ungroup() %>%
+  arrange(valid_actual,quality_rank) %>%
+  mutate(valid_actual = str_replace_all(valid_actual,"_",". "))
+
+df_varKode_plot
+```
+
+Now let's plot
+```{r}
+
+p = ggplot(df_varKode_plot, aes(x=quality_rank, y=valid_actual)) +
+  geom_tile(aes(fill=mean_acc), color="white") +
+  scale_fill_viridis_c("Average validation accuracy", option = 'magma', limits = c(0,1),labels=scales::percent) +
+  ggimage::geom_image(aes(image=image_path), size=0.09) +
+  coord_equal() +
+  theme_minimal() +
+  ggtitle(expression(paste("varKodes for species of ", italic("Stigmaphyllon")))) +
+  xlab("DNA quality rank") +
+  ylab("Actual species") +
+  scale_x_discrete() +
+  theme(plot.background = element_rect(fill="white", color = "white"),
+        panel.background = element_rect(fill = "white", color = "white"),
+        plot.title = element_text(hjust=0.5),
+        panel.grid = element_blank(),
+        axis.text.y = element_text(face='italic'),
+        legend.position = 'bottom')
+
+print(p)
+
+# Save the plot
+ggsave(filename = 'varkodes_quality.png', plot = p, device = 'png', path = 'paper_images', width = 7, height = 7, units = 'in', dpi = 1200)
+ggsave(filename = 'varkodes_quality.pdf', plot = p, device = 'pdf', path = 'paper_images', width = 7, height = 7, units = 'in')
+```
 
 
 
