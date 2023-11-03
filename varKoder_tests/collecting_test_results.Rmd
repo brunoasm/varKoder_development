@@ -25,7 +25,7 @@ For VarKoder, we used leave-one-out cross-validation to test the accuracy for fa
 
 ## Accuracy vs data amount and taxonomic levels
 
-In this test, we used varKoder [v0.6.0](https://github.com/brunoasm/varKoder/releases/tag/v.0.6.0). Let's process the results.
+In this test, we used varKoder [v0.8.0](https://github.com/brunoasm/varKoder/releases/tag/v.0.8.0). Let's process the results.
 
 ```{r}
 read_and_process_xval = function(infolder){
@@ -229,8 +229,8 @@ plot_genus_N_vs_conf = ggplot(genus_predictions, aes(x = N_samples-1,
   geom_jitter(alpha=0.3) + 
   scale_x_log10() +
   #ylab('Confidence in correct prediction\n(logit scale)') +
-  ylab('Confidence in correct prediction') +
-  xlab('Number of samples in correct genus\n(log scale)') +
+  ylab('Confidence in correct genus prediction') +
+  xlab('Number of training samples in correct genus\n(log scale)') +
   #scale_y_continuous(trans = "logit", breaks = c(1e-4,0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999,1-1e-4)) +
   scale_y_continuous(limits=c(0,1)) +
   theme_few() +
@@ -248,7 +248,7 @@ plot_genus_freqsd_vs_conf = ggplot(genus_predictions, aes(x = basefrequency_sd, 
   #scale_y_continuous(trans = "logit", breaks = c(1e-4,0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999,1-1e-4)) +
   scale_y_continuous(limits=c(0,1)) +
   #ylab('Confidence in correct prediction\n(logit scale)') +
-  ylab('Confidence in correct prediction') +
+  ylab('Confidence in correct genus prediction') +
   xlab('Standard deviation of base frequencies') +
   theme_few() +
   theme(panel.grid.major.y = element_line(colour = gray(0.8)))
@@ -264,7 +264,7 @@ plot_genus_bp_vs_conf = ggplot(genus_predictions, aes(x = query_bp, y = confiden
   #scale_y_continuous(trans = "logit", breaks = c(1e-4,0.001,0.01,0.1,0.25,0.5,0.75,0.9,0.99,0.999,1-1e-4)) +
   scale_y_continuous(limits=c(0,1)) +
   #ylab('Confidence in correct prediction\n(logit scale)') +
-  ylab('Confidence in correct prediction') +
+  ylab('Confidence in correct genus prediction') +
   xlab('Base pairs in query images\n(log scale)') +
   scale_x_log10() +
   theme_few() +
@@ -273,7 +273,7 @@ plot_genus_bp_vs_conf = ggplot(genus_predictions, aes(x = query_bp, y = confiden
 plot_genus_bp_vs_conf
 ```
 
-Let's put it all together now in a linear model:
+Let's put it all together now in a linear model. We remove one from N_samples since one sample is used for validation in the leave-one-out cross-validation that we did.
 
 ```{r}
 lm_data = genus_predictions %>%
@@ -281,7 +281,7 @@ lm_data = genus_predictions %>%
          confidence = car::logit(confidence)) %>%
   mutate(query_bp = (query_bp - mean(query_bp))/sd(query_bp),
          basefrequency_sd = (basefrequency_sd - mean(basefrequency_sd))/sd(basefrequency_sd),
-         N_samples = (N_samples - mean(N_samples))/sd(N_samples)
+         N_samples = ((N_samples-1) - mean(N_samples-1))/sd(N_samples-1)
          ) 
 
 full_model = lm(formula = confidence~query_bp*basefrequency_sd*N_samples, data = lm_data) 
@@ -294,16 +294,82 @@ plot(reduced_model)
 Now let's save the three of them as a single plot using cowplot.
 
 ```{r}
-combined_conf = patchwork::wrap_plots(plot_genus_N_vs_conf + theme(text = element_text(size=8)) + 
-                                        geom_smooth(method = glm),
+preds = genus_predictions %>%
+  mutate(N_samples=N_samples-1) %>% 
+  select(original_N = N_samples,
+         original_bp = query_bp, 
+         original_sd = basefrequency_sd) %>%
+  mutate(query_bp = (original_bp - mean(original_bp))/sd(original_bp),
+         basefrequency_sd = (original_sd - mean(original_sd))/sd(original_sd),
+         N_samples = ((original_N) - mean(original_N))/sd(original_N)
+         ) 
+
+preds = bind_rows(expand.grid(query_bp=unique(preds$query_bp),
+                              N_samples=0,
+                              basefrequency_sd=0
+                              ),
+                  expand.grid(query_bp=0,
+                              N_samples=unique(preds$N_samples),
+                              basefrequency_sd=0
+                              ),
+                  expand.grid(query_bp=0,
+                              N_samples=0,
+                              basefrequency_sd=unique(preds$basefrequency_sd)
+                              )
+                  )
+
+logistic <- function(L) {
+  1 / (1 + exp(-L))
+}
+
+preds = predict(reduced_model, newdata=preds, interval='conf') %>%
+  as_tibble() %>%
+  mutate_all(~logistic(.x)+0.0000001) %>%
+  rename(confidence=fit) %>%
+  bind_cols(preds %>%
+              mutate(N_samples = N_samples*sd(genus_predictions$N_samples-1)+mean(genus_predictions$N_samples-1),
+                     basefrequency_sd = basefrequency_sd*sd(genus_predictions$basefrequency_sd)+
+                       mean(genus_predictions$basefrequency_sd),
+                     query_bp = query_bp*sd(genus_predictions$query_bp)+mean(genus_predictions$query_bp))
+              )
+  
+
+```
+
+
+```{r}
+combined_conf = patchwork::wrap_plots(plot_genus_N_vs_conf + 
+                                        theme(text = element_text(size=8)) + 
+                                        geom_line(data=(filter(preds, 
+                                                               N_samples != mean(genus_predictions$N_samples-1))),
+                                                  color="blue") +
+                                        geom_ribbon(data=(filter(preds, 
+                                                               N_samples != mean(genus_predictions$N_samples-1))),
+                                                    aes(ymin=lwr, ymax=upr), 
+                                                        fill="lightblue", 
+                                                        alpha=0.4),
                                       plot_genus_bp_vs_conf + theme(axis.title.y=element_blank(), 
                                                                     axis.text.y=element_blank(), 
                                                                     text = element_text(size=8)) +
-                                        geom_smooth(method = glm),
+                                        geom_line(data=(filter(preds, 
+                                                               query_bp != mean(genus_predictions$query_bp))),
+                                                  color="blue") +
+                                        geom_ribbon(data=(filter(preds, 
+                                                               query_bp != mean(genus_predictions$query_bp))),
+                                                    aes(ymin=lwr, ymax=upr), 
+                                                        fill="lightblue", 
+                                                        alpha=0.4),
                                       plot_genus_freqsd_vs_conf + theme(axis.title.y=element_blank(), 
                                                                         axis.text.y=element_blank(),
                                                                         text = element_text(size=8)) +
-                                        geom_smooth(method = glm)) +
+                                        geom_line(data=(filter(preds, 
+                                                               basefrequency_sd != mean(genus_predictions$basefrequency_sd))),
+                                                  color="blue") +
+                                        geom_ribbon(data=(filter(preds, 
+                                                               basefrequency_sd != mean(genus_predictions$basefrequency_sd))),
+                                                    aes(ymin=lwr, ymax=upr), 
+                                                        fill="lightblue", 
+                                                        alpha=0.4)) +
   patchwork::plot_annotation(tag_levels = 'A',
                              title = 'Factors affecting varKode prediction accuracy',theme = theme(plot.title = element_text(hjust=0.5))) 
 
@@ -1026,11 +1092,21 @@ plot_Nsamples_area = function(df, title){
 ```
 
 ```{r}
-N_species = plot_Nsamples_area(n_samples_species,title='Stigmaphyllon Species')
-N_genera = plot_Nsamples_area(n_samples_genera,title='Maplighiales Genera')
-N_families = plot_Nsamples_area(n_samples_SRA,title='Eukaryotic familes') + facet_wrap(~validation_set)
 
-p = cowplot::plot_grid(N_genera,N_species,N_families, nrow = 1)
+N_species = plot_Nsamples_area(n_samples_species, title = expression(italic('Stigmaphyllon')~'species')) + theme(axis.title.x = element_blank(),text = element_text(size=8))
+N_genera = plot_Nsamples_area(n_samples_genera, title = 'Malpighiales genera') + theme(axis.title.x = element_blank(),text = element_text(size=8))
+N_families = plot_Nsamples_area(n_samples_SRA, title = 'Eukaryotic families') + facet_wrap(~validation_set) + theme(axis.title.x = element_blank(),text = element_text(size=8))
+
+p = plot_grid(N_species, N_genera, N_families, nrow = 1)
+
+# Add common plot title with white background
+common_title = ggdraw() + draw_label("Number of samples available for different data amounts", fontface = 'bold', x = 0.5, hjust = 0.5) + theme(plot.background = element_rect(fill = "white", color = "white"), plot.margin = unit(c(0, 0, 0, 0), "null"))
+p = plot_grid(common_title, p, ncol = 1, rel_heights = c(0.1, 1))
+
+# Add common X-axis title with white background
+x_axis_title = ggdraw() + draw_label("Post-cleaning base pairs available", x = 0.5, hjust = 0.5, vjust = 1) + theme(plot.background = element_rect(fill = "white", color = "white"), plot.margin = unit(c(-1, 0, 0, 0), "lines"))
+p = plot_grid(p, x_axis_title, ncol = 1, rel_heights = c(1, 0.1))
+
 
 print(p)
 
