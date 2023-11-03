@@ -730,21 +730,121 @@ ggsave('images_manuscript/fig3_species_accuracy.png', width=5,height = 10,dpi=12
 ```
 Now for family level:
 ```{r fig.height = 10}
-p = patchwork::wrap_plots(p_family + theme(axis.text.x = element_blank(),
-                                           axis.title.x = element_blank()), 
-                   p_skmer_family + theme(axis.text.x = element_blank(),
+p = patchwork::wrap_plots(p_family + ggtitle('varKoder') + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank(),
+                                           legend.position = 'none'), 
+                   p_skmer_family + ggtitle('Skmer') + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank(),
+                                          legend.position = 'none'),
+                   p_barcode_family$ITS + ggtitle('ITS') + theme(axis.text.x = element_blank(),
                                            axis.title.x = element_blank()),
-                   p_barcode_family$ITS + theme(axis.text.x = element_blank(),
-                                           axis.title.x = element_blank()),
-                   p_barcode_family$rbcL + theme(axis.text.x = element_blank(),
-                                           axis.title.x = element_blank()),
-                   p_concat_family,
-                   ncol = 1) +
-  plot_annotation(title = 'family-level accuracy')
+                   p_barcode_family$rbcL + ggtitle('rbcL') + theme(axis.text.x = element_blank(),
+                                           axis.title.x = element_blank(),
+                                           legend.position = 'none'),
+                   p_concat_family + ggtitle('Concatenated conventional barcodes') + theme(legend.position = 'none'),
+                   ncol = 1,guides = 'collect') +
+  plot_annotation(title = 'Family-level accuracy',theme = theme(plot.title=element_text(hjust=0.5)))
 p
 ggsave('images_manuscript/fig3_family_accuracy.pdf', width=5,height = 10)
 ggsave('images_manuscript/fig3_family_accuracy.png', width=5,height = 10,dpi=1200)
 ```
+
+Now let's plot a figure for the other traditional barcode loci that did not make this list.
+
+```{r}
+p1 = patchwork::wrap_plots(ggplot() + 
+                             theme_minimal() + 
+                             ggtitle("Species") + 
+                             theme(plot.title = element_text(hjust=0.5),
+                                   plot.margin = unit(c(0,0,0,0),'lines')),
+                           p_barcode_species$matK + 
+                             ggtitle('matK') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_species$ndhF +
+                             ggtitle('ndhF') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_species$`trnL-F` +
+                             ggtitle('trnL-F') +
+                             theme(axis.title.y =element_blank(),
+                                   legend.position = 'none',
+                                   axis.title.x =element_blank()),
+                   ncol = 1,
+                  heights = c(1,15,15,15)
+                  ) 
+
+
+p2 = patchwork::wrap_plots(ggplot() + 
+                             theme_minimal() + 
+                             ggtitle("Genus") + 
+                             theme(plot.title = element_text(hjust=0.5),
+                                   plot.margin = unit(c(0,0,0,0),'lines')),
+                           p_barcode_genus$matK + 
+                             ggtitle('matK') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_genus$ndhF +
+                             ggtitle('ndhF') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_genus$`trnL-F` +
+                             ggtitle('trnL-F') +
+                             theme(axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                   legend.position = 'none',
+                                   axis.title.x =element_blank()),
+                   ncol = 1,
+                  heights = c(1,15,15,15)) 
+
+p3 = patchwork::wrap_plots(ggplot() + 
+                             theme_minimal() + 
+                             ggtitle("Family") + 
+                             theme(plot.title = element_text(hjust=0.5),
+                                   plot.margin = unit(c(0,0,0,0),'lines')),
+                           p_barcode_family$matK + 
+                             ggtitle('matK') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_family$ndhF +
+                             ggtitle('ndhF') +
+                              theme(axis.text.x = element_blank(),
+                                    axis.title.x = element_blank(),
+                                    axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                    legend.position = 'none'),
+                           p_barcode_family$`trnL-F` +
+                             ggtitle('trnL-F') +
+                             theme(axis.title.y =element_blank(),
+                                    axis.text.y =element_blank(),
+                                   axis.title.x =element_blank()),
+                   ncol = 1,
+                   heights = c(1,15,15,15),
+                   guides='collect')
+
+p = patchwork::wrap_plots(p1,p2,p3,ncol=3,guides="collect") +
+   plot_annotation(
+    title = 'Conventional barcode accuracy across different taxonomic levels',
+    theme = theme(plot.title = element_text(hjust = 0.2,face='bold',size=15))
+  )
+
+ggsave('images_manuscript/supp_traditional_barcodes.pdf', plot = p, width=8,height = 6)
+```
+
+
 
 # SRA
 
@@ -1095,9 +1195,8 @@ plot_Nsamples_area = function(df, title){
 
 N_species = plot_Nsamples_area(n_samples_species, title = expression(italic('Stigmaphyllon')~'species')) + theme(axis.title.x = element_blank(),text = element_text(size=8))
 N_genera = plot_Nsamples_area(n_samples_genera, title = 'Malpighiales genera') + theme(axis.title.x = element_blank(),text = element_text(size=8))
-N_families = plot_Nsamples_area(n_samples_SRA, title = 'Eukaryotic families') + facet_wrap(~validation_set) + theme(axis.title.x = element_blank(),text = element_text(size=8))
 
-p = plot_grid(N_species, N_genera, N_families, nrow = 1)
+p = plot_grid(N_species, N_genera, nrow = 1)
 
 # Add common plot title with white background
 common_title = ggdraw() + draw_label("Number of samples available for different data amounts", fontface = 'bold', x = 0.5, hjust = 0.5) + theme(plot.background = element_rect(fill = "white", color = "white"), plot.margin = unit(c(0, 0, 0, 0), "null"))
