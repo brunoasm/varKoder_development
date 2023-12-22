@@ -1,2 +1,1 @@
 *.pkl filter=lfs diff=lfs merge=lfs -text
-varKoder_tests/all_SRA/Eukarya_SRA.csv filter=lfs diff=lfs merge=lfs -text
