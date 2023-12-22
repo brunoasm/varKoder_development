@@ -6,6 +6,8 @@ We will use NCBI Entrez to download the data and then python to select the sampl
 
 The we will use fastq-dump to download up to 200,000 reads per SRA accession and finally use varKoder to generate varKodes
 
+IMPORTANT NOTE: here we keep most of the intermediate files generated during the analyses, but some of them are too large for github storage. For that reason, they have been zipped (extension `*.gz`). If you are rerunning code here that relies on these files, make sure to unzip them first using: `gunzip *.csv`
+
 # Downloading software
 
 To use Entrez and sra-toolkit, we install using Anaconda:
@@ -24,8 +26,11 @@ This is script selects, for each eukaryotic family, up to 10 random biosamples. 
 
 # Downloading
 
+We used script `3_download_reads.sh` 
+
 # Processing
-python $VARKODER_PATH image -k 7 -m 500K -M 10M -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK -i varkoder_int_SRA/ -o varkoder_images_SRA/ -f image_stats.csv varkoder_SRA/
+
+Scripts 4 to 9 processed data using varKoder. 
 
 During the process, some samples resulted in errors and were manually removed:
 too few reads: varkoder_SRA/196982/SRR18105716
