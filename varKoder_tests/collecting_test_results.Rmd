@@ -1221,6 +1221,94 @@ read_csv('varKoder/all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
   summarise(N = n())
 ```
 
+Calculate precision and recall.
+
+```{r}
+
+calculate_precision_recall <- function(results, taxonomic_level=NULL) {
+  # Filter labels for a given taxonomic level
+  filter_labels <- function(labels_list, level) {
+    if (is.null(level)) {
+      return(labels_list)
+    } else {
+      return(grep(paste0("^", level, ":"), labels_list, value = TRUE))
+    }
+  }
+
+
+  # Initialize vectors to store precision and recall
+  precision_values <- numeric(nrow(results))
+  recall_values <- numeric(nrow(results))
+
+  # Process each row
+  for (i in seq_len(nrow(results))) {
+    query_labels <- filter_labels(results$query_labels[[i]], taxonomic_level)
+    predicted_labels <- filter_labels(results$predicted_list[[i]], taxonomic_level)
+
+    true_positives <- sum(predicted_labels %in% query_labels)
+    # Only count non-NA and non-empty predicted labels for false positives
+    false_positives <- sum(!predicted_labels %in% query_labels & !is.na(predicted_labels) & predicted_labels != "")
+
+    # Count false negatives considering non-NA and non-empty actual labels
+    false_negatives <- sum(!query_labels %in% predicted_labels & !is.na(query_labels) & query_labels != "")
+
+
+    precision_values[i] <- ifelse((true_positives + false_positives) > 0, 
+                                  true_positives / (true_positives + false_positives), 
+                                  NA_real_)
+    recall_values[i] <- ifelse((true_positives + false_negatives) > 0, 
+                               true_positives / (true_positives + false_negatives), 
+                               NA_real_)
+  }
+
+  # Calculate mean precision and recall
+  mean_precision <- mean(precision_values, na.rm = TRUE)
+  mean_recall <- mean(recall_values, na.rm = TRUE)
+
+  return(tibble(taxonomic_level = taxonomic_level, precision = mean_precision, recall = mean_recall))
+}
+
+```
+
+Precision and recall for species:
+
+```{r}
+filter(results,str_detect(actual_labels,'species')) %>%
+         split(.$query_bp) %>%
+         map_dfr(~calculate_precision_recall(.x,'species'),.id='query_bp')
+```
+
+Precision and recall for genera:
+
+```{r}
+filter(results,str_detect(actual_labels,'genus')) %>%
+         split(.$query_bp) %>%
+         map_dfr(~calculate_precision_recall(.x,'genus'),.id='query_bp')
+```
+
+Precision and recall for families:
+
+```{r}
+filter(results,str_detect(actual_labels,'family')) %>%
+         split(.$query_bp) %>%
+         map_dfr(~calculate_precision_recall(.x,'family'),.id='query_bp')
+```
+
+
+Precision and recall for SRA families:
+```{r}
+varKoder_SRA_results %>%
+  split(.$query_bp) %>%
+         map_dfr(~calculate_precision_recall(.x),.id='query_bp')
+```
+Precision and recall for other taxa
+```{r}
+other_results %>%
+  split(.$dataset) %>%
+  map_dfr(~calculate_precision_recall(.x),.id='dataset')
+```
+
+
 
 
 
