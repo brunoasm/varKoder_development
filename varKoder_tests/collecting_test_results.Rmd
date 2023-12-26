@@ -1304,6 +1304,7 @@ varKoder_SRA_results %>%
 Precision and recall for other taxa
 ```{r}
 other_results %>%
+  filter(in_training_model == 'yes') %>%
   split(.$dataset) %>%
   map_dfr(~calculate_precision_recall(.x),.id='dataset')
 ```
