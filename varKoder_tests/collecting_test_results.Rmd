@@ -1221,12 +1221,12 @@ read_csv('varKoder/all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
   summarise(N = n())
 ```
 
-Calculate precision and recall.
+Calculate micro-averaged precision and recall.
 
 ```{r}
 
-calculate_precision_recall <- function(results, taxonomic_level=NULL) {
-  # Filter labels for a given taxonomic level
+calculate_precision_recall = function(results, taxonomic_level=NULL) {
+  # Function to filter labels by taxonomic level
   filter_labels <- function(labels_list, level) {
     if (is.null(level)) {
       return(labels_list)
@@ -1235,37 +1235,56 @@ calculate_precision_recall <- function(results, taxonomic_level=NULL) {
     }
   }
 
+  # Filter rows and labels for a given taxonomic level
+  filter_rows_and_labels <- function(results, level) {
+    if (is.null(level)) {
+      return(results)
+    } else {
+      # Keep only rows where the level is found in query_labels
+      filtered_results <- results[sapply(results$query_labels, function(x) {
+        any(grepl(paste0("^", level, ":"), x))
+      }), ]
 
-  # Initialize vectors to store precision and recall
-  precision_values <- numeric(nrow(results))
-  recall_values <- numeric(nrow(results))
+      # Filter labels in both query_labels and predicted_list
+      filtered_results$query_labels <- lapply(filtered_results$query_labels, filter_labels, level)
+      filtered_results$predicted_list <- lapply(filtered_results$predicted_list, filter_labels, level)
 
-  # Process each row
-  for (i in seq_len(nrow(results))) {
-    query_labels <- filter_labels(results$query_labels[[i]], taxonomic_level)
-    predicted_labels <- filter_labels(results$predicted_list[[i]], taxonomic_level)
-
-    true_positives <- sum(predicted_labels %in% query_labels)
-    # Only count non-NA and non-empty predicted labels for false positives
-    false_positives <- sum(!predicted_labels %in% query_labels & !is.na(predicted_labels) & predicted_labels != "")
-
-    # Count false negatives considering non-NA and non-empty actual labels
-    false_negatives <- sum(!query_labels %in% predicted_labels & !is.na(query_labels) & query_labels != "")
-
-
-    precision_values[i] <- ifelse((true_positives + false_positives) > 0, 
-                                  true_positives / (true_positives + false_positives), 
-                                  NA_real_)
-    recall_values[i] <- ifelse((true_positives + false_negatives) > 0, 
-                               true_positives / (true_positives + false_negatives), 
-                               NA_real_)
+      return(filtered_results)
+    }
   }
 
-  # Calculate mean precision and recall
-  mean_precision <- mean(precision_values, na.rm = TRUE)
-  mean_recall <- mean(recall_values, na.rm = TRUE)
+  # Apply filtering
+  filtered_results <- filter_rows_and_labels(results, taxonomic_level)
 
-  return(tibble(taxonomic_level = taxonomic_level, precision = mean_precision, recall = mean_recall))
+  # Initialize counters for true positives, false positives, and false negatives
+  total_true_positives <- 0
+  total_false_positives <- 0
+  total_false_negatives <- 0
+
+  # Process each row in the filtered results
+  for (i in seq_len(nrow(filtered_results))) {
+    query_labels <- filtered_results$query_labels[[i]]
+    predicted_labels <- filtered_results$predicted_list[[i]]
+
+    true_positives <- sum(predicted_labels %in% query_labels)
+    false_positives <- sum(!predicted_labels %in% query_labels & !is.na(predicted_labels) & predicted_labels != "")
+    false_negatives <- sum(!query_labels %in% predicted_labels & !is.na(query_labels) & query_labels != "")
+
+    # Update aggregate counts
+    total_true_positives <- total_true_positives + true_positives
+    total_false_positives <- total_false_positives + false_positives
+    total_false_negatives <- total_false_negatives + false_negatives
+  }
+
+  # Calculate micro-averaged precision and recall
+  micro_precision <- ifelse((total_true_positives + total_false_positives) > 0, 
+                            total_true_positives / (total_true_positives + total_false_positives), 
+                            NA_real_)
+  micro_recall <- ifelse((total_true_positives + total_false_negatives) > 0, 
+                         total_true_positives / (total_true_positives + total_false_negatives), 
+                         NA_real_)
+
+  return(tibble(taxonomic_level = taxonomic_level, micro_precision = micro_precision, micro_recall = micro_recall))
 }
 
 ```
@@ -1309,7 +1328,77 @@ other_results %>%
   map_dfr(~calculate_precision_recall(.x),.id='dataset')
 ```
 
+Precision and recall for conventional barcodes at species level
+```{r}
+results_barcodes %>%
+  group_by(marker,query_bp) %>%
+  nest() %>%
+  mutate(precision_recall = purrr::map(data, calculate_precision_recall,'species')) %>%
+  select(-data) %>%
+  unnest(precision_recall)
+```
+Precision and recall for concatenated conventional barcodes at species level
+```{r}
+results_concat_barcodes %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x),.id='query_bp','species')
+```
+
+Precision/recall for skmer at species level. Precision and recall are not always the same because in some cases skmer predicted the wrong genus, and, therefore, there was no species prediction.
+
+```{r}
+skmer_results_df %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x,'species'),.id='query_bp')
+```
+
+
+Precision and recall for conventional barcodes at genus level
+```{r}
+results_barcodes %>%
+  group_by(marker,query_bp) %>%
+  nest() %>%
+  mutate(precision_recall = purrr::map(data, calculate_precision_recall,'genus')) %>%
+  select(-data) %>%
+  unnest(precision_recall)
+```
+Precision and recall for concatenated conventional barcodes at genus level
+```{r}
+results_concat_barcodes %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x),.id='query_bp','genus')
+```
+
+Precision/recall for skmer at genus level:
+
+```{r}
+skmer_results_df %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x,'genus'),.id='query_bp')
+```
 
 
 
+Precision and recall for conventional barcodes at family level
+```{r}
+results_barcodes %>%
+  group_by(marker,query_bp) %>%
+  nest() %>%
+  mutate(precision_recall = purrr::map(data, calculate_precision_recall,'family')) %>%
+  select(-data) %>%
+  unnest(precision_recall)
+```
+Precision and recall for concatenated conventional barcodes at family level
+```{r}
+results_concat_barcodes %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x),.id='query_bp','family')
+```
 
+Precision/recall for skmer at family level:
+
+```{r}
+skmer_results_df %>%
+  split(.$query_bp) %>%
+  map_dfr(~calculate_precision_recall(.x,'family'),.id='query_bp')
+```
