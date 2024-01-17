@@ -1216,7 +1216,7 @@ ggsave('images_manuscript/supp_fig_n_samples.png', width=8,height = 4,dpi = 1200
 
 Total number of SRA samples. Validation:
 ```{r}
-read_csv('varKoder/all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
+read_csv('all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
   group_by(is_valid) %>%
   summarise(N = n())
 ```
