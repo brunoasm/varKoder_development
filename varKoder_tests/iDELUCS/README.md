@@ -6,4 +6,4 @@ To apply iDELUCS to the Malpighiaceae dataset, we prepared the full plastid+ribo
 
 To run iDELUCS, execute `iDeLUCS.py`
 
-The accuracy of idelucs ia summarized in `idelucs_accuracy.xlsx`
+The accuracy of iDELUCS is summarized in `idelucs_accuracy.xlsx`
