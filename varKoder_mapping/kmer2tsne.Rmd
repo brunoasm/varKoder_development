@@ -1,0 +1,274 @@
+---
+title: "Mapping kmers to an image"
+output: html_notebook
+---
+
+In this notebook we will map kmers to a square grid. 
+
+Later this will be used to map kmer counts in this grid, generating images that can be used for training a neural network.
+
+We will use tSNE to place kmers in a 2D space so that more similar kmers are close to each other. To identify each kmer uniquely, we will count, for each one, all sub-kmers with primer number length, up to the first such kmer with lenght above half of our focal sequence. These counts uniquely identify each kmer, and we will use these as properties in tSNE to map them. 
+
+Finally, we will rotate tSNE results so that the axis of AT richness goes left to right. This should not affect a neural network but is nice for we humans to visualize.
+
+We will then fit these coordinates to a grid so that each kmer occupies only one grid cell.
+
+We finally export this grid information to use in python to generate figures from kmer counts.
+
+Let's start by setting the kmer length and number of available cores for computation.
+
+```{r}
+rm(list = ls())
+kmer_len = 9
+ncores = 32
+```
+
+
+
+First, read packages and setup parallel computing:
+```{r}
+library(tidyverse)
+library(kmer)
+library(Rtsne)
+library(furrr)
+library(acss)
+plan(multisession, workers = ncores)
+```
+
+# Listing canonical kmers
+
+Let's start by listing all possible kmers.
+```{r}
+all_kmers = expand.grid(rep(list(1:4),kmer_len))
+```
+
+Let's now reduce this list only to the canonical kmers. For that, let's create a function that retrieves the reverse complement
+```{r}
+revcomp = function(vec){
+  comp_dict = 4:1
+  names(comp_dict) = 1:4
+  
+  vec = rev(vec)
+  vec = comp_dict[vec]
+  
+  names(vec) = NULL
+  
+  return(vec)
+}
+```
+
+Now, let's create a function that returns the canonical version of any kmer:
+
+```{r}
+get_canonical= function(vec){
+  str_vec = str_c(vec,collapse='')
+  str_rev = str_c(revcomp(vec),collapse='')
+  
+  canonical = sort(c(str_vec,str_rev))[1]
+  
+  return(unlist(str_split(canonical,'')))
+}
+```
+
+Finally, let's apply this to the matrix with all kmers and remove duplicates:
+```{r}
+all_canonical = apply(all_kmers,1,get_canonical) %>%
+  t() %>%
+  as.data.frame() %>%
+  distinct()
+
+all_canonical
+```
+
+# Counting sub-kmers
+
+We need to score each kmer for a bunch of properties, so we can use tSNE later to order them in 2D. Here we will use counts of contained 2mers, 3mers and 5mers and so on, until we reach a size that is more than half of the original kmer. With this, counts for each kmer will be unique.
+The fastest way to do that is to transform everything to DNAbin format first.
+
+```{r}
+
+
+to_DNAbin = function(x) {
+  to_char = c('A','C','G','T')
+  ape::as.DNAbin(str_c(to_char[as.integer(unlist(x))]))
+}
+
+
+all_DNAbins = all_canonical %>%
+  split(f = 1:nrow(.)) %>%
+  furrr:::future_map(to_DNAbin) %>%
+  tibble(forward = .) %>%
+  rowwise %>%
+  mutate(rc = list(ape::complement(forward))) %>%
+  ungroup
+  
+all_DNAbins 
+
+```
+
+Now let's list all sizes for sub-kmers that we will count:
+
+```{r}
+sub_lens = 2
+past_half = FALSE
+
+for (i in 3:(kmer_len)){
+  if (i > kmer_len/2){past_half = TRUE}
+  
+  if (all(as.logical(i %% sub_lens))){
+    sub_lens = c(sub_lens,i)
+    if (past_half) {break}
+  }
+  
+}
+
+sub_lens
+```
+
+
+Now we can count sub-kmers. For each canonical kmer, we will average counts with its reverse complement.
+
+```{r}
+subcounts = list()
+
+for (subl in sub_lens){
+  subcounts = append(subcounts, list(all_DNAbins %>%
+  split(1:nrow(.)) %>%
+  furrr::future_map_dfr(~ kmer::kcount(.x$forward,k = subl) %>% as_tibble %>%
+                  bind_rows(kmer::kcount(.x$rc, k = subl) %>% as_tibble) %>%
+                  summarise_all(mean), .options = furrr_options(seed = TRUE)))
+  )
+}
+
+
+subcounts
+save.image()
+```
+
+
+
+# tSNE
+
+Let's now do the ordination with t-SNE. We will bind counts of sub-kmers and normalize counts. 
+We will use a higher perplexity than the default since it seems to spread points better. We will also increase the number of iterations to make sure the configuration converges.
+
+```{r}
+normalized = do.call(bind_cols, subcounts) %>%
+  as.matrix %>%
+  Rtsne::normalize_input()
+
+tsne = Rtsne(normalized,
+             dims=2,
+             verbose = T, 
+             normalize = F,
+             num_threads=ncores, 
+             perplexity=min(1500,nrow(normalized)/3-1),
+             max_iter = 20000)
+
+str(tsne)
+
+save.image()
+```
+
+Let's now visualize the results. Let's build the data.frame first.
+
+```{r}
+AT_richness = all_DNAbins %>%
+  split(1:nrow(.)) %>%
+  furrr::future_map_dfr(~ kmer::kcount(.x$forward,k = 1) %>% as_tibble,
+                        .options = furrr_options(seed = TRUE)) %>%
+  mutate(ID=1:n()) %>%
+  gather(key=base,value=count,-ID) %>%
+  group_by(ID) %>%
+  summarise(AT = sum(ifelse(base %in% c('A','T'), count, 0)/kmer_len)) %>%
+  arrange(ID)
+
+tsne_res = tsne$Y %>%
+  as.data.frame() %>%
+  mutate(r = sqrt(V1^2 + V2^2),
+         t = atan2(V2, V1)) %>%
+  bind_cols(select(AT_richness, AT))
+
+tsne_res$canonical = purrr::map(all_DNAbins$forward, 
+                                ~as.character(.x) %>%
+                                  str_to_upper %>%
+                                  str_c(collapse='')) %>% unlist
+
+tsne_res$rc = purrr::map(all_DNAbins$rc, 
+                                ~as.character(.x) %>%
+                                  str_to_upper %>%
+                                  str_c(collapse='')) %>% unlist
+
+tsne_res$complexity = acss(tsne_res$canonical, 4)[,1]
+
+tsne_res
+
+```
+
+
+Let's now visualize what tSNE did. It clearly separated kmers by their AT-richness, along bot X and Y axes. There is also some clustering by entropy.
+```{r}
+
+ggplot(tsne_res) +
+  geom_point(aes(x=V1, y=V2,color=complexity)) +
+  scale_color_viridis_c()
+
+
+ggplot(tsne_res) +
+  geom_point(aes(x=V1, y=V2,color=AT)) +
+  scale_color_viridis_c()
+
+```
+Now let's rotate so that more AT-rich kmers are on the left. Let's figure out the average angle between most AT-rich and CG-rich kmers.
+
+```{r}
+rotation = tsne_res %>%
+  filter(AT == 1) %>%
+  pull(t) %>%
+  mean
+
+tsne_res = tsne_res %>%
+  mutate(V1 = r*cos(t - rotation + pi),
+         V2 = r*sin(t - rotation + pi),
+         r = sqrt(V1^2 + V2^2),
+         t = atan2(V2, V1))
+  
+```
+
+Now let's make sure that complexity is roughly increasing along the Y axis, and flip if not the case.
+
+```{r}
+if (cor(tsne_res$V2,tsne_res$complexity) < 0){
+  tsne_res = tsne_res %>%
+  mutate(V2 = -V2,
+         r = sqrt(V1^2 + V2^2),
+         t = atan2(V2, V1))
+}
+```
+
+
+Now we have a kmer distribution that follows roughly AT richness left to right and complexity bottom to top:
+```{r}
+ggplot(tsne_res) +
+  geom_point(aes(x=V1, y=V2,color=complexity)) +
+  scale_color_viridis_c() +
+  coord_equal()
+
+
+ggplot(tsne_res) +
+  geom_point(aes(x=V1, y=V2,color=AT)) +
+  scale_color_viridis_c() +
+  coord_equal()
+```
+
+
+
+#Save
+
+We will now save the tsne table so we can use to produce a grid for the final figures. 
+
+```{r}
+write_csv(tsne_res,paste0('tsne_',kmer_len,'_result.csv'))
+```
+
+

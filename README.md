@@ -2,6 +2,10 @@
 
 This repository holds scripts used in the initial development of varKoder
 
+## varKoder_mapping
+
+This folder holds code used to develop the k-mer mapping used in varKodes
+
 ## varkoder_design
 
 This folder holds code used to design varKoder and test the effects of training hyperparameters with a dataset of species of Stigmaphyllon

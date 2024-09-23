@@ -1,0 +1,263 @@
+---
+title: "Making a grid of kmers"
+output: html_notebook
+---
+
+To make an image that summarize the distribution of k-mers for a sample, we will need to assign each kmer to a pixel. We used tSNE to place kmers in a 2D plane based on their sequence similarity. Here we will move kmers around as needed to assign each one uniquely to one pixel.
+
+Let's start by setting the kmer size, loading data and packages.
+
+```{r}
+rm(list=ls())
+kmer_len = 9
+library(tidyverse)
+library(acss)
+library(furrr)
+library(arrow)
+plan(multisession,workers = 4)
+tsne_res = read_csv(paste0('tsne_',kmer_len,'_result.csv'))
+tsne_res
+```
+
+Let's visualize the distribution of kmers according to their AT richness
+```{r}
+ggplot(tsne_res) +
+  geom_point(aes(x=V1, y=V2,color=AT)) +
+  scale_color_viridis_c()
+```
+
+Now, let's define a grid with sufficient size for all points:
+```{r}
+dimensions = ceiling(sqrt(nrow(tsne_res)))
+
+pixels = expand.grid(list(x.min = 1:dimensions, y.min = 1:dimensions)) %>%
+  mutate(x.mid=x.min+0.5,
+         y.mid=y.min+0.5,
+         x.max=x.min+1,
+         y.max=y.min+1,
+         pixel_ID = 1:n())
+
+pixels 
+```
+
+As the first pass, let's define within which grid cell each point is:
+```{r}
+
+find_grid = function(df) {
+  pixels %>%
+        filter(df$x < x.max, df$x > x.min,
+               df$y < y.max, df$y > y.min) %>%
+        pull(pixel_ID)
+}
+
+rescaled_tSNE = tsne_res %>%
+  mutate(x = scales::rescale(tsne_res$V1,c(1.5,dimensions-0.5),range(tsne_res$V1)),
+         y = scales::rescale(tsne_res$V2,c(1.5,dimensions-0.5),range(tsne_res$V2)))
+
+rescaled_tSNE = rescaled_tSNE %>%
+  mutate(pixel_ID = rescaled_tSNE %>%
+           split(f = 1:nrow(.)) %>%
+           furrr::future_map(~ pixels %>%
+                 filter(pull(.x,x) < x.max, pull(.x,x) > x.min,
+                        pull(.x,y) < y.max, pull(.x,y) > y.min) %>%
+                 pull(pixel_ID)))
+
+rescaled_tSNE = tidyr::unnest(rescaled_tSNE,pixel_ID)
+
+summary(as.vector(table(rescaled_tSNE$pixel_ID)))
+```
+
+Let's visualize where we have areas of very high density:
+
+```{r}
+rescaled_tSNE %>%
+  group_by(pixel_ID) %>%
+  summarise(N=n()) %>%
+  right_join(pixels) %>%
+  mutate(N = replace_na(N,0)) %>%
+  ungroup %>%
+  arrange(N) %>%
+  ggplot() +
+  geom_raster(aes(x=x.min,y=y.min,fill=N)) +
+  scale_fill_viridis_c()
+```
+
+Now let's move points around so that each grid cell  has only one point.
+
+First, we will fix points that are unique in a grid cell.
+
+Next, we will fix the point closest to the midpoint of each grid cell (and randomly choosing if a tie)
+
+Next, we will get the point closest to a midpoint that was not assigned in the first round, and will assign it to the closes free grid cell. We will repeat that until all points are assigned.
+
+
+Let's start by making a data.frame to store our results
+```{r}
+kmer_grid = rescaled_tSNE %>%
+  mutate(ID=1:n()) %>%
+  select(ID,x,y,complexity,AT,start_pixel = pixel_ID)
+```
+
+
+Let's find IDs for kmers that are alone in a grid cell:
+```{r}
+ones = kmer_grid %>%
+  group_by(start_pixel) %>%
+  summarise(N=n()) %>%
+  filter(N == 1) %>%
+  select(start_pixel) %>%
+  mutate(final_pixel = start_pixel)
+
+kmer_grid = kmer_grid %>%
+  left_join(ones)
+
+kmer_grid
+```
+
+Now let's assign kmers that are sharing a pixel. For each pixel, we will keep the kmer closest to the center. We will set a random seed to make tie breaks reproducible
+
+```{r}
+set.seed(123134)
+
+get_dist_to_pixel = function(x,y,px){
+  this_px = pixels %>%
+    filter(pixel_ID == px)
+  
+  
+  sqrt((x - this_px$x.mid)^2 + 
+         (y - this_px$y.mid)^2)
+}
+
+
+kmers_left = kmer_grid %>%
+  filter(is.na(final_pixel)) %>%
+  rowwise %>%
+  mutate(dist_to_pixel = get_dist_to_pixel(x,y,start_pixel)) 
+
+
+chosen_kmers = kmers_left %>%
+  group_by(start_pixel) %>%
+  top_n(-1, wt = dist_to_pixel) %>%
+  sample_n(1) %>%
+  pull(ID)
+
+kmer_grid = kmer_grid %>%
+  mutate(final_pixel = ifelse(ID %in% chosen_kmers, start_pixel,final_pixel))
+
+kmers_left = kmers_left %>%
+  filter(!(ID %in% chosen_kmers))
+```
+
+Now we will loop through remaining kmers by the distance to the closest pixel. We will then find the closest free pixel and assign it. We will continue until all kmers are assigned to a pixel.  Let's make a function first.
+
+```{r}
+
+redistribute_grid = function(kgrd, klft, pixels){
+  while (nrow(klft)){ #using base r for filtering since it is faster
+    
+    assigned_px = unlist(kgrd[!is.na(kgrd$final_pixel),'final_pixel'])
+    
+    this_kmer = klft %>%
+      ungroup %>%
+      top_n(-1,wt= dist_to_pixel) %>%
+      sample_n(1)
+    
+    this_px = pixels[!(pixels$pixel_ID %in% assigned_px),] %>%
+      mutate(dist_to_this_kmer = sqrt((x.mid-this_kmer$x)^2+(y.mid-this_kmer$y)^2)) %>%
+      ungroup %>%
+      top_n(-1,wt= dist_to_this_kmer) %>%
+      sample_n(1) %>%
+      pull(pixel_ID)
+    
+    kgrd[kgrd$ID == this_kmer$ID,'final_pixel'] = this_px
+    
+    klft = klft[klft$ID != this_kmer$ID,]
+    
+    if (nrow(klft) %% 1000 == 0) message('Kmers left: ',nrow(klft))
+    
+  }
+  return(kgrd)
+}
+
+```
+
+Now let's run it
+```{r}
+final_kmer_grid = redistribute_grid(kmer_grid,kmers_left,pixels)
+
+final_kmer_grid 
+```
+
+Let's now visualize the grid.
+
+```{r}
+final_pixels = pixels %>%
+  select(x.min,y.min,final_pixel = pixel_ID) %>%
+  left_join(final_kmer_grid)
+
+
+ggplot(final_pixels) +
+  geom_raster(aes(x=x.min,y=y.min,fill=AT)) +
+  scale_fill_viridis_c() +
+  coord_equal()
+
+ggplot(final_pixels) +
+  geom_raster(aes(x=x.min,y=y.min,fill=complexity)) +
+  scale_fill_viridis_c() +
+  coord_equal()
+```
+
+Finally, let's create a data frame only with the information that we will need in python:
+
+```{r}
+kmer_mapping = tsne_res %>%
+  select(canonical) %>%
+  mutate(ID=1:n()) %>%
+  left_join(final_kmer_grid %>%
+              select(ID, 
+                     pixel_ID = final_pixel)) %>%
+  left_join(pixels %>%
+               select(pixel_ID,
+                      x=x.min,
+                      y=y.min)) %>%
+  select(-ends_with("ID"))
+  
+kmer_mapping %>%
+  arrange(y,x)
+
+```
+Because dsk uses a different lexicographical order from Jellyfish when deciding which is the canonical kmer, let's add all kmers to this table to make sure.
+
+```{r}
+to_vec = function(str){
+  purrr::map(1:nchar(str), ~substr(str,.x,.x)) %>% unlist
+}
+
+kmer_mapping2 = kmer_mapping
+
+kmer_mapping2$canonical = purrr::map(kmer_mapping$canonical, ~to_vec(.x) %>% 
+             ape::as.DNAbin() %>% 
+             ape::complement() %>% 
+             as.character %>%
+             unlist() %>%
+             toupper() %>%
+             paste0(collapse = '')
+             ) %>% unlist()
+
+kmer_mapping = rbind(kmer_mapping, kmer_mapping2)
+
+names(kmer_mapping)[1] = 'kmer'
+```
+
+
+
+And save it as parquet for loading in VARcode.
+
+```{r}
+kmer_mapping
+write_parquet(kmer_mapping,paste0(kmer_len, 'mer_mapping.parquet'))
+```
+
+
+
+
