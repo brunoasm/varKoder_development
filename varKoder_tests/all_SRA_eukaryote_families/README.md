@@ -30,7 +30,7 @@ We used script `3_download_reads.sh`
 
 # Processing
 
-Scripts 4 to 9 processed data using varKoder. 
+Scripts number 4 to 9 processed data using varKoder. 
 
 During the process, some samples resulted in errors and were manually removed:
 too few reads: varkoder_SRA/196982/SRR18105716
@@ -38,4 +38,6 @@ too few reads: varkoder_SRA/213546/SRR12928426
 too few reads: varkoder_SRA/24079/SRR13970210
 too few reads: varkoder_SRA/24079/SRR13970214
 
+# fCGR
 
+After finishing analyses using varKodes, we redid everything with vk-fCGRs converted from varKodes (scripts number 10-12) 
