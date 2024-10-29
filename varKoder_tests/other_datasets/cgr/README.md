@@ -21,7 +21,7 @@ fasterq-dump --split-files SRR2101363.sra
 ```sh
 conda activate varKoder
 ``` 
-#### Varkode images
+#### Varkode images (cgr)
 4. The first VarKode command processes the raw sequencing reads and creates *VarKodes*, or images which are representative of K-mer frequencies. Below is an example of the command given for the *Bembidion* dataset:
 ```sh
 varKoder image --kmer-mapping cgr -k 7 -o cgr_Bembidion Bembidion_multi.csv -v &
