@@ -23,7 +23,9 @@ conda activate varKoder
 ``` 
 #### Varkode images
 4. The first VarKode command processes the raw sequencing reads and creates *VarKodes*, or images which are representative of K-mer frequencies. Below is an example of the command given for the *Bembidion* dataset:
-
+```sh
+varKoder image -k 7 -o cgr_Bembidion Bembidion_multi.csv -v &
+``` 
 
 #### Varkode model training
 5. For each organismal dataset at least three monophyletic samples per species were used to train model with five species per dataset. We assessed monophyly based on the phylogenies within the studies the samples were found. For example, In our animal genome skim dataset of *Bembidion* beetles, we based our assessment on this phylogeny: <br>
