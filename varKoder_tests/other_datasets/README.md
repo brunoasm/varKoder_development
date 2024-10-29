@@ -23,16 +23,11 @@ conda activate varKoder
 ``` 
 #### Varkode images
 4. The first VarKode command processes the raw sequencing reads and creates *VarKodes*, or images which are representative of K-mer frequencies. Below is an example of the command given for the *Bembidion* dataset:
-```sh
-varKoder image --kmer-mapping cgr -k 7 -o cgr_Bembidion Bembidion_multi.csv -v &
-``` 
+
 
 #### Varkode model training
 5. For each organismal dataset at least three monophyletic samples per species were used to train model with five species per dataset. We assessed monophyly based on the phylogenies within the studies the samples were found. For example, In our animal genome skim dataset of *Bembidion* beetles, we based our assessment on this phylogeny: <br>
-an example of model training code: 
-```sh
-varKoder train cgr_bembidion bemb_model &
-``` 
+
 <img src="Bembidion_Sproul_2020.jpeg" alt="drawing" width="400"/> <br>
 (*Bembidion phylogeny from Sproul et al. 2020*)
 
@@ -133,10 +128,3 @@ epoch     train_loss valid_loss roc_auc  precision recall    time    
 | SRR8530060 | 01751755K | 0.7              |           | geopearlis      | 0.003       | 0.062     | 0.308 | 0.033     | 0.447     | 0.161    |
 | SRR8530147 | 02929693K | 0.7              |           | oromaia         | 0.002       | 0.135     | 0.078 | 0.021     | 0.196     | 0.623    |
 | SRR8530112 | 01275897K | 0.7              |           | curtulatum      | 0.002       | 0.018     | 0.041 | 0.619     | 0.203     | 0.371    |
-
-an example of the query code:
-```sh
-varKoder image --kmer-mapping cgr -k 7 -o Bembidion_unknown Bemb_unknown.csv -v &
-varKoder query --include-probs --model bemb_model/trained_model.pkl Bembidion_unknown Query_Bembidion_image &
-``` 
-
