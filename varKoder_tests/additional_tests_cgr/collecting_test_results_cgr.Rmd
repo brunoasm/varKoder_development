@@ -322,4 +322,10 @@ It seems the multi-layer perceptron (arias2022) had very low accuracy. Let's hav
 results$`varKodes+arias2022`
 ```
 
-It seems the correct taxa generally have higher probability, but not high enough to pass our 0.7 threshold. On the other hand, incorrect taxa have generally lower probability, but pretty high still (0.3-0.5). So the model has some trouble discriminating classes in a multilabel model.
+It seems the correct taxa may have higher probability, but not high enough to pass our 0.7 threshold. On the other hand, incorrect taxa have generally lower probability, but pretty high still (0.3-0.5). So the model has some trouble discriminating classes in a multilabel model.
+
+Let's now save the comparison table as a csv to add as a supplement to the paper.
+```{r}
+write_csv(df, 'arch_rep_results.csv')
+```
+

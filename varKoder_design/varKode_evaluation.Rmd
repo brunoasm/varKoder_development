@@ -379,6 +379,14 @@ The best model is quite complex with some interactions
 ```{r}
 reduced_model
 ```
+Let's save the model summary as a supplementary table.
+```{r}
+sum_reduced_model = broom::tidy(summary(reduced_model))
+sum_reduced_model
+write_csv(sum_reduced_model,"paper_tables/lm_hyperparameters.csv")
+```
+
+
 
 Let's now look at model predictions to get a better sense. We can see a few things:
 

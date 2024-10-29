@@ -17,6 +17,7 @@ library(cowplot)
 library(patchwork)
 library(phytools)
 library(ape)
+library(furrr)
 set.seed(14164)
 ```
 # VarKoder
@@ -178,7 +179,7 @@ Now let's plot genus-level accuracy for a model taking quality labels into accou
 
 
 ```{r, message = FALSE, warning = FALSE}
-results = read_and_process_xval('Malpighiaceae+Chrysobalanaceae/varKoder/vit_results/')
+results = read_and_process_xval('Malpighiales/varKoder/vit_results/')
 summary_genus = summarize_results(results,'genus')
 p_genus = plot_area(summary_genus, 'varKoder genus', relative = TRUE)
 p_genus
@@ -289,6 +290,8 @@ full_model
 reduced_model = step(full_model,direction = 'both')
 summary(reduced_model)
 plot(reduced_model)
+
+broom::tidy(reduced_model) %>% write_csv('lm_table.csv')
 ```
 
 Now let's save the three of them as a single plot using cowplot.
@@ -419,7 +422,7 @@ Now we will apply this function to all skmer output files.
 ```{r}
 plan(multisession(workers = 12))
 skmer_results_df = furrr::future_map_dfr(
-  list.files('Malpighiaceae+Chrysobalanaceae/skmer/skmer_xval_results/', full.names = T),
+  list.files('Malpighiales/skmer/skmer_xval_results/', full.names = T),
   ~ extract_skmer_results(.x)
 ) %>%
   left_join(samp_labels, by = 'sample_id') %>%
@@ -491,7 +494,7 @@ Let's now read the traditional barcode BLAST results and summarize them in the s
 ```{r}
 read_traditional_barcodes = function(bp) {
   input_file = paste0(
-    'Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/',
+    'Malpighiales/traditional_barcodes/2_blast_phylogeny_result/Genus/',
     bp,
     'M_blast_phylo_sum_sp.tsv'
   )
@@ -604,7 +607,7 @@ read_concatenated_tree_results = function(bp){
   
   
 # Read in your tree - replace 'your_tree_file.nwk' with the path to your tree file
-tree = read.tree(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/conc.',bp,'m.spname.tre'))
+tree = read.tree(paste0('Malpighiales/traditional_barcodes/2_blast_phylogeny_result/Genus/conc.',bp,'m.spname.tre'))
 
 #leave only sample IDs as tip labels
 tree$tip.label = tree$tip.label %>% str_remove(".*@") %>% str_remove("'") %>% str_replace(' ref','_ref')
@@ -623,7 +626,7 @@ find_closest = function(tip){
 
 closest_match = purrr::map_chr(all_nonref,find_closest)
 
-samples_with_data = read_delim(paste0('Malpighiaceae+Chrysobalanaceae/traditional_barcodes/2_blast_phylogeny_result/Genus/',bp,'M_blast_phylo_sum_sp.tsv')) %>% 
+samples_with_data = read_delim(paste0('Malpighiales/traditional_barcodes/2_blast_phylogeny_result/Genus/',bp,'M_blast_phylo_sum_sp.tsv')) %>% 
   select(sample_id=sp) %>%
   mutate(sample_id = str_remove_all(sample_id, '@.+'))
 
@@ -846,12 +849,12 @@ ggsave('images_manuscript/supp_traditional_barcodes.pdf', plot = p, width=8,heig
 
 
 
-# SRA
+# SRA: eukaryotic families
 
 Finally, let's summarize results for the whole SRA dataset. In this case, we only have varKoder since Skmer cannot finish and traditional barcodes are inapplicable. We have done predictions separately for families included in the training set and families not included in the trainings set, so we will load each one and concatenate
 
 ```{r}
-varKoder_SRA_results  = read_csv('all_SRA/varkoder_query_results/predictions.csv') %>%
+varKoder_SRA_results  = read_csv('all_SRA_eukaryote_families/varkoder_query_results/predictions.csv') %>%
 select(-1) %>%
   filter(str_detect(query_basepairs,'^0+[125]0+K$')) %>% #we will ignore queries that are not standardized sizes
   rename(query_bp = query_basepairs) %>%
@@ -874,7 +877,7 @@ varKoder_SRA_results
 ```
 
 ```{r}
-varKoder_SRA_results_notincluded  = read_csv('all_SRA/varkoder_query_notincluded_results/predictions.csv') %>%
+varKoder_SRA_results_notincluded  = read_csv('all_SRA_eukaryote_families/varkoder_query_notincluded_results/predictions.csv') %>%
 select(-1) %>%
   filter(str_detect(query_basepairs,'^0+[125]0+K$')) %>% #we will ignore queries that are not standardized sizes
   rename(query_bp = query_basepairs) %>%
@@ -914,7 +917,7 @@ p_SRA_family
 Let's now do the SRA plot, but splitting by kingdom and whether or not family was included in trainings. First, we need to retrieve kingdom information:
 ```{r}
 
-summary_SRA_by_kingdom = read_csv('all_SRA/runs_to_download_data.csv') %>%
+summary_SRA_by_kingdom = read_csv('all_SRA_eukaryote_families/runs_to_download_data.csv') %>%
   select(sample_id = Run, Kingdom) %>%
   right_join(varKoder_SRA_results) %>%
   split(.$Kingdom) %>%
@@ -924,7 +927,7 @@ summary_SRA_by_kingdom = read_csv('all_SRA/runs_to_download_data.csv') %>%
                 ) %>%
   mutate(Kingdom = factor(Kingdom,levels=c('Metazoa','Viridiplantae','Fungi'),ordered = T),
          family_in_training = T) %>%
-  bind_rows(read_csv('all_SRA/runs_notincluded_to_download_data.csv') %>%
+  bind_rows(read_csv('all_SRA_eukaryote_families/runs_notincluded_to_download_data.csv') %>%
   select(sample_id = Run, Kingdom) %>%
   right_join(varKoder_SRA_results_notincluded) %>%
   split(.$Kingdom) %>%
@@ -952,9 +955,7 @@ print(p_SRA_families)
 ggsave('images_manuscript/fig3_SRA_accuracy.pdf', width=5,height = 4)
 ggsave('images_manuscript/fig3_SRA_accuracy.png', width=5,height = 4,dpi = 1200)
 ```
-
-
-# Other datasets
+# Other species-level datasets
 
 Now we will make a small figure to include the additional datasets in which we applied varKoding.
 
@@ -1041,7 +1042,329 @@ ggsave('images_manuscript/fig3_others_accuracy.pdf', width=5,height = 3)
 ggsave('images_manuscript/fig3_others_accuracy.png', width=5,height = 3,dpi = 1200)
 
 ```
+# SRA: all taxa
 
+## unpack_labels function
+This function takes a string of semicolon-separated key-value pairs and converts it into a structured dataframe. It splits the input string on semicolons, then further splits each pair on colons to separate keys and values. The result is a two-column dataframe with 'key' and 'value' columns, providing an organized representation of the label data.
+```{r}
+unpack_labels = function(x){
+  # Split the input string by ';'
+  kvs = strsplit(x, ';')[[1]]
+  
+  # Split each key-value pair by ':'
+  kvs_split = strsplit(kvs, ':')
+  
+  # Create a dataframe with columns "key" and "value"
+  df = data.frame(
+    key = sapply(kvs_split, `[`, 1),
+    value = sapply(kvs_split, `[`, 2),
+    stringsAsFactors = FALSE
+  )
+  
+  return(df)
+}
+```
+
+## summarize_comparison function
+This function compares two sets of labels (actual and predicted) and generates a summary of their agreement. It processes all unique keys found in both sets, excluding certain taxonomy-related keys, and includes a special 'Taxonomy_all' key. For each key, it calculates the number of actual and predicted values, true positives (TP), false negatives (FN), and false positives (FP). The output is a dataframe summarizing these metrics for each key, enabling detailed analysis of prediction accuracy across different label types.
+```{r}
+summarize_comparison <- function(actual, predicted) {
+  
+  # Ensure the key columns are of type character to avoid factor level issues
+  actual$key <- as.character(actual$key)
+  predicted$key <- as.character(predicted$key)
+  
+  # Get the unique keys from both actual and predicted, excluding specific keys
+  all_keys <- unique(c(actual$key, predicted$key))
+  filtered_keys <- setdiff(all_keys, c("Taxonomy_no_rank", "Taxonomy_clade"))
+  
+  # Add "Taxonomy_all" key to the list of keys
+  if (!"Taxonomy_all" %in% filtered_keys) {
+    filtered_keys <- c(filtered_keys, "Taxonomy_all")
+  }
+  
+  # Initialize a result dataframe
+  result <- data.frame(
+    key = filtered_keys,
+    N_actual = integer(length(filtered_keys)),
+    N_predicted = integer(length(filtered_keys)),
+    TP = integer(length(filtered_keys)),
+    FN = integer(length(filtered_keys)),
+    FP = integer(length(filtered_keys)),
+    stringsAsFactors = FALSE
+  )
+  
+  for (key in filtered_keys) {
+    if (key == "Taxonomy_all") {
+      actual_values <- actual$value[grepl("^Taxonomy_", actual$key)]
+      predicted_values <- predicted$value[grepl("^Taxonomy_", predicted$key)]
+    } else {
+      actual_values <- actual$value[actual$key == key]
+      predicted_values <- predicted$value[predicted$key == key]
+    }
+    
+    N_actual <- length(actual_values)
+    N_predicted <- length(predicted_values)
+    TP <- sum(actual_values %in% predicted_values)
+    FN <- sum(!actual_values %in% predicted_values)
+    FP <- sum(!predicted_values %in% actual_values)
+    
+    result[result$key == key, ] <- list(key, N_actual, N_predicted, TP, FN, FP)
+  }
+  
+  return(result)
+}
+```
+## process_dataframe_parallel function
+This function performs parallel processing on a dataframe to extract and structure label information. It uses multiple cores to speed up processing of large datasets. For each row, it unpacks the actual and predicted labels, extracts library strategy and platform information, and structures this data into a new dataframe. The result is a processed dataframe with unpacked label information and additional metadata, optimized for further analysis.
+
+```{r}
+process_dataframe_parallel <- function(df, num_cores = 16) {
+  # Set up parallel processing
+  plan(multisession, workers = num_cores)
+  
+  processed_df <- df %>%
+    split(1:nrow(.)) %>%  # Split the dataframe into a list of rows
+    future_map_dfr(~ {
+      actual = unpack_labels(.x$actual_labels)
+      predicted = unpack_labels(.x$predicted_labels)
+      library_strategy = actual %>% 
+        filter(key == 'LibraryStrategy') %>%
+        pull(value)
+      platform = actual %>% 
+        filter(key == 'Platform') %>%
+        pull(value)
+      
+      tibble(
+        sample_id = .x$sample_id,
+        query_basepairs = .x$query_basepairs,
+        query_mapping = .x$query_mapping,
+        actual = list(actual),
+        predicted = list(predicted),
+        library_strategy = library_strategy,
+        platform = platform
+      )
+    }, .options = furrr_options(seed = TRUE))
+  
+  # Close the parallel backend
+  plan(sequential)
+  
+  return(processed_df)
+}
+```
+
+## collate_results function
+This function applies the summarize_comparison function to an entire dataframe of predictions. It processes each row, comparing actual and predicted labels and collecting metadata like sample ID, query base pairs, and mapping information. The function then combines all these individual summaries into a single, comprehensive dataframe. This resulting dataframe provides a detailed overview of prediction accuracy across all samples, including various metadata for each comparison.
+```{r}
+collate_results <- function(predictions_df) {
+  predictions_df = predictions_df %>%
+    select(sample_id, query_basepairs, query_mapping, actual, predicted, platform, library_strategy)
+  # Apply the summarize_comparison function to each row
+  results_list <- pmap(predictions_df, function(sample_id, query_basepairs, query_mapping, actual, predicted, platform, library_strategy) {
+    result <- summarize_comparison(actual, predicted)
+    result$sample_id <- sample_id
+    result$query_basepairs <- query_basepairs
+    result$query_mapping <- query_mapping
+    result$platform = platform
+    result$library_strategy = library_strategy
+    return(result)
+  })
+  
+  # Combine all results into a single dataframe
+  results_df <- bind_rows(results_list)
+  return(results_df)
+}
+```
+
+
+Read data
+```{r}
+vk_df = read_csv('all_SRA_taxa/results_varKodes/predictions.csv') %>% process_dataframe_parallel
+cgr_df =  read_csv('all_SRA_taxa/results_cgrs/predictions.csv') %>% process_dataframe_parallel
+
+cgr_df
+vk_df
+```
+
+
+```{r}
+vk_cgr_df = bind_rows(vk_df, cgr_df)
+summaries = collate_results(vk_cgr_df) 
+summaries
+```
+
+Now let's calculate metrics:
+```{r}
+summaries_with_scores <- summaries %>%
+  group_by(key, query_basepairs, query_mapping, platform, library_strategy) %>%
+  summarize(
+    total_TP = sum(TP),
+    total_FN = sum(FN),
+    total_FP = sum(FP),
+    N = n(),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    microprecision = total_TP / (total_TP + total_FP),
+    microrecall = total_TP / (total_TP + total_FN),
+    F1 = 2 * (microprecision * microrecall) / (microprecision + microrecall)
+  ) %>%
+  replace_na(list(microprecision = 0, microrecall = 0, F1 = 0)) %>%
+  select(query_basepairs, query_mapping, key, F1, microprecision, microrecall, everything()) %>%
+  filter(
+      grepl("^[125]0{1,}$", format(query_basepairs, scientific = FALSE, trim = TRUE))
+  )
+
+summaries_with_scores
+```
+
+
+# Plots
+```{r}
+plot_df = summaries_with_scores %>%
+  rename(
+    precision = microprecision,
+    recall = microrecall
+  ) %>%
+  pivot_longer(
+    cols = c(F1, precision, recall),
+    names_to = "metric",
+    values_to = "metric_value"
+  ) %>%
+  filter(key %in% c("LibraryStrategy", "Platform", "Taxonomy_all", "Taxonomy_family", "Taxonomy_genus", "Taxonomy_species")) %>%
+  mutate(query_mapping = ifelse(query_mapping=='cgr','vk-fCGR',query_mapping))
+```
+
+
+This graph shows how well the two methods behave to recognize the library strategy:
+```{r}
+brks = c(500000,
+             1000000,
+             2000000,
+             5000000,
+             10000000,
+             20000000,
+             50000000,
+             100000000,
+             200000000
+             )
+
+
+plot_df_strat = plot_df %>% filter(key %in% c("LibraryStrategy"))
+
+Ns <- plot_df_strat %>%
+  group_by(platform, library_strategy) %>%
+  summarize(N = max(N), .groups = "drop") %>%
+  mutate(N = paste0("N = ", N))
+
+ggplot(plot_df_strat,
+       aes(x=query_basepairs, y=metric_value, color=metric,linetype=query_mapping,group=interaction(metric,query_mapping))) +
+  geom_line() +
+  facet_grid(platform~library_strategy) +
+  labs(title="Accuracy in predicting the library strategy (GBS, RAD or WGS)",
+       x="Metric value", 
+       y="Base pairs in query images",
+       color="Metric",
+       linetype="K-mer Mapping") +
+  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),breaks = brks)  +
+  scale_y_continuous(limits=c(0,1), breaks=c(0,0.2,0.4,0.6,0.8,1)) +
+  theme_minimal() +
+  theme(text = element_text(size=10),
+        axis.text.x = element_text(hjust=1,angle=45)) +
+   geom_label(data = Ns, aes(label = N, x = 12000000, y = 0.1),
+             hjust = 0.5, vjust = 0.5,
+             label.padding = unit(0.2, "lines"),
+             label.size = 0.2,
+             size=2,
+             color = "black",
+             fill = "white",
+             inherit.aes = FALSE)
+
+ggsave('images_manuscript/supp_strat_prediction.pdf',width=7,height = 7,useDingbats=F)
+```
+
+This graph shows how well the two methods behave to recognize the sequencing platform:
+```{r}
+ggplot(plot_df %>% filter(key %in% c("Platform")),
+       aes(x=query_basepairs, y=metric_value, color=metric,linetype=query_mapping,group=interaction(metric,query_mapping,key))) +
+  geom_line() +
+  facet_grid(platform~library_strategy) +
+  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),breaks = brks)  +
+  scale_y_continuous(limits=c(0,1), breaks=c(0,0.2,0.4,0.6,0.8,1)) +
+  labs(title="Accuracy in predicting sequencing platform",
+       x="Metric value", 
+       y="Base pairs in query images",
+       color="Metric",
+       linetype="K-mer Mapping") +
+  theme_minimal() +
+  theme(text = element_text(size=10),
+        axis.text.x = element_text(hjust=1,angle=45)) +
+   geom_label(data = Ns, aes(label = N, x = 12000000, y = 0.1),
+             hjust = 0.5, vjust = 0.5,
+             label.padding = unit(0.2, "lines"),
+             label.size = 0.2,
+             size=2,
+             color = "black",
+             fill = "white",
+             inherit.aes = FALSE)
+
+ggsave('images_manuscript/supp_platform_prediction.pdf',width=7,height = 7,useDingbats=F)
+```
+
+This graph shows how well the two methods behave for different taxonomic levels:
+```{r}
+tax_labels = c("all ranks", "family", "genus", "species")
+names(tax_labels) = c("Taxonomy_all", "Taxonomy_family", "Taxonomy_genus", "Taxonomy_species")
+
+plot_df_tax = plot_df %>% 
+  filter(key %in% c("Taxonomy_all", "Taxonomy_family", "Taxonomy_genus", "Taxonomy_species")) %>%
+  mutate(key = tax_labels[key],
+         platform = ifelse(platform=='OXFORD_NANOPORE','NANOPORE',platform))
+
+Ns <- plot_df_tax  %>%
+  group_by(platform, library_strategy,key) %>%
+  summarize(N = max(N), .groups = "drop") %>%
+  mutate(N = paste0("N = ", N))
+
+ggplot(plot_df_tax,
+       aes(x=query_basepairs, 
+           y=metric_value, color=metric,
+           linetype=query_mapping,
+           group=interaction(metric,query_mapping,key))) +
+  geom_line() +
+  facet_grid(key~platform+library_strategy) +   
+  scale_x_log10(labels = scales::label_number(scale_cut = scales::cut_si('bp')),breaks = brks)  +
+  scale_y_continuous(limits=c(0,1), breaks=c(0,0.2,0.4,0.6,0.8,1)) +
+  geom_label(data = Ns, aes(label = N, x = 7000000, y = 0.1),
+             hjust = 0.5, vjust = 0.5,
+             label.padding = unit(0.2, "lines"),
+             label.size = 0.2,
+             size=2,
+             color = "gray30" ,
+             fill = "gray96",
+             inherit.aes = FALSE) +
+  labs(title="Accuracy in predicting taxonomy",
+       y="Metric value", 
+       x="Base pairs in query images",
+       color="Metric",
+       linetype="K-mer Mapping") +
+  theme_minimal() +
+  theme(text = element_text(size=7),
+        axis.text.x = element_text(hjust=1,angle=45),
+        legend.position = 'bottom')
+
+ggsave('images_manuscript/supp_taxonomy_prediction.pdf',width=7,height = 5,useDingbats=F)
+```
+Let's now get some numbers for publication. What is the average precision at species level?
+```{r}
+plot_df %>%
+  filter(key=='Taxonomy_genus',
+         metric %in% c('precision','recall'),
+         query_mapping=='varKode') %>%
+  group_by(metric,platform) %>%
+  summarise(mean_value=mean(metric_value))
+  
+```
 
 
 
@@ -1128,15 +1451,15 @@ n_samples_species
 ```
 For SRA, we have to count both validation and training samples, since we did not do cross-validation. Let's use image names to get the information and then the results table to figure out which ones were in the validation set.
 ```{r}
-all_files = c(list.files('all_SRA/varkoder_images_SRA/',pattern='*.png',recursive = T),
-              list.files('all_SRA/varkoder_query_images/',pattern='*.png',recursive = T))
+all_files = c(list.files('all_SRA_eukaryote_families/varkoder_images_SRA/',pattern='*.png',recursive = T),
+              list.files('all_SRA_eukaryote_familiesvarkoder_query_images/',pattern='*.png',recursive = T))
 
 n_samples_SRA = data.frame(filename=all_files) %>%
   mutate(
     sample_id = str_extract(filename, "^(.+)(?=@)"),  # Capture everything up to the "@" symbol but exclude the symbol itself
     query_bp = str_extract(filename, "(?<=@)([0-9]+)K") # multiply by 1000 to convert K to the actual number
   ) %>% 
-  left_join(read_csv('all_SRA/runs_to_download_data.csv') %>% 
+  left_join(read_csv('all_SRA_eukaryote_families/runs_to_download_data.csv') %>% 
               select(sample_id=Run,Kingdom,taxon=FamilyID)) %>%
   mutate_at(vars(taxon),as.character) %>%
   mutate(validation_set = sample_id %in% varKoder_SRA_results$sample_id) %>%
@@ -1148,7 +1471,7 @@ n_samples_SRA = data.frame(filename=all_files) %>%
 n_samples_SRA
   
 
-  ((list.files('all_SRA/varkoder_images_SRA/',pattern='*.png',recursive = T) %>%
+  ((list.files('all_SRA_eukaryote_familiesvarkoder_images_SRA/',pattern='*.png',recursive = T) %>%
       str_extract("^(.+)(?=@)"))%in%
 varKoder_SRA_results$sample_id) %>% summary
 ```
@@ -1214,13 +1537,128 @@ ggsave('images_manuscript/supp_fig_n_samples.png', width=8,height = 4,dpi = 1200
 
 ```
 
-Total number of SRA samples. Validation:
+Total number of SRA family samples. Validation:
 ```{r}
-read_csv('all_SRA/varkoder_trained_model_ML/input_data.csv')[-1] %>%
+read_csv('all_SRA_eukaryote_families/varkoder_trained_model_ML/input_data.csv')[-1] %>%
   group_by(is_valid) %>%
   summarise(N = n())
 ```
+For SRA all taxa, let's summarize the number of samples for each label. Let's start by parsing the data. We will start with train_valid_sets.csv but then filter to the samples actually used. A few might have failed to produce varKodes.
 
+```{r}
+plan(multisession, workers = 10)
+
+
+all_SRA_samples = read_csv("all_SRA_taxa/train_valid_sets.csv") %>%
+  split(1:nrow(.)) %>%  # Split the dataframe into a list of rows
+  future_map_dfr( ~ {
+    actual = unpack_labels(.x$labels)
+    library_strategy = actual %>%
+      filter(key == 'LibraryStrategy') %>%
+      pull(value)
+    platform = actual %>%
+      filter(key == 'Platform') %>%
+      pull(value)
+    
+    tibble(
+      sample_id = .x$Run,
+      labels = list(actual),
+      library_strategy = library_strategy,
+      platform = platform,
+      is_valid = .x$is_valid
+    )
+  }, .options = furrr_options(seed = TRUE)
+  )
+
+plan(sequential)
+
+actual_tr = read_csv("all_SRA_taxa/varkodes_ViT_ML/input_data.csv")  %>% filter(is_valid==FALSE) %>% pull(sample) %>% unique
+actual_vd = read_csv("all_SRA_taxa/results_varKodes/predictions.csv") %>% pull(sample_id) %>% unique
+
+all_SRA_samples = all_SRA_samples%>% filter(sample_id %in% c(actual_tr,actual_vd))
+all_SRA_samples
+
+```
+Now let's count the number of samples for each label
+```{r}
+N_summary = all_SRA_samples %>%
+  unnest(labels) %>%
+  rename(label_key = key, label_value = value) %>%
+  group_by(is_valid,library_strategy,platform,label_key,label_value) %>%
+  summarize(N_samples = n(), .groups = "drop") %>%
+  filter(label_key %in% c('Taxonomy_family','Taxonomy_species'))
+
+N_summary
+```
+
+Now, for each combination of library strategy, platform and whether sample is validation, we will summarize the range, mean and median number of samples per label.
+
+```{r}
+N_per_label_key = N_summary %>%
+  group_by(is_valid, platform, library_strategy, label_key) %>%
+  summarise(
+    n_labels = n(),
+    min = min(N_samples, na.rm = TRUE),
+    q1 = quantile(N_samples, 0.25, na.rm = TRUE),
+    median = median(N_samples, na.rm = TRUE),
+    mean = mean(N_samples, na.rm = TRUE),
+    q3 = quantile(N_samples, 0.75, na.rm = TRUE),
+    max = max(N_samples, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+N_per_label_key
+
+dir.create('tables_manuscript',showWarnings = F)
+write_csv(N_per_label_key, 'tables_manuscript/summary_samples_all_SRA.csv')
+```
+Let's now count the total number of unique taxonomy labels:
+```{r}
+N_summary %>% 
+  filter(str_detect(label_key,'^Taxonomy')) %>%
+  pull(label_value) %>%
+  unique %>%
+  length()
+```
+
+
+And the number of unique accessions:
+```{r}
+all_SRA_samples$sample_id %>% unique %>% length()
+```
+
+
+
+## Precision and recall
+### all SRA
+
+Pooled across sequencing methods for families and all
+```{r}
+summaries_with_scores %>% filter(key %in% c('Taxonomy_family','Taxonomy_all')) %>% group_by(key) %>%
+  summarise(min_pr=min(microprecision),
+            max_pr=max(microprecision),
+            min_rec=min(microrecall),
+            max_rec=max(microrecall))
+```
+Discriminating sequencing methods for genera and species
+```{r}
+summaries_with_scores %>% 
+  filter(key %in% c('Taxonomy_genus','Taxonomy_species'),
+         query_basepairs == 10000000) %>% 
+  arrange(key,desc(microprecision))
+```
+
+Now let's compare averages across mapping for species level.
+```{r}
+summaries_with_scores %>% 
+  filter(key %in% c('Taxonomy_species')) %>% 
+  group_by(query_mapping) %>%
+  summarise(mean(microprecision), mean(microrecall))
+```
+
+
+
+### Other datasets
 Calculate micro-averaged precision and recall.
 
 ```{r}
