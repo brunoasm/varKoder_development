@@ -483,6 +483,21 @@ ggsave(filename = 'quality_size.pdf',plot =p,device='pdf',path = 'paper_images',
 ggsave(filename = 'quality_size.png',plot =p,device='png',path = 'paper_images',width = 7,height = 5,units = 'in')
 ```
 
+What is the average validation accuracy for each number of low quality samples in the training set?
+
+```{r}
+df %>%
+  filter(qual_metric == 'high_c_sd') %>%
+  group_by(replicate, sample_valid, n_lowqual_training) %>%
+  filter(bp_valid == min(bp_valid)) %>%
+  group_by(replicate, n_lowqual_training, valid_lowqual) %>%
+  summarize(mean_acc = mean(correct_pred)) %>%
+  mutate(valid_lowqual = c('TRUE' = 'Validation accuracy for low quality samples', 'FALSE' = 'Validation accuracy for high-quality samples')[as.character(valid_lowqual)]) %>%
+  group_by(valid_lowqual,n_lowqual_training) %>%
+  summarise(mean_accuracy = mean(mean_acc))
+```
+
+
 What if we order all samples by their validation accuracy and compare to the quality metrics, what do we see?
 
 ```{r}

@@ -300,6 +300,113 @@ for (rep in representations){
 }
 ```
 
+Let's now look at all plots.
+
+```{r}
+plots
+```
+
+Function to arrange plots nicely:
+```{r}
+library(ggplot2)
+library(patchwork)
+
+arrange_tax_plots <- function(plot_list, tax_level = "species") {
+  # Validate tax_level
+  valid_levels <- c("species", "genus", "family")
+  if (!tax_level %in% valid_levels) {
+    stop("tax_level must be one of: ", paste(valid_levels, collapse = ", "))
+  }
+  
+  # Get names of plots for specified taxonomic level
+  tax_names <- names(plot_list)[grep(paste0("^", tax_level, "\\+"), names(plot_list))]
+  
+  # Create mapping for ordering
+  models <- c("vit_large_patch32_224", "ig_resnext101_32x8d", "fiannaca2018", "arias2022")
+  representations <- c("cgr_idelucs", "cgr_varKoder", "varKodes")
+  
+  # Create empty matrix to store plot indices
+  plot_matrix <- matrix(NA, nrow = length(representations), ncol = length(models))
+  rownames(plot_matrix) <- representations
+  colnames(plot_matrix) <- models
+  
+  # Fill matrix with plot indices
+  for (rep in representations) {
+    for (mod in models) {
+      plot_name <- tax_names[grep(paste0(rep, ".*", mod, "$"), tax_names)]
+      if (length(plot_name) > 0) {
+        plot_matrix[rep, mod] <- which(names(plot_list) == plot_name)
+      }
+    }
+  }
+  
+  # Extract plots in correct order
+  plot_indices <- as.vector(t(plot_matrix))
+  selected_plots <- plot_list[plot_indices]
+  
+  # Create the layout manually
+  combined_plot <- selected_plots[[1]]
+  for(i in 2:length(selected_plots)) {
+    combined_plot <- combined_plot + selected_plots[[i]]
+  }
+  
+  # Apply layout and theme
+  combined_plot <- combined_plot + 
+    plot_layout(ncol = 4, guides = "collect") &
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title = element_blank(),
+      plot.title = element_blank(),
+      text = element_text(size=8),
+      legend.position = 'bottom'
+    )
+  
+  # Add back necessary axis elements
+  for(i in seq_along(selected_plots)) {
+    # Left column: add y-axis text
+    if(i %in% seq(1, 9, by = 4)) {
+      combined_plot[[i]] <- combined_plot[[i]] + 
+        theme(axis.text.y = element_text())
+    } else {
+      combined_plot[[i]] <- combined_plot[[i]] + 
+        theme(axis.text.y = element_blank())
+    }
+    
+    # Bottom row: add x-axis text at 45 degrees
+    if(i %in% 9:12) {
+      combined_plot[[i]] <- combined_plot[[i]] + 
+        theme(
+          axis.text.x = element_text(angle = 45, hjust = 1,vjust=1),
+          axis.ticks.x = element_line()
+        )
+    }
+  }
+  
+  return(combined_plot)
+}
+
+# Example usage:
+# species_plot <- arrange_tax_plots(plot_list, "species")
+# ggsave("species_plots.pdf", species_plot, width = 16, height = 12)
+```
+Species:
+```{r}
+arrange_tax_plots(plots, "species")
+ggsave(device = 'pdf',filename = 'species_comparison.pdf',width = 150,height = 130,units = 'mm')
+```
+
+```{r}
+arrange_tax_plots(plots, "genus")
+```
+
+```{r}
+arrange_tax_plots(plots, "family")
+```
+
+
+
+
 Now let's compare precision and recall for each taxonomic level.
 First, species:
 ```{r}
