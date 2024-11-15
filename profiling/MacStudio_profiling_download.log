@@ -1,0 +1,141 @@
+working on SRR8530132,Bembidion_ampliatum,
+Read 100001 spots for SRR8530132
+Written 100001 spots for SRR8530132
+working on SRR8530133,Bembidion_ampliatum,
+Read 100001 spots for SRR8530133
+Written 100001 spots for SRR8530133
+working on SRR8530134,Bembidion_ampliatum,
+Read 100001 spots for SRR8530134
+Written 100001 spots for SRR8530134
+working on SRR8530135,Bembidion_ampliatum,
+Read 100001 spots for SRR8530135
+Written 100001 spots for SRR8530135
+working on SRR8530136,Bembidion_ampliatum,
+Read 100001 spots for SRR8530136
+Written 100001 spots for SRR8530136
+working on SRR8530062,Bembidion_breve,
+Read 100001 spots for SRR8530062
+Written 100001 spots for SRR8530062
+working on SRR8530063,Bembidion_breve,
+Read 100001 spots for SRR8530063
+Written 100001 spots for SRR8530063
+working on SRR8530064,Bembidion_breve,
+Read 100001 spots for SRR8530064
+Written 100001 spots for SRR8530064
+working on SRR8530065,Bembidion_breve,
+Read 100001 spots for SRR8530065
+Written 100001 spots for SRR8530065
+working on SRR8530068,Bembidion_breve,
+Read 100001 spots for SRR8530068
+Written 100001 spots for SRR8530068
+working on SRR8530120,Bembidion_lividulum,
+Read 100001 spots for SRR8530120
+Written 100001 spots for SRR8530120
+working on SRR8530124,Bembidion_lividulum,
+Read 100001 spots for SRR8530124
+Written 100001 spots for SRR8530124
+working on SRR8530125,Bembidion_lividulum,
+Read 100001 spots for SRR8530125
+Written 100001 spots for SRR8530125
+working on SRR8530126,Bembidion_lividulum,
+Read 100001 spots for SRR8530126
+Written 100001 spots for SRR8530126
+working on SRR8530127,Bembidion_lividulum,
+Read 100001 spots for SRR8530127
+Written 100001 spots for SRR8530127
+working on SRR8530140,Bembidion_saturatum,
+Read 100001 spots for SRR8530140
+Written 100001 spots for SRR8530140
+working on SRR8530141,Bembidion_saturatum,
+Read 100001 spots for SRR8530141
+Written 100001 spots for SRR8530141
+working on SRR8530142,Bembidion_saturatum,
+Read 100001 spots for SRR8530142
+Written 100001 spots for SRR8530142
+working on SRR8530143,Bembidion_saturatum,
+Read 100001 spots for SRR8530143
+Written 100001 spots for SRR8530143
+working on SRR8530144,Bembidion_saturatum,
+Read 100001 spots for SRR8530144
+Written 100001 spots for SRR8530144
+working on SRR8530100,Bembidion_testatum,
+Read 100001 spots for SRR8530100
+Written 100001 spots for SRR8530100
+working on SRR8530101,Bembidion_testatum,
+Read 100001 spots for SRR8530101
+Written 100001 spots for SRR8530101
+working on SRR8530104,Bembidion_testatum,
+Read 100001 spots for SRR8530104
+Written 100001 spots for SRR8530104
+working on SRR8530105,Bembidion_testatum,
+Read 100001 spots for SRR8530105
+Written 100001 spots for SRR8530105
+working on SRR8530106,Bembidion_testatum,
+Read 100001 spots for SRR8530106
+Written 100001 spots for SRR8530106
+working on SRR8530137,Bembidion_ampliatum,
+Read 100001 spots for SRR8530137
+Written 100001 spots for SRR8530137
+working on SRR8530138,Bembidion_ampliatum,
+Read 100001 spots for SRR8530138
+Written 100001 spots for SRR8530138
+working on SRR8530139,Bembidion_ampliatum,
+Read 100001 spots for SRR8530139
+Written 100001 spots for SRR8530139
+working on SRR8530130,Bembidion_breve,
+Read 100001 spots for SRR8530130
+Written 100001 spots for SRR8530130
+working on SRR8530131,Bembidion_breve,
+Read 100001 spots for SRR8530131
+Written 100001 spots for SRR8530131
+working on SRR8530128,Bembidion_lividulum,
+Read 100001 spots for SRR8530128
+Written 100001 spots for SRR8530128
+working on SRR8530129,Bembidion_lividulum,
+Read 100001 spots for SRR8530129
+Written 100001 spots for SRR8530129
+working on SRR8530146,Bembidion_lividulum,
+Read 100001 spots for SRR8530146
+Written 100001 spots for SRR8530146
+working on SRR8530145,Bembidion_saturatum,
+Read 100001 spots for SRR8530145
+Written 100001 spots for SRR8530145
+working on SRR8530107,Bembidion_testatum,
+Read 100001 spots for SRR8530107
+Written 100001 spots for SRR8530107
+working on SRR8530067,Bembidion_geopearlis,
+Read 100001 spots for SRR8530067
+Written 100001 spots for SRR8530067
+working on SRR8530069,Bembidion_geopearlis,
+Read 100001 spots for SRR8530069
+Written 100001 spots for SRR8530069
+working on SRR8530066,Bembidion_geopearlis,
+Read 100001 spots for SRR8530066
+Written 100001 spots for SRR8530066
+working on SRR8530060,Bembidion_geopearlis,
+Read 100001 spots for SRR8530060
+Written 100001 spots for SRR8530060
+DONE
+	Command being timed: "bash 01_download_fastqs.sh"
+	User time (seconds): 203.03
+	System time (seconds): 4.85
+	Percent of CPU this job got: 70%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:52.83
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 194960
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 589
+	Minor (reclaiming a frame) page faults: 988959
+	Voluntary context switches: 809
+	Involuntary context switches: 99225
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 3841
+	Socket messages received: 186912
+	Signals delivered: 27
+	Page size (bytes): 16384
+	Exit status: 0
