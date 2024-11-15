@@ -32,3 +32,19 @@ iDELUCS: tests using iDELUCS
 
 ## figure_1
 This folder holds scripts and data to reproduce Figure 1 in the manuscript.
+
+## profiling 
+Log files produced by varKoder tests with profiling activated.
+
+Settings used:
+For all:
+- local installation
+- ViT model
+- 30 pretraining epochs
+- 5 fine-tuning epochs
+
+
+MacStudio: 8 cores
+MacbookAir: 6 cores
+Linux: 24 cores, One NVIDIA A5000 GPU 
+
