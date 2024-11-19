@@ -100,9 +100,13 @@ parse_profiling_log <- function(log_file_path) {
 
 Let's now apply this function.
 ```{r}
-list.files(pattern=".*tests.log") %>%
+result_computers = list.files(pattern=".*tests.log") %>%
     set_names(., tools::file_path_sans_ext(.)) %>%
     purrr::map_df(parse_profiling_log, .id = "filename")
+
+result_computers 
+
+write_csv(result_computers, file = 'result_tables/different_computers.csv')
 
 ```
 
@@ -128,17 +132,12 @@ df
 
 Let's now ask:
 
-What is the average time taken for training 99 samples for each combination of architecture. We have to sum the time of both training phases.
+What is the average time taken for training 99 samples for each combination of architecture. We will separate both training phases
 ```{r}
 training_summary = df %>%
   filter(phase!='query') %>%
-  group_by(architecture,representation,validation_sample) %>%
-  summarise(User_time_seconds=sum(User_time_seconds),
-            Elapsed_time_seconds=sum(Elapsed_time_seconds),
-            System_time_seconds=sum(System_time_seconds),
-            Percent_of_CPU=mean(Percent_of_CPU),
-            maxRSS_GB=max(maxRSS_GB)) %>%
-  group_by(architecture,representation) %>%
+  group_by(phase, architecture, representation, validation_sample) %>%
+  group_by(phase, architecture, representation) %>%
   summarise(Mean_User_time_seconds=mean(User_time_seconds),
             Mean_Elapsed_time_seconds=mean(Elapsed_time_seconds),
             Mean_System_time_seconds=mean(System_time_seconds),
@@ -146,6 +145,11 @@ training_summary = df %>%
             mean_maxRSS_GB=mean(maxRSS_GB))
 
 training_summary
+
+
+training_summary %>% 
+ split(training_summary$phase) %>% 
+ purrr::walk2(names(.), ., ~write_csv(.y, file.path("result_tables", paste0("arch_vs_rep_", .x, ".csv"))))
 ```
 What is the average time taken for for querying all varKodes for each sample?
 ```{r}
@@ -165,7 +169,67 @@ query_summary = df %>%
             mean_maxRSS_GB=mean(maxRSS_GB))
 
 query_summary
+write_csv(query_summary, file.path("result_tables", paste0("arch_vs_rep_query.csv")))
 ```
+
+## Conventional barcodes
+From Liming Cai, who ran these:
+" I only have CPU and peak memory for plastid barcodes with 200 Mb input data. These computational cost included organellar assembly, barcode extraction, and phylogeny. There are some outliers likely caused by failed assemblies (labeled in Note).
+Liming" 
+
+Let's read the data table.
+```{r}
+conventional_barcodes_df = read_delim("Malpighiaceae_pt_traditional_barcode_CPU_mem.tsv")
+conventional_barcodes_df
+```
+
+Let's now plot the distribution of CPU time and peak memory across samples.
+
+```{r}
+conventional_barcodes_df = conventional_barcodes_df %>%
+  mutate(peak_memory_gb=`Peak Memory (kbytes)`/1024/1024,
+         Note = ifelse(is.na(Note),"None",Note)) 
+
+conventional_barcodes_df 
+```
+
+```{r}
+ggplot(conventional_barcodes_df, aes(x=`Total CPU (seconds)`,group = Note,fill=Note)) + 
+  geom_histogram() +
+  labs(title = "CPU time to process conventional barcodes",
+       x = "Time (seconds)",
+       y = " Number of accessions" ) +
+  theme_minimal()
+
+ggsave(filename="histo_time_conventional_barcodes.pdf",
+       device = "pdf",
+       width = 7,
+       height = 5,
+       units='in' )
+```
+
+```{r}
+ggplot(conventional_barcodes_df, aes(x=peak_memory_gb,group = Note,fill=Note)) + 
+  geom_histogram() +
+  labs(title = "Peak memory usage process conventional barcodes",
+       x = "Memory (GB)",
+       y = " Number of accessions" ) +
+  theme_minimal()
+
+ggsave(filename="histo_memory_conventional_barcodes.pdf",
+       device = "pdf",
+       width = 7,
+       height = 5,
+       units='in' )
+```
+Averages
+```{r}
+conventional_barcodes_df %>% filter(Note=="None") %>%
+  summarise(mean(`Total CPU (seconds)`),mean(peak_memory_gb))
+```
+
+
+
 
 ## Skmer
 Let's define a function to parse the skmer log:
@@ -285,6 +349,85 @@ query_summary_skmer = df_skmer %>%
 
 query_summary_skmer
 ```
+Now without summing
+```{r}
+query_summary_skmer = df_skmer %>%
+  filter(phase=="QUERY") %>%
+  select(-phase,-data_amount_mbp) %>%
+  summarise(Mean_User_time_seconds=mean(User_time_seconds),
+            Mean_Elapsed_time_seconds=mean(Elapsed_time_seconds),
+            Mean_System_time_seconds=mean(System_time_seconds),)
+
+query_summary_skmer
+```
+
+## NCBI SRA downloads
+
+```{r}
+df_SRA = read_csv("../varKoder_tests/all_SRA_taxa/computing_resources/sample_level_summary.csv") %>%
+  filter(output_file == "5_varKodes_processed.out") %>%
+  group_by(accession) %>%
+  summarize(duration = sum(duration_seconds))
+
+df_SRA
+
+ggplot(df_SRA,aes(x=duration)) +
+  geom_histogram(bins = 500) +
+  scale_y_sqrt(breaks=c(1,5,10,50,100,500,1000,5000,10000,30000)) +
+  scale_x_continuous(breaks = c(0,20,50,100,150,200,300,400,600,800)) +
+  labs(title = "Time to download ~20Mb of SRA reads",
+       x = "Time (seconds)",
+       y = " Number of accessions" ) +
+  theme_minimal()
+
+ggsave(filename="histo_time_SRA_download.pdf",
+       device = "pdf",
+       width = 7,
+       height = 5,
+       units='in' )
+```
+What is the average time?
+```{r}
+df_SRA %>% ungroup %>% summarise(mean(duration))
+```
+Now let's evaluate time to process chunks. Let's ignore chunks that processed fewer than 450 samples
+```{r}
+df_SRA_chunks = read_csv("../varKoder_tests/all_SRA_taxa/computing_resources/varkoder_runs_summary.csv") %>%
+  filter(output_file == "5_varKodes_processed.out",
+         samples_started > 450) %>%
+  select(chunk_id,duration_seconds,samples_started,samples_completed)
+
+df_SRA_chunks
+```
+
+Let's calculate the overall completion rate:
+```{r}
+df_SRA_chunks %>%
+  summarise(sum(samples_completed)/sum(samples_started))
+```
+
+Let's now plot a graph of the execution time against number of samples.
+```{r}
+ggplot(df_SRA_chunks) +
+  geom_jitter(aes(x=samples_started,y=duration_seconds)) +
+  labs(title = "Time to process each chunk with varkoder image",
+       x = "Number of input accessions",
+       y = "Execution time (s)" ) +
+  theme_minimal()
+
+ggsave(filename="time_SRA_processing.pdf",
+       device = "pdf",
+       width = 7,
+       height = 5,
+       units='in' )
+```
+On average, how many seconds per sample?
+```{r}
+df_SRA_chunks %>%
+  summarise(sum(duration_seconds)/sum(samples_started))
+```
+
+
 
 
 

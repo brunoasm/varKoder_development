@@ -30,8 +30,8 @@ all_SRA_taxa: tests using all taxa available on NCBI SRA
 
 iDELUCS: tests using iDELUCS
 
-## figure_1
-This folder holds scripts and data to reproduce Figure 1 in the manuscript.
+## figures
+This folder holds scripts and data to reproduce varKodes and rfCGRs shown in Figure 1 and Figure 3 in the manuscript.
 
 ## profiling 
 Log files produced by varKoder tests with profiling activated.

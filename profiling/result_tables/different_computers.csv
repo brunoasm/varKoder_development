@@ -1,0 +1,16 @@
+filename,code,User_time_seconds,System_time_seconds,Elapsed_time_seconds,Percent_of_CPU,maxRSS_GB,command
+Linux_profiling_tests,IM:,1529.25,225.27,90,1949,1.3959999084472656,env CUDA_VISIBLE_DEVICES=3 varKoder image --seed 1 -k 7 -c 1 -m 500K -M 20M -o ./images Bembidion -n 24
+Linux_profiling_tests,T1:,539.68,104.05,68,933,4.581562042236328,env CUDA_VISIBLE_DEVICES=3 varKoder train --overwrite --seed 2 --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 0 -z 5 ./images ./trained_pretrained -n 24
+Linux_profiling_tests,T2:,1694.97,318.36,201,1000,4.008525848388672,env CUDA_VISIBLE_DEVICES=3 varKoder train --overwrite --seed 3 --random-weights --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 30 -z 0 ./images ./trained_random -n 24
+Linux_profiling_tests,Q1:,388.29,64.5,41,1080,1.8186988830566406,env CUDA_VISIBLE_DEVICES=3 varKoder query --overwrite --include-probs --seed 4 -k 7 -c 1 -M 20M --keep-images --model trained_pretrained/trained_model.pkl fastq_query/ inferences_Bembidion -n 24
+Linux_profiling_tests,Q2:,62.14,10,10,707,1.8673019409179688,env CUDA_VISIBLE_DEVICES=3 varKoder query --overwrite --threshold 0.5 --seed 5 -k 7 -c 1 -M 20M -I inferences_Bembidion/query_images inferences_SRA -n 24
+MacBookPro_profiling_tests,IM:,903.57,98.15,712,140,1.3295173645019531,varKoder image --seed 1 -k 7 -c 1 -m 500K -M 20M -o ./images Bembidion -n 1
+MacBookPro_profiling_tests,T1:,133.98,102.88,53,438,2.4576187133789062,varKoder train --overwrite --seed 2 --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 0 -z 5 ./images ./trained_pretrained -n 1
+MacBookPro_profiling_tests,T2:,471.84,645.93,375,297,1.6244850158691406,varKoder train --overwrite --seed 3 --random-weights --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 30 -z 5 ./images ./trained_random -n 1
+MacBookPro_profiling_tests,Q1:,123.42,10.53,99,134,1.7269477844238281,varKoder query --overwrite --include-probs --seed 4 -k 7 -c 1 -M 20M --keep-images --model trained_pretrained/trained_model.pkl fastq_query/ inferences_Bembidion -n 1
+MacBookPro_profiling_tests,Q2:,30.33,12.09,102,41,1.8223876953125,varKoder query --overwrite --threshold 0.5 --seed 5 -k 7 -c 1 -M 20M -I inferences_Bembidion/query_images inferences_SRA -n 1
+MacStudio_profiling_tests,IM:,4.45,0.58,6,78,0.427978515625,varKoder image --seed 1 -k 7 -c 1 -m 500K -M 20M -o ./images Bembidion -n 8
+MacStudio_profiling_tests,T1:,118.3,80.58,32,603,2.7175140380859375,varKoder train --overwrite --seed 2 --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 0 -z 5 ./images ./trained_pretrained -n 8
+MacStudio_profiling_tests,T2:,296.58,457.27,142,527,1.6392288208007812,varKoder train --overwrite --seed 3 --random-weights --architecture hf-hub:brunoasm/vit_large_patch32_224.NCBI_SRA -e 30 -z 0 ./images ./trained_random -n 8
+MacStudio_profiling_tests,Q1:,165.5,17.12,36,497,1.7320175170898438,varKoder query --overwrite --include-probs --seed 4 -k 7 -c 1 -M 20M --keep-images --model trained_pretrained/trained_model.pkl fastq_query/ inferences_Bembidion -n 8
+MacStudio_profiling_tests,Q2:,19.66,2.56,7,304,1.842864990234375,varKoder query --overwrite --threshold 0.5 --seed 5 -k 7 -c 1 -M 20M -I inferences_Bembidion/query_images inferences_SRA -n 8
