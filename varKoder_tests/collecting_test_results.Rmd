@@ -1560,7 +1560,7 @@ ggplot(plot_df_tax %>% filter(query_mapping=='rfCGR',metric != "F1"),
         axis.text.x = element_text(hjust=1,angle=45),
         legend.position = 'bottom')
 
-safe_ggsave ('images_manuscript/fig_X_taxonomy_prediction.pdf',width=7,height = 5,useDingbats=F)
+safe_ggsave ('images_manuscript/fig_5_taxonomy_prediction.pdf',width=7,height = 5,useDingbats=F)
 ```
 Let's now try to understand the relationship between number of samples available for a label and its accuracy. For each label, we will summarize the N in training set, precision, recall and F1 score in the validation set. Then we will plot the relationship between number of training samples and validation metrics.
 
