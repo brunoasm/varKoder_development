@@ -8,7 +8,7 @@ To compare the performance of varKode to [Skmer](https://github.com/shahab-sarma
 For traditional barcodes, we assembled the genome of each sample, and then used BLAST to search for each of the traditional barcode genes. We recorded if we could find this gene in the assembly, coding as missing data if we could not. We then recorded whether the best BLAST hit for a sample was the correct species.
 
 ```{r}
-#rm(list=ls())
+rm(list=ls())
 library(tidyverse)
 library(future)
 library(ggthemes)
@@ -2256,3 +2256,264 @@ skmer_results_df %>%
   split(.$query_bp) %>%
   map_dfr(~calculate_precision_recall(.x,'family'),.id='query_bp')
 ```
+
+# Aditional numbers for second round of reviews:
+
+##Table with number of training and validation samples for each label in the all-SRA dataset
+
+Let's start by the training set:
+```{r}
+SRA_train_label_counts = read_csv('all_SRA_taxa/varkodes_ViT_ML/input_data.csv') %>%
+  filter(is_valid == FALSE) %>%
+  # Get one row per sample
+  group_by(sample) %>%
+  slice_head(n=1) %>%
+  # Split the labels string into separate rows
+  select(sample, labels) %>%
+  separate_rows(labels, sep = ";") %>%
+  # Count occurrences of each label
+  group_by(labels) %>%
+  summarise(N_samples = n()) %>%
+  # Sort by frequency
+  arrange(desc(N_samples))
+SRA_train_label_counts
+```
+Now let's do the same for the validation set:
+```{r}
+SRA_valid_label_counts = read_csv('all_SRA_taxa/results_cgrs/predictions.csv.zip') %>%
+  # Get one row per sample
+  group_by(sample_id) %>%
+  slice_head(n=1) %>%
+  # Split the labels string into separate rows
+  select(sample = sample_id, labels = actual_labels) %>%
+  separate_rows(labels, sep = ";") %>%
+  # Count occurrences of each label
+  group_by(labels) %>%
+  summarise(N_samples = n()) %>%
+  # Sort by frequency
+  arrange(desc(N_samples))
+
+SRA_valid_label_counts 
+```
+And now let's join both:
+```{r}
+all_SRA_label_counts = SRA_train_label_counts %>% 
+  left_join(SRA_valid_label_counts,by = "labels",suffix = c("_train",'_valid')) %>%
+  replace(is.na(.), 0) 
+all_SRA_label_counts
+
+write_csv(all_SRA_label_counts,'tables_manuscript/label_counts_all_SRA.csv')
+
+```
+
+
+Now let's look at the distribution of data amounts in the training set:
+
+```{r}
+# Define the possible values
+break_points <- c(-Inf, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, Inf)  
+target_values <- c(0, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7)    
+
+max_query_bp_raw = read_csv('all_SRA_taxa/varkodes_ViT_ML/input_data.csv') %>%
+    # Get one row per sample
+    group_by(sample) %>%
+    summarise(max_query_bp = max(bp)) %>%
+    # Round down to previous target value
+    mutate(max_query_bp = target_values[findInterval(max_query_bp, break_points, rightmost.closed=TRUE)])
+
+summary_data_distribution_SRA = max_query_bp_raw %>%
+ group_by(max_query_bp) %>%
+ summarise(N=n()) %>%
+  ungroup() %>%
+  mutate(p = N/sum(N) * 100) %>%
+  arrange(desc(max_query_bp)) %>%
+  mutate(p = cumsum(p))
+
+summary_data_distribution_SRA 
+```
+
+## Table with number of training and validation samples for each label in the eukarya dataset. 
+
+Let's start by the training set:
+```{r}
+eukarya_train_label_counts = read_csv('all_SRA_eukaryote_families/varkoder_trained_model_ML/input_data.csv') %>%
+  filter(is_valid == FALSE) %>%
+  # Get one row per sample
+  group_by(sample) %>%
+  slice_head(n=1) %>%
+  # Split the labels string into separate rows
+  select(sample, labels) %>%
+  separate_rows(labels, sep = ";") %>%
+  # Count occurrences of each label
+  group_by(labels) %>%
+  summarise(N_samples = n()) %>%
+  # Sort by frequency
+  arrange(desc(N_samples))
+eukarya_train_label_counts
+```
+Now let's do the same for the validation set:
+```{r}
+eukarya_valid_label_counts = read_csv('all_SRA_eukaryote_families/varkoder_query_results/predictions.csv') %>%
+  bind_rows(read_csv('all_SRA_eukaryote_families/varkoder_query_notincluded_results/predictions.csv')) %>%
+  # Get one row per sample
+  group_by(sample_id) %>%
+  slice_head(n=1) %>%
+  # Split the labels string into separate rows
+  select(sample = sample_id, labels = actual_labels) %>%
+  separate_rows(labels, sep = ";") %>%
+  # Count occurrences of each label
+  group_by(labels) %>%
+  summarise(N_samples = n()) %>%
+  # Sort by frequency
+  arrange(desc(N_samples))
+
+eukarya_valid_label_counts 
+```
+And now let's join both:
+```{r}
+eukarya_label_counts = eukarya_train_label_counts %>% 
+  full_join(eukarya_valid_label_counts,by = "labels",suffix = c("_train",'_valid')) %>%
+  replace(is.na(.), 0) %>%
+  rename(`NCBI taxonomy ID`=labels)
+eukarya_label_counts
+
+write_csv(eukarya_label_counts,'tables_manuscript/label_counts_eukarya.csv')
+
+```
+
+
+Now let's look at the distribution of data amounts in the training set:
+
+```{r}
+# Define the possible values
+break_points <- c(-Inf, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, Inf)  
+target_values <- c(0, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7)    
+
+eukarya_max_query_bp_raw = read_csv('all_SRA_eukaryote_families/varkoder_trained_model_ML/input_data.csv') %>%
+    # Get one row per sample
+    group_by(sample) %>%
+    summarise(max_query_bp = max(bp)) %>%
+    # Round down to previous target value
+    mutate(max_query_bp = target_values[findInterval(max_query_bp, break_points, rightmost.closed=TRUE)])
+
+eukarya_summary_data_distribution = eukarya_max_query_bp_raw %>%
+ group_by(max_query_bp) %>%
+ summarise(N=n()) %>%
+  ungroup() %>%
+  mutate(p = N/sum(N) * 100) %>%
+  rename(`Amount of data (basepairs)`=max_query_bp,
+         `Number of samples`=N,
+         `Proportion of samples`=p)
+
+eukarya_summary_data_distribution
+
+```
+
+## Summary table for all methods, all levels, etc for Malpighiales dataset
+
+We will now prepare a big summary table including skmer, blast and phylogeny results. All CNN results already exist from the CGR comparison, so we will manually prepare the final table.
+
+```{r}
+# Split by marker and calculate metrics for each taxonomic level
+conventional_barcode_prec_recall = results_barcodes %>%
+  group_by(marker) %>%
+  group_split() %>%
+  map(~{
+    marker_val <- .x$marker[1]
+    bind_rows(
+      calculate_precision_recall(.x, taxonomic_level = 'family') %>% mutate(marker = marker_val),
+      calculate_precision_recall(.x, taxonomic_level = 'genus') %>% mutate(marker = marker_val),
+      calculate_precision_recall(.x, taxonomic_level = 'species') %>% mutate(marker = marker_val)
+    )
+  }) %>%
+  bind_rows() %>%
+  arrange(marker, taxonomic_level) %>%
+  transmute(method=paste("BLAST",marker,sep=", "),
+            taxonomic_level = taxonomic_level,
+            precision=micro_precision,
+            recall=micro_recall)
+
+phylo_prec_recall = bind_rows(
+  calculate_precision_recall(results_concat_barcodes, taxonomic_level = 'family'),
+  calculate_precision_recall(results_concat_barcodes, taxonomic_level = 'genus'),
+  calculate_precision_recall(results_concat_barcodes, taxonomic_level = 'species')
+) %>%
+  transmute(method="Concatenated phylogeny",
+            taxonomic_level = taxonomic_level,
+            precision=micro_precision,
+            recall=micro_recall)
+
+skmer_prec_recall = bind_rows(
+  calculate_precision_recall(skmer_results_df, taxonomic_level = 'family'),
+  calculate_precision_recall(skmer_results_df, taxonomic_level = 'genus'),
+  calculate_precision_recall(skmer_results_df, taxonomic_level = 'species')
+) %>%
+  transmute(method="Skmer",
+            taxonomic_level = taxonomic_level,
+            precision=micro_precision,
+            recall=micro_recall)
+
+prec_recall_all = rbind(conventional_barcode_prec_recall, phylo_prec_recall, skmer_prec_recall)
+
+prec_recall_all
+
+write_csv(perc_recall_all, 'tables_manuscript/precision_recall_Malpighiales.csv')
+```
+
+
+
+## Summary table comparing fCGR to varKodes
+```{r}
+
+diverse_datasets_prec_rec = other_results %>%
+  group_by(dataset) %>%
+  group_split() %>%
+  map(~{
+    calculate_precision_recall(.x) %>% mutate(dataset=.x$dataset[1])
+  }) %>%
+  bind_rows() %>%
+  transmute(dataset=paste("Diverse species-level",dataset,sep=", "),
+            representation="varKode",
+            precision=micro_precision,
+            recall=micro_recall)
+
+diverse_datasets_prec_rec_cgr = other_results %>%
+  group_by(dataset) %>%
+  group_split() %>%
+  map(~{
+    calculate_precision_recall(.x) %>% mutate(dataset=.x$dataset[1])
+  }) %>%
+  bind_rows() %>%
+  transmute(dataset=paste("Diverse species-level",dataset,sep=", "),
+            representation="rfCGR",
+            precision=micro_precision,
+            recall=micro_recall)
+
+eukarya_prec_rec =  varKoder_SRA_results_vk %>%
+    calculate_precision_recall() %>%
+  transmute(dataset="Eukaryote families",
+            representation="varKode",
+            precision=micro_precision,
+            recall=micro_recall)
+
+eukarya_prec_rec_CGR =varKoder_SRA_results %>%
+    calculate_precision_recall() %>%
+  transmute(dataset="Eukaryote families",
+            representation="rfCGR",
+            precision=micro_precision,
+            recall=micro_recall)
+
+vk_vs_rfCGR = rbind(diverse_datasets_prec_rec, 
+      diverse_datasets_prec_rec_cgr,
+      eukarya_prec_rec,
+      eukarya_prec_rec_CGR)
+
+vk_vs_rfCGR
+
+write_csv(vk_vs_rfCGR, "tables_manuscript/vk_vs_rfCGR.csv")
+
+```
+
+
+
+

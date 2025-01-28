@@ -1,0 +1,11 @@
+dataset,representation,precision,recall
+"Diverse species-level, Corallorhiza",varKode,0.8947368421052632,0.9444444444444444
+"Diverse species-level, Mycobacterium",varKode,0.8181818181818182,0.72
+"Diverse species-level, Xanthoparmelia",varKode,0.6666666666666666,0.5333333333333333
+"Diverse species-level, bembidion",varKode,1,0.5555555555555556
+"Diverse species-level, Corallorhiza",rfCGR,0.8947368421052632,0.9444444444444444
+"Diverse species-level, Mycobacterium",rfCGR,0.8181818181818182,0.72
+"Diverse species-level, Xanthoparmelia",rfCGR,0.6666666666666666,0.5333333333333333
+"Diverse species-level, bembidion",rfCGR,1,0.5555555555555556
+Eukaryote families,varKode,0.9571925578581153,0.7354718735471873
+Eukaryote families,rfCGR,0.9576119402985075,0.7456996745699674
