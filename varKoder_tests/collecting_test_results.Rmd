@@ -1358,8 +1358,8 @@ collate_results <- function(predictions_df) {
 
 Read data
 ```{r}
-vk_df = read_csv('all_SRA_taxa/results_varKodes/predictions.csv') %>% process_dataframe_parallel
-cgr_df =  read_csv('all_SRA_taxa/results_cgrs/predictions.csv') %>% process_dataframe_parallel
+vk_df = read_csv('all_SRA_taxa/results_varKodes/predictions.csv.zip') %>% process_dataframe_parallel
+cgr_df =  read_csv('all_SRA_taxa/results_cgrs/predictions.csv.zip') %>% process_dataframe_parallel
 
 cgr_df
 vk_df
@@ -1644,7 +1644,7 @@ metrics_by_label
 
 Now we only need to count the occurrences of each label in the training set
 ```{r}
-metrics_by_label = read_csv('all_SRA_taxa/labels_ML_training.csv') %>%
+metrics_by_label = read_csv('all_SRA_taxa/labels_ML_training.csv.gz') %>%
   filter(!sample %in% vk_cgr_df$sample_id) %>%
   pull(labels) %>%
   str_split(';') %>%
@@ -1688,6 +1688,7 @@ ggplot() +
     #          aes(x = N_training, y = value),
     #          alpha = 0.1) +
   scale_x_log10() +
+  scale_y_continuous(breaks=seq(0,1,0.1)) +
   scale_fill_viridis_c(trans="log",name="Label counts",breaks=c(1,3,10,30,100,300,1000)) +
   facet_wrap(~metric, labeller = labeller(metric=c('microprecision'='Precision','microrecall'='Recall'))) +
   theme_minimal() +
@@ -1699,12 +1700,6 @@ ggplot() +
 
 safe_ggsave ('images_manuscript/fig_X_n_train.pdf',width=7,height = 2.5,useDingbats=F)
 ```
-
-
-
-
-
-
 
 
 Let's now get some numbers for publication. What is the average precision at species level?
@@ -1931,7 +1926,7 @@ For SRA all taxa, let's summarize the number of samples for each label. Let's st
 plan(multisession, workers = 10)
 
 
-all_SRA_samples = read_csv("all_SRA_taxa/train_valid_sets.csv") %>%
+all_SRA_samples = read_csv("all_SRA_taxa/train_valid_sets.csv.gz") %>%
   split(1:nrow(.)) %>%  # Split the dataframe into a list of rows
   future_map_dfr( ~ {
     actual = unpack_labels(.x$labels)
@@ -1955,7 +1950,7 @@ all_SRA_samples = read_csv("all_SRA_taxa/train_valid_sets.csv") %>%
 plan(sequential)
 
 actual_tr = read_csv("all_SRA_taxa/varkodes_ViT_ML/input_data.csv")  %>% filter(is_valid==FALSE) %>% pull(sample) %>% unique
-actual_vd = read_csv("all_SRA_taxa/results_varKodes/predictions.csv") %>% pull(sample_id) %>% unique
+actual_vd = read_csv("all_SRA_taxa/results_varKodes/predictions.csv.zip") %>% pull(sample_id) %>% unique
 
 all_SRA_samples = all_SRA_samples%>% filter(sample_id %in% c(actual_tr,actual_vd))
 all_SRA_samples
@@ -2416,17 +2411,20 @@ We will now prepare a big summary table including skmer, blast and phylogeny res
 ```{r}
 # Split by marker and calculate metrics for each taxonomic level
 conventional_barcode_prec_recall = results_barcodes %>%
-  group_by(marker) %>%
-  group_split() %>%
-  map(~{
-    marker_val <- .x$marker[1]
-    bind_rows(
-      calculate_precision_recall(.x, taxonomic_level = 'family') %>% mutate(marker = marker_val),
-      calculate_precision_recall(.x, taxonomic_level = 'genus') %>% mutate(marker = marker_val),
-      calculate_precision_recall(.x, taxonomic_level = 'species') %>% mutate(marker = marker_val)
-    )
-  }) %>%
-  bind_rows() %>%
+    ungroup() %>%
+    group_by(marker) %>%
+    group_split() %>%
+    map_dfr(~{
+        marker_val <- .x$marker[1]
+        bind_rows(
+            calculate_precision_recall(.x, taxonomic_level = 'family') %>% 
+                mutate(taxonomic_level = 'family', marker = marker_val),
+            calculate_precision_recall(.x, taxonomic_level = 'genus') %>% 
+                mutate(taxonomic_level = 'genus', marker = marker_val),
+            calculate_precision_recall(.x, taxonomic_level = 'species') %>% 
+                mutate(taxonomic_level = 'species', marker = marker_val)
+        )
+    }) %>%
   arrange(marker, taxonomic_level) %>%
   transmute(method=paste("BLAST",marker,sep=", "),
             taxonomic_level = taxonomic_level,
@@ -2457,7 +2455,7 @@ prec_recall_all = rbind(conventional_barcode_prec_recall, phylo_prec_recall, skm
 
 prec_recall_all
 
-write_csv(perc_recall_all, 'tables_manuscript/precision_recall_Malpighiales.csv')
+write_csv(prec_recall_all, 'tables_manuscript/precision_recall_Malpighiales.csv')
 ```
 
 
@@ -2468,26 +2466,32 @@ write_csv(perc_recall_all, 'tables_manuscript/precision_recall_Malpighiales.csv'
 diverse_datasets_prec_rec = other_results %>%
   group_by(dataset) %>%
   group_split() %>%
-  map(~{
-    calculate_precision_recall(.x) %>% mutate(dataset=.x$dataset[1])
+  map_dfr(~{
+    dataset_val <- .x$dataset[1]
+    calculate_precision_recall(.x) %>% 
+      mutate(dataset = dataset_val)
   }) %>%
-  bind_rows() %>%
-  transmute(dataset=paste("Diverse species-level",dataset,sep=", "),
-            representation="varKode",
-            precision=micro_precision,
-            recall=micro_recall)
+  transmute(
+    dataset = paste("Diverse species-level", dataset, sep=", "),
+    representation = "varKode",
+    precision = micro_precision,
+    recall = micro_recall
+  )
 
 diverse_datasets_prec_rec_cgr = other_results %>%
   group_by(dataset) %>%
   group_split() %>%
-  map(~{
-    calculate_precision_recall(.x) %>% mutate(dataset=.x$dataset[1])
+  map_dfr(~{
+    dataset_val <- .x$dataset[1]
+    calculate_precision_recall(.x) %>% 
+      mutate(dataset = dataset_val)
   }) %>%
-  bind_rows() %>%
-  transmute(dataset=paste("Diverse species-level",dataset,sep=", "),
-            representation="rfCGR",
-            precision=micro_precision,
-            recall=micro_recall)
+  transmute(
+    dataset = paste("Diverse species-level", dataset, sep=", "),
+    representation = "rfCGR",
+    precision = micro_precision,
+    recall = micro_recall
+  )
 
 eukarya_prec_rec =  varKoder_SRA_results_vk %>%
     calculate_precision_recall() %>%
@@ -2512,6 +2516,29 @@ vk_vs_rfCGR
 
 write_csv(vk_vs_rfCGR, "tables_manuscript/vk_vs_rfCGR.csv")
 
+```
+
+Now let's do the same for the all-SRA dataset:
+```{r}
+prec_recall_allSRA = summaries %>%
+  filter(str_starts(key, "Taxonomy_")) %>%
+  group_by(query_mapping, platform, library_strategy) %>%
+  summarize(
+    total_TP = sum(TP),
+    total_FN = sum(FN),
+    total_FP = sum(FP),
+    N = n(),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    microprecision = total_TP / (total_TP + total_FP),
+    microrecall = total_TP / (total_TP + total_FN),
+    F1 = 2 * (microprecision * microrecall) / (microprecision + microrecall)
+  ) %>%
+  select(query_mapping, F1, microprecision, microrecall, everything())
+
+prec_recall_allSRA
+write_csv(prec_recall_allSRA, "tables_manuscript/prec_recall_allSRA.csv")
 ```
 
 
