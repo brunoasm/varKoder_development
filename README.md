@@ -1,6 +1,13 @@
 # varKoder development
 
-This repository holds scripts used in the initial development of varKoder
+This repository holds scripts used in the initial development of varKoder. See the following publications for details:
+
+de Medeiros, B.A.S., Cai, L., Flynn, P.J. et al. A composite universal DNA signature for the tree of life. Nat Ecol Evol (2025). https://doi.org/10.1038/s41559-025-02752-1
+
+Asprino, R.C., Cai, L., Yan, Y. , ..., Davis, C.C., de Medeiros, B.A.S. A curated benchmark dataset for molecular identification based on genome skimming. Sci Data 12, 906 (2025). https://doi.org/10.1038/s41597-025-05230-2
+
+It has also been archived on Figshare:
+de Medeiros et al. Archived code for: A composite universal DNA signature for the Tree of Life. Figshare https://doi.org/10.6084/m9.figshare.8304017 (2025).
 
 ## varKoder_mapping
 
