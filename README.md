@@ -52,6 +52,8 @@ For all:
 
 
 MacStudio: 8 cores
+
 MacbookAir: 6 cores
+
 Linux: 24 cores, One NVIDIA A5000 GPU 
 
